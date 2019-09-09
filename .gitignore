@@ -58,3 +58,4 @@ dkms.conf
 *.log
 *language.settings.xml 
 
+/.metadata/
