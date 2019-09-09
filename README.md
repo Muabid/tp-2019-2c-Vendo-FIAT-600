@@ -2,4 +2,5 @@
 
 ![alt text](https://i.ibb.co/J2By3Hq/tp-operativos.png)
 
-[Cómo usar los branches](docs/branches.md)
+## Info que por ahí sirve de algo
+* [Cómo usar los branches](docs/branches.md)
