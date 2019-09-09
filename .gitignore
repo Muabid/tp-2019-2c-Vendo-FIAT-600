@@ -51,11 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-
-.xml
-*.cproject
-*.project
-*.log
-*language.settings.xml 
-
 /.metadata/
+/RemoteSystemsTempFiles/
+/*/.settings/
