@@ -6,11 +6,12 @@
  */
 
 #include "protocol.h"
-int send_message(int socket, t_message* message){
+
+int send_message(int socket, t_header head, void* content, size_t size){
+	t_message* message = create_t_message(head,size,content);
 	int res = send(socket, &(message->size) , sizeof(size_t), 0);
 
 	if(res <0){
-
 		//Hacer algo
 
 	}else{
@@ -22,9 +23,8 @@ int send_message(int socket, t_message* message){
 			//Hacer algo
 		}
 		free(buffer);
-		free_t_message(message);
-
 	}
+	free_t_message(message);
 
 	return res;
 
@@ -46,8 +46,7 @@ t_message* recv_message(int socket){
 	if (res== -1 ){
 		close(socket);
 		free(message);
-		//Ver que hacer
-		return NULL;
+		return error_recv();
 	}
 
 	void* buffer = malloc(message->size);
@@ -57,14 +56,14 @@ t_message* recv_message(int socket){
 		close(socket);
 		free(message);
 		free(buffer);
-		return NULL;
+		return error_recv();
 	}
 
 	if( res == 0 ){
 		close(socket);
 		free(message);
 		free(buffer);
-		return NULL;
+		return no_connection();
 	}
 
 	void* content = malloc(message->size - sizeof(t_header));
@@ -90,4 +89,12 @@ t_message* create_t_message(t_header head, size_t size, void* content){
 	memcpy(message->content,content,size);
 
 	return message;
+}
+
+t_message* no_connection(){
+	return create_t_message(NO_CONNECTION,0,NULL);
+}
+
+t_message* error_recv(){
+	return create_t_message(ERROR_RECV,0,NULL);
 }
