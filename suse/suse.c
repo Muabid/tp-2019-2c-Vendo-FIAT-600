@@ -23,7 +23,9 @@ void cargarConfiguracion() {
 }
 
 int main() {
-
 	cargarConfiguracion();
+	iniciarServidor(listen_port);
+	recv_message
+
 
 }

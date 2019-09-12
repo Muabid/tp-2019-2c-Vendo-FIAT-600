@@ -33,4 +33,16 @@ typedef struct {
   t_hilo* enEjecucion;
 }t_programa;
 
+void iniciarServidor(int puerto) {
+  int socket = init_server(puerto);
+  if(socket == EXIT_FAILURE) {
+    //LOG
+  }
+  else {
+    //lOG
+  }
+
+  return socket;
+}
+
 #endif /* SUSE_H_ */
