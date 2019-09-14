@@ -20,7 +20,9 @@ typedef enum{
 	SUSE_SCHEDULE_NEXT = 2,
 	SUSE_WAIT = 3,
 	SUSE_SIGNAL = 4,
-	SUSE_JOIN = 5
+	SUSE_JOIN = 5,
+	NO_CONNECTION,
+	ERROR_RECV
 }t_header;
 
 typedef struct{
