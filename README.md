@@ -5,3 +5,4 @@
 ## Info que por ahí sirve de algo
 * [Cómo usar los branches](docs/branches.md)
 * [Repositorio de FUSE](https://github.com/libfuse/libfuse)
+* [Como hacer para que git no te rompa las bolas con el usuario y contraseña (SSH Key)](https://help.github.com/en/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
