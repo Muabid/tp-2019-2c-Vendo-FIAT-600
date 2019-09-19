@@ -17,8 +17,12 @@
  */
 typedef struct{
 	int listen_port;
-} sac_config;
+	char* file_system_path;
+} t_sac_config;
 
+t_sac_config* sac_config;
 
-sac_config* sac_load_config(char* path);
+int listener_socket;
+
+void sac_load_config(char* path);
 #endif /* SAC_CONFIG_H_ */
