@@ -5,6 +5,17 @@
     #include <stddef.h>
 	#include <stdio.h> 
 	#include <string.h> 
+	#include <stdint.h>
+
+	typedef struct HeapMetadata {
+		uint32_t tamanio;
+		int libre;
+		struct HeapMetadata *sig;
+	};
+
+	char memory[20000];
+
+	struct HeapMetadata *bigMemory = (void*)memory;
 
     /**
      * Inicializa la biblioteca de MUSE.
