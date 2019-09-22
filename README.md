@@ -11,6 +11,6 @@
   1. Pararse en la carpeta del repo, click derecho -> mostrar ocultos
   2. Entrar a .git/config
   3. Modificar lo que está en la parte de 'remote "origin"':
-  remote "origin"
-	  url = https://<USUARIO-GITHUB>:<CONTRASEÑA-GITHUB>@github.com/sisoputnfrba/tp-2019-2c-Vendo-FIAT-600.git
-	  fetch = +refs/heads/*:refs/remotes/origin/*
+     - remote "origin"
+     - url = https://<USUARIO-GITHUB>:<CONTRASEÑA-GITHUB>@github.com/sisoputnfrba/tp-2019-2c-Vendo-FIAT-600.git
+     - fetch = +refs/heads/*:refs/remotes/origin/*
