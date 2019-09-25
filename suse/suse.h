@@ -6,6 +6,7 @@
 #include <commons/collections/queue.h>
 #include <net.h>
 #include <protocol.h>
+#include <string.h>
 
 #ifndef SUSE_H_
 #define SUSE_H_
@@ -45,16 +46,6 @@ typedef struct {
   t_hilo* enEjecucion;
 }t_programa;
 
-int iniciarServidor(int puerto) {
-  int socket = init_server(puerto);
-  if(socket == EXIT_FAILURE) {
-    //LOG
-  }
-  else {
-    //lOG
-  }
 
-  return socket;
-}
 
 #endif /* SUSE_H_ */

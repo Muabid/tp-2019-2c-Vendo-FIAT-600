@@ -1,0 +1,74 @@
+#include "suse.h"
+
+int listen_port = 20000;//int listen_port;
+//int metrics_timer;
+//int max_multiprog;
+//char* sem_ids;
+//int sem_init[];
+//int sem_max[];
+//float alpha_sjf;
+
+//void cargarConfiguracion() {
+//	t_config* archivoConfiguracion = config_create("/suse.config");
+//
+//	listen_port = config_get_int_value(archivoConfiguracion, "LISTEN_PORT");
+//	metrics_timer = config_get_int_value(archivoConfiguracion, "METRICS_TIMER");
+//	max_multiprog = config_get_int_value(archivoConfiguracion, "MAX_MULTIPROG");
+//	sem_ids = config_get_string_value(archivoConfiguracion, "SEM_IDS");
+//	sem_init = config_get_array_value(archivoConfiguracion, "SEM_INIT");
+//	sem_max = config_get_array_value(archivoConfiguracion, "SEM_MAX");
+//	alpha_sjf = config_get_int_value(archivoConfiguracion, "ALPHA_SJF");
+//
+//	config_destroy(archivoConfiguracion);
+//}
+
+void* handler(void* socketConectado) {
+	int socket = *(int*)socketConectado;
+	t_message* buffer = NULL;
+	printf("Hola, me crearon\n");
+	do {
+		buffer = recv_message(socket);
+		printf("%s", (char*) buffer->content);
+
+
+
+	}while(1);
+
+
+}
+
+int main() {
+	//cargarConfiguracion();
+	int socketDelCliente;
+	struct sockaddr_in direccionCliente;
+	unsigned int tamanioDireccion;
+//	pthread_t threadId;
+	int servidor = init_server(listen_port);
+	t_message bufferLoco;
+
+	//PRUEBAS
+	if((socketDelCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion)) >= 0) {
+		printf("Se ha aceptado una conexion");
+
+	} else
+		printf("Se falló al aceptar la conexion. Error: %i", socketDelCliente);
+
+	//free(buffer);
+	close(servidor);
+	//FIN PRUEBAS
+
+//	while((socketCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion))) {
+//		printf("Connection accepted");
+//		if(pthread_create(&threadId , NULL , handler, (void*) &socketCliente) < 0) {
+//			perror("No se pudo crear el hilo");
+//			return 1;
+//		}
+//		pthread_join(threadId , NULL);
+//		puts("Handler asignado");
+//	}
+//	if (socketCliente < 0) {
+//		perror("'accept' falló");
+//		return 1;
+//	}
+
+}

@@ -1,57 +1,28 @@
 #include "suse.h"
 
-int listen_port = 10500;//int listen_port;
-//int metrics_timer;
-//int max_multiprog;
-//char* sem_ids;
-//int sem_init[];
-//int sem_max[];
-//float alpha_sjf;
+int listen_port = 20000;
 
-//void cargarConfiguracion() {
-//	t_config* archivoConfiguracion = config_create("/suse.config");
-//
-//	listen_port = config_get_int_value(archivoConfiguracion, "LISTEN_PORT");
-//	metrics_timer = config_get_int_value(archivoConfiguracion, "METRICS_TIMER");
-//	max_multiprog = config_get_int_value(archivoConfiguracion, "MAX_MULTIPROG");
-//	sem_ids = config_get_string_value(archivoConfiguracion, "SEM_IDS");
-//	sem_init = config_get_array_value(archivoConfiguracion, "SEM_INIT");
-//	sem_max = config_get_array_value(archivoConfiguracion, "SEM_MAX");
-//	alpha_sjf = config_get_int_value(archivoConfiguracion, "ALPHA_SJF");
-//
-//	config_destroy(archivoConfiguracion);
-//}
-
-void *connection_handler(void *socket_desc) {
-	int sock = *(int*)socket_desc;
-
-	printf("Hola, me crearon\n");
-
-
-	return 0;
-}
 
 int main() {
-	//cargarConfiguracion();
-	int socketCliente;
-	struct sockaddr_in direccionCliente;
-	unsigned int tamanioDireccion;
-	pthread_t threadId;
+	int socketDelCliente;
+	struct sockaddr direccionCliente;
+	unsigned int tamanioDireccion = sizeof(direccionCliente);
+	int servidor = init_server(listen_port);
 
-	int servidor = iniciarServidor(listen_port);
 
-	while((socketCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion))) {
-		printf("Connection accepted");
-		if( pthread_create(&threadId , NULL , connection_handler, (void*) &socketCliente) < 0) {
-			perror("could not create thread");
-			return 1;
-		}
-		pthread_join(threadId , NULL);
-		puts("Handler assigned");
+	t_message* bufferLoco = NULL;
+
+	if((socketDelCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion)) >= 0) {
+			printf("Se ha aceptado una conexion: %i\n", socketDelCliente);
+			bufferLoco = recv_message(socketDelCliente);
+			char* contenido = (char *) bufferLoco->content;
+			printf("El mensaje dice: %s\n", contenido);
+
 	}
-	if (socketCliente < 0) {
-		perror("accept failed");
-		return 1;
+	else {
+			printf("Se falló al aceptar la conexion. Error: %i", socketDelCliente);
 	}
 
+	free_t_message(bufferLoco);
+	close(servidor);
 }
