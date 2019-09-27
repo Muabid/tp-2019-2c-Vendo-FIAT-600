@@ -22,7 +22,8 @@ typedef enum{
 	SUSE_SIGNAL = 4,
 	SUSE_JOIN = 5,
 	NO_CONNECTION,
-	ERROR_RECV
+	ERROR_RECV,
+	HI_PLEASE_BE_MY_FRIEND
 }t_header;
 
 typedef struct{
