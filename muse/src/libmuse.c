@@ -8,6 +8,31 @@ int main(){
 	uint32_t prueba = muse_alloc(19988);
 	printf("Devuelve %zu",prueba);
 }
+int muse_get(void* dst, uint32_t src, size_t n) //revisar {
+	char *csrc = (char *)src; //casteo ambos a char * para manejar
+	char *cdst = (char *)dst; 
+	for (int i=0; i<n; i++) // barro hasta llegar a n
+	{			
+		cdst[i] = csrc[i]; //copio el array
+		//falta ver caso de error
+	}
+	
+	return 0;
+}
+
+int muse_cpy(uint32_t dst, void* src, int n){
+	
+	char *csrc = (char *)src; //casteo ambos a char * para manejar
+	char *cdst = (char *)dst; 
+	for (int i=0; i<n; i++) // barro hasta llegar a n
+	{			
+		cdst[i] = csrc[i]; //copio el array
+		//falta ver caso de error
+	}
+	
+	return 0;
+}
+
 
 uint32_t muse_alloc(uint32_t tam){
 	struct HeapMetadata *actual,*anterior;
