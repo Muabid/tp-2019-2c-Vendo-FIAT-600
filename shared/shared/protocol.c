@@ -40,7 +40,7 @@ void free_t_message(t_message* message){
 }
 
 t_message* recv_message(int socket){
-	t_message * message = malloc(sizeof(message));
+	t_message * message = malloc(sizeof(t_message));
 
 	int res = recv(socket,&message->size,sizeof(size_t),MSG_WAITALL);
 	if (res== -1 ){

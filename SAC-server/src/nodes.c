@@ -101,9 +101,11 @@ int search_first_free_node(){
 
 int search_and_test_first_free_block(){
 	int res = -1;
-	for(int i = 0; i < bitmap->size*8 && res!= -1; i++){
+	for(int i = 0; i < bitmap->size*8 && res== -1; i++){
 		if(bitarray_test_bit(bitmap,i) == 0){
+			pthread_mutex_lock(&bitarray_mutex);
 			bitarray_set_bit(bitmap,i);
+			pthread_mutex_unlock(&bitarray_mutex);
 			res = i;
 		}
 	}
