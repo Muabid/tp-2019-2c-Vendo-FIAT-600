@@ -10,10 +10,9 @@
 	typedef struct HeapMetadata {
 		uint32_t tamanio;
 		int libre;
-		struct HeapMetadata *sig;
 	};
 
-	char memory[20000];
+	char memory[2000];
 
 	struct HeapMetadata *bigMemory = (void*)memory;
 
@@ -54,7 +53,18 @@
      * @param n Cantidad de bytes a copiar.
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      */
-    int muse_get(void* dst, uint32_t src, size_t n);
+    int muse_get(void* dst, uint32_t src, size_t n) //revisar
+	{
+		char *csrc = (char *)src; //casteo ambos a char * para manejar
+		char *cdst = (char *)dst; 
+		for (int i=0; i<n; i++) // barro hasta llegar a n
+		{			
+			cdst[i] = csrc[i]; //copio el array
+			//falta ver caso de error
+		}
+		
+		return 0;
+	}
 
     /**
      * Copia una cantidad `n` de bytes desde una posición de memoria local a una `dst` en MUSE.
@@ -63,7 +73,19 @@
      * @param n Cantidad de bytes a copiar.
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      */
-    int muse_cpy(uint32_t dst, void* src, int n);
+    int muse_cpy(uint32_t dst, void* src, int n){
+	
+		char *csrc = (char *)src; //casteo ambos a char * para manejar
+		char *cdst = (char *)dst; 
+		for (int i=0; i<n; i++) // barro hasta llegar a n
+		{			
+			cdst[i] = csrc[i]; //copio el array
+			//falta ver caso de error
+		}
+		
+		return 0;
+	}
+
 
     /**
      * Devuelve un puntero a una posición mappeada de páginas por una cantidad `length` de bytes el archivo del `path` dado.
