@@ -4,8 +4,8 @@
 #include <commons/config.h>
 #include <commons/collections/list.h>
 #include <commons/collections/queue.h>
-#include <net.h>
-#include <protocol.h>
+#include "net.h"
+#include "protocol.h"
 #include <string.h>
 
 #ifndef SUSE_H_
