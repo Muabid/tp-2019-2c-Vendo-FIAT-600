@@ -13,6 +13,10 @@
 	};
 
 	char memory[20000];
+	int puerto;
+	int tam_memoria;
+	int tam_pagina;
+	int tam_swap;
 
 	struct HeapMetadata *bigMemory = (void*)memory;
 
@@ -96,4 +100,8 @@
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      */
     int muse_unmap(uint32_t dir);
+    void cargar_configuracion();
+    void initialize();
+    void merge(); //por ahora no está siendo usada
+
 #endif

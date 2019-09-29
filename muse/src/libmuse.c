@@ -1,8 +1,8 @@
 #include <stdio.h>
+#include <commons/config.h>
 #include "libmuse.h"
 
-void initialize();
-void merge(); // no la usamos
+
 
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar);
 //int main(){
@@ -13,6 +13,7 @@ void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar);
 
 int main(){
 	initialize();
+	cargar_configuracion();
 	uint32_t p = muse_alloc(4900*sizeof(int));
 	muse_free(p);
 	uint32_t q = muse_alloc(4900*sizeof(int));
@@ -90,10 +91,8 @@ void muse_free(uint32_t dir){
 		actual->libre=1;
 		printf("Memoria liberada exitosamente \n");
 		//merge(); por ahora no se usa
-	}
-	else
-	{
-		printf("Please provide a valid pointer allocated by MyMalloc\n");
+	} else {
+		printf("La dirección de memoria indicada no está asignada (pasaste cualquier cosa)\n");
 	}
 
 
@@ -127,4 +126,13 @@ void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar){
 	new->libre = 1;
 	fitting_slot->tamanio = tamanioAAlocar;
 	fitting_slot->libre = 0;
+}
+
+void cargar_configuracion(){
+	t_config* config = config_create("muse.config");
+	puerto = config_get_int_value(config, "LISTEN_PORT");
+	tam_memoria = config_get_int_value(config, "MEMORY_SIZE");
+	tam_pagina = config_get_int_value(config, "PAGE_SIZE");
+	tam_swap = config_get_int_value(config, "SWAP_SIZE");
+//	printf("Puerto: %d\nTamanio Memoria: %d\nTamanio Pagina: %d\nTamanio SWAP: %d\n",puerto,tam_memoria,tam_pagina,tam_swap);
 }
