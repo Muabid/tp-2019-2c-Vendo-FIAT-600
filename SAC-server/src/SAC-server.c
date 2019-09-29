@@ -100,6 +100,5 @@ void init_sac_server(){
 		pthread_t sac_cli_thread;
 		pthread_create(&sac_cli_thread,NULL,(void*) listen_sac_cli,(void*)(sac_socket));
 	}
-
 }
 
