@@ -6,6 +6,7 @@
 #include <commons/collections/queue.h>
 #include "net.h"
 #include "protocol.h"
+#include <semaphore.h>
 #include <string.h>
 
 #ifndef SUSE_H_
