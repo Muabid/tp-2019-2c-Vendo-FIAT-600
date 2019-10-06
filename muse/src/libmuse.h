@@ -5,12 +5,12 @@
     #include <stddef.h>
 	#include <stdio.h> 
 	#include <string.h> 
-	#include <stdint.h>
+	#include <stdbool.h>
 
 	typedef struct HeapMetadata {
 		uint32_t tamanio;
-		int libre;
-	};
+		bool libre;
+	}__attribute__((packed));
 
 	char memory[20000];
 	int puerto;
@@ -102,6 +102,8 @@
     int muse_unmap(uint32_t dir);
     void cargar_configuracion();
     void initialize();
-    void merge(); //por ahora no está siendo usada
+    void merge();
+    void imprimir_direccion_puntero(struct HeapMetadata *ptr, char nombre_ptr[]);
+    void divider();
 
 #endif
