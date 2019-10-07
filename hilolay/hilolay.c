@@ -14,14 +14,16 @@ int _suse_init(char* ip, int puerto) {
 }
 
 t_hilo_hilolay* _suse_create(int conectadoAlServer, void (*funcion)()) {
-	t_hilo_hilolay* hiloNuevo = malloc(sizeof(int));
-	if((send_message(conectadoAlServer, SUSE_CREATE, *funcion, sizeof(*funcion))) < 0) {
+	t_hilo_hilolay* hiloNuevo = malloc(sizeof(int) + sizeof(void*));
+	int nuevoId = retornarId();
+	if((send_message(conectadoAlServer, SUSE_CREATE, nuevoId, sizeof(int))) < 0) {
 		hiloNuevo->identificador = -1;
+		hiloNuevo->funcion = NULL;
 		return hiloNuevo;
 	}
 	else {
 
-		hiloNuevo->identificador = retornarId(); //ESTO TIENE QUE TENER UN MUTEX O SER SOLUCIONADO DE OTRA MANERA
+		hiloNuevo->identificador = nuevoId;
 		hiloNuevo->funcion = *funcion;
 		return hiloNuevo;
 	}

@@ -21,9 +21,9 @@ typedef enum{
 	SUSE_WAIT = 3,
 	SUSE_SIGNAL = 4,
 	SUSE_JOIN = 5,
-	NO_CONNECTION,
-	ERROR_RECV,
-	HI_PLEASE_BE_MY_FRIEND
+	NO_CONNECTION = 100,
+	ERROR_RECV = 101,
+	HI_PLEASE_BE_MY_FRIEND = 102
 }t_header;
 
 typedef struct{
