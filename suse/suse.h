@@ -17,7 +17,8 @@
 
 
 //FIN FUNCIONES NET.H
-
+typedef struct t_programa t_programa;
+typedef struct t_hilo t_hilo;
 
 typedef enum {
   NEW = 1,
@@ -32,23 +33,23 @@ typedef struct {
   int estado;
 }__attribute__((packed)) t_semaforo;
 
-typedef struct {
+struct t_hilo {
   int id;
-  int idPadre;
+  t_programa* idPadre;
   t_estado estado;
   //ESTO LO VOY A HACER EN HILOLAY
   //int tiempoDeEjecucion;
   //int tiempoDeEspera;
   //int tiempoDeCpu;
   t_list* semaforos;
-}__attribute__((packed)) t_hilo;
+}__attribute__((packed));
 
-typedef struct {
+struct t_programa {
   int id;
   t_list* listaDeHilos ;
   t_queue* colaDeReady;
   t_hilo* enEjecucion;
-}__attribute__((packed)) t_programa;
+}__attribute__((packed));
 
 
 

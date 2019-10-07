@@ -34,5 +34,6 @@ int _suse_schedule_next(int threadId) {
 	t_message* bufferLoco = recv_message(threadId);
 	int numeroDeProceso = *(int*)bufferLoco->content;
 	free_t_message(bufferLoco);
+	printf("El proceso a ejecutar es el: %i/n", numeroDeProceso);
 	return numeroDeProceso;
 }
