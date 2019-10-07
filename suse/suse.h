@@ -6,6 +6,7 @@
 #include <commons/collections/queue.h>
 #include "net.h"
 #include "protocol.h"
+#include <semaphore.h>
 #include <string.h>
 
 #ifndef SUSE_H_
@@ -29,22 +30,25 @@ typedef enum {
 typedef struct {
   int id;
   int estado;
-}t_semaforo;
+}__attribute__((packed)) t_semaforo;
 
 typedef struct {
   int id;
+  int idPadre;
   t_estado estado;
-  int tiempoDeEjecucion;
-  int tiempoDeEspera;
-  int tiempoDeCpu;
-  t_semaforo* semaforos[];
-}t_hilo;
+  //ESTO LO VOY A HACER EN HILOLAY
+  //int tiempoDeEjecucion;
+  //int tiempoDeEspera;
+  //int tiempoDeCpu;
+  t_list* semaforos;
+}__attribute__((packed)) t_hilo;
 
 typedef struct {
+  int id;
   t_list* listaDeHilos ;
   t_queue* colaDeReady;
   t_hilo* enEjecucion;
-}t_programa;
+}__attribute__((packed)) t_programa;
 
 
 

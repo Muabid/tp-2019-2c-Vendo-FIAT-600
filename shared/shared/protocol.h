@@ -21,9 +21,7 @@ typedef enum{
 	SUSE_WAIT = 3,
 	SUSE_SIGNAL = 4,
 	SUSE_JOIN = 5,
-	NO_CONNECTION,
-	ERROR_RECV,
-	HI_PLEASE_BE_MY_FRIEND,
+	HEAD,
 	GET_ATTR,
 	READ_LINK,
 	CREATE,
@@ -33,8 +31,10 @@ typedef enum{
 	RMDIR,
 	READDIR,
 	MKNODE,
-	READ
-
+	READ,
+	NO_CONNECTION = 100,
+	ERROR_RECV = 101,
+	HI_PLEASE_BE_MY_FRIEND = 102
 }t_header;
 
 typedef struct{
