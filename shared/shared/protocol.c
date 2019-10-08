@@ -66,13 +66,10 @@ t_message* recv_message(int socket){
 		return no_connection();
 	}
 
-	void* content = malloc(message->size - sizeof(t_header));
-	t_header header;
-	memcpy(&header, buffer, sizeof(t_header));
-	memcpy(content,buffer + sizeof(t_header),message->size - sizeof(t_header));
-
-	message->head = header;
-	message->content =content;
+	message->content = malloc(message->size - sizeof(t_header));
+	memcpy(&message->head, buffer, sizeof(t_header));
+	memcpy(message->content,buffer + sizeof(t_header),message->size - sizeof(t_header));
+	message->size = message->size - sizeof(t_header);
 
 	free(buffer);
 	return message;

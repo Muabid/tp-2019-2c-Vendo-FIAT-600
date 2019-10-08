@@ -23,7 +23,17 @@ typedef enum{
 	SUSE_JOIN = 5,
 	NO_CONNECTION,
 	ERROR_RECV,
-	HI_PLEASE_BE_MY_FRIEND
+	HI_PLEASE_BE_MY_FRIEND,
+	GET_ATTR,
+	WRITE_FILE,
+	READ_FILE,
+	MKNOD,
+	MKDIR,
+	READDIR,
+	RMDIR,
+	UNLINK, //Borrar un archivo
+	SETXATTR, //Atributos de un archivo
+	OK
 }t_header;
 
 typedef struct{
@@ -42,4 +52,5 @@ void free_t_message(t_message* message);
 
 t_message* no_connection();
 t_message* error_recv();
+
 #endif /* PROTOCOL_H_ */
