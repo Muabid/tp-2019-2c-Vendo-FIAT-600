@@ -21,19 +21,22 @@ typedef enum{
 	SUSE_WAIT = 3,
 	SUSE_SIGNAL = 4,
 	SUSE_JOIN = 5,
-	NO_CONNECTION,
-	ERROR_RECV,
-	HI_PLEASE_BE_MY_FRIEND,
+	TEST = 6,
+	HEAD,
 	GET_ATTR,
-	WRITE_FILE,
-	READ_FILE,
-	MKNOD,
+	READ_LINK,
+	CREATE,
+	UNLINK,
 	MKDIR,
-	READDIR,
+	OPENDIR,
 	RMDIR,
-	UNLINK, //Borrar un archivo
-	SETXATTR, //Atributos de un archivo
-	OK
+	READDIR,
+	MKNODE,
+	READ,
+	NO_CONNECTION = 100,
+	ERROR_RECV = 101,
+	HI_PLEASE_BE_MY_FRIEND = 102,
+	ERROR_MESSAGE = 103
 }t_header;
 
 typedef struct{

@@ -4,8 +4,9 @@
 #include <commons/config.h>
 #include <commons/collections/list.h>
 #include <commons/collections/queue.h>
-#include <net.h>
-#include <protocol.h>
+#include "net.h"
+#include "protocol.h"
+#include <semaphore.h>
 #include <string.h>
 
 #ifndef SUSE_H_
@@ -16,7 +17,8 @@
 
 
 //FIN FUNCIONES NET.H
-
+typedef struct t_programa t_programa;
+typedef struct t_hilo t_hilo;
 
 typedef enum {
   NEW = 1,
@@ -29,22 +31,25 @@ typedef enum {
 typedef struct {
   int id;
   int estado;
-}t_semaforo;
+}__attribute__((packed)) t_semaforo;
 
-typedef struct {
+struct t_hilo {
   int id;
+  t_programa* idPadre;
   t_estado estado;
-  int tiempoDeEjecucion;
-  int tiempoDeEspera;
-  int tiempoDeCpu;
-  t_semaforo* semaforos[];
-}t_hilo;
+  //ESTO LO VOY A HACER EN HILOLAY
+  //int tiempoDeEjecucion;
+  //int tiempoDeEspera;
+  //int tiempoDeCpu;
+  t_list* semaforos;
+}__attribute__((packed));
 
-typedef struct {
+struct t_programa {
+  int id;
   t_list* listaDeHilos ;
   t_queue* colaDeReady;
   t_hilo* enEjecucion;
-}t_programa;
+}__attribute__((packed));
 
 
 

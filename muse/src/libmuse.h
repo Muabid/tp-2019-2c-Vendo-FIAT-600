@@ -5,15 +5,18 @@
     #include <stddef.h>
 	#include <stdio.h> 
 	#include <string.h> 
-	#include <stdint.h>
+	#include <stdbool.h>
 
 	typedef struct HeapMetadata {
 		uint32_t tamanio;
-		int libre;
-		struct HeapMetadata *sig;
-	};
+		bool libre;
+	}__attribute__((packed));
 
 	char memory[20000];
+	int puerto;
+	int tam_memoria;
+	int tam_pagina;
+	int tam_swap;
 
 	struct HeapMetadata *bigMemory = (void*)memory;
 
@@ -65,6 +68,7 @@
      */
     int muse_cpy(uint32_t dst, void* src, int n);
 
+
     /**
      * Devuelve un puntero a una posición mappeada de páginas por una cantidad `length` de bytes el archivo del `path` dado.
      * @param path Path a un archivo en el FileSystem de MUSE a mappear.
@@ -96,4 +100,10 @@
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      */
     int muse_unmap(uint32_t dir);
+    void cargar_configuracion();
+    void initialize();
+    void merge();
+    void imprimir_direccion_puntero(struct HeapMetadata *ptr, char nombre_ptr[]);
+    void divider();
+
 #endif
