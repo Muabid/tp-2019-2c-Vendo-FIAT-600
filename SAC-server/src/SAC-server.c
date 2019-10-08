@@ -21,37 +21,31 @@
 #include "sac_config.h"
 #include "nodes.h"
 #include "sac.h"
-
-
+#include "operations.h"
+#include <shared/utils.h>
 int main(int argc, const char* argv[]) {
-	//Esto es para crear el filesystem y poder probar, después vuela a la mierda
-	if(argc == 2 && 1 ==atoi(argv[1])){
-			create_file_system();
-	} else {
-		sac_load_config((char*)argv[1]);
-		int fd = open("test",O_RDWR,0);
 
-		GHeader* mount = (GHeader*)mmap(NULL,FILESYSTEM_SIZE , PROT_WRITE | PROT_READ | PROT_EXEC, MAP_SHARED, fd, 0);
-		GHeader h = *mount;
+	void* bitarray = malloc(1);
+	bitmap = bitarray_create_with_mode(bitarray, 1,
+			LSB_FIRST);
 
-		printf("identifier: %s | version: %i \n",h.identifier,h.version);
-		t_block* block = (t_block *)(mount + HEADER_BLOCKS);
-
-		int bitmap_size_in_bits = BLOCKS_TOTAL;
-
-		t_bitarray * bitmap = bitarray_create_with_mode((char*)block,BLOCKS_BITMAP,LSB_FIRST);
-
-		for (int i = 0; i < bitmap_size_in_bits; i++){
-			printf("%i",bitarray_test_bit(bitmap, i));
-		}
-
-		bitarray_destroy(bitmap);
-
-//		nodes_table =(GFile*)(mount + HEADER_BLOCKS + BLOCKS_BITMAP);
-
-		close(fd);
+//	for (int i=0; i < 8; i++) {
+//		if(i != 5)
+//			bitarray_set_bit(bitmap, i);
+//	}
+	for(int i = 0; i<10; i++){
+		int x = search_and_test_first_free_block();
+		printf("%i",free_blocks());
+		printf("%i",x);
 	}
 
+//	nodes_table[0] = create_GFile(2,"hola",0,5,"12345678","12345678");
+//	sac_config = malloc(sizeof(t_sac_config));
+//	sac_config->listen_port=8080;
+//	init_sac_server();
+//	char* name = get_name("/hola/");
+//	char* x = get_directory("/hola");
+//	printf("%s %s", name,x);
 }
 
 void create_file_system() {
@@ -66,12 +60,15 @@ void create_file_system() {
 	for (int i = 0; i < HEADER_BLOCKS + BLOCKS_BITMAP + BLOCKS_NODE; i++) {
 		bitarray_set_bit(bi, i);
 	}
-	for (int i = 0; i < BLOCKS_TOTAL; i++) {
-		printf("%i", bitarray_test_bit(bi, i));
-	}
-	fwrite(bi->bitarray, 1, BLOCKS_BITMAP, pFile);
-	fseek(pFile, BLOCKS_BITMAP * BLOCK_SIZE, SEEK_SET);
+
+	t_block block;
+	memcpy(block.data,bi->bitarray,BLOCKS_BITMAP);
+	fwrite(&block, BLOCK_SIZE,1, pFile);
+	fseek(pFile,BLOCK_SIZE, SEEK_SET);
 	GFile nodes[BLOCKS_NODE];
+	nodes[0] = create_GFile(2,"/",0,1024,"19092019","19092019");
+	nodes[1] = create_GFile(2,"HOLA",0,1024,"19092019","19092019");
+	nodes[2] = create_GFile(2,"XD",1,1024,"19092019","19092019");
 	fwrite(&nodes, sizeof(GFile), BLOCKS_NODE, pFile);
 	fseek(pFile, sizeof(GFile) * BLOCKS_NODE, SEEK_SET);
 	t_block basura[BLOCKS_DATA];
@@ -81,12 +78,18 @@ void create_file_system() {
 
 void listen_sac_cli(void* socket){
 	int sac_socket = (int)(socket);
-	t_message* message = recv_message(sac_socket);
 	while(1){
+	t_message* message = recv_message(sac_socket);
 		switch(message->head){
 			case HI_PLEASE_BE_MY_FRIEND:
-				send_message(sac_socket,HI_PLEASE_BE_MY_FRIEND,"HI",2);
+				send_message(sac_socket,HI_PLEASE_BE_MY_FRIEND,"HIIIIIIIII",strlen("HIIIIIIIII"));
+				break;
+			case GET_ATTR:
+				getattr(sac_socket,message->content);
+				break;
 		}
+		free(message->content);
+		free(message);
 	}
 }
 
@@ -97,6 +100,7 @@ void init_sac_server(){
 	socklen_t len = sizeof(sac_cli);
 
 	while((sac_socket = accept(listener_socket,&sac_cli, &len)) >0){
+		printf("%s","Nueva conexión");
 		pthread_t sac_cli_thread;
 		pthread_create(&sac_cli_thread,NULL,(void*) listen_sac_cli,(void*)(sac_socket));
 	}

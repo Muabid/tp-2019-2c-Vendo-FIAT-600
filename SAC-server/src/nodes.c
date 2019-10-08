@@ -11,7 +11,6 @@ int lastchar(const char* str, char chr){
 	return 0;
 }
 
-
 GFile create_GFile(char status, char file_name[71], int32_t root, int32_t size,
 		char creation_date[8], char modification_date[8]) {
 
@@ -101,7 +100,7 @@ int search_first_free_node(){
 
 int search_and_test_first_free_block(){
 	int res = -1;
-	for(int i = 0; i < bitmap->size*8 && res== -1; i++){
+	for(int i = 0; i < BITMAP_SIZE_BITS && res== -1; i++){
 		if(bitarray_test_bit(bitmap,i) == 0){
 			pthread_mutex_lock(&bitarray_mutex);
 			bitarray_set_bit(bitmap,i);
@@ -110,4 +109,55 @@ int search_and_test_first_free_block(){
 		}
 	}
 	return res;
+}
+
+int free_blocks(){
+	int free_nodes=0;
+
+	for (int i = 0; i < BITMAP_SIZE_BITS; i++){
+		if (bitarray_test_bit(bitmap, i) == 0)
+			free_nodes++;
+	}
+
+	return free_nodes;
+}
+
+int* get_position(off_t offset){
+	div_t divi = div(offset, (BLOCK_SIZE*PTRGBLOQUE_SIZE));
+	int position[2] = {divi.quot, divi.rem / BLOCK_SIZE};
+	//La primera posición indica el puntero de bloques, la segunda el puntero de bloque de datos
+	return position;
+}
+
+int32_t * get_block_data(int index_block){
+	return blocks_data[index_block - HEADER_BLOCKS - BLOCKS_NODE - BLOCKS_BITMAP];
+}
+
+int allocate_node(GFile* node){
+	int free_block = search_and_test_first_free_block();
+	int new_node;
+	int* position = get_position(node->size);
+	int indirect_pointer_block = position[0];
+	int pointer_data = position[1];
+
+	if ((node->blocks_ptr[indirect_pointer_block] != 0)){
+		if (pointer_data == 1024) {
+			position = 0;
+			indirect_pointer_block++;
+		}
+	}
+	// Si es el ultimo nodo en el bloque de punteros, pasa al siguiente
+	if(pointer_data != 0){
+		new_node = node->blocks_ptr[indirect_pointer_block];
+	} else{
+		new_node = search_and_test_first_free_block();
+		if(new_node <0){
+			return new_node;
+		}
+		node->blocks_ptr[indirect_pointer_block] = new_node;
+		node->blocks_ptr[indirect_pointer_block + 1] = 0;
+	}
+
+	int32_t* nodes_pointers = get_block_data(new_node);
+	nodes_pointers[pointer_data] = free_block;
 }

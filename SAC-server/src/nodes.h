@@ -15,14 +15,17 @@
 #include <pthread.h>
 #include <commons/bitarray.h>
 #include <commons/string.h>
+#include <commons/log.h>
 
+#define PTRGBLOQUE_SIZE 4
 #define BLOCK_SIZE 4096
 #define HEADER_BLOCKS 1
 #define BLOCKS_NODE 1024
 #define FILESYSTEM_SIZE 8388608
 #define BLOCKS_TOTAL FILESYSTEM_SIZE/BLOCK_SIZE
-#define BLOCKS_BITMAP BLOCKS_TOTAL/8
+#define BLOCKS_BITMAP gHeader.bit_map_size
 #define BLOCKS_DATA BLOCKS_TOTAL -1 -BLOCKS_BITMAP - 1024
+#define BITMAP_SIZE_BITS bitmap->size * 8
 #define T_FILE 2
 
 typedef struct{
@@ -49,7 +52,9 @@ typedef struct{
 }t_block;
 
 t_bitarray* bitmap;
+GHeader gHeader;
 GFile nodes_table[1024];
+t_block blocks_data[BLOCKS_DATA];
 
 pthread_mutex_t bitarray_mutex;
 
@@ -69,4 +74,8 @@ char* get_directory(const char* path);
 int search_first_free_node();
 int search_first_free_block();
 int search_and_test_first_free_block();
+int* get_position(size_t size, off_t offset);
+int free_blocks();
+int allocate_node(GFile* node);
+int32_t * get_block_data(int index_block);
 #endif /* NODES_H_ */
