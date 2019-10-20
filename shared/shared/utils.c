@@ -15,3 +15,9 @@ char* get_date(){
 	return text;
 
 }
+
+int fsize(char* path){
+	struct stat st;
+	stat(path, &st);
+	return st.st_size;
+}

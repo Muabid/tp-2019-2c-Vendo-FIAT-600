@@ -14,7 +14,7 @@ int get_size_bytes_gFile(GFile node){
 	return 25 + strlen(node.file_name);;
 }
 
-int getattr(int socket,const char* path){
+int sac_getattr(int socket,const char* path){
 	int index_node = search_node(path);
 	if(index_node<0){
 		return -1;
@@ -30,7 +30,7 @@ int getattr(int socket,const char* path){
 	memcpy(buf + 21,&links,4);
 	memcpy(buf + 25,(int32_t)strlen(node.file_name),4);
 	memcpy(buf + 29,node.file_name,strlen(node.file_name));
-	send_message(socket,OK,buf,size);
+	send_message(socket,TEST,buf,size);
 	free(buf);
 	return 0;
 }
@@ -56,7 +56,7 @@ int get_subdirectories(int node){
 }
 
 
-int mknod(char* path){
+int sac_mknod(char* path){
 	if(!search_node(path))
 		return -1;
 
@@ -81,6 +81,11 @@ int mknod(char* path){
 	memcpy(node.modification_date,today,8);
 	strcpy(node.file_name,file_name);
 
+	char* data = get_block_data(free_block);
+	memset(data,'\0', BLOCK_SIZE);
+	free(file_name);
+	free(directory);
+	free(today);
 	return 0;
 
 }

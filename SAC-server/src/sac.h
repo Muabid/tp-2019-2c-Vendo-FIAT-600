@@ -10,7 +10,7 @@
 #include "sac_config.h"
 
 void create_file_system();
-void listen_sac_cli(void* socket);
+void* listen_sac_cli(void* socket);
 void init_sac_server();
 
 

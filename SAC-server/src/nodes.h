@@ -53,8 +53,9 @@ typedef struct{
 
 t_bitarray* bitmap;
 GHeader gHeader;
-GFile nodes_table[1024];
-t_block blocks_data[BLOCKS_DATA];
+GFile* nodes_table;
+t_block* blocks_data;
+char config_path[1000];
 
 pthread_mutex_t bitarray_mutex;
 
@@ -74,8 +75,9 @@ char* get_directory(const char* path);
 int search_first_free_node();
 int search_first_free_block();
 int search_and_test_first_free_block();
-int* get_position(size_t size, off_t offset);
+int* get_position(off_t offset);
 int free_blocks();
 int allocate_node(GFile* node);
-int32_t * get_block_data(int index_block);
+char* get_block_data(int index_block);
+int fsize(char* path);
 #endif /* NODES_H_ */

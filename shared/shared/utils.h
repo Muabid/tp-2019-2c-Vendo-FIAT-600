@@ -9,7 +9,8 @@
 #define UTILS_H_
 #include <time.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 
 char* get_date();
-
+int fsize(char* path);
 #endif /* UTILS_H_ */

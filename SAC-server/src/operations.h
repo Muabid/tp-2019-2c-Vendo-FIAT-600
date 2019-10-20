@@ -13,8 +13,8 @@
 #include <commons/string.h>
 #include <commons/collections/list.h>
 
-int getattr(int sock,const char* path);
-int mknod(char* path);
+int sac_getattr(int sock,const char* path);
+int sac_mknod(char* path);
 int get_subdirectories(int node);
 int get_number_links(GFile node,int index);
 

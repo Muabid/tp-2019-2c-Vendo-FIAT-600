@@ -32,6 +32,9 @@ GHeader create_sac_header(char identifier[3], int32_t version,
 			.bit_map_size = bit_map_size, };
 
 	strcpy(header.identifier, identifier);
+	for(int i= 0; i<4081; i++){
+		header.padding[i]='0';
+	}
 
 	return header;
 }
@@ -124,13 +127,15 @@ int free_blocks(){
 
 int* get_position(off_t offset){
 	div_t divi = div(offset, (BLOCK_SIZE*PTRGBLOQUE_SIZE));
-	int position[2] = {divi.quot, divi.rem / BLOCK_SIZE};
+	int* position = malloc(sizeof(int)*2);
+	position[0] = divi.quot;
+	position[1] = divi.rem;
 	//La primera posición indica el puntero de bloques, la segunda el puntero de bloque de datos
 	return position;
 }
 
-int32_t * get_block_data(int index_block){
-	return blocks_data[index_block - HEADER_BLOCKS - BLOCKS_NODE - BLOCKS_BITMAP];
+char* get_block_data(int index_block){
+	return (char*)&blocks_data[index_block - HEADER_BLOCKS - BLOCKS_NODE - BLOCKS_BITMAP];
 }
 
 int allocate_node(GFile* node){
@@ -158,6 +163,7 @@ int allocate_node(GFile* node){
 		node->blocks_ptr[indirect_pointer_block + 1] = 0;
 	}
 
-	int32_t* nodes_pointers = get_block_data(new_node);
+	int32_t* nodes_pointers = (int32_t*)get_block_data(new_node);
 	nodes_pointers[pointer_data] = free_block;
+	return free_block;
 }

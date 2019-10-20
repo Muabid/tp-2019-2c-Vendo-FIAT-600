@@ -8,6 +8,7 @@
 #ifndef SAC_CONFIG_H_
 #define SAC_CONFIG_H_
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <commons/config.h>
 #include <commons/temporal.h>
