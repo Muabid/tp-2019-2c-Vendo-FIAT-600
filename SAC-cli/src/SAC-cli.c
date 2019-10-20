@@ -335,15 +335,8 @@ int main(int argc, const char* argv[]) {
 
 	int communication_response = send_message(sock, HI_PLEASE_BE_MY_FRIEND,"HI",2);
 
-	if (communication_response >= 0) { // Comunicación ok.
-		/* Cuando la comunicación ya se estableció, tengo que hacer una espera activa para las operaciones del FS? o no es necesario?
-		 Cómo hago para vincular las operaciones de fuse con el archivo operations_client.c, o tiene que estar todo en el main?
-		 */
-		while (1) {
-
-		}
-	} else {
-
+	if (communication_response <= 0) { // Comunicación ok.
+		return -1; //ERROR
 	}
 
 	return fuse_main(args.argc, args.argv, &do_operations, NULL);
