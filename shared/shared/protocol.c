@@ -17,7 +17,7 @@ int send_message(int socket, t_header head, void* content, size_t size){
 	}else{
 		void* buffer = malloc(message->size);
 		memcpy(buffer,&message->head,sizeof(t_header));
-		memcpy(buffer + sizeof(t_header),message->content,message->size);
+		memcpy(buffer + sizeof(t_header),message->content,size);
 		res = send(socket,buffer,message->size,0);
 		if(res <0){
 			//Hacer algo
