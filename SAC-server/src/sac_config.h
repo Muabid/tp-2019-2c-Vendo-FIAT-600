@@ -25,5 +25,5 @@ t_sac_config* sac_config;
 
 int listener_socket;
 
-void sac_load_config(char* path);
+void sac_load_config(const char* path);
 #endif /* SAC_CONFIG_H_ */

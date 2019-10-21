@@ -12,13 +12,12 @@ int lastchar(const char* str, char chr){
 }
 
 GFile create_GFile(char status, char file_name[71], int32_t root, int32_t size,
-		char creation_date[8], char modification_date[8]) {
+		uint64_t creation_date, uint64_t modification_date) {
 
-	GFile gFile = { .status = status, .root = root, .size = size };
+	GFile gFile = { .status = status, .root = root, .size = size,
+			.modification_date = modification_date, .creation_date = creation_date };
 
 	strcpy(gFile.file_name, file_name);
-	strcpy(gFile.creation_date, creation_date);
-	strcpy(gFile.modification_date, modification_date);
 //	for(int i=0; i<1000; i++){
 //		gFile.blocks_ptr[i] = blocks_ptr[i];
 //	}

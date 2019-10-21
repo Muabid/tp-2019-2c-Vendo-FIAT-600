@@ -11,7 +11,7 @@
 
 int get_size_bytes_gFile(GFile node){
 
-	return 25 + strlen(node.file_name);;
+	return sizeof(GFile) - strlen(node.file_name) - 1000;
 }
 
 int sac_getattr(int socket,const char* path){
@@ -23,14 +23,18 @@ int sac_getattr(int socket,const char* path){
 	int32_t links= get_number_links(node,index_node);
 	size_t size = get_size_bytes_gFile(node) + sizeof(int32_t);
 	void*buf = malloc(size);
-	memcpy(buf ,&node.size,4);
-	memcpy(buf + 4,node.creation_date,8);
+	void*aux = buf;
+	memcpy(buf ,&node.size,sizeof(uint32_t));
+	buf += sizeof(uint32_t);
+	memcpy(buf,&node.creation_date,8);
+	buf += sizeof(uint64_t);
 	memcpy(buf + 12,node.modification_date,8);
+	buf += sizeof(uint64_t);
 	memcpy(buf + 20,&node.status,1);
+	buf += sizeof(char);
 	memcpy(buf + 21,&links,4);
-	memcpy(buf + 25,(int32_t)strlen(node.file_name),4);
-	memcpy(buf + 29,node.file_name,strlen(node.file_name));
-	send_message(socket,TEST,buf,size);
+	buf += sizeof(uint32_t);
+	send_message(socket,TEST,aux,size);
 	free(buf);
 	return 0;
 }
@@ -66,7 +70,6 @@ int sac_mknod(char* path){
 	int root = search_node(directory);
 	int index_node = search_first_free_node();
 	GFile node = nodes_table[index_node];
-	char *today = get_date();
 
 	node.size = 0;
 	node.root = root;
@@ -77,15 +80,13 @@ int sac_mknod(char* path){
 
 	node.blocks_ptr[0] =free_block;
 	node.blocks_ptr[1] = 0;
-	memcpy(node.creation_date,today,8);
-	memcpy(node.modification_date,today,8);
+	node.creation_date = node.modification_date = time(NULL);
 	strcpy(node.file_name,file_name);
 
 	char* data = get_block_data(free_block);
 	memset(data,'\0', BLOCK_SIZE);
 	free(file_name);
 	free(directory);
-	free(today);
 	return 0;
 
 }
