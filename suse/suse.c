@@ -3,10 +3,9 @@
 
 const int MULTIPROGRAMACION = 3;
 int programasEnMemoria = 0;
-t_queue* colaNuevos; //Se inicializa en main
-
-
 int listen_port = 20000;
+
+t_queue* colaNuevos; //Se inicializa en main
 t_list* listaDeProgramas; //Se inicializa en main
 
 
@@ -143,7 +142,7 @@ int main() {
 			return 1;
 		} else {
 			printf("Handler asignado\n");
-			pthread_join(threadId, NULL);
+			//pthread_join(threadId, NULL);
 		}
 
 
