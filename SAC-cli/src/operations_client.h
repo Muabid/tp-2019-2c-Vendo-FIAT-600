@@ -28,7 +28,7 @@
 static int do_getattr(const char *path, struct stat *st);
 static int do_readlink(const char *path, char *buf, size_t len);
 static int do_create(const char *path, mode_t mode, struct fuse_file_info *fi);
-static int do_read(const char *path, char *buf, size_t size, off_t off, struct fuese_file_info *fi);
+static int do_read(const char *, char *, size_t, off_t, struct fuse_file_info *);
 static int do_unlink(const char *path);
 static int do_mkdir(const char *path, mode_t mode);
 static int do_opendir(const char *path, struct fuse_file_info *fi);
