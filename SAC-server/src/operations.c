@@ -7,11 +7,13 @@
 
 
 #include "operations.h"
-
+#include <commons/log.h>
+#include <commons/string.h>
 
 int get_size_bytes_gFile(GFile node){
 
-	return sizeof(GFile) - strlen(node.file_name) - 1000;
+//	return sizeof(GFile) - sizeof(node.file_name) - sizeof(node.blocks_ptr);
+	return 25;
 }
 
 int sac_getattr(int socket,const char* path){
@@ -21,20 +23,25 @@ int sac_getattr(int socket,const char* path){
 	}
 	GFile node =  nodes_table[index_node];
 	int32_t links= get_number_links(node,index_node);
-	size_t size = get_size_bytes_gFile(node) + sizeof(int32_t);
+//	GFile node = create_GFile(1,"hola",1,100,time(NULL),time(NULL));
+	size_t size = get_size_bytes_gFile(node);
+
+	log_info(log,"%s | %d | %i | %i | %i | %i",node.file_name,node.size,
+			node.creation_date,node.modification_date,links,node.status);
+
 	void*buf = malloc(size);
 	void*aux = buf;
 	memcpy(buf ,&node.size,sizeof(uint32_t));
 	buf += sizeof(uint32_t);
-	memcpy(buf,&node.creation_date,8);
+	memcpy(buf,&node.creation_date,sizeof(uint64_t));
 	buf += sizeof(uint64_t);
-	memcpy(buf + 12,node.modification_date,8);
+	memcpy(buf,&node.modification_date,sizeof(uint64_t));
 	buf += sizeof(uint64_t);
-	memcpy(buf + 20,&node.status,1);
+	memcpy(buf,&node.status,sizeof(char));
 	buf += sizeof(char);
-	memcpy(buf + 21,&links,4);
-	buf += sizeof(uint32_t);
-	send_message(socket,TEST,aux,size);
+	memcpy(buf,&links,sizeof(int32_t));
+	buf = aux;
+	send_message(socket,GET_ATTR,buf,size);
 	free(buf);
 	return 0;
 }

@@ -30,11 +30,8 @@ GHeader create_sac_header(char identifier[3], int32_t version,
 	GHeader header = { .version = version, .init_block = init_block,
 			.bit_map_size = bit_map_size, };
 
-	strcpy(header.identifier, identifier);
-	for(int i= 0; i<4081; i++){
-		header.padding[i]='0';
-	}
-
+	memcpy(header.identifier, identifier,3);
+	memset(header.padding,'\0',4081);
 	return header;
 }
 
