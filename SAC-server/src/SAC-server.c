@@ -24,7 +24,10 @@
 #include "operations.h"
 #include <shared/utils.h>
 #include <commons/log.h>
+#include <commons/collections/queue.h>
 #include <signal.h>
+
+
 void init_semaphores(){
 	pthread_mutex_init(&bitarray_mutex,NULL);
 }
@@ -39,33 +42,35 @@ void sig_term(int sig){
 
 int main(int argc, const char* argv[]) {
 	log = log_create("./log","SERVER",true,LOG_LEVEL_INFO);
+	init_sac_server();
+
 //	create_file_system();
-	signal(SIGTERM, sig_term);
-
-	const char* path = argv[1];
-	sac_load_config(path);
-	size_file_system = fsize(sac_config->file_system_path);
-	log_info(log,"Filesystem Size: %i",size_file_system);
-
-	if ((file_system_descriptor = open(sac_config->file_system_path, O_RDWR, 0)) == -1)
-		return -1;
-
-	file_system = (GHeader*) mmap(NULL, size_file_system +1 , PROT_WRITE | PROT_READ | PROT_EXEC,
-			MAP_SHARED,file_system_descriptor, 0);
-	gHeader = file_system[0];
-
-	log_info(log,"Identifier: %s | Version: %i | Init Block: %i | Bitmap Size: %i",
-			gHeader.identifier,gHeader.version, gHeader.init_block,gHeader.bit_map_size);
-
-	char* bitmap_content = &file_system[HEADER_BLOCKS];
-	bitmap =  bitarray_create_with_mode(bitmap_content,BLOCKS_BITMAP * BLOCK_SIZE,LSB_FIRST);
-
-	log_info(log,"Free blocks %i",free_blocks());
-	int i =search_and_test_first_free_block();
-	log_info(log,"Block Tested %i",i);
-	fdatasync(file_system_descriptor);
-	munmap(file_system, size_file_system);
-	close(file_system_descriptor);
+//	signal(SIGTERM, sig_term);
+//
+//	const char* path = argv[1];
+//	sac_load_config(path);
+//	size_file_system = fsize(sac_config->file_system_path);
+//	log_info(log,"Filesystem Size: %i",size_file_system);
+//
+//	if ((file_system_descriptor = open(sac_config->file_system_path, O_RDWR, 0)) == -1)
+//		return -1;
+//
+//	file_system = (GHeader*) mmap(NULL, size_file_system +1 , PROT_WRITE | PROT_READ | PROT_EXEC,
+//			MAP_SHARED,file_system_descriptor, 0);
+//	gHeader = file_system[0];
+//
+//	log_info(log,"Identifier: %s | Version: %i | Init Block: %i | Bitmap Size: %i",
+//			gHeader.identifier,gHeader.version, gHeader.init_block,gHeader.bit_map_size);
+//
+//	char* bitmap_content = &file_system[HEADER_BLOCKS];
+//	bitmap =  bitarray_create_with_mode(bitmap_content,BLOCKS_BITMAP * BLOCK_SIZE,LSB_FIRST);
+//
+//	log_info(log,"Free blocks %i",free_blocks());
+//	int i =search_and_test_first_free_block();
+//	log_info(log,"Block Tested %i",i);
+//	fdatasync(file_system_descriptor);
+//	munmap(file_system, size_file_system);
+//	close(file_system_descriptor);
 //	init_sac_server();
 }
 
@@ -106,27 +111,78 @@ void* listen_sac_cli(void* socket){
 			case GET_ATTR:
 				sac_getattr(sac_socket,message->content);
 				break;
+			case MKDIR:
+				sac_mkdir(sac_socket,message->content);
+				break;
+			case RMDIR:
+				sac_rmdir(sac_socket,message->content);
+				break;
+			case WRITE:
+			{
+				void * aux = message->content;
+				char path[71];
+				memset(path,0,71);
+				memcpy(path,aux,71);
+				int len = strlen(path);
+				path[len]= '\0';
+				aux += sizeof(path);
+				size_t size;
+				memcpy(&size,aux,sizeof(size_t));
+				aux += sizeof(size_t);
+				off_t offset;
+				memcpy(&offset,aux,sizeof(off_t));
+				aux += sizeof(off_t);
+				char * data = malloc(size);
+				memcpy(data,aux,size);
+				sac_write(sac_socket,path,data,size,offset);
+			}
+				break;
+			case MKNODE:
+			{
+				char path[71];
+				memset(path, 0, 71);
+				strcpy(path,message->content);
+				int len = strlen(path);
+				path[len]= '\0';
+				sac_mknod(sac_socket,path);
+				break;
+			}
+			case READ:
+			{
+				void * aux = message->content;
+				size_t path_size = (aux);
+				aux+=  sizeof(size_t);
+				char* path = malloc(path_size+1);
+				path[path_size] = '\0';
+				aux += path_size;
+				size_t size = (aux);
+				aux += sizeof(size_t);
+				off_t offset = (aux);
+				sac_read(sac_socket,path,size,offset);
+				break;
+			}
 			case NO_CONNECTION:
 				log_info(log,"CLIENTE DESCONECTADO");
 				free_t_message(message);
+				pthread_exit(NULL);
 				return NULL;
 				break;
 			case ERROR_RECV:
 				free_t_message(message);
 				log_info(log,"ERROR COMUNIACIÓN");
+				pthread_exit(NULL);
 				return NULL;
 		}
-		free(message->content);
-		free(message);
+		free_t_message(message);
 	}
 }
 
 void init_sac_server(){
 	listener_socket = init_server(8080);
+	log_info(log,"Servidor levantado!!!");
 	struct sockaddr sac_cli;
 	int sac_socket;
 	socklen_t len = sizeof(sac_cli);
-
 	while((sac_socket = accept(listener_socket,&sac_cli, &len)) >0){
 		log_info(log,"NUEVA CONEXIÓN");
 		pthread_t sac_cli_thread;
