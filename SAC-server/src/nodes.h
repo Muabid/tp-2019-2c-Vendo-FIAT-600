@@ -21,11 +21,12 @@
 #define BLOCK_SIZE 4096
 #define HEADER_BLOCKS 1
 #define BLOCKS_NODE 1024
-#define FILESYSTEM_SIZE 8388608
+#define FILESYSTEM_SIZE 268435456
 #define BLOCKS_TOTAL FILESYSTEM_SIZE/BLOCK_SIZE
 #define BLOCKS_BITMAP gHeader.bit_map_size
 #define BLOCKS_DATA BLOCKS_TOTAL -1 -BLOCKS_BITMAP - 1024
 #define BITMAP_SIZE_BITS bitmap->size * 8
+#define BLOCKS_FILESYSTEM FILESYSTEM_SIZE / BLOCK_SIZE
 #define T_FILE 2
 
 typedef struct{
@@ -56,6 +57,9 @@ GHeader gHeader;
 GFile* nodes_table;
 t_block* blocks_data;
 char config_path[1000];
+t_log * log;
+int file_system_descriptor;
+int size_file_system;
 
 pthread_mutex_t bitarray_mutex;
 
@@ -68,6 +72,8 @@ GHeader create_sac_header(char identifier[3],int32_t version,
 GFile read_GFile(void* cachoOfMemory);
 
 int search_node(const char* path);
+
+GHeader* file_system;
 
 char* get_name(const char* path);
 char* get_directory(const char* path);

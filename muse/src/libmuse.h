@@ -12,13 +12,11 @@
 		bool libre;
 	}__attribute__((packed));
 
-	char memory[20000];
 	int puerto;
 	int tam_memoria;
 	int tam_pagina;
 	int tam_swap;
 
-	struct HeapMetadata *bigMemory = (void*)memory;
 
     /**
      * Inicializa la biblioteca de MUSE.

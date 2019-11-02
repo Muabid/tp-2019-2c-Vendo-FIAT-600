@@ -3,12 +3,13 @@
 #include "libmuse.h"
 
 
-
+void* memory;
+struct HeapMetadata *bigMemory;
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar);
 
 int main(){
-	initialize();
 	cargar_configuracion();
+	initialize();
 	divider();
 	uint32_t p = muse_alloc(4900*sizeof(int));
 	divider();
@@ -62,9 +63,9 @@ uint32_t muse_alloc(uint32_t tam){
 		return 0;
 	}
 	actual = bigMemory;
-	while((((actual->tamanio) < tam) || ((actual->libre) == 0)) && ((void*)actual <= (void*)(memory+20000))){
+	while((((actual->tamanio) < tam) || ((actual->libre) == 0)) && ((void*)actual <= (memory+tam_memoria))){
 		actual += ((actual->tamanio) / sizeof(struct HeapMetadata)) + 1;
-		printf("Un bloque de memoria verificado\n");
+//		printf("Un bloque de memoria verificado\n");
 	}
 	if((actual->tamanio) == tam){
 		actual->libre = 0;
@@ -73,9 +74,9 @@ uint32_t muse_alloc(uint32_t tam){
 		return result;
 	} else if((actual->tamanio) > tam){
 		split(actual,tam);
-		printf("El puntero a metadata se encuentra en: %u\n", ((void*)actual));
+//		printf("El puntero a metadata se encuentra en: %u\n", ((void*)actual));
 		result = (uint32_t)(++actual);
-		printf("El puntero a     data se encuentra en: %u\n", ((void*)actual));
+//		printf("El puntero a     data se encuentra en: %u\n", ((void*)actual));
 		printf("Se alocó un bloque de tamanio %zu haciendo un split\n",tam);
 		return result;
 	} else {
@@ -86,8 +87,8 @@ uint32_t muse_alloc(uint32_t tam){
 }
 
 void muse_free(uint32_t dir){
-	printf("Direccion a liberar: %zu\n", dir);
-	if(((void*)memory <= dir) && (dir <= (void*)(memory+20000))){
+//	printf("Direccion a liberar: %zu\n", dir);
+	if((memory <= dir) && (dir <= (memory+tam_memoria))){
 		struct HeapMetadata *actual = (void*)dir;
 		actual -= 1;
 		actual->libre = 1;
@@ -101,27 +102,29 @@ void merge(){
 	struct HeapMetadata *actual,*prev,*siguiente;
 	actual = siguiente = bigMemory;
 	siguiente += 1 + ((actual->tamanio) / sizeof(struct HeapMetadata));
-	imprimir_direccion_puntero(actual,"Actual");
-	imprimir_direccion_puntero(siguiente,"Siguiente");
-	printf("Siguiente se corrió: %d\n",((void*)siguiente - (void*)actual));
-	while(((void*)siguiente) < (void*)(memory+20000)){ //mientras que no se vaya a la mierda de la memoria (revisar)
+	//imprimir_direccion_puntero(actual,"Actual");
+	//imprimir_direccion_puntero(siguiente,"Siguiente");
+	//printf("Siguiente se corrió: %d\n",((void*)siguiente - (void*)actual));
+	while(((void*)siguiente) < (memory+tam_memoria)){ //mientras que no se vaya a la mierda de la memoria (revisar)
 		if((actual->libre) && (siguiente->libre)){
-			printf("Mergeando direccion actual %u con siguiente %u\n", ((void*)actual),((void*)siguiente));
-			printf("actual->tamanio antes del merge: %zu\n",actual->tamanio);
+			//printf("Mergeando direccion actual %u con siguiente %u\n", ((void*)actual),((void*)siguiente));
+			//printf("actual->tamanio antes del merge: %zu\n",actual->tamanio);
 			actual->tamanio += (siguiente->tamanio) + sizeof(struct HeapMetadata);
 			siguiente += 1 + ((siguiente->tamanio) / sizeof(siguiente));
-			printf("actual->tamanio después del merge: %zu\n",actual->tamanio);
+			//printf("actual->tamanio después del merge: %zu\n",actual->tamanio);
 		}
 		siguiente += 1 + ((actual->tamanio) / sizeof(siguiente));
 	}
 }//if(((void*)memory<=ptr)&&(ptr<=(void*)(memory+20000))){
 
 void initialize(){
-	bigMemory->tamanio = 20000 - sizeof(struct HeapMetadata);
+	memory = malloc(tam_memoria);
+	bigMemory = memory;
+	bigMemory->tamanio = tam_memoria - sizeof(struct HeapMetadata);
 	bigMemory->libre = 1;
 	printf("Memoria libre: %zu\n",bigMemory->tamanio);
-	printf("Direccion inicial de memoria: %zu\n", (void*)memory);
-	printf("Direccion final   de memoria: %zu\n", ((void*)(memory + 20000)));
+//	printf("Direccion inicial de memoria: %zu\n", memory);
+//	printf("Direccion final   de memoria: %zu\n", (memory + tam_memoria));
 }
 
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar){
