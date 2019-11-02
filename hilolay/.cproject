@@ -33,18 +33,19 @@
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.so.debug.1912237895" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.so.debug">
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.so.debug.option.optimization.level.794688865" name="Optimization Level" superClass="gnu.c.compiler.so.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.so.debug.option.debugging.level.1288800129" name="Debug Level" superClass="gnu.c.compiler.so.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.include.paths.1111616877" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+								<option id="gnu.c.compiler.option.include.paths.1111616877" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/shared}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.376500655" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.so.debug.94081959" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.so.debug">
 								<option defaultValue="true" id="gnu.c.link.so.debug.option.shared.1934271481" name="Shared (-shared)" superClass="gnu.c.link.so.debug.option.shared" valueType="boolean"/>
-								<option id="gnu.c.link.option.libs.39601837" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
+								<option id="gnu.c.link.option.libs.39601837" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="shared"/>
 									<listOptionValue builtIn="false" value="pthread"/>
 								</option>
-								<option id="gnu.c.link.option.paths.1140474836" superClass="gnu.c.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
+								<option id="gnu.c.link.option.paths.1140474836" name="Library search path (-L)" superClass="gnu.c.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/shared/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/shared/Debug}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.264373705" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
@@ -56,7 +57,7 @@
 								<option defaultValue="true" id="gnu.cpp.link.so.debug.option.shared.821107291" name="Shared (-shared)" superClass="gnu.cpp.link.so.debug.option.shared" valueType="boolean"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.so.debug.1164198465" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.so.debug">
-								<option id="gnu.both.asm.option.include.paths.2068876361" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+								<option id="gnu.both.asm.option.include.paths.2068876361" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/shared}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.335748511" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
@@ -143,4 +144,6 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

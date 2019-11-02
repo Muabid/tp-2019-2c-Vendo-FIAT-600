@@ -18,17 +18,31 @@
 #ifndef HILOLAY_H_
 #define HILOLAY_H_
 
+typedef enum {
+  BLOCKED = false,
+  UNBLOCKED = true
+}t_estado_bloqueo;
+
 typedef struct {
 	int identificador;
-	void* funcion;
-}t_hilo_hilolay;
+	t_estado_bloqueo estado;
+	t_list* semaforos;
+}t_hilo;
 
-int _suse_init();
-t_hilo_hilolay* _suse_create();
-int _suse_schedule_next();
-void _suse_wait();
-void _suse_signal();
-void _suse_join();
+typedef struct {
+	char* nombre;
+	int valor;
+}t_semaforo;
+
+
+
+
+int hilolay_init();
+int suse_create();
+int suse_schedule_next();
+int suse_wait();
+int suse_signal();
+void suse_join();
 
 
 #endif /* HILOLAY_H_ */

@@ -5,40 +5,87 @@ const int MULTIPROGRAMACION = 3;
 int programasEnMemoria = 0;
 int listen_port = 20000;
 
-t_queue* colaNuevos; //Se inicializa en main
-t_list* listaDeProgramas; //Se inicializa en main
+t_list* listaNuevos; //Se inicializa en main
+t_list* listaDeBloqueados;//Se inicializa en main
+//t_list* listaEnEjecucion;
+t_log* log;
+
+t_list* listaDeProgramas; //Se inicializa en main TIENE ALGUNA UTILIDAD??
 
 
-//HELP voy a necesitar una cola de espera, y un productor consumidor, como puede haber muchos hilos ejecutando esto
-//como hago los semaforos?
+//AUXILIARES PARA BUSQUEDA
+int auxiliarParaId = -1;
+int auxiliarParaIdPadre;
 
+
+bool esHiloPorId(void* unHilo) {
+	t_hilo* casteo = (t_hilo*) unHilo;
+	return (casteo->id == auxiliarParaId) && (casteo->idPadre->id == auxiliarParaIdPadre);
+}
 
 void suseCreate(int threadId, t_programa* padreId) {
 	t_hilo* nuevo = malloc(sizeof(t_hilo));
 	nuevo->id = threadId;
 	nuevo->idPadre = padreId;
 	nuevo->estado = NEW;
-	nuevo->semaforos = NULL;
+	//nuevo->semaforos = NULL;
 
-	queue_push(colaNuevos, nuevo);
+	list_add(listaNuevos, nuevo);
 }
 
 void suseScheduleNext(t_programa* programa) {
-	if(queue_size(programa->colaDeReady) > 0) {
-		t_hilo* hilo = queue_pop(programa->colaDeReady);
+	if(list_size(programa->listaDeReady) > 0) {
+		t_hilo* hilo = list_remove(programa->listaDeReady, 0);
 		send_message(programa->id, SUSE_SCHEDULE_NEXT, &hilo->id, sizeof(int));
+		programasEnMemoria --;
 	}
 	else
 		send_message(programa->id, ERROR_MESSAGE, NULL, 0);
 }
 
 void cargarHilosAReady() {
-	while(programasEnMemoria < MULTIPROGRAMACION && queue_size(colaNuevos) != 0) {
-		t_hilo* hilo = queue_pop(colaNuevos);
-		queue_push(hilo->idPadre->colaDeReady, hilo);
+	while(programasEnMemoria < MULTIPROGRAMACION && list_size(listaNuevos) != 0) {
+		t_hilo* hilo = list_remove(listaNuevos, 0);
+		list_add(hilo->idPadre->listaDeReady, hilo);
+		programasEnMemoria ++;
 	}
 }
 
+void suseWait(int threadId, t_programa* padre) {
+	//Si el programa está en ready, al llevarlo a la lista de bloqueados hay que disminuir "programasEnMemoria"
+	auxiliarParaId = threadId;
+	auxiliarParaIdPadre = padre->id;
+	t_hilo* buscado = NULL;
+	if((buscado = list_remove_by_condition(listaNuevos, esHiloPorId)) != NULL) {
+		list_add(listaDeBloqueados, buscado);
+		log_info(log, "Se movió al hilo %i del programa %i de la cola de nuevos a la de bloqueados", threadId, padre->id);
+
+	}
+	else if((buscado = list_remove_by_condition(padre->listaDeReady, esHiloPorId)) != NULL) {
+		list_add(listaDeBloqueados, buscado);
+		log_info(log, "Se movió al hilo %i del programa %i de la cola de ready a la de bloqueados", threadId, padre->id);
+
+	}
+	else if(padre->enEjecucion->id == threadId) {
+		list_add(listaDeBloqueados, padre->enEjecucion);
+		padre->enEjecucion = NULL;
+		log_info(log, "Se movió el hilo %i del programa %i de 'en ejecución' a la lista de bloqueados");
+		programasEnMemoria --;
+	}
+}
+
+void suseSignal(int threadId, t_programa* padre) {
+	auxiliarParaId = threadId;
+	auxiliarParaIdPadre = padre->id;
+	t_hilo* buscado = list_remove_by_condition(listaDeBloqueados, esHiloPorId);
+	if(buscado == NULL) {
+		log_info(log, "No se encontro el hilo %i en la lista de bloqueados", threadId);
+	}
+	else{
+		list_add(listaNuevos, buscado);
+		log_info(log, "Se removió el hilo %i de la lista de bloqueados y se movió a la cola de nuevos", threadId);
+	}
+}
 
 //void freeHilo(t_hilo* hilo) {
 //	free(hilo->semaforos);
@@ -50,7 +97,7 @@ t_programa* crearPrograma(int id) {
 	t_programa* nuevo = malloc(sizeof(t_programa));
 	nuevo->id = id;
 	nuevo->listaDeHilos = list_create();
-	nuevo->colaDeReady = queue_create();
+	nuevo->listaDeReady = list_create();
 	nuevo->enEjecucion = NULL;
 
 	return nuevo;
@@ -63,6 +110,17 @@ t_programa* crearPrograma(int id) {
 //	free(programa);
 //}
 
+void sigterm(int sig) {
+	log_info(log, "Se interrumpió la ejecución del proceso");
+	log_destroy(log);
+}
+
+void destruirPrograma(t_programa* programa) {
+	list_clean_and_destroy_elements(programa->listaDeHilos, free);
+	list_clean_and_destroy_elements(programa->listaDeReady, free);
+	free(programa->enEjecucion);
+	free(programa);
+}
 
 void* handler(void* socketConectado) {
 	int socket = *(int*)socketConectado;
@@ -72,7 +130,7 @@ void* handler(void* socketConectado) {
 
 	t_message* bufferLoco;
 
-	while((bufferLoco = recv_message(socket))->head < 7) { // HAY CODIGOS HASTA 5, por eso menor a 6.HAY QUE AGREGAR UNA COLA DE ESPERA
+	while((bufferLoco = recv_message(socket))->head < 7) { // HAY CODIGOS HASTA 5 + Prueba, por eso menor a 7.HAY QUE AGREGAR UNA COLA DE ESPERA
 		printf("Se recibió un mensaje\n");
 		int threadId = *(int*)bufferLoco->content;
 		t_header header = bufferLoco->head;
@@ -86,17 +144,18 @@ void* handler(void* socketConectado) {
 
 			case SUSE_SCHEDULE_NEXT:
 				cargarHilosAReady();
+				log_info(log, "Se ejecutó 'cargarHilosAMemoria' y en total hay %i elementos en la lista", list_size(programa->listaDeReady));
 				suseScheduleNext(programa);
 				printf("Se ejecutó SUSE_SCHEDULE_NEXT\n");
 
 				break;
 
 			case SUSE_WAIT:
-				//suseWait();
+				suseWait(threadId, programa);
 				break;
 
 			case SUSE_SIGNAL:
-				//suseSignal();
+				suseSignal(threadId, programa);
 				break;
 
 			case SUSE_JOIN:
@@ -109,22 +168,28 @@ void* handler(void* socketConectado) {
 				break;
 
 			default:
-				printf("La instruccion no es correcta\n");
+				log_info(log, "La instruccion no es correcta\n");
 				break;
 		}
 
 	}
 
-	printf("Se ha producido un problema de conexión y el hilo programa se dejará de planificar: %i.\n", bufferLoco->head);
-
+	log_info(log, "Se ha producido un problema de conexión y el hilo programa se dejará de planificar: %i.\n", bufferLoco->head);
+	destruirPrograma(programa);
 	free_t_message(bufferLoco);
 	return NULL;
 }
 
 int main() {
+	signal(SIGINT, sigterm);
+	log = log_create("log", "log_suse.txt", true, LOG_LEVEL_DEBUG);
 
 	listaDeProgramas = list_create();
-	colaNuevos = queue_create();
+	listaDeBloqueados = list_create();
+	//listaEnEjecucion = list_create();
+	listaNuevos = list_create();
+
+//	log_info(log, "Se crearon exitosamente las estructuras");
 
 	int socketDelCliente;
 	struct sockaddr direccionCliente;
@@ -136,19 +201,19 @@ int main() {
 
 	while((socketDelCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion))>=0) {
 		pthread_t threadId;
-		printf("Se ha aceptado una conexion: %i\n", socketDelCliente);
+		log_info(log, "Se ha aceptado una conexion: %i\n", socketDelCliente);
 		if((pthread_create(&threadId, NULL, handler, (void*) &socketDelCliente)) < 0) {
-			perror("No se pudo crear el hilo");
+			log_info(log, "No se pudo crear el hilo");
 			return 1;
 		} else {
-			printf("Handler asignado\n");
+			log_info(log, "Handler asignado\n");
 			//pthread_join(threadId, NULL);
 		}
 
 
 	}
 	if(socketDelCliente < 0) {
-		perror("Falló al aceptar conexión");
+		log_info(log, "Falló al aceptar conexión");
 	}
 
 	close(servidor);
