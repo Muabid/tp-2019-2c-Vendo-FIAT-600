@@ -7,7 +7,7 @@
 
 #include "protocol.h"
 
-int send_message(int socket, t_header head, void* content, size_t size){
+int send_message(int socket, t_header head,const void* content, size_t size){
 	t_message* message = create_t_message(head,size,content);
 	int res = send(socket, &(message->size) , sizeof(size_t), 0);
 
@@ -66,7 +66,7 @@ t_message* recv_message(int socket){
 		return no_connection();
 	}
 
-	message->content = malloc(message->size - sizeof(t_header));
+	message->content = calloc(message->size - sizeof(t_header)+1,1);
 	memcpy(&message->head, buffer, sizeof(t_header));
 	memcpy(message->content,buffer + sizeof(t_header),message->size - sizeof(t_header));
 	message->size = message->size - sizeof(t_header);
@@ -94,4 +94,14 @@ t_message* no_connection(){
 
 t_message* error_recv(){
 	return create_t_message(ERROR_RECV,0,NULL);
+}
+
+int send_header(int socket, t_header head){
+	return send(socket,&head,sizeof(t_header),0);
+}
+
+t_header recv_header(int socket){
+	t_header head;
+	int stat = recv(socket,&head,sizeof(t_header),MSG_WAITALL);
+	return stat<0? stat : head;
 }

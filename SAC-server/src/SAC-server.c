@@ -26,7 +26,7 @@
 #include <commons/log.h>
 #include <commons/collections/queue.h>
 #include <signal.h>
-
+#include "aux.h"
 
 void init_semaphores(){
 	pthread_mutex_init(&bitarray_mutex,NULL);
@@ -42,7 +42,11 @@ void sig_term(int sig){
 
 int main(int argc, const char* argv[]) {
 	log = log_create("./log","SERVER",true,LOG_LEVEL_INFO);
-	init_sac_server();
+//	init_sac_server();
+
+//	sac_mknod(1,"DIR/hola");
+//	sac_read(1,"hola",5,0);
+//	sac_read(1,"hola",3,2);
 
 //	create_file_system();
 //	signal(SIGTERM, sig_term);
@@ -102,6 +106,7 @@ void create_file_system() {
 
 void* listen_sac_cli(void* socket){
 	int sac_socket = (int)(socket);
+	char path[71];
 	while(1){
 	t_message* message = recv_message(sac_socket);
 		switch(message->head){
@@ -109,23 +114,29 @@ void* listen_sac_cli(void* socket){
 				send_message(sac_socket,HI_PLEASE_BE_MY_FRIEND,&sac_socket,sizeof(sac_socket));
 				break;
 			case GET_ATTR:
-				sac_getattr(sac_socket,message->content);
+			{
+				fill_path(path,message->content,0);
+				sac_getattr(sac_socket,path);
 				break;
+			}
 			case MKDIR:
-				sac_mkdir(sac_socket,message->content);
+			{
+				fill_path(path,message->content,0);
+				sac_mkdir(sac_socket,path);
 				break;
+			}
 			case RMDIR:
-				sac_rmdir(sac_socket,message->content);
+			{
+				fill_path(path,message->content,0);
+				sac_rmdir(sac_socket,path);
 				break;
+			}
 			case WRITE:
 			{
 				void * aux = message->content;
-				char path[71];
-				memset(path,0,71);
-				memcpy(path,aux,71);
-				int len = strlen(path);
-				path[len]= '\0';
-				aux += sizeof(path);
+				fill_path(path,aux,1);
+				aux +=sizeof(size_t);
+				aux += strlen(path);
 				size_t size;
 				memcpy(&size,aux,sizeof(size_t));
 				aux += sizeof(size_t);
@@ -139,26 +150,28 @@ void* listen_sac_cli(void* socket){
 				break;
 			case MKNODE:
 			{
-				char path[71];
-				memset(path, 0, 71);
-				strcpy(path,message->content);
-				int len = strlen(path);
-				path[len]= '\0';
+				fill_path(path,message->content,0);
 				sac_mknod(sac_socket,path);
 				break;
 			}
 			case READ:
 			{
 				void * aux = message->content;
-				size_t path_size = (aux);
-				aux+=  sizeof(size_t);
-				char* path = malloc(path_size+1);
-				path[path_size] = '\0';
-				aux += path_size;
-				size_t size = (aux);
+				fill_path(path,aux,1);
+				aux +=sizeof(size_t);
+				aux += strlen(path);
+				size_t size;
+				memcpy(&size,aux,sizeof(size_t));
 				aux += sizeof(size_t);
-				off_t offset = (aux);
+				off_t offset;
+				memcpy(&offset,aux,sizeof(off_t));
 				sac_read(sac_socket,path,size,offset);
+				break;
+			}
+			case UNLINK:
+			{
+				fill_path(path,message->content,0);
+				sac_unlink(socket,path);
 				break;
 			}
 			case NO_CONNECTION:

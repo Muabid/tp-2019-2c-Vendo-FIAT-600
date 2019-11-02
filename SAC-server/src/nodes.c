@@ -6,7 +6,7 @@
  */
 #include "nodes.h"
 
-int lastchar(const char* str, char chr){
+int isLastchar(const char* str, char chr){
 	if ( ( str[strlen(str)-1]  == chr) ) return 1;
 	return 0;
 }
@@ -78,7 +78,7 @@ char* get_directory(const char* path) {
 	char* file = get_name(path);
 	char* directory = malloc(strlen(path) + 1);
 	strcpy(directory, path);
-	if (lastchar(path, '/')) {
+	if (isLastchar(path, '/')) {
 		directory[strlen(directory)-1] = '\0';
 	}
 	int i = strlen(directory) - strlen(file);
@@ -99,25 +99,25 @@ int search_first_free_node(){
 
 int search_and_test_first_free_block(){
 	int res = -1;
+	pthread_mutex_lock(&bitarray_mutex);
 	for(int i = 0; i < BITMAP_SIZE_BITS && res== -1; i++){
 		if(bitarray_test_bit(bitmap,i) == 0){
-			pthread_mutex_lock(&bitarray_mutex);
 			bitarray_set_bit(bitmap,i);
-			pthread_mutex_unlock(&bitarray_mutex);
 			res = i;
 		}
 	}
+	pthread_mutex_unlock(&bitarray_mutex);
 	return res;
 }
 
 int free_blocks(){
 	int free_nodes=0;
-
+	pthread_mutex_lock(&bitarray_mutex);
 	for (int i = 0; i < BITMAP_SIZE_BITS; i++){
 		if (bitarray_test_bit(bitmap, i) == 0)
 			free_nodes++;
 	}
-
+	pthread_mutex_unlock(&bitarray_mutex);
 	return free_nodes;
 }
 

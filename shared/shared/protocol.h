@@ -33,6 +33,12 @@ typedef enum{
 	READDIR,
 	MKNODE,
 	READ,
+	WRITE,
+	OK,
+	DIRECTORY_NOT_FOUND,
+	DIR_NAME,
+	FILE_ALREADY_EXISTS,
+	FILE_NOT_FOUND,
 	NO_CONNECTION = 100,
 	ERROR_RECV = 101,
 	HI_PLEASE_BE_MY_FRIEND = 102,
@@ -47,7 +53,7 @@ typedef struct{
 
 t_message* create_t_message(t_header head, size_t size, void* content);
 
-int send_message(int socket, t_header head, void* content, size_t size);
+int send_message(int socket, t_header head,const void* content, size_t size);
 
 t_message* recv_message(int socket);
 
@@ -55,5 +61,9 @@ void free_t_message(t_message* message);
 
 t_message* no_connection();
 t_message* error_recv();
+
+int send_header(int socket, t_header head);
+
+t_header recv_header(int socket);
 
 #endif /* PROTOCOL_H_ */

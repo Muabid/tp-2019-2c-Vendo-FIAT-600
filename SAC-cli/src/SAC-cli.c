@@ -9,11 +9,11 @@
 #include "operations_client.h"
 #include <shared/net.h>
 #include <stdint.h>
+#include <commons/log.h>
 
 //Variable global para la conexión con el SAC-server
 int sock;
-
-
+t_log* log;
 /*
  * Esta es una estructura auxiliar utilizada para almacenar parametros
  * que nosotros le pasemos por linea de comando a la funcion principal
@@ -41,18 +41,13 @@ struct t_runtime_options {
  */
 
 static int do_getattr(const char *path, struct stat *st) {
-	void *buffer = malloc(strlen(path));
 	int32_t size,hardlinks,file_name_len;
 	uint64_t creation_date, modification_date;
 	char* file_name;
 	char status;
 
-	memcpy(buffer, path, strlen(path));
-
-	int operation_response = send_message(sock, GET_ATTR, buffer,
+	int operation_response = send_message(sock, GET_ATTR, path,
 			strlen(path));
-
-	free(buffer);
 
 	if (operation_response >= 0) {
 		t_message* message = recv_message(sock); // Acá me va a responder el server algo,
@@ -79,7 +74,7 @@ static int do_getattr(const char *path, struct stat *st) {
 		memcpy(file_name,content,file_name_len);
 		file_name[file_name_len] = '\0';
 
-		printf("%s | %d | %i | %i | %i | %c",file_name,size,
+		log_info(log,"%s | %d | %i | %i | %i | %c",file_name,size,
 				creation_date,modification_date,hardlinks,status);
 
 		st->st_size = size;
@@ -96,21 +91,15 @@ static int do_getattr(const char *path, struct stat *st) {
 
 		return 0; // 0 for success
 	} else {
-		//Falló. Hacer algo.
-		return 1;
+		return -ENOENT;
 	}
 
 }
 
 static int do_readLink(const char *path, char *buf, size_t len) {
-	void *buffer = malloc(strlen(path) + sizeof(buf));
-	memcpy(buffer, path, strlen(path));
-	memcpy(buffer + strlen(path), buf, sizeof(buf));
 
-	int operation_response = send_message(sock, READ_LINK, buffer,
-			sizeof(buffer));
-
-	free(buffer);
+	int operation_response = send_message(sock, READ_LINK, path,
+			strlen(path));
 
 	if (operation_response >= 0) {
 		t_message* message = recv_message(sock);
@@ -142,31 +131,37 @@ static int do_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
 
 static int do_read(const char *path, char *buf, size_t size, off_t off,
 		struct fuse_file_info *fi){
-	void *buffer = malloc(strlen(path) + sizeof(buf) + sizeof(size));
-		memcpy(buffer, path, strlen(path));
-		memcpy(buffer + strlen(path), buf, sizeof(buf));
-		memcpy(buffer + strlen(path) + sizeof(buf), size, sizeof(size));
+	int res = 0;
+	size_t len = strlen(path);
+	size_t size_cont = sizeof(size_t) + len + sizeof(off) + sizeof(size);
 
-		int operation_response = send_message(sock, READ, buffer, sizeof(buffer));
+	void * cont = malloc(size_cont);
+	void*aux = cont;
+	memcpy(aux,&len,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,path,strlen(path));
+	aux+=strlen(path);
+	memcpy(aux,&size,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,&off,sizeof(off_t));
 
-		free(buffer);
+	int operation_response = send_message(sock, READ, cont,size_cont);
 
-		if (operation_response >= 0) {
-			t_message *message = recv_message(sock);
-			return 0;
-		} else {
-			return 1;
-		}
+	free(cont);
+
+	if(stat == OK){
+		res = size;
+	}else if(stat == FILE_NOT_FOUND){
+		res = -ENOENT;
+	}
+
+	return res;
 }
 
 static int do_unlink(const char *path) {
-	void *buffer = malloc(strlen(path));
-	memcpy(buffer, path, strlen(path));
 
-	int operation_response = send_message(sock, UNLINK, buffer,
-			sizeof(buffer));
-
-	free(buffer);
+	int operation_response = send_message(sock, UNLINK, path,
+			strlen(path));
 
 	if (operation_response >= 0) {
 		t_message *message = recv_message(sock);
@@ -177,13 +172,9 @@ static int do_unlink(const char *path) {
 }
 
 static int do_mkdir(const char *path, mode_t mode) {
-	void *buffer = malloc(strlen(path) + sizeof(mode));
-	memcpy(buffer, path, strlen(path));
 
-	int operation_response = send_message(sock, MKDIR, buffer,
-			sizeof(buffer));
-
-	free(buffer);
+	int operation_response = send_message(sock, MKDIR, path,
+			strlen(path));
 
 	if (operation_response >= 0) {
 		t_message *message = recv_message(sock);
@@ -194,13 +185,9 @@ static int do_mkdir(const char *path, mode_t mode) {
 }
 
 static int do_opendir(const char *path, struct fuse_file_info *fi) {
-	void *buffer = malloc(strlen(path));
-	memcpy(buffer, path, strlen(path));
 
-	int operation_response = send_message(sock, OPENDIR, buffer,
-			sizeof(buffer));
-
-	free(buffer);
+	int operation_response = send_message(sock, OPENDIR, path,
+			strlen(path));
 
 	if (operation_response >= 0) {
 		t_message *message = recv_message(sock);
@@ -211,13 +198,9 @@ static int do_opendir(const char *path, struct fuse_file_info *fi) {
 }
 
 static int do_rmdir(const char *path) {
-	void *buffer = malloc(strlen(path));
-	memcpy(buffer, path, strlen(path));
 
-	int operation_response = send_message(sock, RMDIR, buffer,
-			sizeof(buffer));
-
-	free(buffer);
+	int operation_response = send_message(sock, RMDIR, path,
+			strlen(path));
 
 	if (operation_response >= 0) {
 		t_message *message = recv_message(sock);
@@ -230,9 +213,8 @@ static int do_rmdir(const char *path) {
 static int do_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 		off_t off, struct fuse_file_info *fi) {
 
-	void *buffer = malloc(strlen(path) + sizeof(buf));
+	void *buffer = malloc(strlen(path));
 	memcpy(buffer, path, strlen(path));
-	memcpy(buffer + strlen(path), buf, sizeof(buf));
 
 	int operation_response = send_message(sock, READDIR, buffer,
 			sizeof(buffer));
@@ -249,14 +231,9 @@ static int do_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 }
 
 static int do_mknod(const char *path, mode_t mode, dev_t rdev) {
-	void *buffer = malloc(strlen(path) + sizeof(mode));
-	memcpy(buffer, path, strlen(path));
-	memcpy(buffer + strlen(path), mode, sizeof(mode));
 
-	int operation_response = send_message(sock, MKNODE, buffer,
-			sizeof(buffer));
-
-	free(buffer);
+	int operation_response = send_message(sock, MKNODE, path,
+			strlen(path));
 
 	if (operation_response >= 0) {
 		t_message *message = recv_message(sock);
@@ -266,6 +243,40 @@ static int do_mknod(const char *path, mode_t mode, dev_t rdev) {
 	}
 
 }
+
+static int do_write(const char *path, const char *buf, size_t size, off_t off, struct fuse_file_info *fi) {
+	int res = 0;
+
+	size_t len = strlen(path);
+
+	size_t size_cont = sizeof(size_t) + len + sizeof(off) + sizeof(size)
+						+ strlen(buf);
+
+	void * cont = malloc(size_cont);
+	void*aux = cont;
+	memcpy(aux,&len,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,path,len);
+	aux+=strlen(path);
+	memcpy(aux,&size,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,&off,sizeof(off_t));
+	aux+=sizeof(off_t);
+	memcpy(aux,buf,strlen(buf));
+	send_message(sock,WRITE,cont,size_cont);
+	free(cont);
+
+	t_header stat = recv_header(sock);
+
+	if(stat == OK){
+		res = size;
+	}else if(stat == FILE_NOT_FOUND){
+		res = -ENOENT;
+	}
+
+	return res;
+}
+
 
 
 
@@ -282,9 +293,9 @@ static struct fuse_operations do_operations = {
 		.opendir = do_opendir,
 		.rmdir = do_rmdir,
 		.readdir = do_readdir,
-		.mknod = do_mknod
+		.mknod = do_mknod,
+		.write= do_write
 };
-
 
 
 
@@ -319,6 +330,7 @@ static struct fuse_opt fuse_options[] = {
 //Falta entender dónde se crearían los hilos para las distintas requests de FUSE e implementarlo.
 
 int main(int argc, const char* argv[]) {
+	log = log_create("LOG","SAC",true,LOG_LEVEL_INFO);
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
 
 	// Limpio la estructura que va a contener los parametros

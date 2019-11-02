@@ -37,6 +37,7 @@ static int do_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t
 static int do_mknod(const char *path, mode_t mode, dev_t rdev);
 static int do_setxattr(const char *path, const char *name, const char *value, size_t size, int flags);
 static int do_access(const char* path, int mask);
+static int do_write(const char *path, const char *buf, size_t size, off_t off, struct fuse_file_info *fi);
 
 
 /*

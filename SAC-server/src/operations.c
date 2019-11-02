@@ -99,8 +99,19 @@ int sac_mknod(int sock, const char* path){
 //	memset(data,'\0', BLOCK_SIZE);
 //	free(file_name);
 //	free(directory);
+
 	log_info(log,"Creando %s",path);
-	FILE * f = fopen(path, "wb");
+	FILE * f = fopen(path, "r+");
+	t_header head;
+	if(f == NULL){
+		f = fopen(path,"w+");
+		head = OK;
+		log_info(log,"Archivo %s creado");
+	}else{
+		log_info(log,"Archivo %s ya existe");
+		head = FILE_ALREADY_EXISTS;
+	}
+	send_header(sock,head);
 	fclose(f);
 	return 0;
 
@@ -111,8 +122,8 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	fseek(f,offset,SEEK_SET);
 	fwrite(data,size,sizeof(char),f);
 	fclose(f);
+	log_info(log,"Se escribio %s en el archivo %s.",data,path);
 	send_message(socket,OK,"a",1);
-	log_info(log,"Archivo %s creado.",path);
 	return 0;
 }
 int sac_unlink(int socket,const char* path){
@@ -121,6 +132,7 @@ int sac_unlink(int socket,const char* path){
 	return 0;
 }
 int sac_readdir(int socket,const char* path, off_t offset){
+	log_info(log,"Leyendo %s",path);
 	DIR *dirp;
 	struct dirent *direntp;
 
@@ -130,30 +142,37 @@ int sac_readdir(int socket,const char* path, off_t offset){
 	}
 
 	while ((direntp = readdir(dirp)) != NULL) {
+		log_info(log,"Leyendo %s",direntp->d_name);
 		send_message(socket,DIR_NAME,direntp->d_name,strlen(direntp->d_name));
 	}
 	log_info(log,"Directorio %s leído",path);
-	send_message(socket,OK,NULL,0);
+	send_header(socket,OK);
 	return 0;
 }
 
 int sac_read(int socket,const char* path, size_t size, off_t offset){
-	char* buff = malloc(size);
-	FILE * f = fopen(path, "wb");
+	log_info(log,"Leyendo archivo: %s - size: %i - offset: %i",path,size,offset);
+	char* buff = malloc(size + 1);
+	FILE * f = fopen(path, "r+");
 	fseek(f,offset,SEEK_SET);
 	fread(buff,size,sizeof(char),f);
-	log_info(log,"Archivo %s leído. %i bytes leídos",path,size);
+	buff[size] = '\0';
+	log_info(log,"Archivo %s leído - Contenido: %s - Bytes leídos %i",path,buff,size);
+	send_message(socket,OK,buff,size);
 	return 0;
 }
 
 int sac_mkdir(int socket,const char* path){
 	struct stat st = {0};
-
+	t_header res = OK;
 	if (stat(path, &st) == -1) {
 	    mkdir(path, 0700);
+	    log_info(log,"Directorio %s creado.",path);
+	}else{
+		res = FILE_ALREADY_EXISTS;
+		log_info(log,"Directorio %s ya existe.",path);
 	}
-	log_info(log,"Directorio %s creado.",path);
-	send_message(socket,OK,NULL,0);
+	send_header(socket,res);
 	return 0;
 }
 
