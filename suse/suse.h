@@ -4,10 +4,12 @@
 #include <commons/config.h>
 #include <commons/collections/list.h>
 #include <commons/collections/queue.h>
+#include <commons/log.h>
 #include "net.h"
 #include "protocol.h"
 #include <semaphore.h>
 #include <string.h>
+#include <signal.h>
 
 #ifndef SUSE_H_
 #define SUSE_H_
@@ -28,10 +30,10 @@ typedef enum {
   EXIT = 5
 }t_estado;
 
-typedef struct {
-  int id;
-  int estado;
-}__attribute__((packed)) t_semaforo;
+//typedef struct {
+//  int id;
+//  int estado;
+//}__attribute__((packed)) t_semaforo;
 
 struct t_hilo {
   int id;
@@ -41,13 +43,13 @@ struct t_hilo {
   //int tiempoDeEjecucion;
   //int tiempoDeEspera;
   //int tiempoDeCpu;
-  t_list* semaforos;
+  //t_list* semaforos;
 }__attribute__((packed));
 
 struct t_programa {
   int id;
   t_list* listaDeHilos ;
-  t_queue* colaDeReady;
+  t_list* listaDeReady;
   t_hilo* enEjecucion;
 }__attribute__((packed));
 
