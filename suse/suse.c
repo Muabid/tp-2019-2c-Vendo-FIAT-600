@@ -61,17 +61,17 @@ void suseWait(int threadId, t_programa* padre) {
 		log_info(log, "Se movió al hilo %i del programa %i de la cola de nuevos a la de bloqueados", threadId, padre->id);
 
 	}
-	else if((buscado = list_remove_by_condition(padre->listaDeReady, esHiloPorId)) != NULL) {
-		list_add(listaDeBloqueados, buscado);
-		log_info(log, "Se movió al hilo %i del programa %i de la cola de ready a la de bloqueados", threadId, padre->id);
-
-	}
-	else if(padre->enEjecucion->id == threadId) {
-		list_add(listaDeBloqueados, padre->enEjecucion);
-		padre->enEjecucion = NULL;
-		log_info(log, "Se movió el hilo %i del programa %i de 'en ejecución' a la lista de bloqueados");
-		programasEnMemoria --;
-	}
+//	else if((buscado = list_remove_by_condition(padre->listaDeReady, esHiloPorId)) != NULL) {
+//		list_add(listaDeBloqueados, buscado);
+//		log_info(log, "Se movió al hilo %i del programa %i de la cola de ready a la de bloqueados", threadId, padre->id);
+//
+//	}
+//	else if(padre->enEjecucion->id == threadId) {
+//		list_add(listaDeBloqueados, padre->enEjecucion);
+//		padre->enEjecucion = NULL;
+//		log_info(log, "Se movió el hilo %i del programa %i de 'en ejecución' a la lista de bloqueados");
+//		programasEnMemoria --;
+//	}
 }
 
 void suseSignal(int threadId, t_programa* padre) {
@@ -177,6 +177,7 @@ void* handler(void* socketConectado) {
 	log_info(log, "Se ha producido un problema de conexión y el hilo programa se dejará de planificar: %i.\n", bufferLoco->head);
 	destruirPrograma(programa);
 	free_t_message(bufferLoco);
+	//close(servidor);
 	return NULL;
 }
 
@@ -217,4 +218,6 @@ int main() {
 	}
 
 	close(servidor);
+
+	return 0;
 }

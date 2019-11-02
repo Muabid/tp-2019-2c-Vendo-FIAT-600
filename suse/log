@@ -169,3 +169,60 @@
 
 [INFO] 23:08:55:379 log_suse.txt/(27540:27548): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
 
+[INFO] 00:24:39:726 log_suse.txt/(29167:29167): Se ha aceptado una conexion: 5
+
+[INFO] 00:24:39:729 log_suse.txt/(29167:29167): Handler asignado
+
+[INFO] 00:24:40:264 log_suse.txt/(29167:29177): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:26:18:938 log_suse.txt/(29167:29167): Se ha aceptado una conexion: 6
+
+[INFO] 00:26:18:938 log_suse.txt/(29167:29167): Handler asignado
+
+[INFO] 00:26:18:943 log_suse.txt/(29167:29307): Se movió al hilo 1 del programa 6 de la cola de nuevos a la de bloqueados
+[INFO] 00:26:21:940 log_suse.txt/(29167:29307): Se ejecutó 'cargarHilosAMemoria' y en total hay 3 elementos en la lista
+[INFO] 00:26:21:978 log_suse.txt/(29167:29307): Se ejecutó 'cargarHilosAMemoria' y en total hay 3 elementos en la lista
+[INFO] 00:26:22:58 log_suse.txt/(29167:29307): Se ejecutó 'cargarHilosAMemoria' y en total hay 3 elementos en la lista
+[INFO] 00:26:27:99 log_suse.txt/(29167:29307): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:26:32:258 log_suse.txt/(29167:29167): Se ha aceptado una conexion: 5
+
+[INFO] 00:26:32:258 log_suse.txt/(29167:29167): Handler asignado
+
+[INFO] 00:26:32:259 log_suse.txt/(29167:29316): Se movió al hilo 1 del programa 5 de la cola de nuevos a la de bloqueados
+[INFO] 00:26:35:259 log_suse.txt/(29167:29316): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:26:35:298 log_suse.txt/(29167:29316): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:26:35:378 log_suse.txt/(29167:29316): Se ejecutó 'cargarHilosAMemoria' y en total hay 0 elementos en la lista
+[INFO] 00:26:40:419 log_suse.txt/(29167:29316): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:26:51:402 log_suse.txt/(29167:29167): Se ha aceptado una conexion: 6
+
+[INFO] 00:26:51:402 log_suse.txt/(29167:29167): Handler asignado
+
+[INFO] 00:26:51:402 log_suse.txt/(29167:29320): Se movió al hilo 1 del programa 6 de la cola de nuevos a la de bloqueados
+[INFO] 00:26:54:403 log_suse.txt/(29167:29320): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:26:54:442 log_suse.txt/(29167:29320): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:26:54:522 log_suse.txt/(29167:29320): Se ejecutó 'cargarHilosAMemoria' y en total hay 0 elementos en la lista
+[INFO] 00:26:59:565 log_suse.txt/(29167:29320): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:26:59:576 log_suse.txt/(29167:29167): Se ha aceptado una conexion: 5
+
+[INFO] 00:26:59:576 log_suse.txt/(29167:29167): Handler asignado
+
+[INFO] 00:26:59:592 log_suse.txt/(29167:29327): Se movió al hilo 1 del programa 5 de la cola de nuevos a la de bloqueados
+[INFO] 00:27:02:577 log_suse.txt/(29167:29327): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:27:02:618 log_suse.txt/(29167:29327): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:27:02:698 log_suse.txt/(29167:29327): Se ejecutó 'cargarHilosAMemoria' y en total hay 0 elementos en la lista
+[INFO] 00:27:07:739 log_suse.txt/(29167:29327): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:27:24:975 log_suse.txt/(29167:29167): Se ha aceptado una conexion: 6
+
+[INFO] 00:27:24:976 log_suse.txt/(29167:29167): Handler asignado
+
+[INFO] 00:27:24:976 log_suse.txt/(29167:29384): Se movió al hilo 1 del programa 6 de la cola de nuevos a la de bloqueados
+[INFO] 00:27:27:977 log_suse.txt/(29167:29384): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:27:28:18 log_suse.txt/(29167:29384): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:27:28:98 log_suse.txt/(29167:29384): Se removió el hilo 1 de la lista de bloqueados y se movió a la cola de nuevos
+[INFO] 00:27:28:99 log_suse.txt/(29167:29384): Se ejecutó 'cargarHilosAMemoria' y en total hay 1 elementos en la lista
+[INFO] 00:27:33:139 log_suse.txt/(29167:29384): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
