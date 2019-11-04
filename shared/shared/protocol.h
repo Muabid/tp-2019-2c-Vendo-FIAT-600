@@ -9,6 +9,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <errno.h>
 
 #ifndef PROTOCOL_H_
 #define PROTOCOL_H_
@@ -35,10 +36,9 @@ typedef enum{
 	READ,
 	WRITE,
 	OK,
-	DIRECTORY_NOT_FOUND,
+	FILE_NAME,
 	DIR_NAME,
-	FILE_ALREADY_EXISTS,
-	FILE_NOT_FOUND,
+	ERROR,
 	NO_CONNECTION = 100,
 	ERROR_RECV = 101,
 	HI_PLEASE_BE_MY_FRIEND = 102,
@@ -59,11 +59,10 @@ t_message* recv_message(int socket);
 
 void free_t_message(t_message* message);
 
-t_message* no_connection();
-t_message* error_recv();
+t_message* error(int res);
 
-int send_header(int socket, t_header head);
 
-t_header recv_header(int socket);
+int send_status(int sock,t_header head, int status);
 
+int get_status(t_message* message);
 #endif /* PROTOCOL_H_ */
