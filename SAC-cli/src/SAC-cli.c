@@ -12,8 +12,8 @@
 #include <commons/log.h>
 
 //Variable global para la conexión con el SAC-server
-int sock;
-t_log* log;
+static int sock;
+static t_log* log;
 /*
  * Esta es una estructura auxiliar utilizada para almacenar parametros
  * que nosotros le pasemos por linea de comando a la funcion principal
@@ -24,14 +24,12 @@ struct t_runtime_options {
 } runtime_options;
 
 
-
 /*
  * Esta Macro sirve para definir nuestros propios parametros que queremos que
  * FUSE interprete. Esta va a ser utilizada mas abajo para completar el campos
  * welcome_msg de la variable runtime_options
  */
 #define CUSTOM_FUSE_OPT_KEY(t, p, v) { t, offsetof(struct t_runtime_options, p), v }
-
 
 
 /*
@@ -41,97 +39,98 @@ struct t_runtime_options {
  */
 
 static int do_getattr(const char *path, struct stat *st) {
+	memset(st, 0, sizeof(struct stat));
 	int32_t size,hardlinks,file_name_len;
 	uint64_t creation_date, modification_date;
 	char* file_name;
 	char status;
-
-	int operation_response = send_message(sock, GET_ATTR, path,
+	int res = send_message(sock, GET_ATTR, path,
 			strlen(path));
 
-	if (operation_response >= 0) {
+	if (res >= 0) {
 		t_message* message = recv_message(sock); // Acá me va a responder el server algo,
-		void* content = message->content;
-		memcpy(&size,content,sizeof(int32_t));
-		content = content + sizeof(int32_t);
+		if(message->head == OK){
+			void* content = message->content;
+			memcpy(&size,content,sizeof(int32_t));
+			content+=sizeof(int32_t);
 
-		memcpy(&creation_date,content,sizeof(int32_t));
-		content = content + sizeof(uint64_t);
+			memcpy(&creation_date,content,sizeof(int32_t));
+			content+=sizeof(uint64_t);
 
-		memcpy(&modification_date,content, sizeof(uint64_t));
-		content = content + sizeof(uint64_t);
+			memcpy(&modification_date,content, sizeof(uint64_t));
+			content+=sizeof(uint64_t);
 
-		memcpy(&status,content,sizeof(char));
-		content = content + sizeof(char);
+			memcpy(&status,content,sizeof(char));
+			content+=sizeof(char);
 
-		memcpy(&hardlinks,content,sizeof(int32_t));
-		content += sizeof(int32_t);
+			memcpy(&hardlinks,content,sizeof(int32_t));
+			content+=sizeof(int32_t);
 
-		memcpy(&file_name_len,content,sizeof(int32_t));
-		content += sizeof(int32_t);
-		file_name = malloc(file_name_len + 1);
+			memcpy(&file_name_len,content,sizeof(int32_t));
+			content+=sizeof(int32_t);
+			file_name = malloc(file_name_len + 1);
 
-		memcpy(file_name,content,file_name_len);
-		file_name[file_name_len] = '\0';
+			memcpy(file_name,content,file_name_len);
+			file_name[file_name_len] = '\0';
 
-		log_info(log,"%s | %d | %i | %i | %i | %c",file_name,size,
-				creation_date,modification_date,hardlinks,status);
+			log_info(log,"%s | %d | %i | %i | %i | %c",file_name,size,
+					creation_date,modification_date,hardlinks,status);
 
-		st->st_size = size;
-		st->st_nlink = hardlinks;
-		st->st_mtim.tv_sec = modification_date;
-		st->st_ctim.tv_sec = creation_date;
-		st->st_atim.tv_sec = time(NULL);
+			st->st_size = size;
+			st->st_nlink = hardlinks;
+			st->st_mtim.tv_sec = modification_date;
+			st->st_ctim.tv_sec = creation_date;
+			st->st_atim.tv_sec = time(NULL);
 
-		if(status == 2){
-			st->st_mode = S_IFDIR | 0777;
-		} else{
-			st->st_mode = S_IFREG | 0777;
+			if(status == 2){
+				st->st_mode = S_IFDIR | 0777;
+			} else{
+				st->st_mode = S_IFREG | 0777;
+			}
 		}
-
-		return 0; // 0 for success
-	} else {
-		return -ENOENT;
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
 
+	return res;
 }
 
-static int do_readLink(const char *path, char *buf, size_t len) {
-
-	int operation_response = send_message(sock, READ_LINK, path,
+static int do_readLink(const char *path, char *buf, size_t len){
+	int res = send_message(sock, READ_LINK, path,
 			strlen(path));
 
-	if (operation_response >= 0) {
+	if (res >= 0) {
 		t_message* message = recv_message(sock);
-
-		return 0;
-
-	} else {
-		return 1;
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
+
+	return res;
 }
 
 static int do_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
-	void *buffer = malloc(strlen(path) + sizeof(mode));
-	memcpy(buffer, path, strlen(path));
-	memcpy(buffer + strlen(path), mode, sizeof(mode));
+	int res = send_message(sock, MKNODE, path,
+			strlen(path));
 
-	int operation_response = send_message(sock, CREATE, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+	if (res >= 0) {
+		t_message* message = recv_message(sock);
+		res = (int)message->content;
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
+	return res;
 }
 
 static int do_read(const char *path, char *buf, size_t size, off_t off,
 		struct fuse_file_info *fi){
-	int res = 0;
 	size_t len = strlen(path);
 	size_t size_cont = sizeof(size_t) + len + sizeof(off) + sizeof(size);
 
@@ -145,108 +144,132 @@ static int do_read(const char *path, char *buf, size_t size, off_t off,
 	aux+=sizeof(size_t);
 	memcpy(aux,&off,sizeof(off_t));
 
-	int operation_response = send_message(sock, READ, cont,size_cont);
-
+	int res = send_message(sock, READ, cont,size_cont);
 	free(cont);
+	if(res >=0){
+		t_message* message = recv_message(sock);
+		if(message->head == OK){
+			memcpy(buf, message->content, size);
+			res = size;
+		}else{
+			res = get_status(message);
+		}
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
+	}
+	return res;
+}
 
-	if(stat == OK){
-		res = size;
-	}else if(stat == FILE_NOT_FOUND){
-		res = -ENOENT;
+static int do_unlink(const char *path) {
+	int res = send_message(sock, UNLINK, path,
+			strlen(path));
+	if (res >= 0) {
+		t_message *message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
+	}
+	return res;
+}
+
+static int do_mkdir(const char *path, mode_t mode) {
+	int res = send_message(sock, MKDIR, path,
+			strlen(path));
+
+	if (res >= 0) {
+		t_message *message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
 
 	return res;
 }
 
-static int do_unlink(const char *path) {
-
-	int operation_response = send_message(sock, UNLINK, path,
-			strlen(path));
-
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
-	}
-}
-
-static int do_mkdir(const char *path, mode_t mode) {
-
-	int operation_response = send_message(sock, MKDIR, path,
-			strlen(path));
-
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
-	}
-}
-
 static int do_opendir(const char *path, struct fuse_file_info *fi) {
-
-	int operation_response = send_message(sock, OPENDIR, path,
+	int res = send_message(sock, OPENDIR, path,
 			strlen(path));
 
-	if (operation_response >= 0) {
+	if (res >= 0) {
 		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
+	return res;
 }
 
 static int do_rmdir(const char *path) {
-
-	int operation_response = send_message(sock, RMDIR, path,
+	int res = send_message(sock, RMDIR, path,
 			strlen(path));
 
-	if (operation_response >= 0) {
+	if (res >= 0) {
 		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
+
+	return res;
 }
 
 static int do_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 		off_t off, struct fuse_file_info *fi) {
 
-	void *buffer = malloc(strlen(path));
-	memcpy(buffer, path, strlen(path));
+	int res = send_message(sock, READDIR, path,
+			strlen(path));
 
-	int operation_response = send_message(sock, READDIR, buffer,
-			sizeof(buffer));
+	if (res >= 0) {
+		t_message * message = recv_message(sock);
+		t_header header = message->head;
 
-	free(buffer);
-
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+		if(header != ERROR){
+			filler(buf, ".", NULL, 0);
+			filler(buf, "..", NULL, 0);
+			while(header == DIR_NAME){
+				filler(buf,message->content,NULL,0);
+				free_t_message(message);
+				message = recv_message(sock);
+				header = message->head;
+			}
+		}
+		res= get_status(message);
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
+	return res;
 
 }
 
 static int do_mknod(const char *path, mode_t mode, dev_t rdev) {
-
-	int operation_response = send_message(sock, MKNODE, path,
+	int res = send_message(sock, MKNODE, path,
 			strlen(path));
 
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+	if (res >= 0) {
+		t_message* message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
 
+	return res;
 }
 
 static int do_write(const char *path, const char *buf, size_t size, off_t off, struct fuse_file_info *fi) {
-	int res = 0;
-
 	size_t len = strlen(path);
 
 	size_t size_cont = sizeof(size_t) + len + sizeof(off) + sizeof(size)
@@ -263,22 +286,23 @@ static int do_write(const char *path, const char *buf, size_t size, off_t off, s
 	memcpy(aux,&off,sizeof(off_t));
 	aux+=sizeof(off_t);
 	memcpy(aux,buf,strlen(buf));
-	send_message(sock,WRITE,cont,size_cont);
+	int res = send_message(sock,WRITE,cont,size_cont);
 	free(cont);
+	if(res >= 0){
+		t_message* message = recv_message(sock);
+		if(message->head == ERROR)
+			res = get_status(message);
+		else{
+			res = size;
+		}
 
-	t_header stat = recv_header(sock);
-
-	if(stat == OK){
-		res = size;
-	}else if(stat == FILE_NOT_FOUND){
-		res = -ENOENT;
+		free_t_message(message);
+	}else{
+		connect_to_server("127.0.0.1", 8080, NULL);
+		res = -errno;
 	}
-
 	return res;
 }
-
-
-
 
 /*
  * Estructura principal de FUSE
@@ -297,14 +321,10 @@ static struct fuse_operations do_operations = {
 		.write= do_write
 };
 
-
-
-
 enum {
 	KEY_VERSION,
 	KEY_HELP,
 };
-
 
 /*
  * Esta estructura es utilizada para decirle a la biblioteca de FUSE que
@@ -321,36 +341,22 @@ static struct fuse_opt fuse_options[] = {
 		FUSE_OPT_END,
 };
 
-
-
-
-
-
 //Main. Falta entender cómo es que el main no termina y recibe las funciones de FUSE.
 //Falta entender dónde se crearían los hilos para las distintas requests de FUSE e implementarlo.
 
-int main(int argc, const char* argv[]) {
-	log = log_create("LOG","SAC",true,LOG_LEVEL_INFO);
+int main(int argc, char* argv[]) {
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
 
 	// Limpio la estructura que va a contener los parametros
 	memset(&runtime_options, 0, sizeof(struct t_runtime_options));
 
 	// Esta funcion de FUSE lee los parametros recibidos y los intepreta
-		if (fuse_opt_parse(&args, &runtime_options, fuse_options, NULL) == -1){
-			/** error parsing options */
-			perror("Invalid arguments!");
-			return EXIT_FAILURE;
-		}
-
-	sock = connect_to_server("LOCALHOST", 8080, NULL); // Se establece la conexión
-
-	int communication_response = send_message(sock, HI_PLEASE_BE_MY_FRIEND,"HI",2);
-
-	if (communication_response <= 0) { // Comunicación ok.
-		return -1; //ERROR
+	if (fuse_opt_parse(&args, &runtime_options, fuse_options, NULL) == -1){
+		/** error parsing options */
+		perror("Invalid arguments!");
+		return EXIT_FAILURE;
 	}
 
+	sock = connect_to_server("127.0.0.1", 8080, NULL); // Se establece la conexión
 	return fuse_main(args.argc, args.argv, &do_operations, NULL);
-
 }
