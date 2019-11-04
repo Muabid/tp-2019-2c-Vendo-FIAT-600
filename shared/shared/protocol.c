@@ -16,7 +16,14 @@ int send_message(int socket, t_header head,const void* content, size_t size){
 		memcpy(buffer,&message->head,sizeof(t_header));
 		memcpy(buffer + sizeof(t_header),message->content,size);
 		res = send(socket,buffer,message->size,0);
+		if(res <0){
+			perror("ERROR ENVIANDO MENSAJE");
+			res = -errno;
+		}
 		free(buffer);
+	}else{
+		perror("ERROR ENVIANDO MENSAJE");
+		res = -errno;
 	}
 	free_t_message(message);
 
@@ -64,7 +71,7 @@ t_message* recv_message(int socket){
 }
 
 
-t_message* create_t_message(t_header head, size_t size, void* content){
+t_message* create_t_message(t_header head, size_t size,const void* content){
 	t_message* message = (t_message*)malloc(sizeof(t_message));
 	message->head = head;
 	message->content = malloc(size);

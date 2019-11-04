@@ -51,7 +51,7 @@ typedef struct{
 	void* content;
 }t_message;
 
-t_message* create_t_message(t_header head, size_t size, void* content);
+t_message* create_t_message(t_header head, size_t size,const void* content);
 
 int send_message(int socket, t_header head,const void* content, size_t size);
 

@@ -37,7 +37,9 @@ int init_server(int port){
 
 	socket = create_socket();
 	if (socket < 0) {
-		perror("socket");
+		char* error = strerror(errno);
+		perror(error);
+		free(error);
 		return EXIT_FAILURE;
 	}
 
