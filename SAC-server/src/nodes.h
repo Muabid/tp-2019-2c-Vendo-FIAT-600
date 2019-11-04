@@ -28,6 +28,7 @@
 #define BITMAP_SIZE_BITS bitmap->size * 8
 #define BLOCKS_FILESYSTEM FILESYSTEM_SIZE / BLOCK_SIZE
 #define T_FILE 2
+#define T_DIR 1
 
 typedef struct{
 	unsigned char identifier[3];

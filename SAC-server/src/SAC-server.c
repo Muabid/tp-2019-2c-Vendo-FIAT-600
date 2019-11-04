@@ -42,7 +42,7 @@ void sig_term(int sig){
 
 int main(int argc, const char* argv[]) {
 	log = log_create("./log","SERVER",true,LOG_LEVEL_INFO);
-//	init_sac_server();
+	init_sac_server();
 
 //	sac_mknod(1,"DIR/hola");
 //	sac_read(1,"hola",5,0);
@@ -76,6 +76,7 @@ int main(int argc, const char* argv[]) {
 //	munmap(file_system, size_file_system);
 //	close(file_system_descriptor);
 //	init_sac_server();
+	return 0;
 }
 
 void create_file_system() {
@@ -171,9 +172,13 @@ void* listen_sac_cli(void* socket){
 			case UNLINK:
 			{
 				fill_path(path,message->content,0);
-				sac_unlink(socket,path);
+				sac_unlink(sac_socket,path);
 				break;
 			}
+			case READDIR:
+				fill_path(path,message->content,0);
+				sac_readdir(sac_socket,path,0);
+				break;
 			case NO_CONNECTION:
 				log_info(log,"CLIENTE DESCONECTADO");
 				free_t_message(message);
@@ -194,12 +199,16 @@ void init_sac_server(){
 	listener_socket = init_server(8080);
 	log_info(log,"Servidor levantado!!!");
 	struct sockaddr sac_cli;
-	int sac_socket;
 	socklen_t len = sizeof(sac_cli);
-	while((sac_socket = accept(listener_socket,&sac_cli, &len)) >0){
-		log_info(log,"NUEVA CONEXIÓN");
-		pthread_t sac_cli_thread;
-		pthread_create(&sac_cli_thread,NULL,listen_sac_cli,(void*)(sac_socket));
-	}
+	do {
+		int sac_socket = accept(listener_socket,&sac_cli, &len);
+		if(sac_socket>0){
+			log_info(log,"NUEVA CONEXIÓN");
+			pthread_t sac_cli_thread;
+			pthread_create(&sac_cli_thread,NULL,listen_sac_cli,(void*)(sac_socket));
+		}else{
+			log_error(log,"Error aceptando conexiones: %s",strerror(errno));
+		}
+	} while (1);
 }
 

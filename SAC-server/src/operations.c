@@ -13,8 +13,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-
-
+#include <errno.h>
+#include "aux.h"
 int get_size_bytes_gFile(GFile node){
 
 //	return sizeof(GFile) - sizeof(node.file_name) - sizeof(node.blocks_ptr);
@@ -22,13 +22,28 @@ int get_size_bytes_gFile(GFile node){
 }
 
 int sac_getattr(int socket,const char* path){
-	int index_node = search_node(path);
-	if(index_node<0){
-		return -1;
+
+	GFile node;
+//	int index_node = search_node(path);
+//	if(index_node<0){
+//		return -1;
+//	}
+//	GFile node =  nodes_table[index_node];
+//	int32_t links= get_number_links(node,index_node);
+	int32_t links = 1;
+	if (strcmp(path, "/") == 0) {
+		node = create_GFile(2,"/",1,100,time(NULL),time(NULL));
+		links = 2;
+	}else if (strcmp(path, "/hola") == 0) {
+		node = create_GFile(1,"hola",1,100,time(NULL),time(NULL));
+	}else if(strcmp(path, "/chau") == 0){
+		node = create_GFile(1,"chau",1,100,time(NULL),time(NULL));
+	}else{
+		send_status(socket,ERROR,-ENOENT);
+		return 0;
 	}
-	GFile node =  nodes_table[index_node];
-	int32_t links= get_number_links(node,index_node);
-//	GFile node = create_GFile(1,"hola",1,100,time(NULL),time(NULL));
+
+
 	size_t size = get_size_bytes_gFile(node);
 
 	log_info(log,"%s | %d | %i | %i | %i | %i",node.file_name,node.size,
@@ -46,7 +61,7 @@ int sac_getattr(int socket,const char* path){
 	buf += sizeof(char);
 	memcpy(buf,&links,sizeof(int32_t));
 	buf = aux;
-	send_message(socket,GET_ATTR,buf,size);
+	send_message(socket,OK,buf,size);
 	free(buf);
 	return 0;
 }
@@ -100,19 +115,19 @@ int sac_mknod(int sock, const char* path){
 //	free(file_name);
 //	free(directory);
 
-	log_info(log,"Creando %s",path);
-	FILE * f = fopen(path, "r+");
-	t_header head;
-	if(f == NULL){
-		f = fopen(path,"w+");
-		head = OK;
-		log_info(log,"Archivo %s creado");
-	}else{
-		log_info(log,"Archivo %s ya existe");
-		head = FILE_ALREADY_EXISTS;
-	}
-	send_header(sock,head);
-	fclose(f);
+//	log_info(log,"Creando %s",path);
+//	FILE * f = fopen(path, "r+");
+//	t_header head;
+//	if(f == NULL){
+//		f = fopen(path,"w+");
+//		head = OK;
+//		log_info(log,"Archivo %s creado");
+//	}else{
+//		log_info(log,"Archivo %s ya existe");
+//		head = FILE_ALREADY_EXISTS;
+//	}
+//	send_header(sock,head);
+//	fclose(f);
 	return 0;
 
 }
@@ -123,56 +138,81 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	fwrite(data,size,sizeof(char),f);
 	fclose(f);
 	log_info(log,"Se escribio %s en el archivo %s.",data,path);
-	send_message(socket,OK,"a",1);
+	send_status(socket,OK,size);
 	return 0;
 }
 int sac_unlink(int socket,const char* path){
 	remove(path);
-	send_message(socket,OK,NULL,0);
+	send_status(socket,OK,0);
 	return 0;
 }
 int sac_readdir(int socket,const char* path, off_t offset){
 	log_info(log,"Leyendo %s",path);
-	DIR *dirp;
-	struct dirent *direntp;
+//	DIR *dirp;
+//	struct dirent *direntp;
+//
+//	dirp = opendir(path);
+//	if (dirp == NULL){
+//		send_message(socket,DIRECTORY_NOT_FOUND,NULL,0);
+//	}
+//
+//	while ((direntp = readdir(dirp)) != NULL) {
+//		log_info(log,"Leyendo %s",direntp->d_name);
+//		send_message(socket,DIR_NAME,direntp->d_name,strlen(direntp->d_name));
+//	}
 
-	dirp = opendir(path);
-	if (dirp == NULL){
-		send_message(socket,DIRECTORY_NOT_FOUND,NULL,0);
-	}
-
-	while ((direntp = readdir(dirp)) != NULL) {
-		log_info(log,"Leyendo %s",direntp->d_name);
-		send_message(socket,DIR_NAME,direntp->d_name,strlen(direntp->d_name));
-	}
+//	send_header(socket,OK);
+//	int nodo = search_node(path), res = 0;
+//	GFile *node;
+//
+//	if (nodo == -1){
+//		send_status(socket,ERROR,-ENOENT);
+//		return -1;
+//	}
+//
+//	node = nodes_table;
+//
+//	for (int i = 0; i < BLOCKS_NODE;  (i++)){
+//		if ((nodo==(node->root)) & (((node->status) == T_DIR) | ((node->status) == T_FILE))){
+//			char file[71];
+//			fill_path(file,(node[0]).file_name,0);
+//			send_message(socket,DIR_NAME,file,strlen(file));
+//		}
+//		node++;
+//	}
+	send_message(socket,DIR_NAME,"hola",4);
+	send_message(socket,DIR_NAME,"chau",4);
+	send_status(socket,OK,0);
 	log_info(log,"Directorio %s leído",path);
-	send_header(socket,OK);
 	return 0;
 }
 
 int sac_read(int socket,const char* path, size_t size, off_t offset){
-	log_info(log,"Leyendo archivo: %s - size: %i - offset: %i",path,size,offset);
-	char* buff = malloc(size + 1);
-	FILE * f = fopen(path, "r+");
-	fseek(f,offset,SEEK_SET);
-	fread(buff,size,sizeof(char),f);
-	buff[size] = '\0';
-	log_info(log,"Archivo %s leído - Contenido: %s - Bytes leídos %i",path,buff,size);
-	send_message(socket,OK,buff,size);
+//	log_info(log,"Leyendo archivo: %s - size: %i - offset: %i",path,size,offset);
+//	char* buff = malloc(size + 1);
+//	FILE * f = fopen(path, "r+");
+//	fseek(f,offset,SEEK_SET);
+//	fread(buff,size,sizeof(char),f);
+//	buff[size] = '\0';
+//	log_info(log,"Archivo %s leído - Contenido: %s - Bytes leídos %i",path,buff,size);
+//	send_message(socket,OK,buff,size);
+//	return 0;
+
+	send_message(socket,OK,"HOLA",4);
 	return 0;
 }
 
 int sac_mkdir(int socket,const char* path){
-	struct stat st = {0};
-	t_header res = OK;
-	if (stat(path, &st) == -1) {
-	    mkdir(path, 0700);
-	    log_info(log,"Directorio %s creado.",path);
-	}else{
-		res = FILE_ALREADY_EXISTS;
-		log_info(log,"Directorio %s ya existe.",path);
-	}
-	send_header(socket,res);
+//	struct stat st = {0};
+//	t_header res = OK;
+//	if (stat(path, &st) == -1) {
+//	    mkdir(path, 0700);
+//	    log_info(log,"Directorio %s creado.",path);
+//	}else{
+//		res = FILE_ALREADY_EXISTS;
+//		log_info(log,"Directorio %s ya existe.",path);
+//	}
+//	send_header(socket,res);
 	return 0;
 }
 
