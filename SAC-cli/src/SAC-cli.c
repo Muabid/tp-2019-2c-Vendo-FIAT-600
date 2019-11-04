@@ -152,8 +152,13 @@ static int do_read(const char *path, char *buf, size_t size, off_t off,
 	if(op_res >=0){
 		t_message* message = recv_message(sock);
 		if(message->head == OK){
-			memcpy(buf, message->content, size);
-			res = size;
+			char* data = malloc(message->size+1);
+			strcpy(data,message->content);
+			strcat(data,"\0");
+			log_info(log,"Leido: %s - size: %i",data,message->size);
+			memcpy(buf, data, strlen(data));
+			free(data);
+			res = message->size;
 		}else{
 			res = get_status(message);
 		}
