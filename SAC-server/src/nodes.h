@@ -25,10 +25,14 @@
 #define BLOCKS_TOTAL FILESYSTEM_SIZE/BLOCK_SIZE
 #define BLOCKS_BITMAP gHeader.bit_map_size
 #define BLOCKS_DATA BLOCKS_TOTAL -1 -BLOCKS_BITMAP - 1024
-#define BITMAP_SIZE_BITS bitmap->size * 8
+#define BITMAP_SIZE_BITS BITMAP_SIZE_BYTES * 8
+#define BITMAP_SIZE_BYTES size_file_system/BLOCK_SIZE/8
 #define BLOCKS_FILESYSTEM FILESYSTEM_SIZE / BLOCK_SIZE
-#define T_FILE 2
-#define T_DIR 1
+#define T_FILE 1
+#define T_DIR 2
+#define BLKINDIRECT 1000
+
+typedef uint32_t ptrGBloque;
 
 typedef struct{
 	unsigned char identifier[3];
@@ -39,18 +43,18 @@ typedef struct{
 }GHeader;
 
 typedef struct{
-	unsigned char status;
-	char file_name[71];
+	uint8_t status;
+	unsigned char file_name[71];
 	uint32_t root;
 	uint32_t size;
 	uint64_t creation_date;
 	uint64_t modification_date;
-	int32_t blocks_ptr[1000];
+	ptrGBloque blocks_ptr[BLKINDIRECT];
 }GFile ;
 
 
 typedef struct{
-	char data[4096];
+	unsigned char data[4096];
 }t_block;
 
 t_bitarray* bitmap;
@@ -74,7 +78,7 @@ GFile read_GFile(void* cachoOfMemory);
 
 int search_node(const char* path);
 
-GHeader* file_system;
+t_block* file_system;
 
 char* get_name(const char* path);
 char* get_directory(const char* path);

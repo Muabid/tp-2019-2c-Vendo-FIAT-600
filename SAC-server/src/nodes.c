@@ -38,21 +38,22 @@ GHeader create_sac_header(char identifier[3], int32_t version,
 int search_node(const char* path) {
 	if (!strcmp(path, "/"))
 		return 0;
-	int res;
 	char* name = get_name(path);
 	char* directory = get_directory(path);
-
-	int root = search_node(directory);
+	int res, root;
+	res = root = search_node(directory);
 	int index;
-	for (index = 1;
-			(nodes_table[index].root != root
-					|| strcmp(nodes_table[index].file_name, name) != 0)
-					&& index < BLOCKS_NODE; index++);
+	if(res>=0){
+		for (index = 0;
+				(nodes_table[index].root != root
+						|| strcmp(nodes_table[index].file_name, name) != 0)
+							&& index < BLOCKS_NODE; index++);
 
-	if (index >= BLOCKS_NODE)
-		res = -1;
-	else {
-		res = index;
+		if (index >= BLOCKS_NODE)
+			res = -1;
+		else {
+			res = index;
+		}
 	}
 
 	free(name);
@@ -99,14 +100,15 @@ int search_first_free_node(){
 
 int search_and_test_first_free_block(){
 	int res = -1;
-	pthread_mutex_lock(&bitarray_mutex);
+//	pthread_mutex_lock(&bitarray_mutex);
 	for(int i = 0; i < BITMAP_SIZE_BITS && res== -1; i++){
 		if(bitarray_test_bit(bitmap,i) == 0){
 			bitarray_set_bit(bitmap,i);
 			res = i;
 		}
 	}
-	pthread_mutex_unlock(&bitarray_mutex);
+	log_info(log,"Se reservo el bloque %i",res);
+//	pthread_mutex_unlock(&bitarray_mutex);
 	return res;
 }
 
