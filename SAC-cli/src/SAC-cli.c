@@ -129,7 +129,7 @@ static int do_readLink(const char *path, char *buf, size_t len){
 
 static int do_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
 	int res=0;
-	int op_res = send_message(sock, MKNODE, path,
+	int op_res = send_message(sock, CREATE, path,
 			strlen(path));
 
 	if (op_res >= 0) {
@@ -198,7 +198,6 @@ static int do_mkdir(const char *path, mode_t mode) {
 			strlen(path));
 
 	if (op_res >= 0) {
-		t_message *message = recv_message(sock);
 		res = get_status(message);
 		free_t_message(message);
 	}else{

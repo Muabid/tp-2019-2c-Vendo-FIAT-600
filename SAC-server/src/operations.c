@@ -118,12 +118,57 @@ int sac_mknod(int sock, const char* path){
 
 }
 
-int sac_write(int socket,const char* path,char* data, size_t size, off_t offset){
+int sac_create(int sock, const char* path){
+	if(search_node(path) !=-1 ){
+		log_error(log,"Archivo %s ya existe",path);
+		send_status(sock,ERROR,-EEXIST);
+		return -1;
+	}
+
+	char* file_name = get_name(path);
+	char* directory = get_directory(path);
+	int root = search_node(directory);
+	if(root == -1){
+		log_error(log,"Root %s no existe",directory);
+		send_status(sock,ERROR,-ENOENT);
+		return -1;
+	}
+	int index_node = search_first_free_node();
+	GFile* node = &nodes_table[index_node];
+
+	node->size = 0;
+	node->root = root;
+	node->status = T_FILE;
+	int free_block = search_and_test_first_free_block();
+	if(free_block < 0)
+		return free_block;
+
+	node->blocks_ptr[0] =free_block;
+	node->blocks_ptr[1] = 0;
+	node->creation_date = node->modification_date = time(NULL);
+	memset(node->file_name,0,71);
+	strcpy((char*)node->file_name,file_name);
+
+	char* data = get_block_data(free_block);
+	memset(data,'\0', BLOCK_SIZE);
+	free(file_name);
+	free(directory);
+
+	send_status(sock,OK,0);
+	return 0;
+
+}
+
+int sac_write(int socket,const char* path,char* data, size_t size, off_t offset, pthread_rwlock_t rwlock){
+	char *ret;
 	FILE * f = fopen(path, "wb");
+	ret = pthread_rwlock_wrlock(&rwlock);
+	printf("\nFile %s locked", path);
 	fseek(f,offset,SEEK_SET);
 	fwrite(data,size,sizeof(char),f);
 	fclose(f);
 	log_info(log,"Se escribio %s en el archivo %s.",data,path);
+	printf("\nFile %s unlocked", path);
 	send_status(socket,OK,size);
 	return 0;
 }
@@ -159,19 +204,24 @@ int sac_readdir(int socket,const char* path, off_t offset){
 	return 0;
 }
 
-int sac_read(int socket,const char* path, size_t size, off_t offset){
+int sac_read(int socket,const char* path, size_t size, off_t offset, pthread_rwlock_t rwlock){
+	//No sé si es necesario hacer el char *ret
+	char *ret;
 //	log_info(log,"Leyendo archivo: %s - size: %i - offset: %i",path,size,offset);
+	ret = pthread_rwlock_rdlock(&rwlock);
 //	char* buff = malloc(size + 1);
 //	FILE * f = fopen(path, "r+");
 //	fseek(f,offset,SEEK_SET);
 //	fread(buff,size,sizeof(char),f);
 //	buff[size] = '\0';
 //	log_info(log,"Archivo %s leído - Contenido: %s - Bytes leídos %i",path,buff,size);
+	pthread_rwlock_unlock(&rwlock);
+	printf("\nUnlocking rwlock\n");
 //	send_message(socket,OK,buff,size);
 //	return 0;
 
 	send_message(socket,OK,"HOLA",4);
-	return 0;
+	return ret;
 }
 
 int sac_mkdir(int socket,const char* path){
