@@ -198,6 +198,7 @@ static int do_mkdir(const char *path, mode_t mode) {
 			strlen(path));
 
 	if (op_res >= 0) {
+		t_message *message = recv_message(sock);
 		res = get_status(message);
 		free_t_message(message);
 	}else{
