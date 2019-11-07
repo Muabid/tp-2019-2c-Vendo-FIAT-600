@@ -31,8 +31,7 @@ pthread_rwlock_t rwlock;
 
 void init_semaphores() {
 	pthread_mutex_init(&bitarray_mutex, NULL);
-	pthread_rwlock_init(rwlock, NULL);
-
+	pthread_rwlock_init(&rwlock, NULL);
 }
 
 void sig_term(int sig) {
@@ -52,6 +51,7 @@ int main(int argc, const char* argv[]) {
 	signal(SIGTERM, sig_term);
 	signal(SIGABRT, sig_term);
 	init_semaphores();
+
 	const char* path = argv[1];
 	sac_load_config("sac.config");
 	size_file_system = fsize(sac_config->file_system_path);
@@ -124,7 +124,7 @@ void* listen_sac_cli(void* socket) {
 			aux += sizeof(off_t);
 			char * data = malloc(size);
 			memcpy(data, aux, size);
-			sac_write(sac_socket, path, data, size, offset, &rwlock);
+			sac_write(sac_socket, path, data, size, offset, rwlock);
 		}
 			break;
 		case MKNODE: {
@@ -147,7 +147,7 @@ void* listen_sac_cli(void* socket) {
 			aux += sizeof(size_t);
 			off_t offset;
 			memcpy(&offset, aux, sizeof(off_t));
-			sac_read(sac_socket, path, size, offset, &rwlock);
+			sac_read(sac_socket, path, size, offset, rwlock);
 			break;
 		}
 		case UNLINK: {
