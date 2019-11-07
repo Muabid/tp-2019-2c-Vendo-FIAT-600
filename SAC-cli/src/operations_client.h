@@ -15,6 +15,8 @@
 #include <errno.h>
 #include <fcntl.h>
 
+#define T_FILE 1
+#define T_DIR 2
 /*
  * Link donde están las definiciones de las funciones y lo que hacen:
  * 	https://gist.github.com/bkmeneguello/5884492

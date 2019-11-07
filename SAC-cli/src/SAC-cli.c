@@ -39,13 +39,30 @@ struct t_runtime_options {
  */
 
 static int do_getattr(const char *path, struct stat *st) {
+	int op_res;
+	if(strcmp(path,"/") == 0){
+		op_res = send_message(sock, GET_ATTR, path,
+				strlen(path));
+
+		if (op_res >= 0) {
+			t_message* message = recv_message(sock); // Acá me va a responder el server algo,
+			if(message->head == OK){
+				st->st_nlink = *((int32_t*)message->content);
+				st->st_mode = S_IFDIR | 0755;
+				return 0;
+			}else{
+				return get_status(message);
+			}
+		}
+	}
+
 	int res= 0;
 	memset(st, 0, sizeof(struct stat));
 	int32_t size,hardlinks,file_name_len;
 	uint64_t creation_date, modification_date;
 	char* file_name;
 	char status;
-	int op_res = send_message(sock, GET_ATTR, path,
+	op_res = send_message(sock, GET_ATTR, path,
 			strlen(path));
 
 	if (op_res >= 0) {
@@ -68,15 +85,8 @@ static int do_getattr(const char *path, struct stat *st) {
 			memcpy(&hardlinks,content,sizeof(int32_t));
 			content+=sizeof(int32_t);
 
-//			memcpy(&file_name_len,content,sizeof(int32_t));
-//			content+=sizeof(int32_t);
-//			file_name = malloc(file_name_len + 1);
-//
-//			memcpy(file_name,content,file_name_len);
-//			file_name[file_name_len] = '\0';
-
-//			log_info(log,"%s | %d | %i | %i | %i | %c",path,size,
-//					creation_date,modification_date,hardlinks,status);
+			log_info(log,"%s | %d | %i | %i | %i | %c",path,size,
+					creation_date,modification_date,hardlinks,status);
 
 
 			st->st_nlink = hardlinks;
@@ -84,7 +94,7 @@ static int do_getattr(const char *path, struct stat *st) {
 			st->st_ctim.tv_sec = creation_date;
 			st->st_atim.tv_sec = time(NULL);
 
-			if(status == 2){
+			if(status == T_DIR){
 				st->st_mode = S_IFDIR | 0755;
 			} else{
 				st->st_size = size;
