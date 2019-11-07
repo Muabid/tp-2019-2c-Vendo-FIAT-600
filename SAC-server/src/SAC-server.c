@@ -69,7 +69,10 @@ int main(int argc, const char* argv[]) {
 	nodes_table =(GFile*) &file_system[HEADER_BLOCKS + BLOCKS_BITMAP];
 	blocks_data = (t_block*)&file_system[HEADER_BLOCKS + BLOCKS_BITMAP + BLOCKS_NODE];
 
-
+//	sac_mkdir(1,"/hola");
+//	sac_mknod(1,"/hola/chau");
+//	sac_getattr(0,"/hola");
+//	sac_getattr(0,"/hola/chau");
 	init_sac_server();
 	exit(0);
 }

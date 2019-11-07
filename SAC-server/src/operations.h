@@ -22,6 +22,6 @@ int sac_readdir(int sock,const char* path, off_t offset);
 int sac_read(int sock,const char* path, size_t size, off_t offset);
 int sac_rmdir(int sock,const char* path);
 int get_subdirectories(int node);
-int get_number_links(GFile node,int index);
+int32_t get_number_links(uint8_t status,int index);
 
 #endif /* OPERATIONS_H_ */

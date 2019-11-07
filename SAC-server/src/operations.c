@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include "aux.h"
+
 int get_size_bytes_gFile(GFile node){
 
 //	return sizeof(GFile) - sizeof(node.file_name) - sizeof(node.blocks_ptr);
@@ -23,13 +24,19 @@ int get_size_bytes_gFile(GFile node){
 
 int sac_getattr(int socket,const char* path){
 
-	GFile node;
 	int index_node = search_node(path);
 	if(index_node<0){
+		send_status(socket,ERROR,-ENOENT);
 		return -1;
 	}
-	GFile node =  nodes_table[index_node];
-	int32_t links= get_number_links(node,index_node);
+	int32_t links;
+	if(strcmp(path,"/") == 0){
+		links = get_number_links(T_DIR,0);
+		send_message(socket,OK,&links,sizeof(int32_t));
+		return 0;
+	}
+	GFile node =  nodes_table[index_node-1];
+	links = get_number_links(node.status,index_node);
 
 	size_t size = get_size_bytes_gFile(node);
 
@@ -44,7 +51,7 @@ int sac_getattr(int socket,const char* path){
 	buf += sizeof(uint64_t);
 	memcpy(buf,&node.modification_date,sizeof(uint64_t));
 	buf += sizeof(uint64_t);
-	memcpy(buf,&node.status,sizeof(char));
+	memcpy(buf,&node.status,sizeof(uint8_t));
 	buf += sizeof(char);
 	memcpy(buf,&links,sizeof(int32_t));
 	buf = aux;
@@ -53,19 +60,16 @@ int sac_getattr(int socket,const char* path){
 	return 0;
 }
 
-int get_number_links(GFile node,int index){
-	int n_links = node.status;
-
-	if(node.status == 2){
-		n_links+= get_subdirectories(index);
+int32_t get_number_links(uint8_t status,int index){
+	if(status == T_FILE){
+		return 1;
+	}else{
+		return get_subdirectories(index) + 2;
 	}
-
-	return n_links;
-
 }
 
 int get_subdirectories(int node){
-	int n;
+	int n=0;
 	for(int i = 0; i<BLOCKS_NODE; i++){
 		if(nodes_table[i].root == node && nodes_table[i].status == 2)
 			n++;
@@ -109,7 +113,7 @@ int sac_mknod(int sock, const char* path){
 	free(file_name);
 	free(directory);
 
-	send_status(sock,OK,1);
+	send_status(sock,OK,0);
 	return 0;
 
 }

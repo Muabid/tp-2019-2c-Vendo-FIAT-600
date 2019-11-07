@@ -11,54 +11,27 @@ int isLastchar(const char* str, char chr){
 	return 0;
 }
 
-GFile create_GFile(char status, char file_name[71], int32_t root, int32_t size,
-		uint64_t creation_date, uint64_t modification_date) {
-
-	GFile gFile = { .status = status, .root = root, .size = size,
-			.modification_date = modification_date, .creation_date = creation_date };
-
-	strcpy(gFile.file_name, file_name);
-//	for(int i=0; i<1000; i++){
-//		gFile.blocks_ptr[i] = blocks_ptr[i];
-//	}
-
-	return gFile;
-}
-
-GHeader create_sac_header(char identifier[3], int32_t version,
-		int32_t init_block, int32_t bit_map_size) {
-	GHeader header = { .version = version, .init_block = init_block,
-			.bit_map_size = bit_map_size, };
-
-	memcpy(header.identifier, identifier,3);
-	memset(header.padding,'\0',4081);
-	return header;
-}
-
 int search_node(const char* path) {
 	if (!strcmp(path, "/"))
 		return 0;
 	char* name = get_name(path);
 	char* directory = get_directory(path);
-	int res, root;
-	res = root = search_node(directory);
+	int root = search_node(directory);
 	int index;
-	if(res>=0){
+	if(root>=0){
 		for (index = 0;
 				(nodes_table[index].root != root
 						|| strcmp(nodes_table[index].file_name, name) != 0)
 							&& index < BLOCKS_NODE; index++);
 
-		if (index >= BLOCKS_NODE)
-			res = -1;
-		else {
-			res = index;
+		if (index >= BLOCKS_NODE){
+			return -1;
 		}
 	}
 
 	free(name);
 	free(directory);
-	return res;
+	return index+1;
 }
 
 char* get_name(const char* path) {
