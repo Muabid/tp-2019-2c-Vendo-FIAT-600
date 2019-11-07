@@ -1,70 +1,50 @@
 #include <stdio.h>
 #include <commons/config.h>
+#include <commons/bitarray.h>
 #include "libmuse.h"
+
 
 
 void* memory;
 struct HeapMetadata *bigMemory;
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar);
+t_bitarray* bitmap;
 
 int main(){
 	cargar_configuracion();
 	initialize();
-	divider();
-	uint32_t p = muse_alloc(4900*sizeof(int));
-	divider();
-	muse_free(p);
-	divider();
-	uint32_t q = muse_alloc(4900*sizeof(int));
-	divider();
-	muse_free(q);
-	divider();
-	uint32_t r = muse_alloc(1000*sizeof(int));
-	divider();
-	uint32_t k = muse_alloc(500*sizeof(int));
-	divider();
+	init_bitmap();
+	uint32_t p;
+	p = muse_alloc(70);
 	printf("Allocation and deallocation is done successfully!");
 	return 0;
 
 }
 
-int muse_get(void* dst, uint32_t src, size_t n) {//revisar
-	char *csrc = (char *)src; //casteo ambos a char * para manejar
-	char *cdst = (char *)dst;
-	for (int i=0; i<n; i++) // barro hasta llegar a n
-	{
-		cdst[i] = csrc[i]; //copio el array
-		//falta ver caso de error
-	}
+int calcular_frames_necesarios(uint32_t tam){
 
-	return 0;
+	int frames_necesarios = 0;
+	float aux = ((float)tam / (float)tam_pagina);
+	do{
+		frames_necesarios++;
+	}while(aux > frames_necesarios);
+	return frames_necesarios;
 }
-
-int muse_cpy(uint32_t dst, void* src, int n){
-
-	char *csrc = (char *)src; //casteo ambos a char * para manejar
-	char *cdst = (char *)dst;
-	for (int i=0; i<n; i++) // barro hasta llegar a n
-	{
-		cdst[i] = csrc[i]; //copio el array
-		//falta ver caso de error
-	}
-
-	return 0;
-}
-
-
 
 uint32_t muse_alloc(uint32_t tam){
 	struct HeapMetadata *actual;
 	uint32_t result;
+	int frames_necesarios = calcular_frames_necesarios(tam);
 	if(!tam){
 		printf("No se ha solicitado memoria\n");
 		return 0;
 	}
+
+
 	actual = bigMemory;
 	while((((actual->tamanio) < tam) || ((actual->libre) == 0)) && ((void*)actual <= (memory+tam_memoria))){
 		actual += ((actual->tamanio) / sizeof(struct HeapMetadata)) + 1;
+
 //		printf("Un bloque de memoria verificado\n");
 	}
 	if((actual->tamanio) == tam){
@@ -115,13 +95,52 @@ void merge(){
 		}
 		siguiente += 1 + ((actual->tamanio) / sizeof(siguiente));
 	}
-}//if(((void*)memory<=ptr)&&(ptr<=(void*)(memory+20000))){
+}
 
+int muse_get(void* dst, uint32_t src, size_t n) {//revisar
+	char *csrc = (char *)src; //casteo ambos a char * para manejar
+	char *cdst = (char *)dst;
+	for (int i=0; i<n; i++) // barro hasta llegar a n
+	{
+		cdst[i] = csrc[i]; //copio el array
+		//falta ver caso de error
+	}
+
+	return 0;
+}
+
+int muse_cpy(uint32_t dst, void* src, int n){
+
+	char *csrc = (char *)src; //casteo ambos a char * para manejar
+	char *cdst = (char *)dst;
+	for (int i=0; i<n; i++) // barro hasta llegar a n
+	{
+		cdst[i] = csrc[i]; //copio el array
+		//falta ver caso de error
+	}
+
+	return 0;
+}
+
+void init_bitmap(){
+	bitmap = bitarray_create_with_mode(memory, cant_frames, LSB_FIRST);
+	printf("%d\n", cant_frames);
+	for(int i = 0; i < cant_frames; i++){
+		bitarray_clean_bit(bitmap, i);
+	//	printf("El valor del bit (frame) en la posicion %d es: %d\n", i, bitarray_test_bit(bitmap, i));
+	}
+}
+void mostrar_bitmap(){
+	for(int i = 0; i < cant_frames; i++){
+		printf("El valor del bit (frame) en la posicion %d es: %d\n", i, bitarray_test_bit(bitmap, i));
+	}
+}
 void initialize(){
 	memory = malloc(tam_memoria);
 	bigMemory = memory;
 	bigMemory->tamanio = tam_memoria - sizeof(struct HeapMetadata);
 	bigMemory->libre = 1;
+	cant_frames = tam_memoria / tam_pagina;
 	printf("Memoria libre: %zu\n",bigMemory->tamanio);
 //	printf("Direccion inicial de memoria: %zu\n", memory);
 //	printf("Direccion final   de memoria: %zu\n", (memory + tam_memoria));

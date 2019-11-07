@@ -10,12 +10,30 @@
 	typedef struct HeapMetadata {
 		uint32_t tamanio;
 		bool libre;
+
 	}__attribute__((packed));
+
+	typedef struct TablaPaginas{
+			uint32_t bit_presencia;
+			uint32_t numero_frame;
+			struct TablaPaginas *pagina_siguiente;
+
+	}__attribute__((packed));
+
+	typedef struct TablaSegmentos {
+			uint32_t base_logica;
+			uint32_t tamanio;
+			struct TablaPaginas *paginas;
+
+	}__attribute__((packed));
+
+
 
 	int puerto;
 	int tam_memoria;
 	int tam_pagina;
 	int tam_swap;
+	int cant_frames;
 
 
     /**
@@ -103,5 +121,8 @@
     void merge();
     void imprimir_direccion_puntero(struct HeapMetadata *ptr, char nombre_ptr[]);
     void divider();
+    void init_bitmap();
+    void mostrar_bitmap();
+    int calcular_frames_necesarios(uint32_t tam);
 
 #endif
