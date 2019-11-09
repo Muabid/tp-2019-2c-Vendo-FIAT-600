@@ -29,8 +29,10 @@
 #include "aux.h"
 
 void init_semaphores() {
-	pthread_mutex_init(&bitarray_mutex, NULL);
-	pthread_rwlock_init(&rwlock, NULL);
+	pthread_rwlockattr_t attrib;
+	pthread_rwlockattr_init(&attrib);
+	pthread_rwlockattr_setpshared(&attrib, PTHREAD_PROCESS_SHARED);
+	pthread_rwlock_init(&rwlock, &attrib);
 }
 
 void sig_term(int sig) {
@@ -97,17 +99,23 @@ void* listen_sac_cli(void* socket) {
 			break;
 		case GET_ATTR: {
 			fill_path(path, message->content, 0);
+			pthread_rwlock_rdlock(&rwlock);
 			sac_getattr(sac_socket, path);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case MKDIR: {
 			fill_path(path, message->content, 0);
+			pthread_rwlock_wrlock(&rwlock);
 			sac_mkdir(sac_socket, path);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case RMDIR: {
 			fill_path(path, message->content, 0);
+			pthread_rwlock_rdlock(&rwlock);
 			sac_rmdir(sac_socket, path);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case WRITE: {
@@ -123,17 +131,23 @@ void* listen_sac_cli(void* socket) {
 			aux += sizeof(off_t);
 			char * data = malloc(size);
 			memcpy(data, aux, size);
+			pthread_rwlock_wrlock(&rwlock);
 			sac_write(sac_socket, path, data, size, offset);
+			pthread_rwlock_unlock(&rwlock);
 		}
 			break;
 		case MKNODE: {
 			fill_path(path, message->content, 0);
+			pthread_rwlock_wrlock(&rwlock);
 			sac_mknod(sac_socket, path);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case CREATE: {
 			fill_path(path, message->content, 0);
+			pthread_rwlock_wrlock(&rwlock);
 			sac_create(sac_socket, path);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case READ: {
@@ -146,17 +160,23 @@ void* listen_sac_cli(void* socket) {
 			aux += sizeof(size_t);
 			off_t offset;
 			memcpy(&offset, aux, sizeof(off_t));
+			pthread_rwlock_rdlock(&rwlock);
 			sac_read(sac_socket, path, size, offset);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case UNLINK: {
 			fill_path(path, message->content, 0);
+			pthread_rwlock_wrlock(&rwlock);
 			sac_unlink(sac_socket, path);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case READDIR:
 			fill_path(path, message->content, 0);
+			pthread_rwlock_rdlock(&rwlock);
 			sac_readdir(sac_socket, path, 0);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		case NO_CONNECTION:
 			log_info(log, "CLIENTE DESCONECTADO");
