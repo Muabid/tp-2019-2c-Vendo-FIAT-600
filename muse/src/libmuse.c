@@ -4,12 +4,23 @@
 #include "libmuse.h"
 
 
-
+//cosas que van en muse
+int puerto;
+int tam_memoria;
+int tam_pagina;
+int tam_swap;
+t_bitarray* bitmap;
+void init_bitmap();
+void mostrar_bitmap();
 void* memory;
 struct HeapMetadata *bigMemory;
-void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar);
-t_bitarray* bitmap;
 
+
+
+void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar);
+int cant_frames;
+
+//TODO LO DEL MAIN VA EN EL PROGRAMA QUE LO EJECUTA EXCEPTO LOS CONFIGS Y LO BITMAP.
 int main(){
 	cargar_configuracion();
 	initialize();
@@ -35,17 +46,37 @@ uint32_t muse_alloc(uint32_t tam){
 	struct HeapMetadata *actual;
 	uint32_t result;
 	int frames_necesarios = calcular_frames_necesarios(tam);
+
 	if(!tam){
 		printf("No se ha solicitado memoria\n");
 		return 0;
 	}
 
+	if(Process id tiene ya un segmento creado){ //VER SI SE PUEDE USAR GETPID() DENTRO DE LA BIBLIOTECA.
+		//APUNTAR ACTUAL AL PRINCIPO DEL BLOQUE DE VIRTUAL/REAL DEL SEGMENTO RESPECTIVO
+		while((((actual->tamanio) < tam) || ((actual->libre) == 0)) && ((void*)actual <= (POSICION FINAL MEMORIA VIRTUAL /FRAME))){ //VER
+				actual += ((actual->tamanio) / sizeof(struct HeapMetadata)) + 1;
+		}
+		if((actual->tamanio) == tam){
+			actual->libre = 0;
+			result = (uint32_t)(++actual);
+			printf("Se alocó un bloque de tamanio %zu perfectamente\n",tam);
+			return result;
+		} else if((actual->tamanio) > tam){
+			split(actual,tam);
+			result = (uint32_t)(++actual);
+			printf("Se alocó un bloque de tamanio %zu haciendo un split\n",tam);
+			return result;
+		} else {
+			printf("No hay suficiente espacio para alocar la memoria de tamanio %zu\n",tam);
+			result = SIGSEGV;
+			return result; //Segmentation fault
+		}
+	}
 
-	actual = bigMemory;
+/*	actual = bigMemory;// esto se tiene que ir
 	while((((actual->tamanio) < tam) || ((actual->libre) == 0)) && ((void*)actual <= (memory+tam_memoria))){
 		actual += ((actual->tamanio) / sizeof(struct HeapMetadata)) + 1;
-
-//		printf("Un bloque de memoria verificado\n");
 	}
 	if((actual->tamanio) == tam){
 		actual->libre = 0;
@@ -64,11 +95,12 @@ uint32_t muse_alloc(uint32_t tam){
 		printf("No hay suficiente espacio para alocar la memoria de tamanio %zu\n",tam);
 		return result;
 	}
+*/
 }
 
 void muse_free(uint32_t dir){
 //	printf("Direccion a liberar: %zu\n", dir);
-	if((memory <= dir) && (dir <= (memory+tam_memoria))){
+	if((memory <= dir) && (dir <= (memory+tam_memoria))){ //ACA EN LUGAR DE MEMORY DEVERIA IR LA DIRECCION DE VIRTUAL + EL TAMAÑO DEL SEGMENTO
 		struct HeapMetadata *actual = (void*)dir;
 		actual -= 1;
 		actual->libre = 1;
