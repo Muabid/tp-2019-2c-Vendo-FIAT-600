@@ -42,7 +42,7 @@ void sig_term(int sig) {
 }
 
 int main(int argc, const char* argv[]) {
-	log = log_create("./log", "SERVER", true, LOG_LEVEL_INFO);
+	log = log_create("./resources/log", "SERVER", true, LOG_LEVEL_INFO);
 	log_info(log, "%i", sizeof(GFile));
 	log_info(log, "%i", sizeof(GHeader));
 	log_info(log, "%i", sizeof(t_block));
@@ -51,8 +51,8 @@ int main(int argc, const char* argv[]) {
 	signal(SIGABRT, sig_term);
 	init_semaphores();
 
-	const char* path = argv[1];
-	sac_load_config("sac.config");
+//	const char* path = argv[1];
+	sac_load_config("./resources/sac.config");
 	size_file_system = fsize(sac_config->file_system_path);
 	log_info(log, "Filesystem Size: %i", size_file_system);
 
