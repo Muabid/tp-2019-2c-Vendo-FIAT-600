@@ -164,7 +164,6 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	return 0;
 }
 int sac_unlink(int socket,const char* path){
-	remove(path);
 	send_status(socket,OK,0);
 	return 0;
 }
@@ -237,5 +236,20 @@ int sac_mkdir(int socket,const char* path){
 }
 
 int sac_rmdir(int socket,const char* path){
+	log_info(log,"Borrando directorio %s",path);
+	int index_node = search_node(path);
+	GFile* node = nodes_table;
+
+	for (int i = 0; i < BLOCKS_NODE; i++){
+		if ((index_node==(node->root)) & (((node->status) == T_DIR) | ((node->status) == T_FILE))){
+			send_status(socket,ERROR,-ENOTEMPTY);
+			return -1;
+		}
+		node++;
+	}
+	node = &nodes_table[index_node-1];
+	node->status = 0;
+	log_info(log,"Directorio %s borrado exitósamente", path);
+	send_status(socket,OK,0);
 	return 0;
 }
