@@ -65,6 +65,7 @@ char config_path[1000];
 t_log * log;
 int file_system_descriptor;
 int size_file_system;
+pthread_rwlock_t rwlock;
 
 pthread_mutex_t bitarray_mutex;
 

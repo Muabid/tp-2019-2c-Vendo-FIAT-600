@@ -27,7 +27,6 @@
 #include <commons/collections/queue.h>
 #include <signal.h>
 #include "aux.h"
-pthread_rwlock_t rwlock;
 
 void init_semaphores() {
 	pthread_mutex_init(&bitarray_mutex, NULL);
@@ -124,7 +123,7 @@ void* listen_sac_cli(void* socket) {
 			aux += sizeof(off_t);
 			char * data = malloc(size);
 			memcpy(data, aux, size);
-			sac_write(sac_socket, path, data, size, offset, rwlock);
+			sac_write(sac_socket, path, data, size, offset);
 		}
 			break;
 		case MKNODE: {
@@ -147,7 +146,7 @@ void* listen_sac_cli(void* socket) {
 			aux += sizeof(size_t);
 			off_t offset;
 			memcpy(&offset, aux, sizeof(off_t));
-			sac_read(sac_socket, path, size, offset, rwlock);
+			sac_read(sac_socket, path, size, offset);
 			break;
 		}
 		case UNLINK: {
