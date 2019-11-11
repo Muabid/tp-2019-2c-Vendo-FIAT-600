@@ -58,10 +58,10 @@ static int do_getattr(const char *path, struct stat *st) {
 
 	int res= 0;
 	memset(st, 0, sizeof(struct stat));
-	int32_t size,hardlinks,file_name_len;
-	uint64_t creation_date, modification_date;
+	int32_t size = 0,hardlinks = 0,file_name_len = 0;
+	uint64_t creation_date = 0, modification_date = 0;
 	char* file_name;
-	char status;
+	char status = 0;
 	op_res = send_message(sock, GET_ATTR, path,
 			strlen(path));
 
