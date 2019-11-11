@@ -13,17 +13,16 @@
 
 	}__attribute__((packed));
 
-	typedef struct TablaPaginas{
+	typedef struct Pagina{
 			uint32_t bit_presencia;
 			uint32_t numero_frame;
-			struct TablaPaginas *pagina_siguiente;
 
 	}__attribute__((packed));
 
-	typedef struct TablaSegmentos {
-			uint32_t base_logica;
-			uint32_t tamanio;
-			struct TablaPaginas *pagina;
+	typedef struct Segmento {
+			uint32_t comienzo;
+			uint32_t fin;
+			t_list *tabla_de_paginas;
 
 	}__attribute__((packed));
 
