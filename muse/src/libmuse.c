@@ -15,6 +15,7 @@ void init_bitmap();
 void mostrar_bitmap();
 int buscarFrame();
 int cantidadFramesDisponibles();
+int aniadir_segmento(int frames_necesarios);
 void asignarEnFrame(uint32_t tam, int frame);
 void* memory;
 struct HeapMetadata *bigMemory;
@@ -32,9 +33,11 @@ int main(){
 	struct HeapMetadata *actual = (struct HeapMetadata *)memory;
 	init_bitmap();
 	printf("marcos disponibles: %d\n", cantidadFramesDisponibles());
-	asignarEnFrame(20, 0);
-	actual++;
-	printf("tamanio: %zu\n",actual->tamanio);
+	uint32_t p = muse_alloc(20);
+	divider();
+	uint32_t o = muse_alloc(50);
+//	actual++;
+//	printf("tamanio: %zu\n",actual->tamanio);
 	//actual = bigMemory;// esto se tiene que ir
 	//uint32_t p;
 	//p = muse_alloc(70);
@@ -55,9 +58,6 @@ int calcular_frames_necesarios(uint32_t tam){
 
 uint32_t muse_alloc(uint32_t tam){
 	struct HeapMetadata *actual;// va en MUSE
-	struct Segmento *segmento;
-	struct Pagina *pagina;
-	t_list * lista_pagina;
 	uint32_t result;
 	int frame_obtenido;
 	int frames_necesarios = calcular_frames_necesarios(tam);
@@ -65,13 +65,11 @@ uint32_t muse_alloc(uint32_t tam){
 		printf("No se ha solicitado memoria\n");
 		return 0;
 	}
+	if(1){
+		puts("Aniadiendo segmento...");
+		int seg = aniadir_segmento(frames_necesarios);
 
-	if(lista_segmentos == NULL){
-		lista_segmentos = list_create();
-		segmento->comienzo = 0;
-		segmento->fin = (frames_necesarios * tam_pagina) - 1;
-		segmento->tabla_de_paginas = lista_pagina;
-		lista_pagina = list_create();
+
 		//LO SIGUIENTE DEBERIA IR POR SOCKETS
 		if(cantidadFramesDisponibles() < frames_necesarios){
 			printf("no hay memoria disponible");
@@ -80,9 +78,9 @@ uint32_t muse_alloc(uint32_t tam){
 		for(int i = 1; i <= frames_necesarios ; i++)
 		{
 			frame_obtenido = buscarFrame();
-			pagina->numero_frame = frame_obtenido;
-			pagina->bit_presencia = 1;
-			list_add(lista_pagina, pagina);
+//			pagina->numero_frame = frame_obtenido;
+//			pagina->bit_presencia = 1;
+//			list_add(lista_paginas, pagina);
 		}
 	}else{
 
@@ -132,6 +130,37 @@ uint32_t muse_alloc(uint32_t tam){
 		return result;
 	}
 */
+}
+
+int aniadir_segmento(int frames_necesarios){
+	int num_segmento_a_insertar;
+	struct Segmento* segmento = malloc(sizeof(*segmento));
+	struct Pagina* pagina = malloc(sizeof(*pagina));
+	t_list* lista_paginas;
+	if(lista_segmentos == NULL || list_is_empty(lista_segmentos)){
+		lista_segmentos = list_create(lista_segmentos);
+		lista_paginas = list_create();
+		segmento->comienzo = 0;
+		segmento->fin = (frames_necesarios * tam_pagina) - 1;
+		segmento->tabla_de_paginas = lista_paginas;
+		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
+		printf("      Índice segmento insertado: %d\n",num_segmento_a_insertar);
+		printf("Comienzo del segmento insertado: %d\n",((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->comienzo);
+		printf("     Fin del segmento insertado: %d\n",((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->fin);
+		return num_segmento_a_insertar;
+	} else {
+		int cantidad_segmentos = list_size(lista_segmentos);
+		printf("Cantidad actual de segmentos: %d\n",cantidad_segmentos);
+		int fin_segmento_anterior = ((struct Segmento*)list_get(lista_segmentos,cantidad_segmentos - 1))->fin;
+		int tamanio_segmento = (frames_necesarios * tam_pagina) - 1;
+		segmento->comienzo = fin_segmento_anterior + 1;
+		segmento->fin = segmento->comienzo + tamanio_segmento;
+		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
+		printf("      Índice segmento insertado: %d\n",num_segmento_a_insertar);
+		printf("Comienzo del segmento insertado: %d\n",((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->comienzo);
+		printf("     Fin del segmento insertado: %d\n",((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->fin);
+		return num_segmento_a_insertar;
+	}
 }
 
 void asignarEnFrame(uint32_t tam, int frame){
