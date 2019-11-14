@@ -4,6 +4,7 @@
 #include <commons/config.h>
 #include <commons/collections/list.h>
 #include <commons/collections/queue.h>
+#include <commons/config.h>
 #include <commons/log.h>
 #include "net.h"
 #include "protocol.h"

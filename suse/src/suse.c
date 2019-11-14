@@ -1,9 +1,14 @@
 #include "suse.h"
 
+//VARIABLES CONFIGURACION
+int listen_port;
+int metrics_timer;
+int max_multiprog;
+char** sem_ids;
+char** sem_max;
+double alpha_sjf;
 
-const int MULTIPROGRAMACION = 3;
 int programasEnMemoria = 0;
-int listen_port = 20000;
 
 t_list* listaNuevos; //Se inicializa en main
 t_list* listaDeBloqueados;//Se inicializa en main
@@ -16,6 +21,24 @@ t_list* listaDeProgramas; //Se inicializa en main TIENE ALGUNA UTILIDAD??
 //AUXILIARES PARA BUSQUEDA
 int auxiliarParaId = -1;
 int auxiliarParaIdPadre;
+
+void load_suse_config() {
+	t_config* config = config_create("suse.config");
+	printf("La cantidad de keys son: %i \n", config_keys_amount(config));
+	listen_port = config_get_int_value(config, "LISTEN_PORT");
+	metrics_timer = config_get_int_value(config, "METRICS_TIMER");
+	max_multiprog = config_get_int_value(config, "MAX_MULTIPROG");
+
+	sem_ids = malloc(sizeof(config_get_array_value(config, "SEM_IDS")));
+	sem_ids = config_get_array_value(config, "SEM_IDS");
+
+	sem_max = malloc(sizeof(config_get_array_value(config, "SEM_MAX")));
+	sem_max = config_get_array_value(config, "SEM_MAX");
+
+	alpha_sjf = config_get_double_value(config, "ALPHA_SJF");
+
+}
+
 
 
 bool esHiloPorId(void* unHilo) {
@@ -44,7 +67,7 @@ void suseScheduleNext(t_programa* programa) {
 }
 
 void cargarHilosAReady() {
-	while(programasEnMemoria < MULTIPROGRAMACION && list_size(listaNuevos) != 0) {
+	while(programasEnMemoria < max_multiprog && list_size(listaNuevos) != 0) {
 		t_hilo* hilo = list_remove(listaNuevos, 0);
 		list_add(hilo->idPadre->listaDeReady, hilo);
 		programasEnMemoria ++;
@@ -184,6 +207,7 @@ void* handler(void* socketConectado) {
 int main() {
 	signal(SIGINT, sigterm);
 	log = log_create("log", "log_suse.txt", true, LOG_LEVEL_DEBUG);
+	load_suse_config();
 
 	listaDeProgramas = list_create();
 	listaDeBloqueados = list_create();
