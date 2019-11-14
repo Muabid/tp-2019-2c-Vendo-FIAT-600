@@ -30,8 +30,8 @@ int32_t get_number_links(uint8_t status,int index){
 	}
 }
 
-int get_subdirectories(int node){
-	int n=0;
+int32_t get_subdirectories(int node){
+	int32_t n=0;
 	for(int i = 0; i<BLOCKS_NODE; i++){
 		if(nodes_table[i].root == node && nodes_table[i].status == 2)
 			n++;
@@ -69,7 +69,7 @@ int sac_getattr(int socket,const char* path){
 	memcpy(buf,&node.modification_date,sizeof(uint64_t));
 	buf += sizeof(uint64_t);
 	memcpy(buf,&node.status,sizeof(uint8_t));
-	buf += sizeof(char);
+	buf += sizeof(uint8_t);
 	memcpy(buf,&links,sizeof(int32_t));
 	buf = aux;
 	send_message(socket,OK,buf,size);
@@ -250,6 +250,14 @@ int sac_rmdir(int socket,const char* path){
 	node = &nodes_table[index_node-1];
 	node->status = 0;
 	log_info(log,"Directorio %s borrado exitósamente", path);
+	send_status(socket,OK,0);
+	return 0;
+}
+
+int sac_utimens(int socket,const char*path,uint64_t last_mod ){
+	int index_node = search_node(path);
+	GFile* node = &nodes_table[index_node-1];
+	node->modification_date = last_mod;
 	send_status(socket,OK,0);
 	return 0;
 }

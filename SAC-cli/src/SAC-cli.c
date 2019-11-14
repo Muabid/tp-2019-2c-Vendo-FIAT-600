@@ -58,10 +58,10 @@ static int do_getattr(const char *path, struct stat *st) {
 
 	int res= 0;
 	memset(st, 0, sizeof(struct stat));
-	int32_t size,hardlinks,file_name_len;
+	uint32_t size;
+	int32_t hardlinks;
 	uint64_t creation_date, modification_date;
-	char* file_name;
-	char status;
+	uint8_t status;
 	op_res = send_message(sock, GET_ATTR, path,
 			strlen(path));
 
@@ -70,22 +70,22 @@ static int do_getattr(const char *path, struct stat *st) {
 		if(message->head == OK){
 			log_info(log,"Recibiendo atributos..");
 			void* content = message->content;
-			memcpy(&size,content,sizeof(int32_t));
-			content+=sizeof(int32_t);
+			memcpy(&size,content,sizeof(uint32_t));
+			content+=sizeof(uint32_t);
 
-			memcpy(&creation_date,content,sizeof(int32_t));
+			memcpy(&creation_date,content,sizeof(uint64_t));
 			content+=sizeof(uint64_t);
 
 			memcpy(&modification_date,content, sizeof(uint64_t));
 			content+=sizeof(uint64_t);
 
-			memcpy(&status,content,sizeof(char));
-			content+=sizeof(char);
+			memcpy(&status,content,sizeof(uint8_t));
+			content+=sizeof(uint8_t);
 
-			memcpy(&hardlinks,content,sizeof(int32_t));
-			content+=sizeof(int32_t);
+			memcpy(&hardlinks,content,sizeof(uint32_t));
+			content+=sizeof(uint32_t);
 
-			log_info(log,"%s | %d | %i | %i | %i | %c",path,size,
+			log_info(log,"%s | %d | %i | %i | %i | %i",path,size,
 					creation_date,modification_date,hardlinks,status);
 
 
@@ -266,6 +266,10 @@ static int do_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 
 }
 
+static int do_access(const char* path, int mask){
+	return 0;
+}
+
 static int do_mknod(const char *path, mode_t mode, dev_t rdev) {
 	int op_res = send_message(sock, MKNODE, path,
 			strlen(path));
@@ -315,6 +319,37 @@ static int do_write(const char *path, const char *buf, size_t size, off_t off, s
 	return res;
 }
 
+static int do_setxattr(const char *path, const char *name,
+                    const void *value, size_t size, int flags){
+	return 0;
+}
+
+static int do_utimens(const char* path, const struct timespec ts[2]){
+	log_info(log,"Executing do_utimens...");
+	size_t len = strlen(path);
+	uint64_t last_mod = ts[1].tv_sec;
+	size_t size_cont = sizeof(size_t) + len + sizeof(uint64_t);
+	void * cont = malloc(size_cont);
+	void*aux = cont;
+	memcpy(aux,&len,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,path,len);
+	aux+=strlen(path);
+	memcpy(aux,&last_mod,sizeof(uint64_t));
+	int op_res = send_message(sock, UTIME, cont,
+			size_cont);
+	int res=0;
+	if (op_res >= 0) {
+		t_message* message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
+	}
+	log_info(log,"Finishing do_utimens...");
+	return res;
+}
+
 /*
  * Estructura principal de FUSE
  */
@@ -329,7 +364,10 @@ static struct fuse_operations do_operations = {
 		.rmdir = do_rmdir,
 		.readdir = do_readdir,
 		.mknod = do_mknod,
-		.write= do_write
+		.write= do_write,
+		.utimens = do_utimens,
+		.setxattr = do_setxattr,
+		.access = do_access
 };
 
 enum {

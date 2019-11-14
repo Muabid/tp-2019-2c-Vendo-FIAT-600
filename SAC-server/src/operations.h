@@ -21,7 +21,8 @@ int sac_unlink(int sock,const char* path);
 int sac_readdir(int sock,const char* path, off_t offset);
 int sac_read(int sock,const char* path, size_t size, off_t offset);
 int sac_rmdir(int sock,const char* path);
-int get_subdirectories(int node);
+int sac_utimens(int socket,const char*path,uint64_t last_mod);
+int32_t get_subdirectories(int node);
 int32_t get_number_links(uint8_t status,int index);
 
 #endif /* OPERATIONS_H_ */

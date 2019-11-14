@@ -172,12 +172,25 @@ void* listen_sac_cli(void* socket) {
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
-		case READDIR:
+		case READDIR:{
 			fill_path(path, message->content, 0);
 			pthread_rwlock_rdlock(&rwlock);
 			sac_readdir(sac_socket, path, 0);
 			pthread_rwlock_unlock(&rwlock);
 			break;
+		}
+		case UTIME:{
+			void * aux = message->content;
+			fill_path(path,aux, 1);
+			aux += sizeof(size_t);
+			aux += strlen(path);
+			uint64_t last_mod;
+			memcpy(&last_mod, aux, sizeof(uint64_t));
+			pthread_rwlock_wrlock(&rwlock);
+			sac_utimens(sac_socket, path, last_mod);
+			pthread_rwlock_unlock(&rwlock);
+			break;
+		}
 		case NO_CONNECTION:
 			log_info(log, "CLIENTE DESCONECTADO");
 			free_t_message(message);
