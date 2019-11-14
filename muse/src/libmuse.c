@@ -13,9 +13,12 @@ int tam_swap;
 t_bitarray* bitmap;
 void init_bitmap();
 void mostrar_bitmap();
+void imprimir_info_segmento(struct Segmento *segmento,int index);
+void imprimir_info_paginas_segmento(struct Segmento *segmento,int index);
 int buscarFrame();
 int cantidadFramesDisponibles();
 int aniadir_segmento(int frames_necesarios);
+void crear_paginas(struct Segmento *segmento, int frames_necesarios);
 void asignarEnFrame(uint32_t tam, int frame);
 void* memory;
 struct HeapMetadata *bigMemory;
@@ -139,14 +142,31 @@ int aniadir_segmento(int frames_necesarios){
 	t_list* lista_paginas;
 	if(lista_segmentos == NULL || list_is_empty(lista_segmentos)){
 		lista_segmentos = list_create(lista_segmentos);
-		lista_paginas = list_create();
 		segmento->comienzo = 0;
 		segmento->fin = (frames_necesarios * tam_pagina) - 1;
+//		segmento->tabla_de_paginas = lista_paginas;
+
+		//  esta funcionalidad setea todos los frames en -1 y dsp se tienen q asignar con el numero real (que lo hace la funcion asignar_en_frame
+		//  la idea es que se va a repetir bastante esta lógica y estaría bueno abstraerla, pero pasando el segmento por referencia no pude
+		//  fijate esto cuando puedas fron #TeOdioC
+
+		lista_paginas = list_create();
 		segmento->tabla_de_paginas = lista_paginas;
+		for(int i = 0; i < frames_necesarios; i++){
+			struct Pagina* pagina = malloc(sizeof(*pagina));
+			pagina->bit_presencia = 1;
+			pagina->numero_frame = -1;
+			int num_pagina_a_insertar = list_add((segmento->tabla_de_paginas),pagina);
+			printf("       Índice página insertada: %d\n",num_pagina_a_insertar);
+			printf("Bit presencia página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->bit_presencia);
+			printf(" Número frame página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->numero_frame);
+		}
+
+//		crear_paginas(&segmento,frames_necesarios); <-- esta es la funcion que deberia crear las paginas, o sea hacer lo de acá arriba
 		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
-		printf("      Índice segmento insertado: %d\n",num_segmento_a_insertar);
-		printf("Comienzo del segmento insertado: %d\n",((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->comienzo);
-		printf("     Fin del segmento insertado: %d\n",((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->fin);
+		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
+		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
+//		printf("Bit presencia segmento 0, página 1: %d\n",((struct Pagina*)list_get(((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->tabla_de_paginas,0))->bit_presencia);
 		return num_segmento_a_insertar;
 	} else {
 		int cantidad_segmentos = list_size(lista_segmentos);
@@ -155,11 +175,54 @@ int aniadir_segmento(int frames_necesarios){
 		int tamanio_segmento = (frames_necesarios * tam_pagina) - 1;
 		segmento->comienzo = fin_segmento_anterior + 1;
 		segmento->fin = segmento->comienzo + tamanio_segmento;
+
+		lista_paginas = list_create();
+		segmento->tabla_de_paginas = lista_paginas;
+		for(int i = 0; i < frames_necesarios; i++){
+			struct Pagina* pagina = malloc(sizeof(*pagina));
+			pagina->bit_presencia = 1;
+			pagina->numero_frame = -1;
+			int num_pagina_a_insertar = list_add((segmento->tabla_de_paginas),pagina);
+			printf("       Índice página insertada: %d\n",num_pagina_a_insertar);
+			printf("Bit presencia página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->bit_presencia);
+			printf(" Número frame página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->numero_frame);
+		}
+
 		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
-		printf("      Índice segmento insertado: %d\n",num_segmento_a_insertar);
-		printf("Comienzo del segmento insertado: %d\n",((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->comienzo);
-		printf("     Fin del segmento insertado: %d\n",((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->fin);
+		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
+		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
+		//printf("Bit presencia segmento 0, página 0: %d\n",((struct Pagina*)list_get(((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->tabla_de_paginas,0))->bit_presencia);
+		//printf("Bit presencia segmento 0, página 1: %d\n",((struct Pagina*)list_get(((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->tabla_de_paginas,1))->bit_presencia);
 		return num_segmento_a_insertar;
+	}
+}
+
+void imprimir_info_segmento(struct Segmento *segmento,int index){
+	printf("      Índice segmento: %d\n",index);
+	printf("Comienzo del segmento: %d\n",((struct Segmento*)list_get(lista_segmentos,index))->comienzo);
+	printf("     Fin del segmento: %d\n",((struct Segmento*)list_get(lista_segmentos,index))->fin);
+}
+
+void imprimir_info_paginas_segmento(struct Segmento *segmento,int index){
+	int cantidad_paginas_segmento = list_size(((struct Segmento*)list_get(lista_segmentos,index))->tabla_de_paginas);
+	for(int i = 0; i < cantidad_paginas_segmento ; i++){
+		printf("Bit presencia segmento %d, página %d: %d\n",index, i,((struct Pagina*)list_get(((struct Segmento*)list_get(lista_segmentos,index))->tabla_de_paginas,i))->bit_presencia);
+		printf(" Número frame segmento %d, página %d: %d\n",index, i,((struct Pagina*)list_get(((struct Segmento*)list_get(lista_segmentos,index))->tabla_de_paginas,i))->numero_frame);
+	}
+}
+
+void crear_paginas(struct Segmento *segmento, int frames_necesarios){
+	t_list* lista_paginas;
+	lista_paginas = list_create();
+	segmento->tabla_de_paginas = lista_paginas;
+	for(int i = 0; i < frames_necesarios; i++){
+		struct Pagina* pagina = malloc(sizeof(*pagina));
+		pagina->bit_presencia = 1;
+		pagina->numero_frame = -1;
+		int num_pagina_a_insertar = list_add((segmento->tabla_de_paginas),pagina);
+		printf("       Índice página insertada: %d\n",num_pagina_a_insertar);
+		printf("Bit presencia página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->bit_presencia);
+		printf(" Número frame página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->numero_frame);
 	}
 }
 
