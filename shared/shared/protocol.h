@@ -33,6 +33,7 @@ typedef enum{
 	RMDIR,
 	READDIR,
 	MKNODE,
+	UTIME,
 	READ,
 	WRITE,
 	OK,
