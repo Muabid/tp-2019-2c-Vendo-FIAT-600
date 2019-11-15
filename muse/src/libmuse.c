@@ -17,7 +17,7 @@ void imprimir_info_segmento(struct Segmento *segmento,int index);
 void imprimir_info_paginas_segmento(struct Segmento *segmento,int index);
 int buscarFrame();
 int cantidadFramesDisponibles();
-int aniadir_segmento(int frames_necesarios);
+int aniadir_segmento(int frames_necesarios,int tam);
 void crear_paginas(struct Segmento *segmento, int frames_necesarios);
 void asignarEnFrame(uint32_t tam, int frame);
 void iniciar_frames_valor(struct Segmento *segmento, int frames_necesarios);
@@ -76,7 +76,7 @@ uint32_t muse_alloc(uint32_t tam){
 	}
 	if(){//si existe el segmento y si se podria agrandar
 		puts("Aniadiendo segmento...");
-		int seg = aniadir_segmento(frames_necesarios);
+		int seg = aniadir_segmento(frames_necesarios,tam);
 		segmento = list_get(lista_segmentos, seg);
 		for(int i = 1; i <= frames_necesarios ; i++)
 		{
@@ -103,9 +103,11 @@ void iniciar_frames_valor(struct Segmento *segmento, int frames_necesarios){
 		}
 }
 
-int aniadir_segmento(int frames_necesarios){
+int aniadir_segmento(int frames_necesarios, int tam){
 	int num_segmento_a_insertar;
+	int segmento_disponible;
 	struct Segmento* segmento = malloc(sizeof(*segmento));
+	struct Segmento* ulitmoTabla;
 	if(lista_segmentos == NULL){
 		lista_segmentos = list_create(lista_segmentos);
 		segmento->comienzo = 0;
@@ -115,23 +117,12 @@ int aniadir_segmento(int frames_necesarios){
 		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
 		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
 		return num_segmento_a_insertar;
-	} else if(list_size(lista_segmentos) % 2 == 0) { // hay un map al final
-
-		segmento
-		int cantidad_segmentos = list_size(lista_segmentos);
-		printf("Cantidad actual de segmentos: %d\n",cantidad_segmentos);
-		int fin_segmento_anterior = ((struct Segmento*)list_get(lista_segmentos,cantidad_segmentos - 1))->fin;
-		int tamanio_segmento = (frames_necesarios * tam_pagina) - 1;
-		segmento->comienzo = fin_segmento_anterior + 1;
-		segmento->fin = segmento->comienzo + tamanio_segmento;
-		crear_paginas(segmento,frames_necesarios);
-		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
-		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
-		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
-		//printf("Bit presencia segmento 0, página 0: %d\n",((struct Pagina*)list_get(((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->tabla_de_paginas,0))->bit_presencia);
-		//printf("Bit presencia segmento 0, página 1: %d\n",((struct Pagina*)list_get(((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->tabla_de_paginas,1))->bit_presencia);
+	}
+	segmento_disponible = segmento_con_lugar(tam);
+	if(segmento_disponible != -1) { // hay un map al final
+	 // caso que los segmentos existententes no tengan lugar disponible
 		return num_segmento_a_insertar;
-	}else{
+	}else if(1){ //crear uno nuevo(caso de que hay un map)
 
 	}
 }
@@ -162,7 +153,13 @@ void asignarEnFrame(uint32_t tam, int frame){
 		printf("PENE de memoria: %d\n", (int)memory);
 	    struct HeapMetadata *actual = (((int)memory + (frame * tam_pagina)) + 5);
 	    imprimir_direccion_puntero(actual,"actual");
-	    split(actual,tam);
+	    if((actual->tamanio) == tam){
+	    	actual->libre = 0;
+			printf("Se alocó un bloque de tamanio %zu perfectamente\n",tam);
+		}else{
+			split(actual,tam);
+			printf("Se alocó un bloque de tamanio %zu haciendo un split\n",tam);
+		}
 	}
 	else{
 		struct HeapMetadata *actual = (int)memory + (frame * tam_pagina);
@@ -173,7 +170,6 @@ void asignarEnFrame(uint32_t tam, int frame){
 }
 void muse_free(uint32_t dir){
 //	printf("Direccion a liberar: %zu\n", dir);
-
 	if((memory <= dir) && (dir <= (memory+tam_memoria))){ //ACA EN LUGAR DE MEMORY DEVERIA IR LA DIRECCION DE VIRTUAL + EL TAMAÑO DEL SEGMENTO
 		struct HeapMetadata *actual = (void*)dir;
 		actual -= 1;
@@ -275,7 +271,6 @@ void mostrar_bitmap(){
 		printf("El valor del bit (frame) en la posicion %d es: %d\n", i, bitarray_test_bit(bitmap, i));
 	}
 }
-
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar){
 	struct HeapMetadata *new = (void*)((void*)fitting_slot + tamanioAAlocar + sizeof(struct HeapMetadata));
 	new->tamanio = (fitting_slot->tamanio) - tamanioAAlocar - sizeof(struct HeapMetadata);
