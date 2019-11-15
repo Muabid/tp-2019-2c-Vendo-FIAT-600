@@ -62,6 +62,7 @@ int calcular_frames_necesarios(uint32_t tam){
 
 uint32_t muse_alloc(uint32_t tam){
 	struct HeapMetadata *actual;// va en MUSE
+	struct Segmento *segmento;
 	uint32_t result;
 	int frame_obtenido;
 	int frames_necesarios = calcular_frames_necesarios(tam);
@@ -69,26 +70,21 @@ uint32_t muse_alloc(uint32_t tam){
 		printf("No se ha solicitado memoria\n");
 		return 0;
 	}
-	if(1){
-		puts("Aniadiendo segmento...");
-		int seg = aniadir_segmento(frames_necesarios);
+	if(cantidadFramesDisponibles() < frames_necesarios){
+		printf("no hay memoria disponible");
+		return NULL; //ERROR NO HAY MEMORIA DISPONIBLE
+	}
+	puts("Aniadiendo segmento...");
+	int seg = aniadir_segmento(frames_necesarios);
+	segmento = list_get(lista_segmentos, seg);
+	for(int i = 1; i <= frames_necesarios ; i++)
+	{
 
-
-		//LO SIGUIENTE DEBERIA IR POR SOCKETS
-		if(cantidadFramesDisponibles() < frames_necesarios){
-			printf("no hay memoria disponible");
-			return NULL; //ERROR NO HAY MEMORIA DISPONIBLE
-		}
-		for(int i = 1; i <= frames_necesarios ; i++)
-		{
-			frame_obtenido = buscarFrame();
-//			pagina->numero_frame = frame_obtenido;
-//			pagina->bit_presencia = 1;
-//			list_add(lista_paginas, pagina);
-		}
-	}else{
-
-		//ver lo de variable global
+		frame_obtenido = buscarFrame();
+		struct Pagina* pagina = malloc(sizeof(*pagina));
+		pagina->bit_presencia = 1;
+		pagina->numero_frame = frame_obtenido;
+		int num_pagina_a_insertar = list_add((segmento->tabla_de_paginas),pagina);
 	}
 
 /*		while((((actual->tamanio) < tam) || ((actual->libre) == 0)) && ((void*)actual <= (POSICION FINAL MEMORIA VIRTUAL /FRAME))){ //VER
@@ -152,25 +148,14 @@ int aniadir_segmento(int frames_necesarios){
 	int num_segmento_a_insertar;
 	struct Segmento* segmento = malloc(sizeof(*segmento));
 	struct Pagina* pagina = malloc(sizeof(*pagina));
-	t_list* lista_paginas;
 	if(lista_segmentos == NULL || list_is_empty(lista_segmentos)){
 		lista_segmentos = list_create(lista_segmentos);
 		segmento->comienzo = 0;
 		segmento->fin = (frames_necesarios * tam_pagina) - 1;
-//		segmento->tabla_de_paginas = lista_paginas;
-
-		//  esta funcionalidad setea todos los frames en -1 y dsp se tienen q asignar con el numero real (que lo hace la funcion asignar_en_frame
-		//  la idea es que se va a repetir bastante esta lógica y estaría bueno abstraerla, pero pasando el segmento por referencia no pude
-		//  fijate esto cuando puedas fron #TeOdioC
-
-		lista_paginas = list_create();
-		segmento->tabla_de_paginas = lista_paginas;
-		iniciar_frames_valor(segmento, frames_necesarios);
-//		crear_paginas(&segmento,frames_necesarios); <-- esta es la funcion que deberia crear las paginas, o sea hacer lo de acá arriba
+		crear_paginas(segmento,frames_necesarios);// <-- esta es la funcion que deberia crear las paginas, o sea hacer lo de acá arriba
 		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
 		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
 		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
-//		printf("Bit presencia segmento 0, página 1: %d\n",((struct Pagina*)list_get(((struct Segmento*)list_get(lista_segmentos,num_segmento_a_insertar))->tabla_de_paginas,0))->bit_presencia);
 		return num_segmento_a_insertar;
 	} else {
 		int cantidad_segmentos = list_size(lista_segmentos);
@@ -179,10 +164,7 @@ int aniadir_segmento(int frames_necesarios){
 		int tamanio_segmento = (frames_necesarios * tam_pagina) - 1;
 		segmento->comienzo = fin_segmento_anterior + 1;
 		segmento->fin = segmento->comienzo + tamanio_segmento;
-
-		lista_paginas = list_create();
-		segmento->tabla_de_paginas = lista_paginas;
-		iniciar_frames_valor(segmento, frames_necesarios);
+		crear_paginas(segmento,frames_necesarios);
 		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
 		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
 		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
