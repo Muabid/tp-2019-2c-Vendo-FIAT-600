@@ -20,6 +20,7 @@ int cantidadFramesDisponibles();
 int aniadir_segmento(int frames_necesarios);
 void crear_paginas(struct Segmento *segmento, int frames_necesarios);
 void asignarEnFrame(uint32_t tam, int frame);
+void iniciar_frames_valor(struct Segmento *segmento, int frames_necesarios);
 void* memory;
 struct HeapMetadata *bigMemory;
 
@@ -135,6 +136,18 @@ uint32_t muse_alloc(uint32_t tam){
 */
 }
 
+void iniciar_frames_valor(struct Segmento *segmento, int frames_necesarios){
+	for(int i = 0; i < frames_necesarios; i++){
+			struct Pagina* pagina = malloc(sizeof(*pagina));
+			pagina->bit_presencia = 1;
+			pagina->numero_frame = -1;
+			int num_pagina_a_insertar = list_add((segmento->tabla_de_paginas),pagina);
+			printf("       Índice página insertada: %d\n",num_pagina_a_insertar);
+			printf("Bit presencia página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->bit_presencia);
+			printf(" Número frame página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->numero_frame);
+		}
+}
+
 int aniadir_segmento(int frames_necesarios){
 	int num_segmento_a_insertar;
 	struct Segmento* segmento = malloc(sizeof(*segmento));
@@ -152,7 +165,8 @@ int aniadir_segmento(int frames_necesarios){
 
 		lista_paginas = list_create();
 		segmento->tabla_de_paginas = lista_paginas;
-		for(int i = 0; i < frames_necesarios; i++){
+		iniciar_frames_valor(segmento, frames_necesarios);
+		/*for(int i = 0; i < frames_necesarios; i++){
 			struct Pagina* pagina = malloc(sizeof(*pagina));
 			pagina->bit_presencia = 1;
 			pagina->numero_frame = -1;
@@ -161,7 +175,7 @@ int aniadir_segmento(int frames_necesarios){
 			printf("Bit presencia página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->bit_presencia);
 			printf(" Número frame página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->numero_frame);
 		}
-
+*/
 //		crear_paginas(&segmento,frames_necesarios); <-- esta es la funcion que deberia crear las paginas, o sea hacer lo de acá arriba
 		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
 		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
@@ -178,7 +192,8 @@ int aniadir_segmento(int frames_necesarios){
 
 		lista_paginas = list_create();
 		segmento->tabla_de_paginas = lista_paginas;
-		for(int i = 0; i < frames_necesarios; i++){
+		iniciar_frames_valor(segmento, frames_necesarios);
+		/*for(int i = 0; i < frames_necesarios; i++){
 			struct Pagina* pagina = malloc(sizeof(*pagina));
 			pagina->bit_presencia = 1;
 			pagina->numero_frame = -1;
@@ -187,7 +202,7 @@ int aniadir_segmento(int frames_necesarios){
 			printf("Bit presencia página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->bit_presencia);
 			printf(" Número frame página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->numero_frame);
 		}
-
+*/
 		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
 		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
 		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
@@ -215,7 +230,8 @@ void crear_paginas(struct Segmento *segmento, int frames_necesarios){
 	t_list* lista_paginas;
 	lista_paginas = list_create();
 	segmento->tabla_de_paginas = lista_paginas;
-	for(int i = 0; i < frames_necesarios; i++){
+	iniciar_frames_valor(segmento, frames_necesarios);
+	/*for(int i = 0; i < frames_necesarios; i++){
 		struct Pagina* pagina = malloc(sizeof(*pagina));
 		pagina->bit_presencia = 1;
 		pagina->numero_frame = -1;
@@ -224,6 +240,7 @@ void crear_paginas(struct Segmento *segmento, int frames_necesarios){
 		printf("Bit presencia página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->bit_presencia);
 		printf(" Número frame página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->numero_frame);
 	}
+	*/
 }
 
 void asignarEnFrame(uint32_t tam, int frame){
@@ -233,9 +250,13 @@ void asignarEnFrame(uint32_t tam, int frame){
 	    imprimir_direccion_puntero(actual,"actual");
 	    split(actual,tam);
 	}
+	else{
+		struct HeapMetadata *actual = (int)memory + (frame * tam_pagina);
+	}
 }
 void muse_free(uint32_t dir){
 //	printf("Direccion a liberar: %zu\n", dir);
+
 	if((memory <= dir) && (dir <= (memory+tam_memoria))){ //ACA EN LUGAR DE MEMORY DEVERIA IR LA DIRECCION DE VIRTUAL + EL TAMAÑO DEL SEGMENTO
 		struct HeapMetadata *actual = (void*)dir;
 		actual -= 1;
