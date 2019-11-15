@@ -57,6 +57,10 @@ typedef struct{
 	unsigned char data[4096];
 }t_block;
 
+typedef struct{
+	ptrGBloque blocks_ptr[1024];
+}t_block_ptr;
+
 t_bitarray* bitmap;
 GHeader gHeader;
 GFile* nodes_table;
@@ -87,7 +91,7 @@ char* get_directory(const char* path);
 int search_first_free_node();
 int search_first_free_block();
 int search_and_test_first_free_block();
-int* get_position(off_t offset);
+int32_t* get_position(off_t offset);
 int free_blocks();
 int allocate_node(GFile* node);
 char* get_block_data(int index_block);

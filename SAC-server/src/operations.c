@@ -161,6 +161,17 @@ int sac_create(int sock, const char* path){
 }
 
 int sac_write(int socket,const char* path,char* data, size_t size, off_t offset){
+	int* positions = get_position(offset);
+	int node = search_node(path);
+	GFile* nodo = &nodes_table[node-1];
+	int ptr = nodo->blocks_ptr[positions[0]];
+	t_block_ptr* block = (t_block_ptr*)get_block_data(ptr);
+	block->blocks_ptr[positions[1]] = search_and_test_first_free_block();
+	int ptr_data = block->blocks_ptr[positions[1]];
+	t_block* bdata = (t_block*)get_block_data(ptr_data);
+	memcpy(bdata->data,data,size);
+	send_status(socket,OK,0);
+	//TODO: Validar si hay espacio en el disco.Y otras cosas
 	return 0;
 }
 int sac_unlink(int socket,const char* path){
@@ -193,6 +204,18 @@ int sac_readdir(int socket,const char* path, off_t offset){
 }
 
 int sac_read(int socket,const char* path, size_t size, off_t offset){
+	char* data = malloc(size);
+	int* positions = get_position(offset);
+	int node = search_node(path);
+	GFile* nodo = &nodes_table[node-1];
+	int ptr = nodo->blocks_ptr[positions[0]];
+	t_block_ptr* block = (t_block_ptr*)get_block_data(ptr);
+	int ptr_data = block->blocks_ptr[positions[1]];
+	t_block* bdata = (t_block*)get_block_data(ptr_data);
+	memcpy(data,bdata,size);
+	send_message(socket,OK,data,size);
+	free(data);
+	//TODO: Validar si hay espacio en el disco.Y otras cosas
 	return 0;
 }
 

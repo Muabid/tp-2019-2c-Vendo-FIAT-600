@@ -84,6 +84,7 @@ int main(int argc, const char* argv[]) {
 //	sac_getattr(0,"/hola");
 //	sac_getattr(0,"/hola/chau");
 	init_sac_server();
+
 	exit(0);
 }
 

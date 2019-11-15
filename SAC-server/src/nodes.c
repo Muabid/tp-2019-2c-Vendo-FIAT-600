@@ -96,11 +96,11 @@ int free_blocks(){
 	return free_nodes;
 }
 
-int* get_position(off_t offset){
-	div_t divi = div(offset, (BLOCK_SIZE*PTRGBLOQUE_SIZE));
-	int* position = malloc(sizeof(int)*2);
+int32_t* get_position(off_t offset){
+	div_t divi = div(offset, (BLOCK_SIZE*BLOCKS_NODE));
+	int32_t* position = malloc(sizeof(int32_t)*2);
 	position[0] = divi.quot;
-	position[1] = divi.rem;
+	position[1] = divi.rem/BLOCK_SIZE;
 	//La primera posición indica el puntero de bloques, la segunda el puntero de bloque de datos
 	return position;
 }

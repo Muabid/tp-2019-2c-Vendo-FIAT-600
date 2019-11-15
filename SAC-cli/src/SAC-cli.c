@@ -351,6 +351,9 @@ static int do_utimens(const char* path, const struct timespec ts[2]){
 	return res;
 }
 
+static int do_trucate(const char *filename, off_t length){
+	return 0;
+}
 /*
  * Estructura principal de FUSE
  */
@@ -367,7 +370,7 @@ static struct fuse_operations do_operations = {
 		.mknod = do_mknod,
 		.write= do_write,
 		.utimens = do_utimens,
-		.setxattr = do_setxattr,
+		.truncate = do_trucate,
 		.access = do_access
 };
 
