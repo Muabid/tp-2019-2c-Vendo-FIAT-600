@@ -2,9 +2,12 @@
 #include <commons/config.h>
 #include <commons/bitarray.h>
 #include <commons/collections/list.h>
-/*#include <net.h>
-#include <protocol.h>
-#include <utils.h>*/ //quiero incluir las cosas de sockets que estan en las queridas commons.
+#include <shared/net.h>
+#include <shared/protocol.h>
+#include <shared/utils.h>
+/* #include "net.h"
+#include "protocol.h"
+#include "utils.h" */ //quiero incluir las cosas de sockets que estan en las queridas commons.
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -18,7 +21,7 @@ t_bitarray* bitmap;
 //void cargar_configuracion();
 
 /*
-int main(){
+int main(){  //no se puede poner el main por que se esta ejecutando en libmuse
 	cargar_configuracion();
 	int socket_servidor = init_server(puerto);
 	return 0;
