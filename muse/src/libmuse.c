@@ -105,7 +105,7 @@ int segmento_con_lugar(int tam){
 		segmento = list_get(lista_segmentos, i);
 		if(segmento->es_mmap == 0){//si no es un mmap el segmento, falta ver como hacer la condicion
 		pagina = list_get(segmento->tabla_de_paginas, 0);
-		hmetadata = (((int)memory + (pagina->numero_frame * tam_pagina)) + 5);
+		hmetadata = (((int)memory + (pagina->numero_frame * tam_pagina)));
 		int recorrido = 0;
 		int aux;
 		do{
