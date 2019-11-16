@@ -21,3 +21,13 @@ int fsize(char* path){
 	stat(path, &st);
 	return st.st_size;
 }
+
+void log_error_code(t_log* log, int error_code){
+	if(error_code <0){
+		error_code = -error_code;
+	}
+	char*error = strerror(error_code);
+	log_error(log,error);
+	free(error);
+}
+

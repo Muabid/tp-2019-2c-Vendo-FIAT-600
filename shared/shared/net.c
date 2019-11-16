@@ -18,7 +18,7 @@ int connect_to_server(char* host,int port, void*(*callback)()) {
 
 	if(connect(sock,(struct sockaddr *)&server_addr, sizeof(server_addr))< 0){
 		perror("ERROR CONECTAR SERVIDOR");
-		exit(EXIT_FAILURE);
+		return -errno;
 	}
 
 	if(callback != NULL)
@@ -37,7 +37,9 @@ int init_server(int port){
 
 	socket = create_socket();
 	if (socket < 0) {
-		perror("socket");
+		char* error = strerror(errno);
+		perror(error);
+		free(error);
 		return EXIT_FAILURE;
 	}
 

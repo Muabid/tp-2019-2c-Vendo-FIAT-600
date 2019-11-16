@@ -25,9 +25,14 @@
 #define BLOCKS_TOTAL FILESYSTEM_SIZE/BLOCK_SIZE
 #define BLOCKS_BITMAP gHeader.bit_map_size
 #define BLOCKS_DATA BLOCKS_TOTAL -1 -BLOCKS_BITMAP - 1024
-#define BITMAP_SIZE_BITS bitmap->size * 8
+#define BITMAP_SIZE_BITS BITMAP_SIZE_BYTES * 8
+#define BITMAP_SIZE_BYTES size_file_system/BLOCK_SIZE/8
 #define BLOCKS_FILESYSTEM FILESYSTEM_SIZE / BLOCK_SIZE
-#define T_FILE 2
+#define T_FILE 1
+#define T_DIR 2
+#define BLKINDIRECT 1000
+
+typedef uint32_t ptrGBloque;
 
 typedef struct{
 	unsigned char identifier[3];
@@ -38,19 +43,23 @@ typedef struct{
 }GHeader;
 
 typedef struct{
-	unsigned char status;
-	char file_name[71];
+	uint8_t status;
+	unsigned char file_name[71];
 	uint32_t root;
 	uint32_t size;
 	uint64_t creation_date;
 	uint64_t modification_date;
-	int32_t blocks_ptr[1000];
+	ptrGBloque blocks_ptr[BLKINDIRECT];
 }GFile ;
 
 
 typedef struct{
-	char data[4096];
+	unsigned char data[4096];
 }t_block;
+
+typedef struct{
+	ptrGBloque blocks_ptr[1024];
+}t_block_ptr;
 
 t_bitarray* bitmap;
 GHeader gHeader;
@@ -60,6 +69,7 @@ char config_path[1000];
 t_log * log;
 int file_system_descriptor;
 int size_file_system;
+pthread_rwlock_t rwlock;
 
 pthread_mutex_t bitarray_mutex;
 
@@ -73,14 +83,15 @@ GFile read_GFile(void* cachoOfMemory);
 
 int search_node(const char* path);
 
-GHeader* file_system;
+
+t_block* file_system;
 
 char* get_name(const char* path);
 char* get_directory(const char* path);
 int search_first_free_node();
 int search_first_free_block();
 int search_and_test_first_free_block();
-int* get_position(off_t offset);
+int32_t* get_position(off_t offset);
 int free_blocks();
 int allocate_node(GFile* node);
 char* get_block_data(int index_block);

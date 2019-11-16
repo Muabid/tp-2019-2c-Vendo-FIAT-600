@@ -6,58 +6,32 @@
  */
 #include "nodes.h"
 
-int lastchar(const char* str, char chr){
+int isLastchar(const char* str, char chr){
 	if ( ( str[strlen(str)-1]  == chr) ) return 1;
 	return 0;
-}
-
-GFile create_GFile(char status, char file_name[71], int32_t root, int32_t size,
-		uint64_t creation_date, uint64_t modification_date) {
-
-	GFile gFile = { .status = status, .root = root, .size = size,
-			.modification_date = modification_date, .creation_date = creation_date };
-
-	strcpy(gFile.file_name, file_name);
-//	for(int i=0; i<1000; i++){
-//		gFile.blocks_ptr[i] = blocks_ptr[i];
-//	}
-
-	return gFile;
-}
-
-GHeader create_sac_header(char identifier[3], int32_t version,
-		int32_t init_block, int32_t bit_map_size) {
-	GHeader header = { .version = version, .init_block = init_block,
-			.bit_map_size = bit_map_size, };
-
-	memcpy(header.identifier, identifier,3);
-	memset(header.padding,'\0',4081);
-	return header;
 }
 
 int search_node(const char* path) {
 	if (!strcmp(path, "/"))
 		return 0;
-	int res;
 	char* name = get_name(path);
 	char* directory = get_directory(path);
-
 	int root = search_node(directory);
 	int index;
-	for (index = 1;
-			(nodes_table[index].root != root
-					|| strcmp(nodes_table[index].file_name, name) != 0)
-					&& index < BLOCKS_NODE; index++);
+	if(root>=0){
+		for (index = 0;
+				(nodes_table[index].root != root
+						|| strcmp(nodes_table[index].file_name, name) != 0)
+							&& index < BLOCKS_NODE; index++);
 
-	if (index >= BLOCKS_NODE)
-		res = -1;
-	else {
-		res = index;
+		if (index >= BLOCKS_NODE){
+			return -1;
+		}
 	}
 
 	free(name);
 	free(directory);
-	return res;
+	return index+1;
 }
 
 char* get_name(const char* path) {
@@ -78,7 +52,7 @@ char* get_directory(const char* path) {
 	char* file = get_name(path);
 	char* directory = malloc(strlen(path) + 1);
 	strcpy(directory, path);
-	if (lastchar(path, '/')) {
+	if (isLastchar(path, '/')) {
 		directory[strlen(directory)-1] = '\0';
 	}
 	int i = strlen(directory) - strlen(file);
@@ -99,33 +73,34 @@ int search_first_free_node(){
 
 int search_and_test_first_free_block(){
 	int res = -1;
+//	pthread_mutex_lock(&bitarray_mutex);
 	for(int i = 0; i < BITMAP_SIZE_BITS && res== -1; i++){
 		if(bitarray_test_bit(bitmap,i) == 0){
-			pthread_mutex_lock(&bitarray_mutex);
 			bitarray_set_bit(bitmap,i);
-			pthread_mutex_unlock(&bitarray_mutex);
 			res = i;
 		}
 	}
+	log_info(log,"Se reservo el bloque %i",res);
+//	pthread_mutex_unlock(&bitarray_mutex);
 	return res;
 }
 
 int free_blocks(){
 	int free_nodes=0;
-
+	pthread_mutex_lock(&bitarray_mutex);
 	for (int i = 0; i < BITMAP_SIZE_BITS; i++){
 		if (bitarray_test_bit(bitmap, i) == 0)
 			free_nodes++;
 	}
-
+	pthread_mutex_unlock(&bitarray_mutex);
 	return free_nodes;
 }
 
-int* get_position(off_t offset){
-	div_t divi = div(offset, (BLOCK_SIZE*PTRGBLOQUE_SIZE));
-	int* position = malloc(sizeof(int)*2);
+int32_t* get_position(off_t offset){
+	div_t divi = div(offset, (BLOCK_SIZE*BLOCKS_NODE));
+	int32_t* position = malloc(sizeof(int32_t)*2);
 	position[0] = divi.quot;
-	position[1] = divi.rem;
+	position[1] = divi.rem/BLOCK_SIZE;
 	//La primera posición indica el puntero de bloques, la segunda el puntero de bloque de datos
 	return position;
 }

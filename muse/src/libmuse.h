@@ -6,17 +6,26 @@
 	#include <stdio.h> 
 	#include <string.h> 
 	#include <stdbool.h>
+	#include <stdlib.h>
 
 	typedef struct HeapMetadata {
 		uint32_t tamanio;
 		bool libre;
+
 	}__attribute__((packed));
 
-	int puerto;
-	int tam_memoria;
-	int tam_pagina;
-	int tam_swap;
+	typedef struct Pagina{
+			uint32_t bit_presencia;
+			uint32_t numero_frame;
 
+	}__attribute__((packed));
+
+	typedef struct Segmento {
+			uint32_t comienzo;
+			uint32_t fin;
+			t_list *tabla_de_paginas;
+
+	}__attribute__((packed));
 
     /**
      * Inicializa la biblioteca de MUSE.
@@ -103,5 +112,6 @@
     void merge();
     void imprimir_direccion_puntero(struct HeapMetadata *ptr, char nombre_ptr[]);
     void divider();
+    int calcular_frames_necesarios(uint32_t tam);
 
 #endif

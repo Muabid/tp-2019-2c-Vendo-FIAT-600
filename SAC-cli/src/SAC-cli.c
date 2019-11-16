@@ -9,11 +9,11 @@
 #include "operations_client.h"
 #include <shared/net.h>
 #include <stdint.h>
+#include <commons/log.h>
 
 //Variable global para la conexión con el SAC-server
-int sock;
-
-
+static int sock;
+static t_log* log;
 /*
  * Esta es una estructura auxiliar utilizada para almacenar parametros
  * que nosotros le pasemos por linea de comando a la funcion principal
@@ -24,14 +24,12 @@ struct t_runtime_options {
 } runtime_options;
 
 
-
 /*
  * Esta Macro sirve para definir nuestros propios parametros que queremos que
  * FUSE interprete. Esta va a ser utilizada mas abajo para completar el campos
  * welcome_msg de la variable runtime_options
  */
 #define CUSTOM_FUSE_OPT_KEY(t, p, v) { t, offsetof(struct t_runtime_options, p), v }
-
 
 
 /*
@@ -41,234 +39,321 @@ struct t_runtime_options {
  */
 
 static int do_getattr(const char *path, struct stat *st) {
-	void *buffer = malloc(strlen(path));
-	int32_t size,hardlinks,file_name_len;
+	int op_res;
+	if(strcmp(path,"/") == 0){
+		op_res = send_message(sock, GET_ATTR, path,
+				strlen(path));
+
+		if (op_res >= 0) {
+			t_message* message = recv_message(sock); // Acá me va a responder el server algo,
+			if(message->head == OK){
+				st->st_nlink = *((int32_t*)message->content);
+				st->st_mode = S_IFDIR | 0755;
+				return 0;
+			}else{
+				return get_status(message);
+			}
+		}
+	}
+
+	int res= 0;
+	memset(st, 0, sizeof(struct stat));
+
+	uint32_t size=0;
+	int32_t hardlinks=0;
 	uint64_t creation_date, modification_date;
-	char* file_name;
-	char status;
-
-	memcpy(buffer, path, strlen(path));
-
-	int operation_response = send_message(sock, GET_ATTR, buffer,
+	uint8_t status=0;
+	op_res = send_message(sock, GET_ATTR, path,
 			strlen(path));
 
-	free(buffer);
-
-	if (operation_response >= 0) {
+	if (op_res >= 0) {
 		t_message* message = recv_message(sock); // Acá me va a responder el server algo,
-		void* content = message->content;
-		memcpy(&size,content,sizeof(int32_t));
-		content = content + sizeof(int32_t);
+		if(message->head == OK){
+			log_info(log,"Recibiendo atributos..");
+			void* content = message->content;
+			memcpy(&size,content,sizeof(uint32_t));
+			content+=sizeof(uint32_t);
 
-		memcpy(&creation_date,content,sizeof(int32_t));
-		content = content + sizeof(uint64_t);
+			memcpy(&creation_date,content,sizeof(uint64_t));
+			content+=sizeof(uint64_t);
 
-		memcpy(&modification_date,content, sizeof(uint64_t));
-		content = content + sizeof(uint64_t);
+			memcpy(&modification_date,content, sizeof(uint64_t));
+			content+=sizeof(uint64_t);
 
-		memcpy(&status,content,sizeof(char));
-		content = content + sizeof(char);
+			memcpy(&status,content,sizeof(uint8_t));
+			content+=sizeof(uint8_t);
 
-		memcpy(&hardlinks,content,sizeof(int32_t));
-		content += sizeof(int32_t);
+			memcpy(&hardlinks,content,sizeof(uint32_t));
+			content+=sizeof(uint32_t);
 
-		memcpy(&file_name_len,content,sizeof(int32_t));
-		content += sizeof(int32_t);
-		file_name = malloc(file_name_len + 1);
+			log_info(log,"%s | %d | %i | %i | %i | %i",path,size,
+					creation_date,modification_date,hardlinks,status);
 
-		memcpy(file_name,content,file_name_len);
-		file_name[file_name_len] = '\0';
 
-		printf("%s | %d | %i | %i | %i | %c",file_name,size,
-				creation_date,modification_date,hardlinks,status);
+			st->st_nlink = hardlinks;
+			st->st_mtim.tv_sec = modification_date;
+			st->st_ctim.tv_sec = creation_date;
+			st->st_atim.tv_sec = time(NULL);
 
-		st->st_size = size;
-		st->st_nlink = hardlinks;
-		st->st_mtim.tv_sec = modification_date;
-		st->st_ctim.tv_sec = creation_date;
-		st->st_atim.tv_sec = time(NULL);
-
-		if(status == 2){
-			st->st_mode = S_IFDIR | 0777;
-		} else{
-			st->st_mode = S_IFREG | 0777;
+			if(status == T_DIR){
+				st->st_mode = S_IFDIR | 0755;
+			} else{
+				st->st_size = size;
+				st->st_mode = S_IFREG | 0777;
+			}
+		}else{
+			res = get_status(message);
 		}
-
-		return 0; // 0 for success
-	} else {
-		//Falló. Hacer algo.
-		return 1;
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
 
+	return res;
 }
 
-static int do_readLink(const char *path, char *buf, size_t len) {
-	void *buffer = malloc(strlen(path) + sizeof(buf));
-	memcpy(buffer, path, strlen(path));
-	memcpy(buffer + strlen(path), buf, sizeof(buf));
+static int do_readLink(const char *path, char *buf, size_t len){
+	int res=0;
+	int op_res = send_message(sock, READ_LINK, path,
+			strlen(path));
 
-	int operation_response = send_message(sock, READ_LINK, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
+	if (op_res >= 0) {
 		t_message* message = recv_message(sock);
-
-		return 0;
-
-	} else {
-		return 1;
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
+
+	return res;
 }
 
 static int do_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
-	void *buffer = malloc(strlen(path) + sizeof(mode));
-	memcpy(buffer, path, strlen(path));
-	memcpy(buffer + strlen(path), mode, sizeof(mode));
+	int res=0;
+	int op_res = send_message(sock, CREATE, path,
+			strlen(path));
 
-	int operation_response = send_message(sock, CREATE, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+	if (op_res >= 0) {
+		t_message* message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
+	return res;
 }
 
 static int do_read(const char *path, char *buf, size_t size, off_t off,
 		struct fuse_file_info *fi){
-	void *buffer = malloc(strlen(path) + sizeof(buf) + sizeof(size));
-		memcpy(buffer, path, strlen(path));
-		memcpy(buffer + strlen(path), buf, sizeof(buf));
-		memcpy(buffer + strlen(path) + sizeof(buf), size, sizeof(size));
+	size_t len = strlen(path);
+	size_t size_cont = sizeof(size_t) + len + sizeof(off) + sizeof(size);
 
-		int operation_response = send_message(sock, READ, buffer, sizeof(buffer));
-
-		free(buffer);
-
-		if (operation_response >= 0) {
-			t_message *message = recv_message(sock);
-			return 0;
-		} else {
-			return 1;
+	void * cont = malloc(size_cont);
+	void*aux = cont;
+	memcpy(aux,&len,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,path,strlen(path));
+	aux+=strlen(path);
+	memcpy(aux,&size,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,&off,sizeof(off_t));
+	int res=0;
+	int op_res = send_message(sock, READ, cont,size_cont);
+	free(cont);
+	if(op_res >=0){
+		t_message* message = recv_message(sock);
+		if(message->head == OK){
+			char* data = malloc(message->size+1);
+			strcpy(data,message->content);
+			strcat(data,"\0");
+			log_info(log,"Leido: %s - size: %i",data,message->size);
+			memcpy(buf, data, strlen(data));
+			free(data);
+			res = message->size;
+		}else{
+			res = get_status(message);
 		}
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
+	}
+	return res;
 }
 
 static int do_unlink(const char *path) {
-	void *buffer = malloc(strlen(path));
-	memcpy(buffer, path, strlen(path));
-
-	int operation_response = send_message(sock, UNLINK, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
+	int res = send_message(sock, UNLINK, path,
+			strlen(path));
+	if (res >= 0) {
 		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
+	return res;
 }
 
 static int do_mkdir(const char *path, mode_t mode) {
-	void *buffer = malloc(strlen(path) + sizeof(mode));
-	memcpy(buffer, path, strlen(path));
+	int res=0;
+	int op_res = send_message(sock, MKDIR, path,
+			strlen(path));
 
-	int operation_response = send_message(sock, MKDIR, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
+	if (op_res >= 0) {
 		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
+
+	return res;
 }
 
 static int do_opendir(const char *path, struct fuse_file_info *fi) {
-	void *buffer = malloc(strlen(path));
-	memcpy(buffer, path, strlen(path));
-
-	int operation_response = send_message(sock, OPENDIR, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
-	}
+//	int op_res = send_message(sock, OPENDIR, path,
+//			strlen(path));
+//	int res=0;
+//	if (op_res >= 0) {
+//		t_message *message = recv_message(sock);
+//		res = get_status(message);
+//		free_t_message(message);
+//	}else{
+//		sock = connect_to_server("127.0.0.1", 8080, NULL);
+//	}
+	return 0;
 }
 
 static int do_rmdir(const char *path) {
-	void *buffer = malloc(strlen(path));
-	memcpy(buffer, path, strlen(path));
-
-	int operation_response = send_message(sock, RMDIR, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
+	int op_res = send_message(sock, RMDIR, path,
+			strlen(path));
+	int res = 0;
+	if (op_res >= 0) {
 		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
+
+	return res;
 }
 
 static int do_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 		off_t off, struct fuse_file_info *fi) {
 
-	void *buffer = malloc(strlen(path) + sizeof(buf));
-	memcpy(buffer, path, strlen(path));
-	memcpy(buffer + strlen(path), buf, sizeof(buf));
+	int op_res = send_message(sock, READDIR, path,
+			strlen(path));
+	int res=0;
+	if (op_res >= 0) {
+		t_message * message = recv_message(sock);
+		t_header header = message->head;
 
-	int operation_response = send_message(sock, READDIR, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+		if(header != ERROR){
+			filler(buf, ".", NULL, 0);
+			filler(buf, "..", NULL, 0);
+			while(header == DIR_NAME){
+				filler(buf,message->content,NULL,0);
+				free_t_message(message);
+				message = recv_message(sock);
+				header = message->head;
+			}
+		}
+		res= get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
+	return res;
 
+}
+
+static int do_access(const char* path, int mask){
+	return 0;
 }
 
 static int do_mknod(const char *path, mode_t mode, dev_t rdev) {
-	void *buffer = malloc(strlen(path) + sizeof(mode));
-	memcpy(buffer, path, strlen(path));
-	memcpy(buffer + strlen(path), mode, sizeof(mode));
-
-	int operation_response = send_message(sock, MKNODE, buffer,
-			sizeof(buffer));
-
-	free(buffer);
-
-	if (operation_response >= 0) {
-		t_message *message = recv_message(sock);
-		return 0;
-	} else {
-		return 1;
+	int op_res = send_message(sock, MKNODE, path,
+			strlen(path));
+	int res=0;
+	if (op_res >= 0) {
+		t_message* message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
 
+	return res;
 }
 
+static int do_write(const char *path, const char *buf, size_t size, off_t off, struct fuse_file_info *fi) {
+	size_t len = strlen(path);
 
+	size_t size_cont = sizeof(size_t) + len + sizeof(off) + sizeof(size)
+						+ strlen(buf);
 
+	void * cont = malloc(size_cont);
+	void*aux = cont;
+	memcpy(aux,&len,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,path,len);
+	aux+=strlen(path);
+	memcpy(aux,&size,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,&off,sizeof(off_t));
+	aux+=sizeof(off_t);
+	memcpy(aux,buf,strlen(buf));
+	int op_res = send_message(sock,WRITE,cont,size_cont);
+	int res=0;
+	free(cont);
+	if(op_res >= 0){
+		t_message* message = recv_message(sock);
+		if(message->head == ERROR)
+			res = get_status(message);
+		else{
+			res = size;
+		}
+		free_t_message(message);
+	}else{
+		sock =connect_to_server("127.0.0.1", 8080, NULL);
+	}
+	return res;
+}
+
+static int do_setxattr(const char *path, const char *name,
+                    const void *value, size_t size, int flags){
+	return 0;
+}
+
+static int do_utimens(const char* path, const struct timespec ts[2]){
+	log_info(log,"Executing do_utimens...");
+	size_t len = strlen(path);
+	uint64_t last_mod = ts[1].tv_sec;
+	size_t size_cont = sizeof(size_t) + len + sizeof(uint64_t);
+	void * cont = malloc(size_cont);
+	void*aux = cont;
+	memcpy(aux,&len,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,path,len);
+	aux+=strlen(path);
+	memcpy(aux,&last_mod,sizeof(uint64_t));
+	int op_res = send_message(sock, UTIME, cont,
+			size_cont);
+	int res=0;
+	if (op_res >= 0) {
+		t_message* message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
+	}
+	log_info(log,"Finishing do_utimens...");
+	return res;
+}
+
+static int do_trucate(const char *filename, off_t length){
+	return 0;
+}
 /*
  * Estructura principal de FUSE
  */
@@ -282,18 +367,17 @@ static struct fuse_operations do_operations = {
 		.opendir = do_opendir,
 		.rmdir = do_rmdir,
 		.readdir = do_readdir,
-		.mknod = do_mknod
+		.mknod = do_mknod,
+		.write= do_write,
+		.utimens = do_utimens,
+		.truncate = do_trucate,
+		.access = do_access
 };
-
-
-
-
 
 enum {
 	KEY_VERSION,
 	KEY_HELP,
 };
-
 
 /*
  * Esta estructura es utilizada para decirle a la biblioteca de FUSE que
@@ -310,35 +394,23 @@ static struct fuse_opt fuse_options[] = {
 		FUSE_OPT_END,
 };
 
-
-
-
-
-
 //Main. Falta entender cómo es que el main no termina y recibe las funciones de FUSE.
 //Falta entender dónde se crearían los hilos para las distintas requests de FUSE e implementarlo.
 
-int main(int argc, const char* argv[]) {
+int main(int argc, char* argv[]) {
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
+	log = log_create("sac.log","SAC",1,LOG_LEVEL_INFO);
 
 	// Limpio la estructura que va a contener los parametros
 	memset(&runtime_options, 0, sizeof(struct t_runtime_options));
 
 	// Esta funcion de FUSE lee los parametros recibidos y los intepreta
-		if (fuse_opt_parse(&args, &runtime_options, fuse_options, NULL) == -1){
-			/** error parsing options */
-			perror("Invalid arguments!");
-			return EXIT_FAILURE;
-		}
-
-	sock = connect_to_server("LOCALHOST", 8080, NULL); // Se establece la conexión
-
-	int communication_response = send_message(sock, HI_PLEASE_BE_MY_FRIEND,"HI",2);
-
-	if (communication_response <= 0) { // Comunicación ok.
-		return -1; //ERROR
+	if (fuse_opt_parse(&args, &runtime_options, fuse_options, NULL) == -1){
+		/** error parsing options */
+		perror("Invalid arguments!");
+		return EXIT_FAILURE;
 	}
 
+	sock = connect_to_server("127.0.0.1", 8080, NULL); // Se establece la conexión
 	return fuse_main(args.argc, args.argv, &do_operations, NULL);
-
 }

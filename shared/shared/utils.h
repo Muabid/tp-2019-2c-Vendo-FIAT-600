@@ -10,7 +10,10 @@
 #include <time.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <commons/log.h>
 
 char* get_date();
 int fsize(char* path);
+
+void log_error_code(t_log* log, int error_code);
 #endif /* UTILS_H_ */
