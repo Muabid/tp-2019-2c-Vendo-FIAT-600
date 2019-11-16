@@ -303,14 +303,10 @@ int main() {
 	listaNuevos = list_create();
 	listaExit = list_create();
 
-//	log_info(log, "Se crearon exitosamente las estructuras");
-
 	int socketDelCliente;
 	struct sockaddr direccionCliente;
 	unsigned int tamanioDireccion = sizeof(direccionCliente);
 	int servidor = init_server(listen_port);
-
-	//HAY QUE GUARDAR LOS threadId en alguna lista
 
 
 	while((socketDelCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion))>=0) {
