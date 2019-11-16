@@ -21,6 +21,7 @@ int aniadir_segmento(int frames_necesarios,int tam);
 void crear_paginas(struct Segmento *segmento, int frames_necesarios);
 void asignarEnFrame(uint32_t tam, int frame);
 void iniciar_frames_valor(struct Segmento *segmento, int frames_necesarios);
+int segmento_con_lugar(int tam);
 void* memory;
 struct HeapMetadata *bigMemory;
 
@@ -39,7 +40,7 @@ int main(){
 	printf("marcos disponibles: %d\n", cantidadFramesDisponibles());
 	uint32_t p = muse_alloc(20);
 	divider();
-	uint32_t o = muse_alloc(50);
+	uint32_t o = muse_alloc(5);
 //	actual++;
 //	printf("tamanio: %zu\n",actual->tamanio);
 	//actual = bigMemory;// esto se tiene que ir
@@ -74,7 +75,7 @@ uint32_t muse_alloc(uint32_t tam){
 		printf("no hay memoria disponible");
 		return NULL; //ERROR NO HAY MEMORIA DISPONIBLE
 	}
-	if(){//si existe el segmento y si se podria agrandar
+	if(1){//si existe el segmento y si se podria agrandar
 		puts("Aniadiendo segmento...");
 		int seg = aniadir_segmento(frames_necesarios,tam);
 		segmento = list_get(lista_segmentos, seg);
@@ -102,12 +103,47 @@ void iniciar_frames_valor(struct Segmento *segmento, int frames_necesarios){
 			printf(" Número frame página insertada: %d\n",((struct Pagina*)list_get(segmento->tabla_de_paginas,i))->numero_frame);
 		}
 }
-
+int segmento_con_lugar(int tam){
+	struct Segmento* segmento;
+	struct Pagina* pagina;
+	struct HeapMetadata* hmetadata;
+	int queda = tam_pagina - 5;
+	for(int i = 0;i <= list_size(lista_segmentos);i++){
+		segmento = list_get(lista_segmentos, i);
+		if(1){//si no es un mmap el segmento, falta ver como hacer la condicion
+		pagina = list_get(segmento->tabla_de_paginas, 0);
+		hmetadata = (((int)memory + (pagina->numero_frame * tam_pagina)) + 5);
+		int recorrido = 0;
+		int aux;
+		do{
+			if(hmetadata->libre == 0){ // si esta libre
+				return i;
+			}
+			else{
+				if((hmetadata->tamanio + 5) > queda){
+					queda += tam_pagina;
+					queda -= (hmetadata->tamanio + 5);
+					aux = tam_pagina - queda;
+					recorrido++;
+					pagina = list_get(segmento->tabla_de_paginas, recorrido);
+					hmetadata = (int)memory + (pagina->numero_frame * tam_pagina) + aux;
+				}
+				else{
+					queda -= (hmetadata->tamanio + 5);
+					hmetadata += (hmetadata->tamanio + 5);
+				}
+			}
+		}while(list_size(segmento->tabla_de_paginas) >= recorrido);
+		return i;
+		}
+	}
+	return -1; // funcion que devuelve el indice de la tabla de segmentos en el cual se podria alocar
+}
 int aniadir_segmento(int frames_necesarios, int tam){
 	int num_segmento_a_insertar;
 	int segmento_disponible;
 	struct Segmento* segmento = malloc(sizeof(*segmento));
-	struct Segmento* ulitmoTabla;
+	struct Segmento* ultimoTabla;
 	if(lista_segmentos == NULL){
 		lista_segmentos = list_create(lista_segmentos);
 		segmento->comienzo = 0;
@@ -119,10 +155,20 @@ int aniadir_segmento(int frames_necesarios, int tam){
 		return num_segmento_a_insertar;
 	}
 	segmento_disponible = segmento_con_lugar(tam);
-	if(segmento_disponible != -1) { // hay un map al final
+	if(segmento_disponible != -1) { // algun segmento tiene lugar disponible
 	 // caso que los segmentos existententes no tengan lugar disponible
+		printf("Hay segmentos disponibles \n");
+		return segmento_disponible;
+	}else{ //crear uno nuevo(caso de que ningun segmento tenga lugar disponible, y no se puede agrandar debido a un map)
+		printf("no hay segmentos disponibles, se crea uno nuevo \n");
+		ultimoTabla = list_get(lista_segmentos, list_size(lista_segmentos)-1);
+		segmento->comienzo = ultimoTabla->fin + 1;
+		segmento->fin = segmento->comienzo + (frames_necesarios * tam_pagina) - 1;
+		crear_paginas(segmento,frames_necesarios);// <-- esta es la funcion que deberia crear las paginas, o sea hacer lo de acá arriba
+		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
+		imprimir_info_segmento(&segmento,num_segmento_a_insertar);
+		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
 		return num_segmento_a_insertar;
-	}else if(1){ //crear uno nuevo(caso de que hay un map)
 
 	}
 }
