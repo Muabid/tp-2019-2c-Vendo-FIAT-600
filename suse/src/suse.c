@@ -5,6 +5,7 @@ int listen_port;
 int metrics_timer;
 int max_multiprog;
 char** sem_ids;
+char** sem_init_value;
 char** sem_max;
 double alpha_sjf;
 
@@ -12,15 +13,19 @@ int programasEnMemoria = 0;
 
 t_list* listaNuevos; //Se inicializa en main
 t_list* listaDeBloqueados;//Se inicializa en main
-//t_list* listaEnEjecucion;
+t_list* listaEnEjecucion;
+t_list* listaExit;
 t_log* log;
 
 t_list* listaDeProgramas; //Se inicializa en main TIENE ALGUNA UTILIDAD??
 
 
 //AUXILIARES PARA BUSQUEDA
-int auxiliarParaId = -1;
+int auxiliarParaId;
 int auxiliarParaIdPadre;
+t_list* auxiliarListaParaBusqueda;
+double auxiliarParaBusquedaMenor;
+
 
 void load_suse_config() {
 	t_config* config = config_create("suse.config");
@@ -32,10 +37,24 @@ void load_suse_config() {
 	sem_ids = malloc(sizeof(config_get_array_value(config, "SEM_IDS")));
 	sem_ids = config_get_array_value(config, "SEM_IDS");
 
+	sem_init_value = malloc(sizeof(config_get_array_value(config, "SEM_INIT")));
+	sem_init_value = config_get_array_value(config, "SEM_INIT");
+
 	sem_max = malloc(sizeof(config_get_array_value(config, "SEM_MAX")));
 	sem_max = config_get_array_value(config, "SEM_MAX");
 
 	alpha_sjf = config_get_double_value(config, "ALPHA_SJF");
+
+	printf("%i\n", listen_port);
+	printf("%i\n", metrics_timer);
+	printf("%i\n", max_multiprog);
+
+	printf("%i\n", *(int*)sem_max[0]); //COMO CARGO LOS ARRAYS Y COMO LOS LEO?
+	printf("%i\n", *(int*)sem_max[1]);
+
+	printf("%lf\n", alpha_sjf);
+
+	config_destroy(config);
 
 }
 
@@ -51,70 +70,106 @@ void suseCreate(int threadId, t_programa* padreId) {
 	nuevo->id = threadId;
 	nuevo->idPadre = padreId;
 	nuevo->estado = NEW;
-	//nuevo->semaforos = NULL;
+	nuevo->tiempoInicial = 0;
+	nuevo->tiempoEspera = 0;
+	nuevo->tiempoCpu = 0;
+	nuevo->estimadoSJF = 0;
 
 	list_add(listaNuevos, nuevo);
+	list_add(listaEnEjecucion, nuevo);
+
+}
+
+bool esElMenor(void* hilo) {
+	t_hilo* unHilo = (t_hilo*)hilo;
+	return auxiliarParaBusquedaMenor <= unHilo->estimadoSJF;
+}
+
+bool tieneMenorEstimado(void* hilo) {
+	t_hilo* unHilo = (t_hilo*)hilo;
+	auxiliarParaBusquedaMenor = unHilo->estimadoSJF;
+	return list_all_satisfy(auxiliarListaParaBusqueda, esElMenor);
 }
 
 void suseScheduleNext(t_programa* programa) {
 	if(list_size(programa->listaDeReady) > 0) {
-		t_hilo* hilo = list_remove(programa->listaDeReady, 0);
+		auxiliarListaParaBusqueda = programa->listaDeReady;
+		t_hilo* hilo = list_remove_by_condition(programa->listaDeReady, tieneMenorEstimado);
+
+		if(programa->enEjecucion != NULL) {
+			programa->enEjecucion->estado = READY;
+			list_add(programa->listaDeReady, programa->enEjecucion);
+			programa->enEjecucion = NULL;
+		}
+
+		hilo->estado = EXEC;
+		programa->enEjecucion = hilo;
+
 		send_message(programa->id, SUSE_SCHEDULE_NEXT, &hilo->id, sizeof(int));
-		programasEnMemoria --;
 	}
 	else
 		send_message(programa->id, ERROR_MESSAGE, NULL, 0);
 }
 
+void estimarDuracionHilo(t_hilo* unHilo, double duracion) {
+	unHilo->estimadoSJF = duracion * alpha_sjf + (1-alpha_sjf) * (unHilo->estimadoSJF); //ALGORITMO SJF
+	printf("Se ejecuto SJF");
+}
+
 void cargarHilosAReady() {
 	while(programasEnMemoria < max_multiprog && list_size(listaNuevos) != 0) {
 		t_hilo* hilo = list_remove(listaNuevos, 0);
+		hilo->estado = READY;
 		list_add(hilo->idPadre->listaDeReady, hilo);
 		programasEnMemoria ++;
 	}
 }
 
-void suseWait(int threadId, t_programa* padre) {
-	//Si el programa está en ready, al llevarlo a la lista de bloqueados hay que disminuir "programasEnMemoria"
-	auxiliarParaId = threadId;
-	auxiliarParaIdPadre = padre->id;
-	t_hilo* buscado = NULL;
-	if((buscado = list_remove_by_condition(listaNuevos, esHiloPorId)) != NULL) {
-		list_add(listaDeBloqueados, buscado);
-		log_info(log, "Se movió al hilo %i del programa %i de la cola de nuevos a la de bloqueados", threadId, padre->id);
-
-	}
-//	else if((buscado = list_remove_by_condition(padre->listaDeReady, esHiloPorId)) != NULL) {
-//		list_add(listaDeBloqueados, buscado);
-//		log_info(log, "Se movió al hilo %i del programa %i de la cola de ready a la de bloqueados", threadId, padre->id);
-//
-//	}
-//	else if(padre->enEjecucion->id == threadId) {
-//		list_add(listaDeBloqueados, padre->enEjecucion);
-//		padre->enEjecucion = NULL;
-//		log_info(log, "Se movió el hilo %i del programa %i de 'en ejecución' a la lista de bloqueados");
-//		programasEnMemoria --;
-//	}
+void suseWait(int threadId, char* semaforo, t_programa* padre) {
 }
 
-void suseSignal(int threadId, t_programa* padre) {
-	auxiliarParaId = threadId;
-	auxiliarParaIdPadre = padre->id;
-	t_hilo* buscado = list_remove_by_condition(listaDeBloqueados, esHiloPorId);
-	if(buscado == NULL) {
-		log_info(log, "No se encontro el hilo %i en la lista de bloqueados", threadId);
-	}
-	else{
-		list_add(listaNuevos, buscado);
-		log_info(log, "Se removió el hilo %i de la lista de bloqueados y se movió a la cola de nuevos", threadId);
-	}
+void suseSignal(int threadId, char* semaforo, t_programa* padre) {
+
 }
 
+void suseClose(int id, t_programa* programa) {
+	auxiliarParaId = id;
+	auxiliarParaIdPadre = programa->id;
+	t_hilo* auxiliar;
+
+	if(list_any_satisfy(listaEnEjecucion, esHiloPorId)) {
+		if(programa->enEjecucion->id == id) {
+			programa->enEjecucion->estado = EXIT;
+			list_add(listaExit, programa->enEjecucion);
+			programa->enEjecucion = NULL;
+		}
+		else if(list_any_satisfy(programa->listaDeReady, esHiloPorId)) {
+			auxiliar = list_remove_by_condition(programa->listaDeReady, esHiloPorId);
+			auxiliar->estado = EXIT;
+			list_add(listaExit, auxiliar);
+		}
+
+		else if(list_any_satisfy(listaNuevos, esHiloPorId)) {
+			auxiliar = list_remove_by_condition(listaNuevos, esHiloPorId);
+
+		}
+
+		else {
+			log_error(log, "El hilo a hacerle suseClose no se encuentra en memoria");
+
+		}
+
+		programasEnMemoria --;
+		list_remove_by_condition(listaEnEjecucion, esHiloPorId);
+
+
+	}
+
+}
 //void freeHilo(t_hilo* hilo) {
 //	free(hilo->semaforos);
 //	free(hilo);
 //}
-
 
 t_programa* crearPrograma(int id) {
 	t_programa* nuevo = malloc(sizeof(t_programa));
@@ -153,45 +208,78 @@ void* handler(void* socketConectado) {
 
 	t_message* bufferLoco;
 
-	while((bufferLoco = recv_message(socket))->head < 7) { // HAY CODIGOS HASTA 5 + Prueba, por eso menor a 7.HAY QUE AGREGAR UNA COLA DE ESPERA
+	while((bufferLoco = recv_message(socket))->head < 10) { // HAY CODIGOS HASTA 7 + Prueba, por eso menor a 7.HAY QUE AGREGAR UNA COLA DE ESPERA
 		printf("Se recibió un mensaje\n");
 		int threadId = *(int*)bufferLoco->content;
+		char* stringAuxiliar;
+		double numeroAux;
 		t_header header = bufferLoco->head;
 		size_t tamanio = bufferLoco->size;
 
 		switch(bufferLoco->head) {
 			case SUSE_CREATE:
 				suseCreate(threadId, programa);
-				printf("Se ejecutó SUSE_CREATE\n");
 				break;
 
 			case SUSE_SCHEDULE_NEXT:
-				cargarHilosAReady();
-				log_info(log, "Se ejecutó 'cargarHilosAMemoria' y en total hay %i elementos en la lista", list_size(programa->listaDeReady));
-				suseScheduleNext(programa);
-				printf("Se ejecutó SUSE_SCHEDULE_NEXT\n");
+					numeroAux = (double)threadId; //En este caso threadId se comporta como el contenedor de el tiempo real para SJF
+
+					if(programa->enEjecucion != NULL) {
+						estimarDuracionHilo(programa->enEjecucion, numeroAux);
+					}
+
+					cargarHilosAReady();
+					suseScheduleNext(programa);
+
+
+
 
 				break;
 
 			case SUSE_WAIT:
-				suseWait(threadId, programa);
+				if((bufferLoco = recv_message(socket))->head == SUSE_CONTENT) {
+					stringAuxiliar = malloc(sizeof(bufferLoco->content));
+					stringAuxiliar = (char*)bufferLoco->content;
+					suseWait(threadId, stringAuxiliar, programa);
+					free(stringAuxiliar);
+				}
+				else {
+					log_error(log, "Se recibió en SUSE_SIGNAL un mensaje que no corresponde a este lugar");
+					free(stringAuxiliar);
+				}
 				break;
 
 			case SUSE_SIGNAL:
-				suseSignal(threadId, programa);
+				if((bufferLoco = recv_message(socket))->head == SUSE_CONTENT) {
+					stringAuxiliar = malloc(sizeof(bufferLoco->content));
+					stringAuxiliar = (char*)bufferLoco->content;
+					suseSignal(threadId, stringAuxiliar, programa);
+					free(stringAuxiliar);
+				}
+				else {
+					log_error(log, "Se recibió en SUSE_SIGNAL un mensaje que no corresponde a este lugar");
+					free(stringAuxiliar);
+				}
 				break;
 
 			case SUSE_JOIN:
 				//suseJoin();
 				break;
 
+			case SUSE_CLOSE:
+					suseClose(threadId, programa);
+				break;
+
+			case SUSE_CONTENT:
+				log_error(log, "SE RECIBIO AL HANDLER UN MENSAJE CON CONTENIDO DESTINADO A OTRO LUGAR");
+				break;
 
 			case TEST:
 				printf("El header es: %i --- El contenido es: %i --- Su tamaño es: %zu\n", header, threadId, tamanio);
 				break;
 
 			default:
-				log_info(log, "La instruccion no es correcta\n");
+				log_error(log, "La instruccion no es correcta\n");
 				break;
 		}
 
@@ -211,8 +299,9 @@ int main() {
 
 	listaDeProgramas = list_create();
 	listaDeBloqueados = list_create();
-	//listaEnEjecucion = list_create();
+	listaEnEjecucion = list_create();
 	listaNuevos = list_create();
+	listaExit = list_create();
 
 //	log_info(log, "Se crearon exitosamente las estructuras");
 

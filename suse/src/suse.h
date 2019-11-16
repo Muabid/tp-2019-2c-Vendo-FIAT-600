@@ -22,6 +22,7 @@
 //FIN FUNCIONES NET.H
 typedef struct t_programa t_programa;
 typedef struct t_hilo t_hilo;
+typedef struct t_paquete t_paquete;
 
 typedef enum {
   NEW = 1,
@@ -40,11 +41,10 @@ struct t_hilo {
   int id;
   t_programa* idPadre;
   t_estado estado;
-  //ESTO LO VOY A HACER EN HILOLAY
-  //int tiempoDeEjecucion;
-  //int tiempoDeEspera;
-  //int tiempoDeCpu;
-  //t_list* semaforos;
+  double tiempoInicial;
+  double tiempoEspera;
+  double tiempoCpu;
+  double estimadoSJF;
 }__attribute__((packed));
 
 struct t_programa {
@@ -54,6 +54,17 @@ struct t_programa {
   t_hilo* enEjecucion;
 }__attribute__((packed));
 
+typedef struct {
+	char* nombre;
+	int valor;
+	int valorMaximo;
+	t_list* colaBloqueo;
+}t_semaforo;
+
+struct t_paquete {
+	char* nombre;
+	int pid;
+}__attribute__((packed));
 
 
 #endif /* SUSE_H_ */

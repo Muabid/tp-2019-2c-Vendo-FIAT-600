@@ -7,7 +7,7 @@
 #include "net.h"
 #include "protocol.h"
 #include <semaphore.h>
-
+#include <time.h>
 
 #define ipServidor "127.0.0.1"
 #define puertoServidor 20000
@@ -17,6 +17,9 @@
 
 #ifndef HILOLAY_H_
 #define HILOLAY_H_
+
+typedef struct t_paquete t_paquete;
+
 
 typedef enum {
   BLOCKED = false,
@@ -29,10 +32,11 @@ typedef struct {
 	t_list* semaforos;
 }t_hilo;
 
-typedef struct {
-	char* nombre;
-	int valor;
-}t_semaforo;
+//typedef struct {
+//	char* nombre;
+//	int valor;
+//}t_semaforo;
+
 
 
 
