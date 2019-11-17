@@ -45,6 +45,7 @@ struct t_hilo {
   double tiempoEspera;
   double tiempoCpu;
   double estimadoSJF;
+  t_list bloqueadoPor;
 }__attribute__((packed));
 
 struct t_programa {

@@ -76,6 +76,8 @@ void suseCreate(int threadId, t_programa* padreId) {
 	nuevo->tiempoEspera = 0;
 	nuevo->tiempoCpu = 0;
 	nuevo->estimadoSJF = 0;
+	nuevo->bloqueadoPor = list_create();
+
 
 	list_add(listaNuevos, nuevo);
 	list_add(listaEnEjecucion, nuevo);
@@ -127,8 +129,55 @@ void cargarHilosAReady() {
 	}
 }
 
-void suseWait(int threadId, char* semaforo, t_programa* padre) {
+bool buscarSemaforoPorNombre(t_semaforo unSemaforo) {
+	if(strcmp(unSemaforo.nombre, auxiliarString) == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
+void suseWait(int threadId, char* nombreSemaforo, t_programa* padre) {
+	t_hilo* unHilo;
+
+	//Se busca el semaforo
+	auxiliarString = malloc(strlen(nombreSemaforo)+1);
+	strcpy(auxiliarString, nombreSemaforo);
+	t_semaforo* unSemaforo = list_find(listaSemaforos, buscarSemaforoPorNombre);
+	free(auxiliarString);
+
+	//Se le resta en uno su valor
+	unSemaforo->valor --;
+
+
+	//Si queda negativo se agrega el thread a la lista de bloqueados
+	//Y se le agrega al thread por quien fue bloqueado
+	if(unSemaforo->valor < 0) {
+		queue_push(unSemaforo->colaBloqueo, threadId);
+
+		auxiliarParaId = threadId;
+		auxiliarParaIdPadre = padre->id;
+		unHilo = list_find(padre->listaDeHilos, esHiloPorId);
+		list_add(unHilo->bloqueadoPor, unSemaforo);
+
+		if(unHilo->estado != BLOCKED) {
+
+			unHilo->estado = BLOCKED;
+			if(padre->enEjecucion->id == threadId) {
+				list_add(listaDeBloqueados, unHilo);
+				padre->enEjecucion = NULL;
+			}
+			else if(list_any_satisfy(padre->listaDeReady, esHiloPorId)) {
+				list_remove_by_condition(padre->listaDeReady, esHiloPorId);
+
+			}
+			else if(list_any_satisfy(listaNuevos, esHiloPorId)) {
+				list_remove_by_condition(listaNuevos, esHiloPorId);
+			}
+
+		}
+	}
 }
 
 void suseSignal(int threadId, char* semaforo, t_programa* padre) {
