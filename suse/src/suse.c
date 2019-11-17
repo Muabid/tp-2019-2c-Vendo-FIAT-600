@@ -11,51 +11,53 @@ double alpha_sjf;
 
 int programasEnMemoria = 0;
 
-t_list* listaNuevos; //Se inicializa en main
-t_list* listaDeBloqueados;//Se inicializa en main
+t_list* listaNuevos;
+t_list* listaDeBloqueados;
 t_list* listaEnEjecucion;
 t_list* listaExit;
 t_log* log;
+t_list* listaDeProgramas;
 
-t_list* listaDeProgramas; //Se inicializa en main TIENE ALGUNA UTILIDAD??
-
+int cantidadSemaforos;
+t_list* listaSemaforos;
 
 //AUXILIARES PARA BUSQUEDA
 int auxiliarParaId;
 int auxiliarParaIdPadre;
+char* auxiliarString;
 t_list* auxiliarListaParaBusqueda;
 double auxiliarParaBusquedaMenor;
 
 
 void load_suse_config() {
 	t_config* config = config_create("suse.config");
-	printf("La cantidad de keys son: %i \n", config_keys_amount(config));
 	listen_port = config_get_int_value(config, "LISTEN_PORT");
 	metrics_timer = config_get_int_value(config, "METRICS_TIMER");
 	max_multiprog = config_get_int_value(config, "MAX_MULTIPROG");
-
-	sem_ids = malloc(sizeof(config_get_array_value(config, "SEM_IDS")));
 	sem_ids = config_get_array_value(config, "SEM_IDS");
-
-	sem_init_value = malloc(sizeof(config_get_array_value(config, "SEM_INIT")));
 	sem_init_value = config_get_array_value(config, "SEM_INIT");
-
-	sem_max = malloc(sizeof(config_get_array_value(config, "SEM_MAX")));
 	sem_max = config_get_array_value(config, "SEM_MAX");
-
 	alpha_sjf = config_get_double_value(config, "ALPHA_SJF");
 
-	printf("%i\n", listen_port);
-	printf("%i\n", metrics_timer);
-	printf("%i\n", max_multiprog);
-
-	printf("%i\n", *(int*)sem_max[0]); //COMO CARGO LOS ARRAYS Y COMO LOS LEO?
-	printf("%i\n", *(int*)sem_max[1]);
-
-	printf("%lf\n", alpha_sjf);
-
 	config_destroy(config);
+}
 
+void cargarSemaforos() {
+	listaSemaforos = list_create();
+	cantidadSemaforos = strlen(sem_ids)/sizeof(char*);
+	t_semaforo* semaforoAuxiliar;
+
+	for(int i=0; i<cantidadSemaforos; i++) {
+		semaforoAuxiliar = malloc(sizeof(t_semaforo));
+		semaforoAuxiliar->nombre = malloc(strlen(sem_ids[i])+1);
+		strcpy(semaforoAuxiliar->nombre, sem_ids[i]);
+		semaforoAuxiliar->valor = atoi(sem_init_value[i]);
+		semaforoAuxiliar->valorMaximo = atoi(sem_max[i]);
+		semaforoAuxiliar->colaBloqueo = queue_create();
+		printf("%s\n", semaforoAuxiliar->nombre);
+
+		list_add(listaSemaforos, semaforoAuxiliar);
+	}
 }
 
 
@@ -126,6 +128,7 @@ void cargarHilosAReady() {
 }
 
 void suseWait(int threadId, char* semaforo, t_programa* padre) {
+
 }
 
 void suseSignal(int threadId, char* semaforo, t_programa* padre) {
@@ -296,6 +299,7 @@ int main() {
 	signal(SIGINT, sigterm);
 	log = log_create("log", "log_suse.txt", true, LOG_LEVEL_DEBUG);
 	load_suse_config();
+	cargarSemaforos();
 
 	listaDeProgramas = list_create();
 	listaDeBloqueados = list_create();

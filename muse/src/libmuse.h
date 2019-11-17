@@ -23,6 +23,7 @@
 	typedef struct Segmento {
 			uint32_t comienzo;
 			uint32_t fin;
+			bool es_mmap;
 			t_list *tabla_de_paginas;
 
 	}__attribute__((packed));

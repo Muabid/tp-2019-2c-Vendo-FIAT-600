@@ -58,7 +58,7 @@ typedef struct {
 	char* nombre;
 	int valor;
 	int valorMaximo;
-	t_list* colaBloqueo;
+	t_queue* colaBloqueo;
 }t_semaforo;
 
 struct t_paquete {
