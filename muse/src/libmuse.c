@@ -22,8 +22,8 @@ int buscarFrame();
 int cantidadFramesDisponibles();
 int realizar_primer_asignacion(int frames_necesarios, uint32_t tam);
 int aniadir_segmento(int frames_necesarios,int tam);
-void crear_paginas(struct Segmento *segmento, int frames_necesarios, uint32_t tam);
-void asignar_en_frame(uint32_t tam, int frame);
+void crear_paginas(struct Segmento *segmento, int frames_necesarios);
+void asignar_en_frame(uint32_t tam, struct Segmento *segmento);
 int segmento_con_lugar(int tam);
 void mostrar_frames();
 void* memory;
@@ -130,6 +130,7 @@ int segmento_con_lugar(int tam){
 int aniadir_segmento(int frames_necesarios, int tam){
 	int num_segmento_a_insertar;
 	int segmento_disponible;
+	int aux;
 	struct Segmento* ultimoTabla;
 	struct Segmento* segmento = malloc(sizeof(*segmento));
 	struct HeapMetadata* posicion_metadata;
@@ -149,7 +150,7 @@ int aniadir_segmento(int frames_necesarios, int tam){
 		segmento->comienzo = ultimoTabla->fin + 1;
 		segmento->fin = segmento->comienzo + (frames_necesarios * tam_pagina) - 1;
 		segmento->es_mmap = 0;
-		//crear_paginas(segmento,frames_necesarios,tam);// <-- esta es la funcion que deberia crear las paginas, o sea hacer lo de acá arriba
+		crear_paginas(segmento,frames_necesarios);// <-- esta es la funcion que deberia crear las paginas, o sea hacer lo de acá arriba
 		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
 		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
 		return num_segmento_a_insertar;
@@ -158,6 +159,13 @@ int aniadir_segmento(int frames_necesarios, int tam){
 		// este caso ocurre cuando no entra en ninguno de los segmentos Y el último no es mmap (puedo y tengo que extender)
 		//extender último segmento
 		ultimoTabla = list_get(lista_segmentos, list_size(lista_segmentos)-1);
+		aux = tam - ((frames_necesarios - 1) * tam_pagina);
+		if(segmento_con_lugar(aux) == (list_size(lista_segmentos) - 1)){ //si se puede safar de asignar un frame mas, osea que un pedazo me entre en lo que tengo
+			crear_paginas(ultimoTabla, (frames_necesarios - 1));
+		}else{
+			crear_paginas(ultimoTabla, frames_necesarios);
+
+		}
 
 	}
 }
@@ -205,13 +213,12 @@ int realizar_primer_asignacion(int frames_necesarios, uint32_t tam){
 	return num_segmento_a_insertar;
 }
 
-void crear_paginas(struct Segmento *segmento, int frames_necesarios, uint32_t tam){
+void crear_paginas(struct Segmento *segmento, int frames_necesarios){
 	t_list* lista_paginas;
 	int frame_obtenido;
 	lista_paginas = segmento -> tabla_de_paginas;
 	for(int i = 1; i <= frames_necesarios ; i++){
 		frame_obtenido = buscarFrame();
-		//asignar_en_frame(tam,frame_obtenido);
 		struct Pagina* pagina = malloc(sizeof(*pagina));
 		pagina->bit_presencia = 1;
 		pagina->numero_frame = frame_obtenido;
@@ -219,8 +226,40 @@ void crear_paginas(struct Segmento *segmento, int frames_necesarios, uint32_t ta
 	}
 }
 
-void asignar_en_frame(uint32_t tam, int frame){ //checkear para asignar las metadatas
-	struct HeapMetadata *actual = posicion_inicial_mem + frame * tam_pagina;
+void asignar_en_frame(uint32_t tam, struct Segmento* segmento){ //checkear para asignar las metadatas
+	struct Pagina* pagina = list_get(segmento -> tabla_de_paginas, 0);
+	struct HeapMetadata *hmetadata = (int)memory + (pagina->numero_frame * tam_pagina);
+	int salida = 0, aux,recorrido = 0;
+	int queda = tam_pagina - 5;
+	do{
+		if(hmetadata->libre == 1){ // si esta libre
+			salida = 1;
+		}
+		else{
+			if((hmetadata->tamanio + 5) > queda){
+				queda += tam_pagina;
+				queda -= (hmetadata->tamanio + 5);
+				aux = tam_pagina - queda;
+				recorrido ++;
+				pagina = list_get(segmento->tabla_de_paginas, recorrido);
+				hmetadata = (int)memory + (pagina->numero_frame * tam_pagina) + aux;
+			}
+			else{
+				queda -= (hmetadata->tamanio + 5);
+				hmetadata += (hmetadata->tamanio + 5);
+			}
+		}
+	}while(list_size(segmento->tabla_de_paginas) >= recorrido);
+	do{
+		if(actual->libre == 1){
+			salida = 1;
+		}else{
+			actual += actual->tamanio + 5;
+		}
+	}while(salida == 0);
+	do{
+
+	}while(tam_restante > 0);
 
 }
 void muse_free(uint32_t dir){
@@ -264,8 +303,8 @@ int muse_cpy(uint32_t dst, void* src, int n){
 void initialize(){
 	memory = malloc(tam_memoria);
 	cant_frames = tam_memoria / tam_pagina;
-	posicion_inicial_mem = memory;
-	posicion_final_mem = memory + tam_memoria;
+	posicion_inicial_mem = (int)memory;
+	posicion_final_mem = (int)memory + tam_memoria;
 	printf("Direccion inicial de memoria: %zu\n", posicion_inicial_mem);
 	printf("Direccion final   de memoria: %zu\n", posicion_final_mem);
 }
