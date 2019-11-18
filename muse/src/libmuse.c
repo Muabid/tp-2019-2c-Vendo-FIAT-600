@@ -399,11 +399,11 @@ void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar, int resta
 	struct HeapMetadata *new = (void*)((void*)fitting_slot + tamanioAAlocar + sizeof(struct HeapMetadata));
 	do{
 		if(acumulado < tamanioAAlocar){
-			acumulado = tam_pagina * contador - acumulado ;
-			indice_pagina++;
+			acumulado = (tam_pagina * contador) - acumulado ;
+			indice_pagina++; //esto no funciona si los frames son no contiguos TP DE MIERDA
 			contador++;
 			pagina = list_get(segmento->tabla_de_paginas,indice_pagina);
-			new = (int)memory + (tam_pagina * pagina->numero_frame);
+			new = (int)memory + (tam_pagina * pagina->numero_frame); //aca sigue rompiendo
 		}else{
 			acumulado -= tamanioAAlocar;
 			new -= acumulado;
