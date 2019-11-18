@@ -120,7 +120,8 @@ int segmento_con_lugar(int tam){
 						return -1;
 					}else{
 						pagina = list_get(segmento->tabla_de_paginas, recorrido);
-						hmetadata = ((int)memory + (pagina->numero_frame * tam_pagina) + aux);
+						printf("%d MEMORIA\n",((int)memory + (pagina->numero_frame * tam_pagina) + aux - 5));
+						hmetadata = ((((int)memory + (pagina->numero_frame * tam_pagina) + aux) / 5) - 1) ;
 						printf("%d lugar disponible\n",hmetadata->tamanio);
 						printf("%d cantidad lugar frame\n",pagina->numero_frame);
 					}
