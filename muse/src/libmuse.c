@@ -23,7 +23,7 @@ int cantidadFramesDisponibles();
 int realizar_primer_asignacion(int frames_necesarios, uint32_t tam);
 int aniadir_segmento(int frames_necesarios,int tam);
 void crear_paginas(struct Segmento *segmento, int frames_necesarios);
-void asignar_en_frame(uint32_t tam, struct Segmento *segmento);
+void asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgregados);
 int segmento_con_lugar(int tam);
 void mostrar_frames();
 void* memory;
@@ -133,15 +133,15 @@ int aniadir_segmento(int frames_necesarios, int tam){
 	int aux;
 	struct Segmento* ultimoTabla;
 	struct Segmento* segmento = malloc(sizeof(*segmento));
-	struct HeapMetadata* posicion_metadata;
 	if(lista_segmentos == NULL){
 		num_segmento_a_insertar = realizar_primer_asignacion(frames_necesarios,tam);
 		return num_segmento_a_insertar;
 	}
 	segmento_disponible = segmento_con_lugar(tam);
 	if(segmento_disponible != -1) { // algun segmento tiene lugar disponible
-	 // segmento disponible tiene la posicion de la metadata donde se puede hacer el split
-		posicion_metadata = segmento_disponible;
+		ultimoTabla = list_get(lista_segmentos,segmento_disponible);
+		asignar_en_frame(tam, ultimoTabla, 0);
+		//aca tiene que haber un split
 		printf("Hay segmentos disponibles \n");
 		return segmento_disponible;
 	}else if(ultimoTabla->es_mmap){ //crear uno nuevo(caso de que ningun segmento tenga lugar disponible, y no se puede agrandar debido a un map)
@@ -152,6 +152,7 @@ int aniadir_segmento(int frames_necesarios, int tam){
 		segmento->es_mmap = 0;
 		crear_paginas(segmento,frames_necesarios);// <-- esta es la funcion que deberia crear las paginas, o sea hacer lo de acá arriba
 		num_segmento_a_insertar = list_add(lista_segmentos,segmento);
+		//aca todavia no existen metadatas
 		imprimir_info_paginas_segmento(&segmento,num_segmento_a_insertar);
 		return num_segmento_a_insertar;
 
@@ -162,10 +163,14 @@ int aniadir_segmento(int frames_necesarios, int tam){
 		aux = tam - ((frames_necesarios - 1) * tam_pagina);
 		if(segmento_con_lugar(aux) == (list_size(lista_segmentos) - 1)){ //si se puede safar de asignar un frame mas, osea que un pedazo me entre en lo que tengo
 			crear_paginas(ultimoTabla, (frames_necesarios - 1));
+			asignar_en_frame(tam, ultimoTabla, (frames_necesarios - 1));
 		}else{
 			crear_paginas(ultimoTabla, frames_necesarios);
+			asignar_en_frame(tam, ultimoTabla, frames_necesarios);
 
 		}
+		//hay que ver el split
+
 
 	}
 }
@@ -226,13 +231,13 @@ void crear_paginas(struct Segmento *segmento, int frames_necesarios){
 	}
 }
 
-void asignar_en_frame(uint32_t tam, struct Segmento* segmento){ //checkear para asignar las metadatas
+void asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgregados){ //por ahora la funcion te para en la metadata correcta para empezar a trabajar
 	struct Pagina* pagina = list_get(segmento -> tabla_de_paginas, 0);
 	struct HeapMetadata *hmetadata = (int)memory + (pagina->numero_frame * tam_pagina);
 	int salida = 0, aux,recorrido = 0;
 	int queda = tam_pagina - 5;
 	do{
-		if(hmetadata->libre == 1){ // si esta libre
+		if(hmetadata->libre == 1 && hmetadata->tamanio>=tam){ // si esta libre
 			salida = 1;
 		}
 		else{
@@ -241,25 +246,21 @@ void asignar_en_frame(uint32_t tam, struct Segmento* segmento){ //checkear para 
 				queda -= (hmetadata->tamanio + 5);
 				aux = tam_pagina - queda;
 				recorrido ++;
-				pagina = list_get(segmento->tabla_de_paginas, recorrido);
-				hmetadata = (int)memory + (pagina->numero_frame * tam_pagina) + aux;
+				if(recorrido >= list_size(segmento->tabla_de_paginas) - framesAgregados){
+					salida = 1;
+				}else{
+					pagina = list_get(segmento->tabla_de_paginas, recorrido);
+					hmetadata = (int)memory + (pagina->numero_frame * tam_pagina) + aux;
+				}
+
 			}
 			else{
 				queda -= (hmetadata->tamanio + 5);
 				hmetadata += (hmetadata->tamanio + 5);
 			}
 		}
-	}while(list_size(segmento->tabla_de_paginas) >= recorrido);
-	do{
-		if(actual->libre == 1){
-			salida = 1;
-		}else{
-			actual += actual->tamanio + 5;
-		}
 	}while(salida == 0);
-	do{
-
-	}while(tam_restante > 0);
+	//hay que ver la asignacion en memoria principal que es lo que le falta.
 
 }
 void muse_free(uint32_t dir){
