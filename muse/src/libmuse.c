@@ -114,22 +114,23 @@ int segmento_con_lugar(int tam){
 					queda += tam_pagina;
 					queda -= (hmetadata->tamanio + 5);
 					aux = tam_pagina - queda;
-					printf("%d lo que desplazo\n",aux);
+					//printf("%d lo que desplazo\n",aux);
 					recorrido++;
 					if(recorrido > (list_size(segmento->tabla_de_paginas)-1)){
 						return -1;
 					}else{
 						pagina = list_get(segmento->tabla_de_paginas, recorrido);
-						printf("%d MEMORIA\n",((int)memory + (pagina->numero_frame * tam_pagina) + aux - 5));
+						//printf("%d MEMORIA\n",((int)memory + (pagina->numero_frame * tam_pagina) + aux - 5));
 						hmetadata =((int)memory + (pagina->numero_frame * tam_pagina) + aux) ;
 						printf("%d lugar disponible\n",hmetadata->tamanio);
-						printf("%d cantidad lugar frame\n",pagina->numero_frame);
+						//printf("%d cantidad lugar frame\n",pagina->numero_frame);
 					}
 
 				}
 				else{
 					queda -= (hmetadata->tamanio + 5);
-					hmetadata += (hmetadata->tamanio + 5);
+					hmetadata += (hmetadata->tamanio + 5) / 5;
+					printf("%d lugar disponible\n",hmetadata->tamanio);
 				}
 			}
 		}while(list_size(segmento->tabla_de_paginas) >= recorrido);
@@ -244,7 +245,7 @@ void crear_paginas(struct Segmento *segmento, int frames_necesarios){
 	}
 }
 
-void asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgregados){ //por ahora la funcion te para en la metadata correcta para empezar a trabajar
+void asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgregados){ //REVISAR ACA, DESPLAZAMIENTO DEL QUEDA.
 	struct Pagina* pagina = list_get(segmento -> tabla_de_paginas, 0);
 	struct HeapMetadata *hmetadata = (int)memory + (pagina->numero_frame * tam_pagina);
 	int salida = 0, aux,recorrido = 0,parametro_para_funcion = tam_pagina;
@@ -332,13 +333,15 @@ void initialize(){
 
 void mostrar_frames(){
 	struct HeapMetadata* actual = memory;
-	while((int)actual < posicion_final_mem){
+	int recorrido = 1;
+	while(recorrido < 2 ){
 		imprimir_direccion_puntero(actual,"actual");
 		if(actual->libre == 0 || actual->libre == 1){
 			imprimir_direccion_puntero(actual,"actual ocupado");
 			printf("... y su tamaño es: %zu\n",actual->tamanio);
 			actual += ((actual->tamanio) / sizeof(struct HeapMetadata));
 		}
+		recorrido++;
 		actual++;
 	}
 }
@@ -394,23 +397,32 @@ void mostrar_bitmap(){
 }
 
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar, int restante,struct Segmento *segmento, int indice_pagina){
-	int salida = 0,acumulado = restante,contador = 1;
+	int salida = 0,acumulado = restante, primera = 0;
 	struct Pagina *pagina;
 	struct HeapMetadata *new = (void*)((void*)fitting_slot + tamanioAAlocar + sizeof(struct HeapMetadata));
 	do{
-		if(acumulado < tamanioAAlocar){
-			acumulado = (tam_pagina * contador) - acumulado ;
+		if(acumulado < tamanioAAlocar + 5){
+			primera = 1;
+			acumulado = (tam_pagina) + acumulado ;
 			indice_pagina++; //esto no funciona si los frames son no contiguos TP DE MIERDA
-			contador++;
 			pagina = list_get(segmento->tabla_de_paginas,indice_pagina);
-			new = (int)memory + (tam_pagina * pagina->numero_frame); //aca sigue rompiendo
+			imprimir_direccion_puntero(fitting_slot,"poronga1");
+			imprimir_direccion_puntero(new,"poronga2");
+			new = (int)memory + (tam_pagina * (pagina->numero_frame + 1)); //aca sigue rompiendo
+		}else if(primera == 0){
+			imprimir_direccion_puntero(fitting_slot,"poronga1");
+			imprimir_direccion_puntero(new,"poronga2");
+			salida = 1;
 		}else{
+			imprimir_direccion_puntero(fitting_slot,"poronga1");
 			acumulado -= tamanioAAlocar;
+			imprimir_direccion_puntero(new,"poronga2");
 			new -= acumulado;
+			imprimir_direccion_puntero(new,"poronga2");
 			salida = 1;
 		}
 	}while(salida != 1);
-	new->tamanio = (fitting_slot->tamanio) - tamanioAAlocar - sizeof(struct HeapMetadata);
+	new->tamanio = acumulado;
 	new->libre = 1;
 	fitting_slot->tamanio = tamanioAAlocar;
 	fitting_slot->libre = 0;
