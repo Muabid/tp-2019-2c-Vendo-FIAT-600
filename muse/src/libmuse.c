@@ -224,8 +224,10 @@ int realizar_primer_asignacion(int frames_necesarios, uint32_t tam){
 	actual->libre = 1;
 	if(frames_necesarios == 1){
 		actual->tamanio = tam_pagina - tam - sizeof(struct HeapMetadata) * 2;
+		//printf("%d \n", actual->tamanio);
 	} else {
-		actual->tamanio = 2 * tam_pagina - sizeof(struct HeapMetadata) * 2 - tam;
+		actual->tamanio = (2 * tam_pagina) - sizeof(struct HeapMetadata) * 2 - tam;
+		//printf("%d \n", actual->tamanio);
 	}
 
 	num_segmento_a_insertar = list_add(lista_segmentos,segmento);
@@ -251,6 +253,8 @@ void asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgregado
 	int salida = 0, aux,recorrido = 0,parametro_para_funcion = tam_pagina;
 	int queda = tam_pagina;
 	do{
+		printf("%d \n", hmetadata->tamanio);
+		printf("%d \n", tam);
 		if(hmetadata->libre == 1 && hmetadata->tamanio>=tam){ // si esta libre
 			salida = 1;
 		}
@@ -347,9 +351,11 @@ void mostrar_frames(){
 }
 
 int buscarFrame(){
+	struct HeapMetadata* probando = (int)memory;
 	for(int i = 0; i < cant_frames; i++){
+		printf("%d PROBANDOXD \n", probando->tamanio);
 		if(bitarray_test_bit(bitmap,i) == 0){
-			bitarray_set_bit(bitmap, i);
+			bitarray_set_bit(bitmap, i); //esta linea de codigo le agrega 1 al metadata del bloque
 			return i;
 		}
 	}
