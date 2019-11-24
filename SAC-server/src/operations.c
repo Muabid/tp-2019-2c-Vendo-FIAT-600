@@ -209,16 +209,12 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	t_block_ptr* pointer_block;
 	while (size != 0){
 
-		// Actualiza los valores de espacio restante en bloque.
 		size_t space_in_block = BLOCK_SIZE - (file_size % BLOCK_SIZE);
 		if (space_in_block == BLOCK_SIZE) (space_in_block = 0); // Porque significa que el bloque esta lleno.
 		if (file_size == 0) space_in_block = BLOCK_SIZE; /* Significa que el archivo esta recien creado y ya tiene un bloque de datos asignado */
 
-		// Si el offset es mayor que el tamanio del archivo mas el resto del bloque libre, significa que hay que pedir un bloque nuevo
-		// file_size == 0 indica que es un archivo que recien se comienza a escribir, por lo que tiene un tratamiento distinto (ya tiene un bloque de datos asignado).
 		if (need_new_block(offset, file_size, space_in_block)) {
 
-			// Si no hay espacio en el disco, retorna error.
 			if (free_blocks() == 0){
 				//ERROR
 			}
@@ -229,7 +225,6 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 
 			block_data = (t_block*)get_block_data(res);
 
-			// Actualiza el espacio libre en bloque.
 			space_in_block = BLOCK_SIZE;
 
 		} else {
@@ -240,14 +235,13 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 			ptr_block_data = pointer_block->blocks_ptr[positions[1]];
 			block_data = (t_block*) get_block_data(ptr_block_data);
 		}
-		// Escribe en ese bloque de datos.
 		if (size >= BLOCK_SIZE){
 			memcpy(block_data->data, data, BLOCK_SIZE);
 			if ((node->size) <= (offset)){
 				file_size = node->size += BLOCK_SIZE;
 			}
 			update_params(&data,&offset,&size,&offset_in_block,offset);
-		} else if (size <= space_in_block){ /*Hay lugar suficiente en ese bloque para escribir el resto del archivo */
+		} else if (size <= space_in_block){
 			memcpy(block_data->data + offset_in_block, data, size);
 			if (node->size <= offset){
 				file_size = node->size += size;
@@ -256,7 +250,7 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 				file_size = node->size += (offset + size - node->size);
 			}
 			size = 0;
-		} else { /* Como no hay lugar suficiente, llena el bloque y vuelve a buscar uno nuevo */
+		} else {
 			memcpy(block_data->data + offset_in_block, data, space_in_block);
 			file_size = node->size += space_in_block;
 			update_params(&data,&offset,&size,&offset_in_block,offset);
