@@ -45,6 +45,7 @@ struct t_hilo {
   double tiempoEspera;
   double tiempoCpu;
   double estimadoSJF;
+  t_list bloqueadoPor;
 }__attribute__((packed));
 
 struct t_programa {
@@ -58,7 +59,7 @@ typedef struct {
 	char* nombre;
 	int valor;
 	int valorMaximo;
-	t_list* colaBloqueo;
+	t_queue* colaBloqueo;
 }t_semaforo;
 
 struct t_paquete {
