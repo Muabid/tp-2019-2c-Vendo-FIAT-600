@@ -1,2 +1,8 @@
 [INFO] 10:49:36:617 log_suse.txt/(14573:14573): Falló al aceptar conexión
 [INFO] 11:05:24:346 log_suse.txt/(15209:15209): Falló al aceptar conexión
+[INFO] 19:46:04:36 log_suse.txt/(20414:20414): Se ha aceptado una conexion: 5
+
+[INFO] 19:46:04:45 log_suse.txt/(20414:20414): Handler asignado
+
+[INFO] 19:46:04:442 log_suse.txt/(20414:20541): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
