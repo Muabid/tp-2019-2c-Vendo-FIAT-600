@@ -173,7 +173,6 @@ static int do_read(const char *path, char *buf, size_t size, off_t off,
 	}else{
 		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
-	memcpy(buf,"HASFKLAPS",strlen("HASFKLAPS"));
 	return res;
 }
 
