@@ -163,12 +163,8 @@ static int do_read(const char *path, char *buf, size_t size, off_t off,
 	if(op_res >=0){
 		t_message* message = recv_message(sock);
 		if(message->head == OK){
-			char* data = malloc(message->size+1);
-			strcpy(data,message->content);
-			strcat(data,"\0");
-			log_info(log,"Leido: %s - size: %i",data,message->size);
-			memcpy(buf, data, strlen(data));
-			free(data);
+			log_info(log,"Leido: %s - size: %i",message->content,message->size);
+			memcpy(buf, message->content , message->size);
 			res = message->size;
 		}else{
 			res = get_status(message);
@@ -177,6 +173,7 @@ static int do_read(const char *path, char *buf, size_t size, off_t off,
 	}else{
 		sock = connect_to_server("127.0.0.1", 8080, NULL);
 	}
+	memcpy(buf,"HASFKLAPS",strlen("HASFKLAPS"));
 	return res;
 }
 
@@ -289,11 +286,11 @@ static int do_mknod(const char *path, mode_t mode, dev_t rdev) {
 static int do_write(const char *path, const char *buf, size_t size, off_t off, struct fuse_file_info *fi) {
 	size_t len = strlen(path);
 
-	size_t size_cont = sizeof(size_t) + len + sizeof(off) + sizeof(size)
-						+ strlen(buf);
+	size_t size_cont = sizeof(size_t) + len + sizeof(off_t) + sizeof(size_t);
 
-	void * cont = malloc(size_cont);
-	void*aux = cont;
+
+	void* cont = malloc(size_cont);
+	void* aux = cont;
 	memcpy(aux,&len,sizeof(size_t));
 	aux+=sizeof(size_t);
 	memcpy(aux,path,len);
@@ -302,8 +299,8 @@ static int do_write(const char *path, const char *buf, size_t size, off_t off, s
 	aux+=sizeof(size_t);
 	memcpy(aux,&off,sizeof(off_t));
 	aux+=sizeof(off_t);
-	memcpy(aux,buf,strlen(buf));
 	int op_res = send_message(sock,WRITE,cont,size_cont);
+	op_res = send_message(sock,OK,buf,size);
 	int res=0;
 	free(cont);
 	if(op_res >= 0){
