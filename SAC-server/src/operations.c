@@ -141,17 +141,31 @@ int sac_create(int sock, const char* path){
 	node->root = root;
 	node->status = T_FILE;
 	int free_block = search_and_test_first_free_block();
-	if(free_block < 0)
+	if(free_block < 0){
+		send_status(socket,ERROR,-EDQUOT);
 		return free_block;
+	}
 
 	node->blocks_ptr[0] =free_block;
 	node->blocks_ptr[1] = 0;
+	t_block_ptr* block_ptr =(t_block_ptr*)get_block_data(free_block);
+	int free_block_data = search_and_test_first_free_block();
+
+	if(free_block_data < 0){
+		send_status(socket,ERROR,-EDQUOT);
+		return free_block;
+	}
+	t_block* data = (t_block*)get_block_data(free_block);
+	memset(data->data,'\0', BLOCK_SIZE);
+
+	block_ptr->blocks_ptr[0] = free_block_data;
+	block_ptr->blocks_ptr[1] = -1;
+	data = (t_block*)get_block_data(free_block_data);
+	memset(data->data,'\0', BLOCK_SIZE);
 	node->creation_date = node->modification_date = time(NULL);
 	memset(node->file_name,0,71);
 	strcpy((char*)node->file_name,file_name);
 
-	char* data = get_block_data(free_block);
-	memset(data,'\0', BLOCK_SIZE);
 	free(file_name);
 	free(directory);
 	log_info(log,"Archivo %s creado exitósamente",path);
@@ -160,24 +174,108 @@ int sac_create(int sock, const char* path){
 
 }
 
+void update_params(char** data,off_t*off,size_t* size,size_t* offset_in_block,int offset){
+	*data +=offset;
+	*off+=offset;
+	*size+=offset;
+	*offset_in_block=0;
+}
+
+bool need_new_block(off_t offset, int32_t file_size, size_t space_in_block) {
+	return (offset >= (file_size + space_in_block)) & (file_size != 0);
+}
+
 int sac_write(int socket,const char* path,char* data, size_t size, off_t offset){
-	int* positions = get_position(offset);
-	int node = search_node(path);
-	GFile* nodo = &nodes_table[node-1];
-	int ptr = nodo->blocks_ptr[positions[0]];
-	t_block_ptr* block = (t_block_ptr*)get_block_data(ptr);
-	block->blocks_ptr[positions[1]] = search_and_test_first_free_block();
-	int ptr_data = block->blocks_ptr[positions[1]];
-	t_block* bdata = (t_block*)get_block_data(ptr_data);
-	memcpy(bdata->data,data,size);
+	log_info(log,"EXECUTING WRITE [%s]",path);
+
+	if(size+offset > MAX_SIZE){
+		log_info(log,"NO PODES DIRECCIONAR TANTO ESPACIO CAPO");
+		send_status(socket,ERROR,-EDQUOT);
+		return -1;
+	}else if(free_blocks() < size/BLOCK_SIZE){
+		log_info(log,"NO HAY BLOQUES DISPONIBLES");
+		send_status(socket,ERROR,-EDQUOT);
+		return -1;
+	}
+
+	int index_node = search_node(path);
+	GFile* node = &nodes_table[index_node-1];
+	int32_t file_size = node->size;
+	size_t offset_in_block = offset % BLOCK_SIZE;
+	int res;
+	ptrGBloque 	block_ptr;
+	ptrGBloque ptr_block_data;
+	t_block* block_data;
+	t_block_ptr* pointer_block;
+	while (size != 0){
+
+		// Actualiza los valores de espacio restante en bloque.
+		size_t space_in_block = BLOCK_SIZE - (file_size % BLOCK_SIZE);
+		if (space_in_block == BLOCK_SIZE) (space_in_block = 0); // Porque significa que el bloque esta lleno.
+		if (file_size == 0) space_in_block = BLOCK_SIZE; /* Significa que el archivo esta recien creado y ya tiene un bloque de datos asignado */
+
+		// Si el offset es mayor que el tamanio del archivo mas el resto del bloque libre, significa que hay que pedir un bloque nuevo
+		// file_size == 0 indica que es un archivo que recien se comienza a escribir, por lo que tiene un tratamiento distinto (ya tiene un bloque de datos asignado).
+		if (need_new_block(offset, file_size, space_in_block)) {
+
+			// Si no hay espacio en el disco, retorna error.
+			if (free_blocks() == 0){
+				//ERROR
+			}
+			res = allocate_node(node);
+			if (res != 0){
+				//ERROR
+			}
+
+			block_data = (t_block*)get_block_data(res);
+
+			// Actualiza el espacio libre en bloque.
+			space_in_block = BLOCK_SIZE;
+
+		} else {
+			int* positions = get_position(offset);
+			block_ptr = node->blocks_ptr[positions[0]];
+			pointer_block = (t_block_ptr*) get_block_data(block_ptr);
+
+			ptr_block_data = pointer_block->blocks_ptr[positions[1]];
+			block_data = (t_block*) get_block_data(ptr_block_data);
+		}
+		// Escribe en ese bloque de datos.
+		if (size >= BLOCK_SIZE){
+			memcpy(block_data->data, data, BLOCK_SIZE);
+			if ((node->size) <= (offset)){
+				file_size = node->size += BLOCK_SIZE;
+			}
+			update_params(&data,&offset,&size,&offset_in_block,offset);
+		} else if (size <= space_in_block){ /*Hay lugar suficiente en ese bloque para escribir el resto del archivo */
+			memcpy(block_data->data + offset_in_block, data, size);
+			if (node->size <= offset){
+				file_size = node->size += size;
+			}
+			else if (node->size <= (offset + size)){
+				file_size = node->size += (offset + size - node->size);
+			}
+			size = 0;
+		} else { /* Como no hay lugar suficiente, llena el bloque y vuelve a buscar uno nuevo */
+			memcpy(block_data->data + offset_in_block, data, space_in_block);
+			file_size = node->size += space_in_block;
+			update_params(&data,&offset,&size,&offset_in_block,offset);
+		}
+
+	}
+
+	node->modification_date= time(NULL);
+
 	send_status(socket,OK,0);
-	//TODO: Validar si hay espacio en el disco.Y otras cosas
+
 	return 0;
 }
+
 int sac_unlink(int socket,const char* path){
 	send_status(socket,OK,0);
 	return 0;
 }
+
 int sac_readdir(int socket,const char* path, off_t offset){
 	log_info(log,"Leyendo %s",path);
 	int index_nodo = search_node(path);
@@ -204,18 +302,30 @@ int sac_readdir(int socket,const char* path, off_t offset){
 }
 
 int sac_read(int socket,const char* path, size_t size, off_t offset){
-	char* data = malloc(size);
-	int* positions = get_position(offset);
-	int node = search_node(path);
-	GFile* nodo = &nodes_table[node-1];
-	int ptr = nodo->blocks_ptr[positions[0]];
-	t_block_ptr* block = (t_block_ptr*)get_block_data(ptr);
-	int ptr_data = block->blocks_ptr[positions[1]];
-	t_block* bdata = (t_block*)get_block_data(ptr_data);
-	memcpy(data,bdata,size);
-	send_message(socket,OK,data,size);
-	free(data);
-	//TODO: Validar si hay espacio en el disco.Y otras cosas
+//	char* data = malloc(size);
+//	int* positions = get_position(offset);
+//	int index_node = search_node(path);
+//	GFile* node = &nodes_table[index_node-1];
+//	int ptr = node->blocks_ptr[positions[0]];
+//	t_block_ptr* block = (t_block_ptr*)get_block_data(ptr);
+//	int ptr_data = block->blocks_ptr[positions[1]];
+//
+//	if(node->size <= offset){
+//		log_error(log, "Fuse intenta leer un offset mayor o igual que el tamanio de archivo.File: %s, Size: %d",path,node->size);
+//		//ERROR
+//	} else if (node->size <= (offset+size)){
+//		size = ((node->size)-(offset));
+//		log_error(log, "Fuse intenta leer una posicion mayor o igual que el tamanio de archivo.File: %s, Size: %d",path,node->size);
+//	}
+//
+//	for(int i=0; i<BLOCKS_INDIRECT;i++){
+//		for(int j=0;j<BLOCKS_NODE;j++){
+//
+//		}
+//	}
+//
+//	send_message(socket,OK,data,size);
+//	free(data);
 	return 0;
 }
 
@@ -242,8 +352,10 @@ int sac_mkdir(int socket,const char* path){
 	}
 	GFile* node = &nodes_table[index_node];
 	int free_block = search_and_test_first_free_block();
-	if(free_block < 0)
+	if(free_block < 0){
+		send_status(socket,ERROR,-EDQUOT);
 		return free_block;
+	}
 
 	node->status = T_DIR;
 	memset(node->file_name,0,71);

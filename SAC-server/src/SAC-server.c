@@ -45,10 +45,6 @@ void sig_term(int sig) {
 
 int main(int argc, const char* argv[]) {
 	log = log_create("./resources/log", "SERVER", true, LOG_LEVEL_INFO);
-	log_info(log, "%i", sizeof(GFile));
-	log_info(log, "%i", sizeof(GHeader));
-	log_info(log, "%i", sizeof(t_block));
-
 	signal(SIGTERM, sig_term);
 	signal(SIGABRT, sig_term);
 	init_semaphores();
@@ -130,13 +126,16 @@ void* listen_sac_cli(void* socket) {
 			off_t offset;
 			memcpy(&offset, aux, sizeof(off_t));
 			aux += sizeof(off_t);
-			char * data = malloc(size);
-			memcpy(data, aux, size);
+			t_message* data_mes = recv_message(sac_socket);
+			char * data = malloc(size+1);
+			memcpy(data, data_mes->content, size);
+			data[size]='\0';
+			free_t_message(data_mes);
 			pthread_rwlock_wrlock(&rwlock);
 			sac_write(sac_socket, path, data, size, offset);
 			pthread_rwlock_unlock(&rwlock);
-		}
 			break;
+		}
 		case MKNODE: {
 			fill_path(path, message->content, 0);
 			pthread_rwlock_wrlock(&rwlock);
