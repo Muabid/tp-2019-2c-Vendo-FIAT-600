@@ -79,7 +79,7 @@ int search_and_test_first_free_block(){
 			res = i;
 		}
 	}
-	log_info(log,"Se reservo el bloque %i",res);
+	log_info(logger,"Se reservo el bloque %i",res);
 	return res;
 }
 

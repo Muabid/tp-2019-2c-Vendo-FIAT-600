@@ -44,7 +44,8 @@ void sig_term(int sig) {
 }
 
 int main(int argc, const char* argv[]) {
-	log = log_create("./resources/log", "SERVER", true, LOG_LEVEL_INFO);
+	logger = log_create("./resources/log", "SERVER", true, LOG_LEVEL_INFO);
+
 	signal(SIGTERM, sig_term);
 	signal(SIGABRT, sig_term);
 	init_semaphores();
@@ -52,7 +53,7 @@ int main(int argc, const char* argv[]) {
 //	const char* path = argv[1];
 	sac_load_config("./resources/sac.config");
 	size_file_system = fsize(sac_config->file_system_path);
-	log_info(log, "Filesystem Size: %i", size_file_system);
+	log_info(logger, "Filesystem Size: %i", size_file_system);
 
 	if ((file_system_descriptor = open(sac_config->file_system_path, O_RDWR, 0))
 			== -1)
@@ -63,7 +64,7 @@ int main(int argc, const char* argv[]) {
 			MAP_SHARED, file_system_descriptor, 0);
 	gHeader = *((GHeader*) file_system);
 
-	log_info(log,
+	log_info(logger,
 			"Identifier: %s | Version: %i | Init Block: %i | Bitmap Size: %i",
 			gHeader.identifier, gHeader.version, gHeader.init_block,
 			gHeader.bit_map_size);
@@ -75,10 +76,6 @@ int main(int argc, const char* argv[]) {
 	blocks_data = (t_block*) &file_system[HEADER_BLOCKS + BLOCKS_BITMAP
 			+ BLOCKS_NODE];
 
-//	sac_mkdir(1,"/hola");
-//	sac_mknod(1,"/hola/chau");
-//	sac_getattr(0,"/hola");
-//	sac_getattr(0,"/hola/chau");
 	init_sac_server();
 
 	exit(0);
@@ -136,13 +133,13 @@ void* listen_sac_cli(void* socket) {
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
-		case MKNODE: {
-			fill_path(path, message->content, 0);
-			pthread_rwlock_wrlock(&rwlock);
-			sac_mknod(sac_socket, path);
-			pthread_rwlock_unlock(&rwlock);
-			break;
-		}
+//		case MKNODE: {
+//			fill_path(path, message->content, 0);
+//			pthread_rwlock_wrlock(&rwlock);
+//			sac_mknod(sac_socket, path);
+//			pthread_rwlock_unlock(&rwlock);
+//			break;
+//		}
 		case CREATE: {
 			fill_path(path, message->content, 0);
 			pthread_rwlock_wrlock(&rwlock);
@@ -192,14 +189,14 @@ void* listen_sac_cli(void* socket) {
 			break;
 		}
 		case NO_CONNECTION:
-			log_info(log, "CLIENTE DESCONECTADO");
+			log_info(logger, "CLIENTE DESCONECTADO");
 			free_t_message(message);
 			pthread_exit(NULL);
 			return NULL;
 			break;
 		case ERROR_RECV:
 			free_t_message(message);
-			log_info(log, "ERROR COMUNIACIÓN");
+			log_info(logger, "ERROR COMUNIACIÓN");
 			pthread_exit(NULL);
 			return NULL;
 		}
@@ -209,18 +206,18 @@ void* listen_sac_cli(void* socket) {
 
 void init_sac_server() {
 	listener_socket = init_server(8080);
-	log_info(log, "Servidor levantado!!!");
+	log_info(logger, "Servidor levantado!!!");
 	struct sockaddr sac_cli;
 	socklen_t len = sizeof(sac_cli);
 	do {
 		int sac_socket = accept(listener_socket, &sac_cli, &len);
 		if (sac_socket > 0) {
-			log_info(log, "NUEVA CONEXIÓN");
+			log_info(logger, "NUEVA CONEXIÓN");
 			pthread_t sac_cli_thread;
 			pthread_create(&sac_cli_thread, NULL, listen_sac_cli,
 					(void*) (sac_socket));
 		} else {
-			log_error(log, "Error aceptando conexiones: %s", strerror(errno));
+			log_error(logger, "Error aceptando conexiones: %s", strerror(errno));
 		}
 	} while (1);
 }

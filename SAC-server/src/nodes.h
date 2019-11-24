@@ -68,7 +68,7 @@ GHeader gHeader;
 GFile* nodes_table;
 t_block* blocks_data;
 char config_path[1000];
-t_log * log;
+t_log * logger;
 int file_system_descriptor;
 int size_file_system;
 pthread_rwlock_t rwlock;

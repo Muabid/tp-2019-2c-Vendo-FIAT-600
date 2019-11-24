@@ -10,6 +10,7 @@
 #include "nodes.h"
 #include <string.h>
 #include <shared/protocol.h>
+#include <shared/utils.h>
 #include <commons/string.h>
 #include <commons/collections/list.h>
 
