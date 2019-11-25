@@ -1,12 +1,15 @@
 #ifndef LIBMUSE_H_
 #define LIBMUSE_H_
 
-    #include <stdint.h>
+    #include <shared/net.h>
+	#include <shared/protocol.h>
+	#include <stdint.h>
     #include <stddef.h>
 	#include <stdio.h> 
 	#include <string.h> 
 	#include <stdbool.h>
 	#include <stdlib.h>
+
 
 	typedef struct HeapMetadata {
 		uint32_t tamanio;
@@ -108,11 +111,5 @@
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      */
     int muse_unmap(uint32_t dir);
-    void cargar_configuracion();
-    void initialize();
-    void merge();
-    void imprimir_direccion_puntero(struct HeapMetadata *ptr, char nombre_ptr[]);
-    void divider();
-    int calcular_frames_necesarios(uint32_t tam);
 
 #endif
