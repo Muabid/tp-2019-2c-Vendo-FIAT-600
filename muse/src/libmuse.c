@@ -139,7 +139,7 @@ uint32_t aniadir_segmento(int frames_necesarios, int tam){
 	} else {
 		// este caso ocurre cuando no entra en ninguno de los segmentos Y el último no es mmap (puedo y tengo que extender)
 		//extender último segmento
-		aux = tam - ((frames_necesarios - 1) * tam_pagina);
+		aux = (tam + 5) - ((frames_necesarios - 1) * tam_pagina);//toy aca
 		if(segmento_con_lugar(aux) == (list_size(lista_segmentos) - 1)){ //si se puede safar de asignar un frame mas, osea que un pedazo me entre en lo que tengo
 			printf("se agrego %d \n",frames_necesarios - 1);
 			crear_paginas(ultimoTabla, (frames_necesarios - 1));
@@ -270,6 +270,8 @@ uint32_t asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgre
 	int queda = tam_pagina;
 	printf("%d chekea\n" ,list_size(segmento->tabla_de_paginas));
 	do{
+		imprimir_direccion_puntero(hmetadata, "PUNTERO METADATA EN:");
+		printf("TAMANIO METADATA %d\n", hmetadata->tamanio);
 		if(hmetadata->libre == 1 && (hmetadata->tamanio >= tam + 5)){
 			salida = 1;
 		}
@@ -288,6 +290,7 @@ uint32_t asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgre
 				aux = tam_pagina - queda;
 				pagina = list_get(segmento->tabla_de_paginas, recorrido);
 				hmetadata =((int)memory + (pagina->numero_frame * tam_pagina) + aux) ;
+				imprimir_direccion_puntero(hmetadata, "se movio a:");
 			}
 			else if((hmetadata->tamanio + 5) == queda){
 				if(hmetadata->libre == 1){
@@ -297,10 +300,12 @@ uint32_t asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgre
 			else{
 				queda -= (hmetadata->tamanio + 5);
 				hmetadata += (hmetadata->tamanio + 5) / 5;
+				imprimir_direccion_puntero(hmetadata, "se movio a:");
 				parametro_para_funcion = queda;
 			}
 		}
 	}while(salida == 0);
+	imprimir_direccion_puntero(hmetadata, "FITTING SLOT OBTENIDO");
 	split(hmetadata, tam, parametro_para_funcion, segmento, recorrido - 1);
 	uint32_t result = (int)hmetadata;
 	return result;
