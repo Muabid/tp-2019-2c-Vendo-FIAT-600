@@ -137,13 +137,6 @@ void* listen_sac_cli(void* socket) {
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
-//		case MKNODE: {
-//			fill_path(path, message->content, 0);
-//			pthread_rwlock_wrlock(&rwlock);
-//			sac_mknod(sac_socket, path);
-//			pthread_rwlock_unlock(&rwlock);
-//			break;
-//		}
 		case TRUNCATE:{
 			void * aux = message->content;
 			fill_path(path, aux, 1);
@@ -151,7 +144,9 @@ void* listen_sac_cli(void* socket) {
 			aux += strlen(path);
 			off_t off;
 			memcpy(&off, aux, sizeof(off_t));
+			pthread_rwlock_wrlock(&rwlock);
 			sac_truncate(sac_socket,path,off);
+			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case CREATE: {
