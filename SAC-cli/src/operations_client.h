@@ -38,6 +38,7 @@ static int do_access(const char* path, int mask);
 static int do_write(const char *path, const char *buf, size_t size, off_t off, struct fuse_file_info *fi);
 static int do_setxattr(const char *path, const char *name,const void *value, size_t size, int flags);
 static int do_utimens(const char* path, const struct timespec ts[2]);
+static int do_trucate(const char *filename, off_t offset);
 /*
  * faltan: , , , acces, chmod,chown
  */

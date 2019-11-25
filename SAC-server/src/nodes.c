@@ -107,30 +107,32 @@ char* get_block_data(int index_block){
 
 int allocate_node(GFile* node){
 	int free_block = search_and_test_first_free_block();
-	int new_node;
-	int* position = get_position(node->size);
-	int indirect_pointer_block = position[0];
-	int pointer_data = position[1];
+	if(free_block >0){
+		int new_node;
+		int* position = get_position(node->size);
+		int indirect_pointer_block = position[0];
+		int pointer_data = position[1];
 
-	if ((node->blocks_ptr[indirect_pointer_block] != 0)){
-		if (pointer_data == 1024) {
-			pointer_data = 0;
-			indirect_pointer_block++;
+		if ((node->blocks_ptr[indirect_pointer_block] != 0)){
+			if (pointer_data == 1024) {
+				pointer_data = 0;
+				indirect_pointer_block++;
+			}
 		}
-	}
 
-	if(pointer_data == 0){
-		new_node = search_and_test_first_free_block();
-		if(new_node <0){
-			return new_node;
+		if(pointer_data == 0){
+			new_node = search_and_test_first_free_block();
+			if(new_node <0){
+				return new_node;
+			}
+			node->blocks_ptr[indirect_pointer_block] = new_node;
+			node->blocks_ptr[indirect_pointer_block + 1] = 0;
+		}else{
+			new_node = node->blocks_ptr[indirect_pointer_block];
 		}
-		node->blocks_ptr[indirect_pointer_block] = new_node;
-		node->blocks_ptr[indirect_pointer_block + 1] = 0;
-	}else{
-		new_node = node->blocks_ptr[indirect_pointer_block];
-	}
 
-	t_block_ptr* nodes_pointers = (t_block_ptr*)get_block_data(new_node);
-	nodes_pointers->blocks_ptr[pointer_data] = free_block;
+		t_block_ptr* nodes_pointers = (t_block_ptr*)get_block_data(new_node);
+		nodes_pointers->blocks_ptr[pointer_data] = free_block;
+	}
 	return free_block;
 }

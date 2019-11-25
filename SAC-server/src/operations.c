@@ -176,7 +176,7 @@ int sac_create(int sock, const char* path){
 void update_params(char** data,off_t*off,size_t* size,size_t* offset_in_block,int offset){
 	*data +=offset;
 	*off+=offset;
-	*size+=offset;
+	*size-=offset;
 	*offset_in_block=0;
 }
 
@@ -186,7 +186,7 @@ bool need_new_block(off_t offset, int32_t file_size, size_t space_in_block) {
 
 int sac_write(int socket,const char* path,char* data, size_t size, off_t offset){
 	log_info(logger,"EXECUTING WRITE [%s]",path);
-
+	char* aux_data = data;
 	if(size+offset > MAX_SIZE){
 		log_info(logger,"NO PODES DIRECCIONAR TANTO ESPACIO CAPO");
 		send_status(socket,ERROR,-EDQUOT);
@@ -215,10 +215,12 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 		if (need_new_block(offset, file_size, space_in_block)) {
 
 			if (free_blocks() == 0){
+				send_status(0,ERROR,-EDQUOT);
 				return -1;
 			}
 			res = allocate_node(node);
-			if (res != 0){
+			if (res < 0){
+				send_status(0,ERROR,-EDQUOT);
 				return -1;
 			}
 
@@ -239,7 +241,7 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 			if ((node->size) <= (offset)){
 				file_size = node->size += BLOCK_SIZE;
 			}
-			update_params(&data,&offset,&size,&offset_in_block,offset);
+			update_params(&data,&offset,&size,&offset_in_block,BLOCK_SIZE);
 		} else if (size <= space_in_block){
 			memcpy(block_data->data + offset_in_block, data, size);
 			if (node->size <= offset){
@@ -252,11 +254,11 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 		} else {
 			memcpy(block_data->data + offset_in_block, data, space_in_block);
 			file_size = node->size += space_in_block;
-			update_params(&data,&offset,&size,&offset_in_block,offset);
+			update_params(&data,&offset,&size,&offset_in_block,space_in_block);
 		}
 
 	}
-
+	log_info(logger,"WRITED: [%s]",aux_data);
 	node->modification_date= time(NULL);
 
 	send_status(socket,OK,0);
@@ -265,6 +267,32 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 }
 
 int sac_unlink(int socket,const char* path){
+	int index_node = search_node(path);
+
+	if (index_node == -1){
+		send_status(socket,ERROR,-ENOENT);
+		return -1;
+	}
+	GFile *node = &nodes_table[index_node-1];
+	int index_ptr,index_block;
+	t_block_ptr* blocks_ptr;
+	t_block * data;
+	for(int i = 0; i<BLOCKS_INDIRECT && node->blocks_ptr[i]!=0;i++){
+		index_ptr = node->blocks_ptr[i];
+		blocks_ptr = (t_block_ptr*)get_block_data(index_ptr);
+		for(int j=0; i<BLOCKS_NODE && blocks_ptr->blocks_ptr[j]!=0;j++){
+			index_block = blocks_ptr->blocks_ptr[j];
+			data = (t_block*)get_block_data(index_block);
+			memset(data->data,0,BLOCK_SIZE);
+			bitarray_clean_bit(bitmap,index_block);
+			blocks_ptr->blocks_ptr[j]=0;
+		}
+		node->blocks_ptr[i]=0;
+		bitarray_clean_bit(bitmap,index_ptr);
+	}
+	node->size=0;
+	node->status = T_DELETED;
+	memset(node->file_name,0,71);
 	send_status(socket,OK,0);
 	return 0;
 }
@@ -308,10 +336,11 @@ int sac_read(int socket,const char* path, size_t size, off_t offset){
 	size_t offset_in_block = offset % BLOCK_SIZE;
 	if(node->size <= offset){
 		log_error(logger, "Fuse intenta leer un offset mayor o igual que el tamanio de archivo.File: %s, Size: %d",path,node->size);
+		send_status(socket,ERROR,-1);
 		return -1;
-	} else if (node->size <= (offset+size)){
+	} else if (node->size < (offset+size)){
 		size = ((node->size)-(offset));
-		log_error(logger, "Fuse intenta leer una posicion mayor o igual que el tamanio de archivo.File: %s, Size: %d",path,node->size);
+		log_error(logger, "Fuse intenta leer una posicion mayor que el tamanio de archivo.File: %s, Size: %d",path,node->size);
 	}
 
 	for(int ptr_ind=positions[0]; ptr_ind<BLOCKS_INDIRECT && size>0;ptr_ind++){

@@ -89,7 +89,6 @@ static int do_getattr(const char *path, struct stat *st) {
 			log_info(log,"%s | %d | %i | %i | %i | %i",path,size,
 					creation_date,modification_date,hardlinks,status);
 
-
 			st->st_nlink = hardlinks;
 			st->st_mtim.tv_sec = modification_date;
 			st->st_ctim.tv_sec = creation_date;
@@ -142,7 +141,7 @@ static int do_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
 	}
 	return res;
 }
-
+//ENAMETOOLONG
 static int do_read(const char *path, char *buf, size_t size, off_t off,
 		struct fuse_file_info *fi){
 	size_t len = strlen(path);
@@ -168,6 +167,10 @@ static int do_read(const char *path, char *buf, size_t size, off_t off,
 			res = message->size;
 		}else{
 			res = get_status(message);
+			if(res == -1){
+				strcpy(buf,"");
+				res = size;
+			}
 		}
 		free_t_message(message);
 	}else{
@@ -347,7 +350,8 @@ static int do_utimens(const char* path, const struct timespec ts[2]){
 	return res;
 }
 
-static int do_trucate(const char *filename, off_t length){
+static int do_trucate(const char *filename, off_t offset){
+	log_info(log,"TRUNCATE");
 	return 0;
 }
 /*
