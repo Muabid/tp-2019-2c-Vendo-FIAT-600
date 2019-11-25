@@ -266,6 +266,47 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	return 0;
 }
 
+void delete_blocks(GFile* node, int offset,bool delete) {
+	int index_ptr, index_block;
+	t_block_ptr* blocks_ptr;
+	t_block* data;
+	int* positions = get_position(offset);
+	for (int i = positions[0]; i < BLOCKS_INDIRECT && node->blocks_ptr[i] != 0;
+			i++) {
+		index_ptr = node->blocks_ptr[i];
+		blocks_ptr = (t_block_ptr*) get_block_data(index_ptr);
+		for (int j = positions[1];
+				j < BLOCKS_NODE && blocks_ptr->blocks_ptr[j] != 0; j++) {
+			index_block = blocks_ptr->blocks_ptr[j];
+			data = (t_block*) get_block_data(index_block);
+			memset(data->data, 0, BLOCK_SIZE);
+			if(j != 0 || delete){
+				bitarray_clean_bit(bitmap, index_block);
+				blocks_ptr->blocks_ptr[j] = 0;
+			}
+		}
+		if(i != 0 || delete){
+			node->blocks_ptr[i] = 0;
+			bitarray_clean_bit(bitmap, index_ptr);
+		}
+	}
+	node->size = offset;
+}
+
+int sac_truncate(int socket,const char* path, off_t offset){
+	int index_node = search_node(path);
+
+	if (index_node == -1){
+		send_status(socket,ERROR,-ENOENT);
+		return -1;
+	}
+
+	GFile* node = &nodes_table[index_node - 1];
+	delete_blocks(node, offset,0);
+	send_status(socket,OK,0);
+	return 0;
+}
+
 int sac_unlink(int socket,const char* path){
 	int index_node = search_node(path);
 
@@ -273,24 +314,9 @@ int sac_unlink(int socket,const char* path){
 		send_status(socket,ERROR,-ENOENT);
 		return -1;
 	}
-	GFile *node = &nodes_table[index_node-1];
-	int index_ptr,index_block;
-	t_block_ptr* blocks_ptr;
-	t_block * data;
-	for(int i = 0; i<BLOCKS_INDIRECT && node->blocks_ptr[i]!=0;i++){
-		index_ptr = node->blocks_ptr[i];
-		blocks_ptr = (t_block_ptr*)get_block_data(index_ptr);
-		for(int j=0; i<BLOCKS_NODE && blocks_ptr->blocks_ptr[j]!=0;j++){
-			index_block = blocks_ptr->blocks_ptr[j];
-			data = (t_block*)get_block_data(index_block);
-			memset(data->data,0,BLOCK_SIZE);
-			bitarray_clean_bit(bitmap,index_block);
-			blocks_ptr->blocks_ptr[j]=0;
-		}
-		node->blocks_ptr[i]=0;
-		bitarray_clean_bit(bitmap,index_ptr);
-	}
-	node->size=0;
+	GFile* node = &nodes_table[index_node - 1];
+
+	delete_blocks(node,0,1);
 	node->status = T_DELETED;
 	memset(node->file_name,0,71);
 	send_status(socket,OK,0);

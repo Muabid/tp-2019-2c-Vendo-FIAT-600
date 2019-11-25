@@ -144,6 +144,16 @@ void* listen_sac_cli(void* socket) {
 //			pthread_rwlock_unlock(&rwlock);
 //			break;
 //		}
+		case TRUNCATE:{
+			void * aux = message->content;
+			fill_path(path, aux, 1);
+			aux += sizeof(size_t);
+			aux += strlen(path);
+			off_t off;
+			memcpy(&off, aux, sizeof(off_t));
+			sac_truncate(sac_socket,path,off);
+			break;
+		}
 		case CREATE: {
 			fill_path(path, message->content, 0);
 			pthread_rwlock_wrlock(&rwlock);

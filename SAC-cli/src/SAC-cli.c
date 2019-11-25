@@ -352,6 +352,25 @@ static int do_utimens(const char* path, const struct timespec ts[2]){
 
 static int do_trucate(const char *filename, off_t offset){
 	log_info(log,"TRUNCATE");
+	size_t len = strlen(filename);
+	size_t size_cont = sizeof(size_t) + len + sizeof(off_t);
+	void * cont = malloc(size_cont);
+	void*aux = cont;
+	memcpy(aux,&len,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,filename,len);
+	aux+=strlen(filename);
+	memcpy(aux,&offset,sizeof(off_t));
+	int op_res = send_message(sock, TRUNCATE, cont, size_cont);
+	int res=0;
+	if (op_res >= 0) {
+		t_message* message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
+	}
+	log_info(log,"Finishing do_utimens...");
 	return 0;
 }
 /*
