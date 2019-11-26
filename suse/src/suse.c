@@ -9,26 +9,24 @@ char** sem_init_value;
 char** sem_max;
 double alpha_sjf;
 
+//GLOBALES
+t_log* log;
 int programasEnMemoria = 0;
-
+int cantidadSemaforos;
+t_list* listaSemaforos;
 t_list* listaNuevos;
 t_list* listaDeBloqueados;
 t_list* listaEnEjecucion;
-t_list* listaExit;
-t_log* log;
 t_list* listaDeProgramas;
-
-int cantidadSemaforos;
-t_list* listaSemaforos;
 
 //AUXILIARES PARA BUSQUEDA
 int auxiliarParaId;
 int auxiliarParaIdPadre;
 char* auxiliarString;
-t_list* auxiliarListaParaBusqueda;
 double auxiliarParaBusquedaMenor;
+t_list* auxiliarListaParaBusqueda;
 
-
+//FUNCIONES A EJECUTAR EN EL INICIO
 void load_suse_config() {
 	t_config* config = config_create("suse.config");
 	listen_port = config_get_int_value(config, "LISTEN_PORT");
@@ -41,7 +39,6 @@ void load_suse_config() {
 
 	config_destroy(config);
 }
-
 void cargarSemaforos() {
 	listaSemaforos = list_create();
 	cantidadSemaforos = strlen(sem_ids)/sizeof(char*);
@@ -54,47 +51,66 @@ void cargarSemaforos() {
 		semaforoAuxiliar->valor = atoi(sem_init_value[i]);
 		semaforoAuxiliar->valorMaximo = atoi(sem_max[i]);
 		semaforoAuxiliar->colaBloqueo = queue_create();
-		printf("%s\n", semaforoAuxiliar->nombre);
-
 		list_add(listaSemaforos, semaforoAuxiliar);
 	}
 }
 
-
-
+//FUNCIONES AUXILIARES PARA T_LIST
 bool esHiloPorId(void* unHilo) {
 	t_hilo* casteo = (t_hilo*) unHilo;
 	return (casteo->id == auxiliarParaId) && (casteo->idPadre->id == auxiliarParaIdPadre);
 }
+bool esProgramaPorId(void* unPrograma) {
+	t_programa* casteo = (t_programa*) unPrograma;
+	return (casteo->id == auxiliarParaId);
+}
+bool esElMenor(void* hilo) {
+	t_hilo* unHilo = (t_hilo*)hilo;
+	return auxiliarParaBusquedaMenor <= unHilo->estimadoSJF;
+}
+bool tieneMenorEstimado(void* hilo) {
+	t_hilo* unHilo = (t_hilo*)hilo;
+	auxiliarParaBusquedaMenor = unHilo->estimadoSJF;
+	return list_all_satisfy(auxiliarListaParaBusqueda, esElMenor);
+}
+bool buscarSemaforoPorNombre(t_semaforo unSemaforo) {
+	if(strcmp(unSemaforo.nombre, auxiliarString) == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
+//AUXILIARES DE FUNCIONES SUSE
+void estimarDuracionHilo(t_hilo* unHilo, double duracion) {
+	unHilo->estimadoSJF = duracion * alpha_sjf + (1-alpha_sjf) * (unHilo->estimadoSJF); //ALGORITMO SJF
+	printf("Se ejecuto SJF\n");
+}
+void cargarHilosAReady() {
+	while(programasEnMemoria < max_multiprog && list_size(listaNuevos) != 0) {
+		t_hilo* hilo = list_remove(listaNuevos, 0);
+		hilo->estado = READY;
+		list_add(hilo->idPadre->listaDeReady, hilo);
+		programasEnMemoria ++;
+	}
+}
+
+//FUNCIONES SUSE
 void suseCreate(int threadId, t_programa* padreId) {
 	t_hilo* nuevo = malloc(sizeof(t_hilo));
 	nuevo->id = threadId;
+	nuevo->contadorBloqueo = 0;
 	nuevo->idPadre = padreId;
 	nuevo->estado = NEW;
 	nuevo->tiempoInicial = 0;
 	nuevo->tiempoEspera = 0;
 	nuevo->tiempoCpu = 0;
 	nuevo->estimadoSJF = 0;
-	nuevo->bloqueadoPor = list_create();
 
-
+	list_add(padreId->listaDeHilos, nuevo);
 	list_add(listaNuevos, nuevo);
-	list_add(listaEnEjecucion, nuevo);
-
 }
-
-bool esElMenor(void* hilo) {
-	t_hilo* unHilo = (t_hilo*)hilo;
-	return auxiliarParaBusquedaMenor <= unHilo->estimadoSJF;
-}
-
-bool tieneMenorEstimado(void* hilo) {
-	t_hilo* unHilo = (t_hilo*)hilo;
-	auxiliarParaBusquedaMenor = unHilo->estimadoSJF;
-	return list_all_satisfy(auxiliarListaParaBusqueda, esElMenor);
-}
-
 void suseScheduleNext(t_programa* programa) {
 	if(list_size(programa->listaDeReady) > 0) {
 		auxiliarListaParaBusqueda = programa->listaDeReady;
@@ -115,114 +131,8 @@ void suseScheduleNext(t_programa* programa) {
 		send_message(programa->id, ERROR_MESSAGE, NULL, 0);
 }
 
-void estimarDuracionHilo(t_hilo* unHilo, double duracion) {
-	unHilo->estimadoSJF = duracion * alpha_sjf + (1-alpha_sjf) * (unHilo->estimadoSJF); //ALGORITMO SJF
-	printf("Se ejecuto SJF");
-}
 
-void cargarHilosAReady() {
-	while(programasEnMemoria < max_multiprog && list_size(listaNuevos) != 0) {
-		t_hilo* hilo = list_remove(listaNuevos, 0);
-		hilo->estado = READY;
-		list_add(hilo->idPadre->listaDeReady, hilo);
-		programasEnMemoria ++;
-	}
-}
-
-bool buscarSemaforoPorNombre(t_semaforo unSemaforo) {
-	if(strcmp(unSemaforo.nombre, auxiliarString) == 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-void suseWait(int threadId, char* nombreSemaforo, t_programa* padre) {
-	t_hilo* unHilo;
-
-	//Se busca el semaforo
-	auxiliarString = malloc(strlen(nombreSemaforo)+1);
-	strcpy(auxiliarString, nombreSemaforo);
-	t_semaforo* unSemaforo = list_find(listaSemaforos, buscarSemaforoPorNombre);
-	free(auxiliarString);
-
-	//Se le resta en uno su valor
-	unSemaforo->valor --;
-
-
-	//Si queda negativo se agrega el thread a la lista de bloqueados
-	//Y se le agrega al thread por quien fue bloqueado
-	if(unSemaforo->valor < 0) {
-		queue_push(unSemaforo->colaBloqueo, threadId);
-
-		auxiliarParaId = threadId;
-		auxiliarParaIdPadre = padre->id;
-		unHilo = list_find(padre->listaDeHilos, esHiloPorId);
-		list_add(unHilo->bloqueadoPor, unSemaforo);
-
-		if(unHilo->estado != BLOCKED) {
-
-			unHilo->estado = BLOCKED;
-			if(padre->enEjecucion->id == threadId) {
-				list_add(listaDeBloqueados, unHilo);
-				padre->enEjecucion = NULL;
-			}
-			else if(list_any_satisfy(padre->listaDeReady, esHiloPorId)) {
-				list_remove_by_condition(padre->listaDeReady, esHiloPorId);
-
-			}
-			else if(list_any_satisfy(listaNuevos, esHiloPorId)) {
-				list_remove_by_condition(listaNuevos, esHiloPorId);
-			}
-
-		}
-	}
-}
-
-void suseSignal(int threadId, char* semaforo, t_programa* padre) {
-
-}
-
-void suseClose(int id, t_programa* programa) {
-	auxiliarParaId = id;
-	auxiliarParaIdPadre = programa->id;
-	t_hilo* auxiliar;
-
-	if(list_any_satisfy(listaEnEjecucion, esHiloPorId)) {
-		if(programa->enEjecucion->id == id) {
-			programa->enEjecucion->estado = EXIT;
-			list_add(listaExit, programa->enEjecucion);
-			programa->enEjecucion = NULL;
-		}
-		else if(list_any_satisfy(programa->listaDeReady, esHiloPorId)) {
-			auxiliar = list_remove_by_condition(programa->listaDeReady, esHiloPorId);
-			auxiliar->estado = EXIT;
-			list_add(listaExit, auxiliar);
-		}
-
-		else if(list_any_satisfy(listaNuevos, esHiloPorId)) {
-			auxiliar = list_remove_by_condition(listaNuevos, esHiloPorId);
-
-		}
-
-		else {
-			log_error(log, "El hilo a hacerle suseClose no se encuentra en memoria");
-
-		}
-
-		programasEnMemoria --;
-		list_remove_by_condition(listaEnEjecucion, esHiloPorId);
-
-
-	}
-
-}
-//void freeHilo(t_hilo* hilo) {
-//	free(hilo->semaforos);
-//	free(hilo);
-//}
-
+//CREAR Y DESTRUIR UN PROGRAMA
 t_programa* crearPrograma(int id) {
 	t_programa* nuevo = malloc(sizeof(t_programa));
 	nuevo->id = id;
@@ -233,35 +143,60 @@ t_programa* crearPrograma(int id) {
 	return nuevo;
 }
 
-//void freePrograma(t_programa* programa) {
-//	list_destroy_and_destroy_elements(programa->listaDeHilos, freeHilo());
-//	queue_destroy_and_destroy_elements(programa->colaDeReady, freeHilo());
-//	free(programa->enEjecucion);
-//	free(programa);
-//}
+void destruirPrograma(t_programa* programa) {
+	programasEnMemoria -= list_size(programa->listaDeReady);
+	printf("Quedaron %i programas en memoria\n", programasEnMemoria);
+	if(programa->enEjecucion != NULL)
+		programasEnMemoria--;
 
+//	auxiliarParaId = programa->id;
+//	list_remove_and_destroy_by_condition(listaDeProgramas, esProgramaPorId, free);
+
+	printf("Quedaron %i programas en memoria\n", programasEnMemoria);
+}
+
+//SE EJECUTA AL FINALIZAR SUSE
 void sigterm(int sig) {
 	log_info(log, "Se interrumpió la ejecución del proceso");
 	log_destroy(log);
 }
 
-void destruirPrograma(t_programa* programa) {
-	list_clean_and_destroy_elements(programa->listaDeHilos, free);
-	list_clean_and_destroy_elements(programa->listaDeReady, free);
-	free(programa->enEjecucion);
-	free(programa);
+void suseWait(int threadId, char* nombreSemaforo, t_programa* padre) {
+
+}
+void suseSignal(int threadId, char* semaforo, t_programa* padre) {
+
+}
+void suseClose(int id, t_programa* programa) {
+	auxiliarParaId = id;
+	auxiliarParaIdPadre = programa->id;
+
+		if(programa->enEjecucion->id == id) {
+			programa->enEjecucion = NULL;
+		}
+		else if(list_any_satisfy(programa->listaDeReady, esHiloPorId)) {
+			list_remove_by_condition(programa->listaDeReady, esHiloPorId);
+		}
+
+		else if(list_any_satisfy(listaNuevos, esHiloPorId)) {
+			list_remove_by_condition(listaNuevos, esHiloPorId);
+		}
+
+		else {
+			log_error(log, "El hilo a hacerle suseClose no se encuentra en memoria");
+		}
+
+		programasEnMemoria --;
 }
 
+//HANDLER POR HILO
 void* handler(void* socketConectado) {
 	int socket = *(int*)socketConectado;
 	t_programa* programa = crearPrograma(socket);
 	list_add(listaDeProgramas, programa);
-
-
 	t_message* bufferLoco;
 
 	while((bufferLoco = recv_message(socket))->head < 10) { // HAY CODIGOS HASTA 7 + Prueba, por eso menor a 7.HAY QUE AGREGAR UNA COLA DE ESPERA
-		printf("Se recibió un mensaje\n");
 		int threadId = *(int*)bufferLoco->content;
 		char* stringAuxiliar;
 		double numeroAux;
@@ -279,13 +214,8 @@ void* handler(void* socketConectado) {
 					if(programa->enEjecucion != NULL) {
 						estimarDuracionHilo(programa->enEjecucion, numeroAux);
 					}
-
 					cargarHilosAReady();
 					suseScheduleNext(programa);
-
-
-
-
 				break;
 
 			case SUSE_WAIT:
@@ -296,7 +226,7 @@ void* handler(void* socketConectado) {
 					free(stringAuxiliar);
 				}
 				else {
-					log_error(log, "Se recibió en SUSE_SIGNAL un mensaje que no corresponde a este lugar");
+					log_error(log, "Se recibió en SUSE_WAIT un mensaje que no corresponde a este lugar");
 					free(stringAuxiliar);
 				}
 				break;
@@ -319,15 +249,11 @@ void* handler(void* socketConectado) {
 				break;
 
 			case SUSE_CLOSE:
-					suseClose(threadId, programa);
+				suseClose(threadId, programa);
 				break;
 
 			case SUSE_CONTENT:
 				log_error(log, "SE RECIBIO AL HANDLER UN MENSAJE CON CONTENIDO DESTINADO A OTRO LUGAR");
-				break;
-
-			case TEST:
-				printf("El header es: %i --- El contenido es: %i --- Su tamaño es: %zu\n", header, threadId, tamanio);
 				break;
 
 			default:
@@ -337,24 +263,22 @@ void* handler(void* socketConectado) {
 
 	}
 
-	log_info(log, "Se ha producido un problema de conexión y el hilo programa se dejará de planificar: %i.\n", bufferLoco->head);
 	destruirPrograma(programa);
+	log_info(log, "Se ha producido un problema de conexión y el hilo programa se dejará de planificar: %i.\n", bufferLoco->head);
 	free_t_message(bufferLoco);
-	//close(servidor);
 	return NULL;
 }
 
 int main() {
 	signal(SIGINT, sigterm);
 	log = log_create("log", "log_suse.txt", true, LOG_LEVEL_DEBUG);
+
 	load_suse_config();
 	cargarSemaforos();
 
-	listaDeProgramas = list_create();
-	listaDeBloqueados = list_create();
-	listaEnEjecucion = list_create();
 	listaNuevos = list_create();
-	listaExit = list_create();
+	listaDeBloqueados = list_create();
+	listaDeProgramas = list_create();
 
 	int socketDelCliente;
 	struct sockaddr direccionCliente;
