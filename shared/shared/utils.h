@@ -14,6 +14,7 @@
 
 char* get_date();
 int fsize(char* path);
-
 void log_error_code(t_log* log, int error_code);
+int min(int x, int y);
+int max(int x, int y);
 #endif /* UTILS_H_ */

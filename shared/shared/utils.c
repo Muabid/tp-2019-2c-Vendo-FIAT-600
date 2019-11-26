@@ -31,3 +31,10 @@ void log_error_code(t_log* log, int error_code){
 	free(error);
 }
 
+int min(int x, int y){
+	return x<y?x:y;
+}
+
+int max(int x, int y){
+	return x>y?x:y;
+}

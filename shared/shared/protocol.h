@@ -38,6 +38,7 @@ typedef enum{
 	UTIME,
 	READ,
 	WRITE,
+	TRUNCATE,
 	OK,
 	FILE_NAME,
 	DIR_NAME,

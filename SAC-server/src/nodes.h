@@ -26,11 +26,14 @@
 #define BLOCKS_BITMAP gHeader.bit_map_size
 #define BLOCKS_DATA BLOCKS_TOTAL -1 -BLOCKS_BITMAP - 1024
 #define BITMAP_SIZE_BITS BITMAP_SIZE_BYTES * 8
-#define BITMAP_SIZE_BYTES size_file_system/BLOCK_SIZE/8
+#define BITMAP_SIZE_BYTES size_file_system / BLOCK_SIZE / CHAR_BIT
 #define BLOCKS_FILESYSTEM FILESYSTEM_SIZE / BLOCK_SIZE
+#define BLOCKS_INDIRECT 1000
 #define T_FILE 1
 #define T_DIR 2
+#define T_DELETED 0
 #define BLKINDIRECT 1000
+#define MAX_SIZE BLKINDIRECT * BLOCKS_NODE * BLOCK_SIZE
 
 typedef uint32_t ptrGBloque;
 
@@ -66,7 +69,7 @@ GHeader gHeader;
 GFile* nodes_table;
 t_block* blocks_data;
 char config_path[1000];
-t_log * log;
+t_log * logger;
 int file_system_descriptor;
 int size_file_system;
 pthread_rwlock_t rwlock;

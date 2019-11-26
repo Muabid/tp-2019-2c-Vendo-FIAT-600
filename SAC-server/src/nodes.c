@@ -73,26 +73,23 @@ int search_first_free_node(){
 
 int search_and_test_first_free_block(){
 	int res = -1;
-//	pthread_mutex_lock(&bitarray_mutex);
-	for(int i = 0; i < BITMAP_SIZE_BITS && res== -1; i++){
+	for(int i = 0; i < BITMAP_SIZE_BITS && res == -1; i++){
 		if(bitarray_test_bit(bitmap,i) == 0){
 			bitarray_set_bit(bitmap,i);
 			res = i;
 		}
 	}
-	log_info(log,"Se reservo el bloque %i",res);
-//	pthread_mutex_unlock(&bitarray_mutex);
+	log_info(logger,"Se reservo el bloque %i",res);
 	return res;
 }
 
 int free_blocks(){
 	int free_nodes=0;
-	pthread_mutex_lock(&bitarray_mutex);
 	for (int i = 0; i < BITMAP_SIZE_BITS; i++){
 		if (bitarray_test_bit(bitmap, i) == 0)
 			free_nodes++;
 	}
-	pthread_mutex_unlock(&bitarray_mutex);
+	log_info(logger,"BLOQUES LIBRES: [%i]",free_nodes);
 	return free_nodes;
 }
 
@@ -101,7 +98,7 @@ int32_t* get_position(off_t offset){
 	int32_t* position = malloc(sizeof(int32_t)*2);
 	position[0] = divi.quot;
 	position[1] = divi.rem/BLOCK_SIZE;
-	//La primera posición indica el puntero de bloques, la segunda el puntero de bloque de datos
+	//La primera posición indica el bloque de puntero, la segunda el puntero de bloque de datos
 	return position;
 }
 
@@ -111,30 +108,32 @@ char* get_block_data(int index_block){
 
 int allocate_node(GFile* node){
 	int free_block = search_and_test_first_free_block();
-	int new_node;
-	int* position = get_position(node->size);
-	int indirect_pointer_block = position[0];
-	int pointer_data = position[1];
+	if(free_block >0){
+		int new_node;
+		int* position = get_position(node->size);
+		int indirect_pointer_block = position[0];
+		int pointer_data = position[1];
 
-	if ((node->blocks_ptr[indirect_pointer_block] != 0)){
-		if (pointer_data == 1024) {
-			position = 0;
-			indirect_pointer_block++;
+		if ((node->blocks_ptr[indirect_pointer_block] != 0)){
+			if (pointer_data == 1024) {
+				pointer_data = 0;
+				indirect_pointer_block++;
+			}
 		}
-	}
-	// Si es el ultimo nodo en el bloque de punteros, pasa al siguiente
-	if(pointer_data != 0){
-		new_node = node->blocks_ptr[indirect_pointer_block];
-	} else{
-		new_node = search_and_test_first_free_block();
-		if(new_node <0){
-			return new_node;
-		}
-		node->blocks_ptr[indirect_pointer_block] = new_node;
-		node->blocks_ptr[indirect_pointer_block + 1] = 0;
-	}
 
-	int32_t* nodes_pointers = (int32_t*)get_block_data(new_node);
-	nodes_pointers[pointer_data] = free_block;
+		if(pointer_data == 0){
+			new_node = search_and_test_first_free_block();
+			if(new_node <0){
+				return new_node;
+			}
+			node->blocks_ptr[indirect_pointer_block] = new_node;
+			node->blocks_ptr[indirect_pointer_block + 1] = 0;
+		}else{
+			new_node = node->blocks_ptr[indirect_pointer_block];
+		}
+
+		t_block_ptr* nodes_pointers = (t_block_ptr*)get_block_data(new_node);
+		nodes_pointers->blocks_ptr[pointer_data] = free_block;
+	}
 	return free_block;
 }
