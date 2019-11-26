@@ -23,7 +23,8 @@ void crear_paginas(struct Segmento *segmento, int frames_necesarios);
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar, int restante,struct Segmento *segmento, int indice_pagina);
 void cargar_configuracion();
 void initialize();
-   //void merge();
+void muse_free(uint32_t dir);
+void merge();
 void imprimir_direccion_puntero(struct HeapMetadata *ptr, char nombre_ptr[]);
 void divider();
 int calcular_frames_necesarios(uint32_t tam);
@@ -53,11 +54,14 @@ int main(){
 	printf("Marcos creados: %d\n", cantidadFramesDisponibles());
 	uint32_t p = muse_alloc(40);
 	uint32_t o = muse_alloc(5);
+	muse_free(o);
+	o = muse_alloc(5);
 	uint32_t z = muse_alloc(20);
-	uint32_t q = muse_alloc(20);
-	uint32_t y = muse_alloc(60);
-	uint32_t m = muse_alloc(20);
-	uint32_t b = muse_alloc(75);
+	uint32_t q = muse_alloc(45);
+	muse_free(o);
+	uint32_t y = muse_alloc(50);
+	uint32_t m = muse_alloc(10);
+	uint32_t b = muse_alloc(5);
 	mostrar_bitmap();
 	mostrar_frames();
 	printf("Allocation and deallocation is done successfully!");
@@ -71,15 +75,94 @@ void mostrar_frames(){
 	while(recorrido < 8 ){
 		imprimir_direccion_puntero(actual,"actual");
 		if(actual->libre == 0 || actual->libre == 1){
-			imprimir_direccion_puntero(actual,"actual ocupado");
-			printf("... y su tamaño es: %zu\n",actual->tamanio);
+			imprimir_direccion_puntero(actual,"actual ");
+			printf("... su tamaño es: %zu, y esta: %zu\n",actual->tamanio,actual->libre);
 			actual += ((actual->tamanio) / sizeof(struct HeapMetadata));
 		}
 		recorrido++;
 		actual++;
 	}
 }
+void muse_free(uint32_t dir){
+//	printf("Direccion a liberar: %zu\n", dir);
+	if(((int)memory <= dir) && (dir <= ((int)memory + tam_memoria))){ //ACA EN LUGAR DE MEMORY DEVERIA IR LA DIRECCION DE VIRTUAL + EL TAMAÑO DEL SEGMENTO
+		struct HeapMetadata *actual = (void*)dir;
+		actual->libre = 1;
+		printf("Memoria liberada exitosamente \n");
+		merge();
+	} else {
+		printf("La dirección de memoria indicada no está asignada (pasaste cualquier cosa)\n");
+	}
+}
 
+void merge(){ //hay que adaptar el merge
+	struct HeapMetadata *hmetadata,*prev,*siguiente;
+	struct Segmento* segmento;
+	struct Pagina* pagina;
+	/*
+	actual = (int)memory;
+	siguiente += 1 + ((actual->tamanio) / sizeof(struct HeapMetadata));
+	while(((void*)siguiente) < (memory+tam_memoria)){ //mientras que no se vaya a la mierda de la memoria (revisar)
+		if((actual->libre) && (siguiente->libre)){
+			actual->tamanio += (siguiente->tamanio) + sizeof(struct HeapMetadata);
+			siguiente += 1 + ((siguiente->tamanio) / sizeof(siguiente));
+		}
+		siguiente += 1 + ((actual->tamanio) / sizeof(siguiente));
+	}
+ */
+	int queda = tam_pagina,salida = 0,free = 0;
+
+	//OBTENER LISTA DE SEGMENTOS , POR AHORA LA TRATAMOS COMO UN GLOBAL
+
+	for(int i = 0 ; i < list_size(lista_segmentos) ; i++){
+		segmento = list_get(lista_segmentos, i);
+		if(segmento->es_mmap == 0){//si no es un mmap el segmento, falta ver como hacer la condicion
+			pagina = list_get(segmento->tabla_de_paginas, 0);
+			hmetadata = (((int)memory + (pagina->numero_frame * tam_pagina)));
+			int recorrido = 0, aux,queda_anterior = 0;
+			do{
+				if(hmetadata->libre == 1 && free == 1){
+					//liberar y unir
+					prev->tamanio += hmetadata->tamanio + 5;
+					free = 0;
+					hmetadata = prev;
+				}
+				else{
+					if(hmetadata->libre == 1){
+						free = 1;
+						prev = hmetadata;
+					}
+					else if(free == 1){
+						return;
+					}
+
+					if((hmetadata->tamanio + 5) >= queda){
+						while((hmetadata->tamanio + 5) >= queda){
+							queda += tam_pagina;
+							recorrido++;
+							if(recorrido > (list_size(segmento->tabla_de_paginas)-1)){
+								salida = 1;
+							}
+						}
+
+						if(salida != 1){
+							queda -= (hmetadata->tamanio + 5);
+							aux = tam_pagina - queda;
+							pagina = list_get(segmento->tabla_de_paginas, recorrido);
+							hmetadata =((int)memory + (pagina->numero_frame * tam_pagina) + aux) ;
+						}
+
+					}
+					else{
+						queda -= (hmetadata->tamanio + 5);
+						hmetadata += (hmetadata->tamanio + 5) / 5;
+					}
+				}
+			}while(list_size(segmento->tabla_de_paginas) >= recorrido && salida !=1);
+		}
+	}
+	return;
+}
 uint32_t muse_alloc(uint32_t tam){ //CHEQUEDA / NO PROBADA
 	uint32_t result;
 	int frames_necesarios = calcular_frames_necesarios(tam);
@@ -116,12 +199,10 @@ uint32_t aniadir_segmento(int frames_necesarios, int tam){
 	ultimoTabla = list_get(lista_segmentos,((list_size(lista_segmentos)) - 1));
 
 	if(segmento_disponible != -1) { // algun segmento tiene lugar disponible?
-
 		printf("Hay segmentos disponibles \n");
 		ultimoTabla = list_get(lista_segmentos,segmento_disponible); //se consigue el segmento con lugar
 		result = asignar_en_frame(tam, ultimoTabla, 0);
 		return result;
-
 	}else if(ultimoTabla->es_mmap){ //crear uno nuevo(caso de que ningun segmento tenga lugar disponible, y no se puede agrandar debido a un map)
 		printf("no hay segmentos disponibles, se crea uno nuevo \n");
 		ultimoTabla = list_get(lista_segmentos, list_size(lista_segmentos)-1);
