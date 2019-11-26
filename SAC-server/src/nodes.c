@@ -73,7 +73,7 @@ int search_first_free_node(){
 
 int search_and_test_first_free_block(){
 	int res = -1;
-	for(int i = 0; i < BITMAP_SIZE_BITS && res== -1; i++){
+	for(int i = 0; i < BITMAP_SIZE_BITS && res == -1; i++){
 		if(bitarray_test_bit(bitmap,i) == 0){
 			bitarray_set_bit(bitmap,i);
 			res = i;
@@ -89,6 +89,7 @@ int free_blocks(){
 		if (bitarray_test_bit(bitmap, i) == 0)
 			free_nodes++;
 	}
+	log_info(logger,"BLOQUES LIBRES: [%i]",free_nodes);
 	return free_nodes;
 }
 
