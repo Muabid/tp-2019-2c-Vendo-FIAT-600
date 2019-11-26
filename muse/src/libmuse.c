@@ -54,7 +54,11 @@ int main(){
 	uint32_t p = muse_alloc(40);
 	uint32_t o = muse_alloc(5);
 	uint32_t z = muse_alloc(20);
-	//mostrar_bitmap();
+	uint32_t q = muse_alloc(20);
+	uint32_t y = muse_alloc(60);
+	uint32_t m = muse_alloc(20);
+	uint32_t b = muse_alloc(75);
+	mostrar_bitmap();
 	mostrar_frames();
 	printf("Allocation and deallocation is done successfully!");
 	return 0;
@@ -64,7 +68,7 @@ int main(){
 void mostrar_frames(){
 	struct HeapMetadata* actual = memory;
 	int recorrido = 1;
-	while(recorrido < 2 ){
+	while(recorrido < 8 ){
 		imprimir_direccion_puntero(actual,"actual");
 		if(actual->libre == 0 || actual->libre == 1){
 			imprimir_direccion_puntero(actual,"actual ocupado");
@@ -119,7 +123,6 @@ uint32_t aniadir_segmento(int frames_necesarios, int tam){
 		return result;
 
 	}else if(ultimoTabla->es_mmap){ //crear uno nuevo(caso de que ningun segmento tenga lugar disponible, y no se puede agrandar debido a un map)
-
 		printf("no hay segmentos disponibles, se crea uno nuevo \n");
 		ultimoTabla = list_get(lista_segmentos, list_size(lista_segmentos)-1);
 		segmento->comienzo = ultimoTabla->fin + 1;
@@ -136,7 +139,7 @@ uint32_t aniadir_segmento(int frames_necesarios, int tam){
 	} else {
 		// este caso ocurre cuando no entra en ninguno de los segmentos Y el último no es mmap (puedo y tengo que extender)
 		//extender último segmento
-		aux = tam - ((frames_necesarios - 1) * tam_pagina);
+		aux = (tam + 5) - ((frames_necesarios - 1) * tam_pagina);//toy aca
 		if(segmento_con_lugar(aux) == (list_size(lista_segmentos) - 1)){ //si se puede safar de asignar un frame mas, osea que un pedazo me entre en lo que tengo
 			printf("se agrego %d \n",frames_necesarios - 1);
 			crear_paginas(ultimoTabla, (frames_necesarios - 1));
@@ -200,9 +203,7 @@ int buscarFrame(){ //CHEQUEDA / NO PROBADA
 	struct HeapMetadata* hmetadata = (int)memory;
 	for(int i = 0; i < cant_frames; i++){
 		if(bitarray_test_bit(bitmap,i) == 0){
-			printf("%d antes\n",hmetadata->tamanio);
 			bitarray_set_bit(bitmap, i); //esta linea de codigo le agrega 1 al metadata del bloque
-			printf("%d despues\n",hmetadata->tamanio);
 			return i;
 		}
 	}
@@ -223,19 +224,15 @@ int segmento_con_lugar(int tam){ //CHEQUEDA / NO PROBADA
 			pagina = list_get(segmento->tabla_de_paginas, 0);
 			hmetadata = (((int)memory + (pagina->numero_frame * tam_pagina)));
 			int recorrido = 0, aux;
-			imprimir_direccion_puntero(hmetadata, "INCIO");
 			//IMPRIMIR METADATA AL PRINCIPIO PARA VER DONDE ESTOY PARADO
 
 			do{
-
-				printf("%d DISPONIBLE\n",hmetadata->tamanio);
-				if(hmetadata->libre == 1 && (hmetadata->tamanio >= tam + 5)){
-					imprimir_direccion_puntero(hmetadata, "ENCONTRE ACA");
+				if((hmetadata->libre == 1) && (hmetadata->tamanio >= tam + 5)){
 					return i;
 				}
 				else{
-					if((hmetadata->tamanio + 5) > queda){
-						while((hmetadata->tamanio + 5) > queda){
+					if((hmetadata->tamanio + 5) >= queda){
+						while((hmetadata->tamanio + 5) >= queda){
 							queda += tam_pagina;
 							recorrido++;
 							if(recorrido > (list_size(segmento->tabla_de_paginas)-1)){
@@ -246,13 +243,10 @@ int segmento_con_lugar(int tam){ //CHEQUEDA / NO PROBADA
 						aux = tam_pagina - queda;
 						pagina = list_get(segmento->tabla_de_paginas, recorrido);
 						hmetadata =((int)memory + (pagina->numero_frame * tam_pagina) + aux) ;
-						imprimir_direccion_puntero(hmetadata, "SE DESPLAZO");
 					}
 					else{
 						queda -= (hmetadata->tamanio + 5);
-						imprimir_direccion_puntero(hmetadata, "ANTES DEL DESPLAZO");
 						hmetadata += (hmetadata->tamanio + 5) / 5;
-						imprimir_direccion_puntero(hmetadata, "POST DESPLAZO");
 					}
 				}
 			}while(list_size(segmento->tabla_de_paginas) >= recorrido);
@@ -261,7 +255,7 @@ int segmento_con_lugar(int tam){ //CHEQUEDA / NO PROBADA
 	return -1;
 }
 
-
+//HAY QUE REVISAR ASIGNAR FRAME Y SPLIT
 uint32_t asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgregados){ //CHEQUEDA / NO PROBADA
 	struct Pagina* pagina = list_get(segmento -> tabla_de_paginas, 0);
 	struct HeapMetadata *hmetadata = (int)memory + (pagina->numero_frame * tam_pagina);
@@ -273,11 +267,11 @@ uint32_t asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgre
 		}
 		else{
 			if((hmetadata->tamanio + 5) > queda){
-				while((hmetadata->tamanio + 5) > queda || salida == 1){
+				while((hmetadata->tamanio + 5) > queda && salida != 1){
 					queda += tam_pagina;
 					recorrido++;
-					if(recorrido > list_size(segmento->tabla_de_paginas) - framesAgregados){
-						salida == 1;
+					if(recorrido > list_size(segmento->tabla_de_paginas) - 1 - framesAgregados){
+						salida = 1;
 						recorrido --;
 					}
 				}
@@ -286,6 +280,11 @@ uint32_t asignar_en_frame(uint32_t tam, struct Segmento* segmento,int framesAgre
 				aux = tam_pagina - queda;
 				pagina = list_get(segmento->tabla_de_paginas, recorrido);
 				hmetadata =((int)memory + (pagina->numero_frame * tam_pagina) + aux) ;
+			}
+			else if((hmetadata->tamanio + 5) == queda){
+				if(hmetadata->libre == 1){
+					salida = 1;
+				}
 			}
 			else{
 				queda -= (hmetadata->tamanio + 5);
@@ -308,6 +307,7 @@ void crear_paginas(struct Segmento *segmento, int frames_necesarios){ //CHEQUEDA
 	for(int i = 1; i <= frames_necesarios ; i++){
 		frame_obtenido = buscarFrame();
 		struct Pagina* pagina = malloc(sizeof(*pagina));
+		segmento->fin += tam_pagina;
 		pagina->bit_presencia = 1;
 		pagina->numero_frame = frame_obtenido;
 		num_pagina_a_insertar = list_add((lista_paginas),pagina);
@@ -335,7 +335,8 @@ int cantidadFramesDisponibles(){ //CHEQUEDA / NO PROBADA
 	return contador;
 }
 void init_bitmap(){ //CHEQUEDA / NO PROBADA
-	bitmap = bitarray_create_with_mode(memory, cant_frames/8, LSB_FIRST); //pasar en bytes
+	void* bitmap_contenido = malloc(cant_frames/8);
+	bitmap = bitarray_create_with_mode(bitmap_contenido, cant_frames/8, LSB_FIRST); //pasar en bytes
 	for(int i = 0; i < cant_frames; i++){
 		bitarray_clean_bit(bitmap, i);
 	}
@@ -348,21 +349,24 @@ void mostrar_bitmap(){ //CHEQUEDA / NO PROBADA
 }
 
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar, int restante,struct Segmento *segmento, int indice_pagina){ //CHEQUEDA / NO PROBADA
-	int salida = 0,acumulado = restante, primera = 0;
+	int salida = 0,acumulado = restante, primera = 0, aux = 0; //FALTA VER EL CASO DE QUE RESTANTE SEA 32
 	struct Pagina *pagina;
 	struct HeapMetadata *new = (void*)((void*)fitting_slot + tamanioAAlocar + sizeof(struct HeapMetadata));
 	do{
-		if(acumulado < tamanioAAlocar + 5){
+		if(acumulado < tamanioAAlocar + 10){
 			primera = 1;
-			acumulado += tam_pagina ;
+			acumulado += tam_pagina;
 			indice_pagina++; //esto no funciona si los frames son no contiguos TP DE MIERDA
 			pagina = list_get(segmento->tabla_de_paginas,indice_pagina);
-			new = (int)memory + (tam_pagina * pagina->numero_frame + 1); //aca sigue rompiendo
+			new = (int)memory + (tam_pagina * (pagina->numero_frame)); //aca sigue rompiendo
 		}else if(primera == 0){
 			salida = 1;
+			acumulado -= (10 + tamanioAAlocar);
 		}else{
-			acumulado -= tamanioAAlocar + 5;
-			new -= (acumulado / 5);
+			acumulado -= (tamanioAAlocar + 5);
+			aux = tam_pagina - acumulado;
+			new = (int)memory + (tam_pagina * (pagina->numero_frame)) + aux;
+			acumulado -= 5;
 			salida = 1;
 		}
 	}while(salida != 1);
