@@ -39,13 +39,13 @@ typedef enum {
 
 struct t_hilo {
   int id;
+  int contadorBloqueo;
   t_programa* idPadre;
   t_estado estado;
   double tiempoInicial;
   double tiempoEspera;
   double tiempoCpu;
   double estimadoSJF;
-  t_list bloqueadoPor;
 }__attribute__((packed));
 
 struct t_programa {
@@ -61,11 +61,5 @@ typedef struct {
 	int valorMaximo;
 	t_queue* colaBloqueo;
 }t_semaforo;
-
-struct t_paquete {
-	char* nombre;
-	int pid;
-}__attribute__((packed));
-
 
 #endif /* SUSE_H_ */

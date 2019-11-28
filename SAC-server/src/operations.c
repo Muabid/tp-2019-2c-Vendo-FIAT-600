@@ -258,7 +258,7 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 		}
 
 	}
-	log_info(logger,"WRITED: [%s]",aux_data);
+//	log_info(logger,"WRITED: [%s]",aux_data);
 	node->modification_date= time(NULL);
 
 	send_status(socket,OK,0);
