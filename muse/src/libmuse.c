@@ -52,14 +52,13 @@ int main(){
 	initialize();
 	init_bitmap();
 	printf("Marcos creados: %d\n", cantidadFramesDisponibles());
-	uint32_t p = muse_alloc(40);
+	uint32_t p = muse_alloc(10);
 	uint32_t o = muse_alloc(5);
-	muse_free(o);
-	o = muse_alloc(5);
 	uint32_t z = muse_alloc(20);
-	uint32_t q = muse_alloc(45);
-	muse_free(o);
-	uint32_t y = muse_alloc(50);
+	uint32_t q = muse_alloc(10);
+	//muse_free(p);
+	//muse_free(o);
+	uint32_t y = muse_alloc(20);
 	uint32_t m = muse_alloc(10);
 	uint32_t b = muse_alloc(5);
 	mostrar_bitmap();
@@ -89,7 +88,7 @@ void muse_free(uint32_t dir){
 		struct HeapMetadata *actual = (void*)dir;
 		actual->libre = 1;
 		printf("Memoria liberada exitosamente \n");
-		merge();
+		//merge();
 	} else {
 		printf("La dirección de memoria indicada no está asignada (pasaste cualquier cosa)\n");
 	}
@@ -123,14 +122,21 @@ void merge(){ //hay que adaptar el merge
 			do{
 				if(hmetadata->libre == 1 && free == 1){
 					//liberar y unir
+					queda = queda_anterior;
+					queda_anterior -= hmetadata->tamanio + 5;
 					prev->tamanio += hmetadata->tamanio + 5;
 					free = 0;
+					while(queda_anterior  <  0){
+						recorrido --;
+						queda_anterior += tam_pagina;
+					}
 					hmetadata = prev;
 				}
 				else{
 					if(hmetadata->libre == 1){
 						free = 1;
 						prev = hmetadata;
+						queda_anterior = queda;
 					}
 					else if(free == 1){
 						return;
@@ -430,9 +436,10 @@ void mostrar_bitmap(){ //CHEQUEDA / NO PROBADA
 }
 
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar, int restante,struct Segmento *segmento, int indice_pagina){ //CHEQUEDA / NO PROBADA
-	int salida = 0,acumulado = restante, primera = 0, aux = 0; //FALTA VER EL CASO DE QUE RESTANTE SEA 32
+	int salida = 0,acumulado, primera = 0, aux = 0; //FALTA VER EL CASO DE QUE RESTANTE SEA 32
 	struct Pagina *pagina;
 	struct HeapMetadata *new = (void*)((void*)fitting_slot + tamanioAAlocar + sizeof(struct HeapMetadata));
+	acumulado = restante;
 	do{
 		if(acumulado < tamanioAAlocar + 10){
 			primera = 1;
