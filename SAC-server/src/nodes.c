@@ -25,6 +25,8 @@ int search_node(const char* path) {
 							&& index < BLOCKS_NODE; index++);
 
 		if (index >= BLOCKS_NODE){
+			free(name);
+			free(directory);
 			return -1;
 		}
 	}
@@ -113,7 +115,7 @@ int allocate_node(GFile* node){
 		int* position = get_position(node->size);
 		int indirect_pointer_block = position[0];
 		int pointer_data = position[1];
-
+		free(position);
 		if ((node->blocks_ptr[indirect_pointer_block] != 0)){
 			if (pointer_data == 1024) {
 				pointer_data = 0;

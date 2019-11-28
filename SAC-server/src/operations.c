@@ -132,6 +132,8 @@ int sac_create(int sock, const char* path){
 	if(root == -1){
 		log_error(logger,"Root %s no existe",directory);
 		send_status(sock,ERROR,-ENOENT);
+		free(file_name);
+		free(directory);
 		return -1;
 	}
 	int index_node = search_first_free_node();
@@ -142,10 +144,11 @@ int sac_create(int sock, const char* path){
 	node->status = T_FILE;
 	int free_block = search_and_test_first_free_block();
 	if(free_block < 0){
+		free(file_name);
+		free(directory);
 		send_status(sock,ERROR,-EDQUOT);
 		return free_block;
 	}
-
 	node->blocks_ptr[0] =free_block;
 	node->blocks_ptr[1] = 0;
 	t_block_ptr* block_ptr =(t_block_ptr*)get_block_data(free_block);
@@ -153,6 +156,8 @@ int sac_create(int sock, const char* path){
 
 	if(free_block_data < 0){
 		send_status(sock,ERROR,-EDQUOT);
+		free(file_name);
+		free(directory);
 		return free_block;
 	}
 	t_block* data = (t_block*)get_block_data(free_block);
@@ -235,6 +240,7 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 
 			ptr_block_data = pointer_block->blocks_ptr[positions[1]];
 			block_data = (t_block*) get_block_data(ptr_block_data);
+			free(positions);
 		}
 		if (size >= BLOCK_SIZE){
 			memcpy(block_data->data, data, BLOCK_SIZE);
@@ -290,6 +296,7 @@ void delete_blocks(GFile* node, int offset,bool delete) {
 			bitarray_clean_bit(bitmap, index_ptr);
 		}
 	}
+	free(positions);
 	node->size = offset;
 }
 
@@ -405,7 +412,6 @@ int sac_mkdir(int socket,const char* path){
 	if(search_node(path) !=-1 ){
 		log_error(logger,"Directorio %s ya existe",path);
 		send_status(socket,ERROR,-EEXIST);
-
 		return -1;
 	}
 
@@ -415,17 +421,23 @@ int sac_mkdir(int socket,const char* path){
 	if(root == -1){
 		log_error(logger,"Root %s no existe",directory);
 		send_status(socket,ERROR,-ENOENT);
+		free(file_name);
+		free(directory);
 		return -1;
 	}
 	int index_node = search_first_free_node();
 	if(index_node == -1){
 		send_status(socket,ERROR,-EDQUOT);
+		free(file_name);
+		free(directory);
 		return -1;
 	}
 	GFile* node = &nodes_table[index_node];
 	int free_block = search_and_test_first_free_block();
 	if(free_block < 0){
 		send_status(socket,ERROR,-EDQUOT);
+		free(file_name);
+		free(directory);
 		return free_block;
 	}
 

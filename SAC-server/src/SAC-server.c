@@ -134,6 +134,7 @@ void* listen_sac_cli(void* socket) {
 			free_t_message(data_mes);
 			pthread_rwlock_wrlock(&rwlock);
 			sac_write(sac_socket, path, data, size, offset);
+			free(data);
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
