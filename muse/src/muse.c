@@ -2,12 +2,10 @@
 #include <commons/config.h>
 #include <commons/bitarray.h>
 #include <commons/collections/list.h>
-//#include <shared/net.h>
-//#include <shared/protocol.h>
-//#include <shared/utils.h>
-/* #include "net.h"
-#include "protocol.h"
-#include "utils.h" */ //quiero incluir las cosas de sockets que estan en las queridas commons.
+#include <shared/net.h>
+#include <shared/protocol.h>
+#include <shared/utils.h>
+#include <commons/collections/dictionary.h>
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -19,6 +17,71 @@ int tam_pagina;
 int tam_swap;
 t_bitarray* bitmap;
 //void cargar_configuracion();
+t_dictionary* diccionario_procesos = dictionary_create();
+
+
+void recibir_mensaje(void* sock){
+	int socket = (int) sock;
+	t_message* message = recv_message(sock);
+
+	switch(message->head){
+		case MUSE_ALLOC:{
+			uint32_t aux = *((uint32_t*) message->content);
+			muse_alloc(socket,aux);
+			break;
+		}
+		case MUSE_FREE:{
+			uint32_t aux = *((uint32_t*) message->content);
+			muse_free(socket,aux);
+			break;
+		}
+		case MUSE_CPY:{
+			void * aux = message->content;
+			uint32_t dst;
+			memcpy(&dst,aux,sizeof(uint32_t));
+			aux += sizeof(uint32_t);
+			int n;
+			memcpy(&n,aux,sizeof(int));
+			aux += sizeof(int);
+			void* src = aux;
+			muse_cpy(socket,dst,src,n);
+			break;
+		}
+		case MUSE_GET:{
+			void * aux = message->content;
+			uint32_t src;
+			memcpy(&src,aux,sizeof(uint32_t));
+			aux += sizeof(uint32_t);
+			size_t n;
+			memcpy(&n,aux,sizeof(size_t));
+			aux += sizeof(size_t);
+			void* dst = aux;
+			muse_get(socket,dst,src,n);
+			break;
+		}
+		case MUSE_MAP:{
+			void * aux = message->content;
+
+			break;
+		}
+		case MUSE_SYNC:{
+			void * aux = message->content;
+			uint32_t addr;
+			memcpy(&addr,aux,sizeof(uint32_t));
+			aux += sizeof(uint32_t);
+			size_t len;
+			memcpy(&len,aux,sizeof(size_t));
+			muse_sync(socket,addr,len);
+			break;
+		}
+		case MUSE_UNMAP:{
+			uint32_t aux = *((uint32_t*) message->content);
+			muse_unmap(socket,aux);
+			break;
+		}
+	}
+}
+
 
 /*
 int main(){  //no se puede poner el main por que se esta ejecutando en libmuse
@@ -26,6 +89,8 @@ int main(){  //no se puede poner el main por que se esta ejecutando en libmuse
 	int socket_servidor = init_server(puerto);
 	return 0;
 }
+
+v
 
 void cargar_configuracion(){
 	t_config* config = config_create("muse.config");
