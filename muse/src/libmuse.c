@@ -56,10 +56,11 @@ int main(){
 	uint32_t o = muse_alloc(5);
 	uint32_t z = muse_alloc(20);
 	uint32_t q = muse_alloc(10);
-	//muse_free(p);
-	//muse_free(o);
+	muse_free(z);
+	muse_free(q);
 	uint32_t y = muse_alloc(20);
 	uint32_t m = muse_alloc(10);
+	mostrar_frames();
 	uint32_t b = muse_alloc(5);
 	mostrar_bitmap();
 	mostrar_frames();
@@ -85,10 +86,10 @@ void mostrar_frames(){
 void muse_free(uint32_t dir){
 //	printf("Direccion a liberar: %zu\n", dir);
 	if(((int)memory <= dir) && (dir <= ((int)memory + tam_memoria))){ //ACA EN LUGAR DE MEMORY DEVERIA IR LA DIRECCION DE VIRTUAL + EL TAMAÑO DEL SEGMENTO
-		struct HeapMetadata *actual = (void*)dir;
+		struct HeapMetadata *actual = (void*)dir - 5;
 		actual->libre = 1;
 		printf("Memoria liberada exitosamente \n");
-		//merge();
+		merge();
 	} else {
 		printf("La dirección de memoria indicada no está asignada (pasaste cualquier cosa)\n");
 	}
@@ -98,17 +99,6 @@ void merge(){ //hay que adaptar el merge
 	struct HeapMetadata *hmetadata,*prev,*siguiente;
 	struct Segmento* segmento;
 	struct Pagina* pagina;
-	/*
-	actual = (int)memory;
-	siguiente += 1 + ((actual->tamanio) / sizeof(struct HeapMetadata));
-	while(((void*)siguiente) < (memory+tam_memoria)){ //mientras que no se vaya a la mierda de la memoria (revisar)
-		if((actual->libre) && (siguiente->libre)){
-			actual->tamanio += (siguiente->tamanio) + sizeof(struct HeapMetadata);
-			siguiente += 1 + ((siguiente->tamanio) / sizeof(siguiente));
-		}
-		siguiente += 1 + ((actual->tamanio) / sizeof(siguiente));
-	}
- */
 	int queda = tam_pagina,salida = 0,free = 0;
 
 	//OBTENER LISTA DE SEGMENTOS , POR AHORA LA TRATAMOS COMO UN GLOBAL
@@ -181,7 +171,7 @@ uint32_t muse_alloc(uint32_t tam){ //CHEQUEDA / NO PROBADA
 		return NULL; //ERROR NO HAY MEMORIA DISPONIBLE
 	}
 	result = aniadir_segmento(frames_necesarios,tam);
-	return result;
+	return (result + 5); //para devolver el dato y no la metadata
 }
 
 uint32_t aniadir_segmento(int frames_necesarios, int tam){
@@ -436,7 +426,7 @@ void mostrar_bitmap(){ //CHEQUEDA / NO PROBADA
 }
 
 void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar, int restante,struct Segmento *segmento, int indice_pagina){ //CHEQUEDA / NO PROBADA
-	int salida = 0,acumulado, primera = 0, aux = 0; //FALTA VER EL CASO DE QUE RESTANTE SEA 32
+	int salida = 0,acumulado, primera = 0, aux = 0, probanding = fitting_slot->tamanio - 5; //FALTA VER EL CASO DE QUE RESTANTE SEA 32
 	struct Pagina *pagina;
 	struct HeapMetadata *new = (void*)((void*)fitting_slot + tamanioAAlocar + sizeof(struct HeapMetadata));
 	acumulado = restante;
@@ -458,8 +448,13 @@ void split(struct HeapMetadata *fitting_slot, uint32_t tamanioAAlocar, int resta
 			salida = 1;
 		}
 	}while(salida != 1);
-	new->tamanio = acumulado;
-	new->libre = 1;
+	if((int)tamanioAAlocar <= probanding && probanding >= 0){
+		new->tamanio = probanding - tamanioAAlocar;
+		new->libre = 1;
+	}else{
+		new->tamanio = acumulado;
+		new->libre = 1;
+	}
 	fitting_slot->tamanio = tamanioAAlocar;
 	fitting_slot->libre = 0;
 }
