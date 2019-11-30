@@ -98,21 +98,27 @@ void* listen_sac_cli(void* socket) {
 		case GET_ATTR: {
 			fill_path(path, message->content, 0);
 			pthread_rwlock_rdlock(&rwlock);
+			log_function_init(logger,"GET_ATTR");
 			sac_getattr(sac_socket, path);
+			log_function_finish(logger,"GET_ATTR");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case MKDIR: {
 			fill_path(path, message->content, 0);
 			pthread_rwlock_wrlock(&rwlock);
+			log_function_init(logger,"MKDIR");
 			sac_mkdir(sac_socket, path);
+			log_function_finish(logger,"MKDIR");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case RMDIR: {
 			fill_path(path, message->content, 0);
 			pthread_rwlock_rdlock(&rwlock);
+			log_function_init(logger,"RMDIR");
 			sac_rmdir(sac_socket, path);
+			log_function_finish(logger,"RMDIR");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
@@ -133,9 +139,11 @@ void* listen_sac_cli(void* socket) {
 			data[size]='\0';
 			free_t_message(data_mes);
 			pthread_rwlock_wrlock(&rwlock);
+			log_function_init(logger,"WRITE");
 			sac_write(sac_socket, path, data, size, offset);
-			free(data);
+			log_function_finish(logger,"WRITE");
 			pthread_rwlock_unlock(&rwlock);
+			free(data);
 			break;
 		}
 		case TRUNCATE:{
@@ -146,14 +154,18 @@ void* listen_sac_cli(void* socket) {
 			off_t off;
 			memcpy(&off, aux, sizeof(off_t));
 			pthread_rwlock_wrlock(&rwlock);
+			log_function_init(logger,"TRUNCATE");
 			sac_truncate(sac_socket,path,off);
+			log_function_finish(logger,"TRUNCATE");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case CREATE: {
 			fill_path(path, message->content, 0);
 			pthread_rwlock_wrlock(&rwlock);
+			log_function_init(logger,"CREATE");
 			sac_create(sac_socket, path);
+			log_function_finish(logger,"CREATE");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
@@ -168,21 +180,27 @@ void* listen_sac_cli(void* socket) {
 			off_t offset;
 			memcpy(&offset, aux, sizeof(off_t));
 			pthread_rwlock_rdlock(&rwlock);
+			log_function_init(logger,"READ");
 			sac_read(sac_socket, path, size, offset);
+			log_function_finish(logger,"READ");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case UNLINK: {
 			fill_path(path, message->content, 0);
 			pthread_rwlock_wrlock(&rwlock);
+			log_function_init(logger,"UNLINK");
 			sac_unlink(sac_socket, path);
+			log_function_finish(logger,"UNLINK");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
 		case READDIR:{
 			fill_path(path, message->content, 0);
 			pthread_rwlock_rdlock(&rwlock);
+			log_function_init(logger,"READDIR");
 			sac_readdir(sac_socket, path, 0);
+			log_function_finish(logger,"READDIR");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
@@ -194,7 +212,9 @@ void* listen_sac_cli(void* socket) {
 			uint64_t last_mod;
 			memcpy(&last_mod, aux, sizeof(uint64_t));
 			pthread_rwlock_wrlock(&rwlock);
+			log_function_init(logger,"UTIME");
 			sac_utimens(sac_socket, path, last_mod);
+			log_function_init(logger,"UTIME");
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}

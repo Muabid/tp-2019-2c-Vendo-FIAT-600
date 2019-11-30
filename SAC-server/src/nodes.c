@@ -65,12 +65,16 @@ char* get_directory(const char* path) {
 }
 
 int search_first_free_node(){
-	int i;
+	int i,res;
 	for(i= 0; nodes_table[i].status !=0 && i < BLOCKS_NODE; i++);
-	if(i>=BLOCKS_NODE)
-		return -1;
-	else
-		return i;
+	if(i>=BLOCKS_NODE){
+		res = -1;
+	}
+	else{
+		res = i;
+	}
+	log_info(logger,"NODO LIBRE :[%i]",i);
+	return res;
 }
 
 int search_and_test_first_free_block(){

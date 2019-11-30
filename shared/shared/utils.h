@@ -17,4 +17,6 @@ int fsize(char* path);
 void log_error_code(t_log* log, int error_code);
 int min(int x, int y);
 int max(int x, int y);
+void log_function_init(t_log* log,const char* function);
+void log_function_finish(t_log* log, const char* function);
 #endif /* UTILS_H_ */
