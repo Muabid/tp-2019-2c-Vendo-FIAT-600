@@ -39,6 +39,7 @@ typedef enum{
 	READ,
 	WRITE,
 	TRUNCATE,
+	RENAME,
 	OK,
 	FILE_NAME,
 	DIR_NAME,

@@ -220,6 +220,9 @@ static int do_mkdir(const char *path, mode_t mode) {
 	log_info(log, "[MKDIR]: Ejecutando do_mkdir...");
 	log_info(log, "[MKDIR]: Mkdir de %s", path);
 	log_info(log, "[MKDIR]: Enviando operacion a SAC-server");
+	if(strlen(path) > 70){
+		return -ENAMETOOLONG;
+	}
 	int res=0;
 	int op_res = send_message(sock, MKDIR, path,
 			strlen(path));
@@ -313,6 +316,9 @@ static int do_mknod(const char *path, mode_t mode, dev_t rdev) {
 	log_info(log, "[MKNOD]: Ejecutando do_mknod...");
 	log_info(log, "[MKNOD]: Mknod de: %s", path);
 	log_info(log,"[MKNOD]: Enviando operacion a SAC-server");
+	if(strlen(path) > 70){
+		return -ENAMETOOLONG;
+	}
 	int op_res = send_message(sock, MKNODE, path,
 			strlen(path));
 	int res=0;
@@ -435,6 +441,40 @@ static int do_trucate(const char *filename, off_t offset){
 	log_info(log,"[TRUNCATE]: do_truncate finalizado");
 	return 0;
 }
+
+static int do_rename(const char* old_path,const char* new_path){
+	log_info(log, "[RENAME]: Ejecutando do_rename...");
+	log_info(log, "OLD PATH [%s] - NEW PATH [%s]",old_path,new_path);
+	if(strlen(new_path) > 70){
+		return -ENAMETOOLONG;
+	}
+	size_t len_old = strlen(old_path);
+	size_t len_new = strlen(new_path);
+	size_t size_cont = sizeof(size_t) + sizeof(size_t) + len_old + sizeof(off_t) + len_new;
+	void * cont = malloc(size_cont);
+	void*aux = cont;
+	memcpy(aux,&len_old,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,old_path,len_old);
+	aux+=len_old;
+	memcpy(aux,&len_new,sizeof(size_t));
+	aux+=sizeof(size_t);
+	memcpy(aux,new_path,len_new);
+	int op_res = send_message(sock, RENAME, cont, size_cont);
+	int res=0;
+	if (op_res >= 0) {
+		log_info(log, "[RENAME]: Comunicacion exitosa con SAC-server");
+		t_message* message = recv_message(sock);
+		res = get_status(message);
+		free_t_message(message);
+	}else{
+		log_error(log, "[RENAME]: Comunicacion fallida con SAC-Server");
+		sock = connect_to_server("127.0.0.1", 8080, NULL);
+	}
+	log_info(log,"[RENAME]: do_rename finalizado");
+	return 0;
+}
+
 /*
  * Estructura principal de FUSE
  */
@@ -452,7 +492,8 @@ static struct fuse_operations do_operations = {
 		.write= do_write,
 		.utimens = do_utimens,
 		.truncate = do_trucate,
-		.access = do_access
+		.access = do_access,
+		.rename = do_rename
 };
 
 enum {

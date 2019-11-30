@@ -44,7 +44,7 @@ void sig_term(int sig) {
 }
 
 int main(int argc, const char* argv[]) {
-	logger = log_create("./resources/log", "SERVER", true, LOG_LEVEL_INFO);
+	logger = log_create("./resources/log", "SERVER", true, LOG_LEVEL_DEBUG);
 
 	signal(SIGTERM, sig_term);
 	signal(SIGABRT, sig_term);
@@ -218,6 +218,20 @@ void* listen_sac_cli(void* socket) {
 			pthread_rwlock_unlock(&rwlock);
 			break;
 		}
+		case RENAME:{
+			void * aux = message->content;
+			char new_path[71];
+			fill_path(path,aux, 1);
+			aux += sizeof(size_t);
+			aux += strlen(path);
+			fill_path(new_path,aux,1);
+			pthread_rwlock_wrlock(&rwlock);
+			log_function_init(logger,"RENAME");
+			sac_rename(sac_socket,path,new_path);
+			log_function_finish(logger,"RENAME");
+			pthread_rwlock_unlock(&rwlock);
+			break;
+		};
 		case NO_CONNECTION:
 			log_info(logger, "CLIENTE DESCONECTADO");
 			free_t_message(message);

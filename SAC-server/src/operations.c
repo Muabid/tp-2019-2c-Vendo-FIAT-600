@@ -440,3 +440,25 @@ int sac_utimens(int socket,const char*path,uint64_t last_mod ){
 	send_status(socket,OK,0);
 	return 0;
 }
+
+int sac_rename(int socket,const char* old_path,const char* new_path){
+	log_info(logger, "OLD PATH [%s] - NEW PATH [%s]",old_path,new_path);
+	int index_node = search_node(old_path);
+	char* file_name = get_name(new_path);
+	char* directory = get_directory(new_path);
+	int root = search_node(directory);
+	if(root < 0){
+		send_status(socket,ERROR,-ENOENT);
+		free(directory);
+		return -1;
+	}
+	GFile* node = &nodes_table[index_node-1];
+	memset(node->file_name,0,71);
+	memcpy(node->file_name,file_name,71);
+	node->modification_date = time(NULL);
+	node->root = root;
+	free(directory);
+	free(file_name);
+	send_status(socket,OK,0);
+	return 0;
+}
