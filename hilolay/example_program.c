@@ -40,7 +40,6 @@ void *test2(void *arg) {
 
 /* Main program */
 int main() {
-    int i;
 
     hilolay_init();
     struct hilolay_t th1;
@@ -48,10 +47,6 @@ int main() {
 
 	hilolay_create(&th1, NULL, &test1, NULL);
 	hilolay_create(&th2, NULL, &test2, NULL);
-
-	hilolay_close(&th1);
-	hilolay_close(&th1);
-
 
 	hilolay_join(&th2);
 	hilolay_join(&th1);
