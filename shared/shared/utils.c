@@ -38,3 +38,11 @@ int min(int x, int y){
 int max(int x, int y){
 	return x>y?x:y;
 }
+
+void log_function_init(t_log* log,const char* function){
+	log_debug(log, "EXECUTING [%s]",function);
+}
+
+void log_function_finish(t_log* log, const char* function){
+	log_debug(log, "EXECUTED [%s]",function);
+}

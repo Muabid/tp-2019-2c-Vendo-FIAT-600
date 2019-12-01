@@ -25,6 +25,7 @@ int sac_rmdir(int sock,const char* path);
 int sac_utimens(int socket,const char*path,uint64_t last_mod);
 int sac_write(int socket,const char* path,char* data, size_t size, off_t offset);
 int sac_truncate(int socket,const char* path, off_t offset);
+int sac_rename(int socket,const char* old_path,const char* new_path);
 int32_t get_subdirectories(int node);
 int32_t get_number_links(uint8_t status,int index);
 

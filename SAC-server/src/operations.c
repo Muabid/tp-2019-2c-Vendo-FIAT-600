@@ -14,6 +14,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <errno.h>
+#include <shared/utils.h>
 #include "aux.h"
 
 int get_size_bytes_gFile(GFile node){
@@ -76,48 +77,6 @@ int sac_getattr(int socket,const char* path){
 	free(buf);
 	return 0;
 }
-//
-//
-//int sac_mknod(int sock, const char* path){
-//	if(search_node(path) !=-1 ){
-//		log_error(logger,"Archivo %s ya existe",path);
-//		send_status(sock,ERROR,-EEXIST);
-//		return -1;
-//	}
-//
-//	char* file_name = get_name(path);
-//	char* directory = get_directory(path);
-//	int root = search_node(directory);
-//	if(root == -1){
-//		log_error(logger,"Root %s no existe",directory);
-//		send_status(sock,ERROR,-ENOENT);
-//		return -1;
-//	}
-//	int index_node = search_first_free_node();
-//	GFile* node = &nodes_table[index_node];
-//
-//	node->size = 0;
-//	node->root = root;
-//	node->status = T_FILE;
-//	int free_block = search_and_test_first_free_block();
-//	if(free_block < 0)
-//		return free_block;
-//
-//	node->blocks_ptr[0] =free_block;
-//	node->blocks_ptr[1] = 0;
-//	node->creation_date = node->modification_date = time(NULL);
-//	memset(node->file_name,0,71);
-//	strcpy((char*)node->file_name,file_name);
-//
-//	char* data = get_block_data(free_block);
-//	memset(data,'\0', BLOCK_SIZE);
-//	free(file_name);
-//	free(directory);
-//	log_info(logger,"Archivo %s creado exitósamente",path);
-//	send_status(sock,OK,0);
-//	return 0;
-//
-//}
 
 int sac_create(int sock, const char* path){
 	if(search_node(path) !=-1 ){
@@ -132,6 +91,8 @@ int sac_create(int sock, const char* path){
 	if(root == -1){
 		log_error(logger,"Root %s no existe",directory);
 		send_status(sock,ERROR,-ENOENT);
+		free(file_name);
+		free(directory);
 		return -1;
 	}
 	int index_node = search_first_free_node();
@@ -142,10 +103,11 @@ int sac_create(int sock, const char* path){
 	node->status = T_FILE;
 	int free_block = search_and_test_first_free_block();
 	if(free_block < 0){
+		free(file_name);
+		free(directory);
 		send_status(sock,ERROR,-EDQUOT);
 		return free_block;
 	}
-
 	node->blocks_ptr[0] =free_block;
 	node->blocks_ptr[1] = 0;
 	t_block_ptr* block_ptr =(t_block_ptr*)get_block_data(free_block);
@@ -153,12 +115,15 @@ int sac_create(int sock, const char* path){
 
 	if(free_block_data < 0){
 		send_status(sock,ERROR,-EDQUOT);
+		free(file_name);
+		free(directory);
 		return free_block;
 	}
 	t_block* data = (t_block*)get_block_data(free_block);
 	memset(data->data,'\0', BLOCK_SIZE);
 
 	block_ptr->blocks_ptr[0] = free_block_data;
+	block_ptr->blocks_ptr[1] = 0;
 	data = (t_block*)get_block_data(free_block_data);
 	memset(data->data,'\0', BLOCK_SIZE);
 	node->creation_date = node->modification_date = time(NULL);
@@ -185,8 +150,6 @@ bool need_new_block(off_t offset, int32_t file_size, size_t space_in_block) {
 }
 
 int sac_write(int socket,const char* path,char* data, size_t size, off_t offset){
-	log_info(logger,"EXECUTING WRITE [%s]",path);
-	char* aux_data = data;
 	if(size+offset > MAX_SIZE){
 		log_info(logger,"NO PODES DIRECCIONAR TANTO ESPACIO CAPO");
 		send_status(socket,ERROR,-EDQUOT);
@@ -235,6 +198,7 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 
 			ptr_block_data = pointer_block->blocks_ptr[positions[1]];
 			block_data = (t_block*) get_block_data(ptr_block_data);
+			free(positions);
 		}
 		if (size >= BLOCK_SIZE){
 			memcpy(block_data->data, data, BLOCK_SIZE);
@@ -266,6 +230,11 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	return 0;
 }
 
+void clean_bit(int index_block){
+	bitarray_clean_bit(bitmap, index_block);
+	log_info(logger,"Se libero el bloque [%i]",index_block);
+}
+
 void delete_blocks(GFile* node, int offset,bool delete) {
 	int index_ptr, index_block;
 	t_block_ptr* blocks_ptr;
@@ -281,19 +250,21 @@ void delete_blocks(GFile* node, int offset,bool delete) {
 			data = (t_block*) get_block_data(index_block);
 			memset(data->data, 0, BLOCK_SIZE);
 			if(j != 0 || delete){
-				bitarray_clean_bit(bitmap, index_block);
+				clean_bit(index_block);
 				blocks_ptr->blocks_ptr[j] = 0;
 			}
 		}
 		if(i != 0 || delete){
 			node->blocks_ptr[i] = 0;
-			bitarray_clean_bit(bitmap, index_ptr);
+			clean_bit(index_ptr);
 		}
 	}
+	free(positions);
 	node->size = offset;
 }
 
 int sac_truncate(int socket,const char* path, off_t offset){
+	log_info(logger,"TRUNCATE OFFSET [%i] - PATH [%s]");
 	int index_node = search_node(path);
 
 	if (index_node == -1){
@@ -308,6 +279,7 @@ int sac_truncate(int socket,const char* path, off_t offset){
 }
 
 int sac_unlink(int socket,const char* path){
+	log_info(logger,"UNLINK PATH [%s]");
 	int index_node = search_node(path);
 
 	if (index_node == -1){
@@ -324,7 +296,6 @@ int sac_unlink(int socket,const char* path){
 }
 
 int sac_readdir(int socket,const char* path, off_t offset){
-	log_info(logger,"Leyendo %s",path);
 	int index_nodo = search_node(path);
 	GFile *node;
 	if (index_nodo == -1){
@@ -344,7 +315,6 @@ int sac_readdir(int socket,const char* path, off_t offset){
 		node++;
 	}
 	send_status(socket,OK,0);
-	log_info(logger,"Directorio %s leído",path);
 	return 0;
 }
 
@@ -405,7 +375,6 @@ int sac_mkdir(int socket,const char* path){
 	if(search_node(path) !=-1 ){
 		log_error(logger,"Directorio %s ya existe",path);
 		send_status(socket,ERROR,-EEXIST);
-
 		return -1;
 	}
 
@@ -415,17 +384,23 @@ int sac_mkdir(int socket,const char* path){
 	if(root == -1){
 		log_error(logger,"Root %s no existe",directory);
 		send_status(socket,ERROR,-ENOENT);
+		free(file_name);
+		free(directory);
 		return -1;
 	}
 	int index_node = search_first_free_node();
 	if(index_node == -1){
 		send_status(socket,ERROR,-EDQUOT);
+		free(file_name);
+		free(directory);
 		return -1;
 	}
 	GFile* node = &nodes_table[index_node];
 	int free_block = search_and_test_first_free_block();
 	if(free_block < 0){
 		send_status(socket,ERROR,-EDQUOT);
+		free(file_name);
+		free(directory);
 		return free_block;
 	}
 
@@ -465,6 +440,28 @@ int sac_utimens(int socket,const char*path,uint64_t last_mod ){
 	int index_node = search_node(path);
 	GFile* node = &nodes_table[index_node-1];
 	node->modification_date = last_mod;
+	send_status(socket,OK,0);
+	return 0;
+}
+
+int sac_rename(int socket,const char* old_path,const char* new_path){
+	log_info(logger, "OLD PATH [%s] - NEW PATH [%s]",old_path,new_path);
+	int index_node = search_node(old_path);
+	char* file_name = get_name(new_path);
+	char* directory = get_directory(new_path);
+	int root = search_node(directory);
+	if(root < 0){
+		send_status(socket,ERROR,-ENOENT);
+		free(directory);
+		return -1;
+	}
+	GFile* node = &nodes_table[index_node-1];
+	memset(node->file_name,0,71);
+	memcpy(node->file_name,file_name,71);
+	node->modification_date = time(NULL);
+	node->root = root;
+	free(directory);
+	free(file_name);
 	send_status(socket,OK,0);
 	return 0;
 }

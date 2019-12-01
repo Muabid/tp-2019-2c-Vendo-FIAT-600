@@ -39,6 +39,7 @@ static int do_write(const char *path, const char *buf, size_t size, off_t off, s
 static int do_setxattr(const char *path, const char *name,const void *value, size_t size, int flags);
 static int do_utimens(const char* path, const struct timespec ts[2]);
 static int do_trucate(const char *filename, off_t offset);
+static int do_rename(const char* old_path,const char* new_path);
 /*
  * faltan: , , , acces, chmod,chown
  */

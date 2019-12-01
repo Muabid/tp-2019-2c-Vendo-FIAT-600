@@ -25,6 +25,8 @@ int search_node(const char* path) {
 							&& index < BLOCKS_NODE; index++);
 
 		if (index >= BLOCKS_NODE){
+			free(name);
+			free(directory);
 			return -1;
 		}
 	}
@@ -63,12 +65,16 @@ char* get_directory(const char* path) {
 }
 
 int search_first_free_node(){
-	int i;
+	int i,res;
 	for(i= 0; nodes_table[i].status !=0 && i < BLOCKS_NODE; i++);
-	if(i>=BLOCKS_NODE)
-		return -1;
-	else
-		return i;
+	if(i>=BLOCKS_NODE){
+		res = -1;
+	}
+	else{
+		res = i;
+	}
+	log_info(logger,"NODO LIBRE :[%i]",i);
+	return res;
 }
 
 int search_and_test_first_free_block(){
@@ -113,7 +119,7 @@ int allocate_node(GFile* node){
 		int* position = get_position(node->size);
 		int indirect_pointer_block = position[0];
 		int pointer_data = position[1];
-
+		free(position);
 		if ((node->blocks_ptr[indirect_pointer_block] != 0)){
 			if (pointer_data == 1024) {
 				pointer_data = 0;
