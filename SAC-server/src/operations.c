@@ -123,6 +123,7 @@ int sac_create(int sock, const char* path){
 	memset(data->data,'\0', BLOCK_SIZE);
 
 	block_ptr->blocks_ptr[0] = free_block_data;
+	block_ptr->blocks_ptr[1] = 0;
 	data = (t_block*)get_block_data(free_block_data);
 	memset(data->data,'\0', BLOCK_SIZE);
 	node->creation_date = node->modification_date = time(NULL);
@@ -263,6 +264,7 @@ void delete_blocks(GFile* node, int offset,bool delete) {
 }
 
 int sac_truncate(int socket,const char* path, off_t offset){
+	log_info(logger,"TRUNCATE OFFSET [%i] - PATH [%s]");
 	int index_node = search_node(path);
 
 	if (index_node == -1){
@@ -277,6 +279,7 @@ int sac_truncate(int socket,const char* path, off_t offset){
 }
 
 int sac_unlink(int socket,const char* path){
+	log_info(logger,"UNLINK PATH [%s]");
 	int index_node = search_node(path);
 
 	if (index_node == -1){
