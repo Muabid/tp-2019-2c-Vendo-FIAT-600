@@ -1,0 +1,24 @@
+[INFO] 19:38:45:797 log_suse.txt/(6623:6623): Se ha aceptado una conexion: 5
+
+[INFO] 19:38:45:797 log_suse.txt/(6623:6623): Handler asignado
+
+[INFO] 19:38:46:208 log_suse.txt/(6623:6771): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 19:38:50:354 log_suse.txt/(6623:6623): Se ha aceptado una conexion: 6
+
+[INFO] 19:38:50:355 log_suse.txt/(6623:6623): Handler asignado
+
+[INFO] 19:38:50:764 log_suse.txt/(6623:6808): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 19:38:52:849 log_suse.txt/(6623:6623): Se ha aceptado una conexion: 5
+
+[INFO] 19:38:52:849 log_suse.txt/(6623:6623): Handler asignado
+
+[INFO] 19:38:53:263 log_suse.txt/(6623:6832): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 19:38:55:545 log_suse.txt/(6623:6623): Se ha aceptado una conexion: 6
+
+[INFO] 19:38:55:547 log_suse.txt/(6623:6623): Handler asignado
+
+[INFO] 19:38:55:963 log_suse.txt/(6623:6854): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
