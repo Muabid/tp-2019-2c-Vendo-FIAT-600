@@ -17,16 +17,8 @@ int tam_pagina;
 int tam_swap;
 t_bitarray* bitmap;
 //void cargar_configuracion();
-t_dictionary* diccionario_procesos = NULL;
+t_dictionary* diccionario_procesos = dictionary_create();
 
-// esto probablemente vaya en muse.h ?
-void ejecutar_muse_alloc(int socket, uint32_t tam);
-void ejecutar_muse_free(int socket, uint32_t dir);
-void ejecutar_muse_cpy(int socket, uint32_t dst, void* src, int n);
-void ejecutar_muse_get(int socket, void* dst, uint32_t src, size_t n);
-void ejecutar_muse_map(int socket, char *path, size_t length, int flags);
-void ejecutar_muse_sync(int socket, uint32_t addr, size_t len);
-void ejecutar_muse_unmap(int socket, uint32_t dir);
 
 void recibir_mensaje(void* sock){
 	int socket = (int) sock;
@@ -35,12 +27,12 @@ void recibir_mensaje(void* sock){
 	switch(message->head){
 		case MUSE_ALLOC:{
 			uint32_t aux = *((uint32_t*) message->content);
-			ejecutar_muse_alloc(socket,aux);
+			muse_alloc(socket,aux);
 			break;
 		}
 		case MUSE_FREE:{
 			uint32_t aux = *((uint32_t*) message->content);
-			ejecutar_muse_free(socket,aux);
+			muse_free(socket,aux);
 			break;
 		}
 		case MUSE_CPY:{
@@ -52,7 +44,7 @@ void recibir_mensaje(void* sock){
 			memcpy(&n,aux,sizeof(int));
 			aux += sizeof(int);
 			void* src = aux;
-			ejecutar_muse_cpy(socket,dst,src,n);
+			muse_cpy(socket,dst,src,n);
 			break;
 		}
 		case MUSE_GET:{
@@ -64,12 +56,12 @@ void recibir_mensaje(void* sock){
 			memcpy(&n,aux,sizeof(size_t));
 			aux += sizeof(size_t);
 			void* dst = aux;
-			ejecutar_muse_get(socket,dst,src,n);
+			muse_get(socket,dst,src,n);
 			break;
 		}
 		case MUSE_MAP:{
 			void * aux = message->content;
-			//ejecutar_muse_map(path,length,flag);
+
 			break;
 		}
 		case MUSE_SYNC:{
@@ -79,44 +71,17 @@ void recibir_mensaje(void* sock){
 			aux += sizeof(uint32_t);
 			size_t len;
 			memcpy(&len,aux,sizeof(size_t));
-			ejecutar_muse_sync(socket,addr,len);
+			muse_sync(socket,addr,len);
 			break;
 		}
 		case MUSE_UNMAP:{
 			uint32_t aux = *((uint32_t*) message->content);
-			ejecutar_muse_unmap(socket,aux);
+			muse_unmap(socket,aux);
 			break;
 		}
 	}
 }
 
-void ejecutar_muse_alloc(int socket, uint32_t tam){
-
-}
-
-void ejecutar_muse_free(int socket, uint32_t dir){
-
-}
-
-void ejecutar_muse_cpy(int socket, uint32_t dst, void* src, int n){
-
-}
-
-void ejecutar_muse_get(int socket, void* dst, uint32_t src, size_t n){
-
-}
-
-void ejecutar_muse_map(int socket, char *path, size_t length, int flags){
-
-}
-
-void ejecutar_muse_sync(int socket, uint32_t addr, size_t len){
-
-}
-
-void ejecutar_muse_unmap(int socket, uint32_t dir){
-
-}
 
 /*
 int main(){  //no se puede poner el main por que se esta ejecutando en libmuse
