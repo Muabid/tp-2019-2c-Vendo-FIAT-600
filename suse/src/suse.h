@@ -6,8 +6,8 @@
 #include <commons/collections/queue.h>
 #include <commons/config.h>
 #include <commons/log.h>
-#include "net.h"
-#include "protocol.h"
+#include <shared/net.h>
+#include <shared/protocol.h>
 #include <semaphore.h>
 #include <string.h>
 #include <signal.h>

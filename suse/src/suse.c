@@ -10,7 +10,7 @@ char** sem_max;
 double alpha_sjf;
 
 //GLOBALES
-t_log* log;
+t_log* logger;
 int programasEnMemoria = 0;
 int cantidadSemaforos;
 t_list* listaSemaforos;
@@ -41,7 +41,7 @@ void load_suse_config() {
 }
 void cargarSemaforos() {
 	listaSemaforos = list_create();
-	cantidadSemaforos = strlen(sem_ids)/sizeof(char*);
+	cantidadSemaforos = strlen((char*)sem_ids)/sizeof(char*);
 	t_semaforo* semaforoAuxiliar;
 
 	for(int i=0; i<cantidadSemaforos; i++) {
@@ -96,6 +96,34 @@ void cargarHilosAReady() {
 	}
 }
 
+//CREAR Y DESTRUIR UN PROGRAMA
+t_programa* crearPrograma(int id) {
+	t_programa* nuevo = malloc(sizeof(t_programa));
+	nuevo->id = id;
+	nuevo->listaDeHilos = list_create();
+	nuevo->listaDeReady = list_create();
+	nuevo->enEjecucion = NULL;
+
+	return nuevo;
+}
+void destruirPrograma(t_programa* programa) {
+	programasEnMemoria -= list_size(programa->listaDeReady);
+	printf("Quedaron %i programas en memoria\n", programasEnMemoria);
+	if(programa->enEjecucion != NULL)
+		programasEnMemoria--;
+
+//	auxiliarParaId = programa->id;
+//	list_remove_and_destroy_by_condition(listaDeProgramas, esProgramaPorId, free);
+
+	printf("Quedaron %i programas en memoria\n", programasEnMemoria);
+}
+
+//SE EJECUTA AL FINALIZAR SUSE
+void sigterm(int sig) {
+	log_info(logger, "Se interrumpió la ejecución del proceso");
+	log_destroy(logger);
+}
+
 //FUNCIONES SUSE
 void suseCreate(int threadId, t_programa* padreId) {
 	t_hilo* nuevo = malloc(sizeof(t_hilo));
@@ -130,37 +158,6 @@ void suseScheduleNext(t_programa* programa) {
 	else
 		send_message(programa->id, ERROR_MESSAGE, NULL, 0);
 }
-
-
-//CREAR Y DESTRUIR UN PROGRAMA
-t_programa* crearPrograma(int id) {
-	t_programa* nuevo = malloc(sizeof(t_programa));
-	nuevo->id = id;
-	nuevo->listaDeHilos = list_create();
-	nuevo->listaDeReady = list_create();
-	nuevo->enEjecucion = NULL;
-
-	return nuevo;
-}
-
-void destruirPrograma(t_programa* programa) {
-	programasEnMemoria -= list_size(programa->listaDeReady);
-	printf("Quedaron %i programas en memoria\n", programasEnMemoria);
-	if(programa->enEjecucion != NULL)
-		programasEnMemoria--;
-
-//	auxiliarParaId = programa->id;
-//	list_remove_and_destroy_by_condition(listaDeProgramas, esProgramaPorId, free);
-
-	printf("Quedaron %i programas en memoria\n", programasEnMemoria);
-}
-
-//SE EJECUTA AL FINALIZAR SUSE
-void sigterm(int sig) {
-	log_info(log, "Se interrumpió la ejecución del proceso");
-	log_destroy(log);
-}
-
 void suseWait(int threadId, char* nombreSemaforo, t_programa* padre) {
 
 }
@@ -183,7 +180,7 @@ void suseClose(int id, t_programa* programa) {
 		}
 
 		else {
-			log_error(log, "El hilo a hacerle suseClose no se encuentra en memoria");
+			log_error(logger, "El hilo a hacerle suseClose no se encuentra en memoria");
 		}
 
 		programasEnMemoria --;
@@ -200,8 +197,6 @@ void* handler(void* socketConectado) {
 		int threadId = *(int*)bufferLoco->content;
 		char* stringAuxiliar;
 		double numeroAux;
-		t_header header = bufferLoco->head;
-		size_t tamanio = bufferLoco->size;
 
 		switch(bufferLoco->head) {
 			case SUSE_CREATE:
@@ -226,7 +221,7 @@ void* handler(void* socketConectado) {
 					free(stringAuxiliar);
 				}
 				else {
-					log_error(log, "Se recibió en SUSE_WAIT un mensaje que no corresponde a este lugar");
+					log_error(logger, "Se recibió en SUSE_WAIT un mensaje que no corresponde a este lugar");
 					free(stringAuxiliar);
 				}
 				break;
@@ -239,7 +234,7 @@ void* handler(void* socketConectado) {
 					free(stringAuxiliar);
 				}
 				else {
-					log_error(log, "Se recibió en SUSE_SIGNAL un mensaje que no corresponde a este lugar");
+					log_error(logger, "Se recibió en SUSE_SIGNAL un mensaje que no corresponde a este lugar");
 					free(stringAuxiliar);
 				}
 				break;
@@ -253,25 +248,25 @@ void* handler(void* socketConectado) {
 				break;
 
 			case SUSE_CONTENT:
-				log_error(log, "SE RECIBIO AL HANDLER UN MENSAJE CON CONTENIDO DESTINADO A OTRO LUGAR");
+				log_error(logger, "SE RECIBIO AL HANDLER UN MENSAJE CON CONTENIDO DESTINADO A OTRO LUGAR");
 				break;
 
 			default:
-				log_error(log, "La instruccion no es correcta\n");
+				log_error(logger, "La instruccion no es correcta\n");
 				break;
 		}
 
 	}
 
 	destruirPrograma(programa);
-	log_info(log, "Se ha producido un problema de conexión y el hilo programa se dejará de planificar: %i.\n", bufferLoco->head);
+	log_info(logger, "Se ha producido un problema de conexión y el hilo programa se dejará de planificar: %i.\n", bufferLoco->head);
 	free_t_message(bufferLoco);
 	return NULL;
 }
 
 int main() {
 	signal(SIGINT, sigterm);
-	log = log_create("log", "log_suse.txt", true, LOG_LEVEL_DEBUG);
+	logger = log_create("logger", "log_suse.txt", true, LOG_LEVEL_DEBUG);
 
 	load_suse_config();
 	cargarSemaforos();
@@ -288,19 +283,18 @@ int main() {
 
 	while((socketDelCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion))>=0) {
 		pthread_t threadId;
-		log_info(log, "Se ha aceptado una conexion: %i\n", socketDelCliente);
+		log_info(logger, "Se ha aceptado una conexion: %i\n", socketDelCliente);
 		if((pthread_create(&threadId, NULL, handler, (void*) &socketDelCliente)) < 0) {
-			log_info(log, "No se pudo crear el hilo");
+			log_info(logger, "No se pudo crear el hilo");
 			return 1;
 		} else {
-			log_info(log, "Handler asignado\n");
-			//pthread_join(threadId, NULL);
+			log_info(logger, "Handler asignado\n");
 		}
 
 
 	}
 	if(socketDelCliente < 0) {
-		log_info(log, "Falló al aceptar conexión");
+		log_info(logger, "Falló al aceptar conexión");
 	}
 
 	close(servidor);
