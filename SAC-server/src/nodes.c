@@ -120,6 +120,7 @@ int allocate_node(GFile* node){
 		int indirect_pointer_block = position[0];
 		int pointer_data = position[1];
 		free(position);
+
 		if ((node->blocks_ptr[indirect_pointer_block] != 0)){
 			if (pointer_data == 1024) {
 				pointer_data = 0;
@@ -130,8 +131,10 @@ int allocate_node(GFile* node){
 		if(pointer_data == 0){
 			new_node = search_and_test_first_free_block();
 			if(new_node <0){
+				clean_bit(free_block);
 				return new_node;
 			}
+			memset((char*)&(file_system[new_node]), 0, BLOCK_SIZE);
 			node->blocks_ptr[indirect_pointer_block] = new_node;
 			node->blocks_ptr[indirect_pointer_block + 1] = 0;
 		}else{
