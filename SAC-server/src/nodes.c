@@ -39,8 +39,7 @@ int search_node(const char* path) {
 char* get_name(const char* path) {
 	char** aux = string_split((char*) path, "/");
 	int i;
-	for (i = 0; aux[i] != NULL; i++)
-		;
+	for (i = 0; aux[i] != NULL; i++);
 	char * name = malloc(strlen(aux[i - 1]) + 1);
 	strcpy(name, aux[i - 1]);
 	name[strlen(aux[i - 1])] = '\0';
@@ -85,7 +84,11 @@ int search_and_test_first_free_block(){
 			res = i;
 		}
 	}
-	log_info(logger,"Se reservo el bloque %i",res);
+	if(res == -1){
+		log_error(logger,"No hay bloques libres");
+	}else{
+		log_info(logger,"Se reservo el bloque %i",res);
+	}
 	return res;
 }
 
@@ -120,13 +123,6 @@ int allocate_node(GFile* node){
 		int indirect_pointer_block = position[0];
 		int pointer_data = position[1];
 		free(position);
-
-		if ((node->blocks_ptr[indirect_pointer_block] != 0)){
-			if (pointer_data == 1024) {
-				pointer_data = 0;
-				indirect_pointer_block++;
-			}
-		}
 
 		if(pointer_data == 0){
 			new_node = search_and_test_first_free_block();
