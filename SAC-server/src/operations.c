@@ -119,11 +119,24 @@ int sac_create(int sock, const char* path){
 		free(directory);
 		return free_block;
 	}
+
+//	int index_ptr;
+//	t_block_ptr* blocks_ptr;
+//	for (int i = 1; i < BLOCKS_INDIRECT; i++) {
+//		index_ptr = node->blocks_ptr[i];
+//		blocks_ptr = (t_block_ptr*) get_block_data(index_ptr);
+//		for (int j = 1; j < BLOCKS_NODE; j++) {
+//			blocks_ptr->blocks_ptr[j] = 0;
+//		}
+//		node->blocks_ptr[i] = 0;
+//	}
+
 	t_block* data = (t_block*)get_block_data(free_block);
 	memset(data->data,'\0', BLOCK_SIZE);
 
 	block_ptr->blocks_ptr[0] = free_block_data;
 	block_ptr->blocks_ptr[1] = 0;
+
 	data = (t_block*)get_block_data(free_block_data);
 	memset(data->data,'\0', BLOCK_SIZE);
 	node->creation_date = node->modification_date = time(NULL);
@@ -150,79 +163,51 @@ bool need_new_block(off_t offset, int32_t file_size, size_t space_in_block) {
 }
 
 int sac_write(int socket,const char* path,char* data, size_t size, off_t offset){
-	if(size+offset > MAX_SIZE){
-		log_info(logger,"NO PODES DIRECCIONAR TANTO ESPACIO CAPO");
-		send_status(socket,ERROR,-EDQUOT);
-		return -1;
-	}else if(free_blocks() < size/BLOCK_SIZE){
-		log_info(logger,"NO HAY BLOQUES DISPONIBLES");
-		send_status(socket,ERROR,-EDQUOT);
-		return -1;
-	}
 
 	int index_node = search_node(path);
 	GFile* node = &nodes_table[index_node-1];
-	int32_t file_size = node->size;
-	size_t offset_in_block = offset % BLOCK_SIZE;
-	int res;
-	ptrGBloque 	block_ptr;
-	ptrGBloque ptr_block_data;
-	t_block* block_data;
-	t_block_ptr* pointer_block;
-	while (size != 0){
+	int* positions = get_position(offset);
+	int index_ptr = positions[0];
+	int index_block = positions[1];
+	size_t offset_in_block = (offset % BLOCK_SIZE) % BLOCK_SIZE;
 
-		size_t space_in_block = BLOCK_SIZE - (file_size % BLOCK_SIZE);
-		if (space_in_block == BLOCK_SIZE) (space_in_block = 0);
-		if (file_size == 0) space_in_block = BLOCK_SIZE;
-
-		if (need_new_block(offset, file_size, space_in_block)) {
-
-			if (free_blocks() == 0){
-				send_status(0,ERROR,-EDQUOT);
-				return -1;
-			}
-			res = allocate_node(node);
-			if (res < 0){
-				send_status(0,ERROR,-EDQUOT);
-				return -1;
-			}
-
-			block_data = (t_block*)get_block_data(res);
-
-			space_in_block = BLOCK_SIZE;
-
-		} else {
-			int* positions = get_position(offset);
-			block_ptr = node->blocks_ptr[positions[0]];
-			pointer_block = (t_block_ptr*) get_block_data(block_ptr);
-
-			ptr_block_data = pointer_block->blocks_ptr[positions[1]];
-			block_data = (t_block*) get_block_data(ptr_block_data);
-			free(positions);
+	if(node->blocks_ptr[index_ptr] == 0){// no tiene ningun bloque asignado
+		int res = allocate_node(node);
+		if(res == -1){
+			send_status(socket,ERROR,-EDQUOT);
+			return -1;
 		}
-		if (size >= BLOCK_SIZE){
-			memcpy(block_data->data, data, BLOCK_SIZE);
-			if ((node->size) <= (offset)){
-				file_size = node->size += BLOCK_SIZE;
-			}
-			update_params(&data,&offset,&size,&offset_in_block,BLOCK_SIZE);
-		} else if (size <= space_in_block){
-			memcpy(block_data->data + offset_in_block, data, size);
-			if (node->size <= offset){
-				file_size = node->size += size;
-			}
-			else if (node->size <= (offset + size)){
-				file_size = node->size += (offset + size - node->size);
-			}
-			size = 0;
-		} else {
-			memcpy(block_data->data + offset_in_block, data, space_in_block);
-			file_size = node->size += space_in_block;
-			update_params(&data,&offset,&size,&offset_in_block,space_in_block);
-		}
-
 	}
-//	log_info(logger,"WRITED: [%s]",aux_data);
+
+	uint32_t block_ptr = node->blocks_ptr[index_ptr];
+	t_block_ptr* pointer_block = (t_block_ptr*) get_block_data(block_ptr);
+
+
+	if(pointer_block->blocks_ptr[positions[1]] == 0){
+		int res = allocate_node(node);
+		if(res == -1){
+			send_status(socket,ERROR,-EDQUOT);
+			return -1;
+		}
+	}
+
+	uint32_t ptr_block_data = pointer_block->blocks_ptr[positions[1]];
+	t_block* block_data = (t_block*) get_block_data(ptr_block_data);
+
+	int space_in_block = 4096-offset_in_block;
+
+	if(space_in_block > size){
+		for(int i=offset_in_block;i<(size+offset_in_block);i++){
+			block_data->data[i] = data[i-(offset_in_block)];
+		}
+		node->size += size;
+	}else{
+		for(int i=offset_in_block;i<(space_in_block+offset_in_block);i++){
+			block_data->data[i] = data[i-(offset_in_block)];
+		}
+		node->size += space_in_block;
+	}
+	log_info(logger,"WRITED: [%s]",data);
 	node->modification_date= time(NULL);
 
 	send_status(socket,OK,0);
@@ -264,7 +249,7 @@ void delete_blocks(GFile* node, int offset,bool delete) {
 }
 
 int sac_truncate(int socket,const char* path, off_t offset){
-	log_info(logger,"TRUNCATE OFFSET [%i] - PATH [%s]");
+	log_info(logger,"TRUNCATE OFFSET [%i] - PATH [%s]",path,offset);
 	int index_node = search_node(path);
 
 	if (index_node == -1){
@@ -279,7 +264,7 @@ int sac_truncate(int socket,const char* path, off_t offset){
 }
 
 int sac_unlink(int socket,const char* path){
-	log_info(logger,"UNLINK PATH [%s]");
+	log_info(logger,"UNLINK PATH [%s]",path);
 	int index_node = search_node(path);
 
 	if (index_node == -1){
@@ -319,56 +304,52 @@ int sac_readdir(int socket,const char* path, off_t offset){
 }
 
 int sac_read(int socket,const char* path, size_t size, off_t offset){
-	int o_size = size;
-	char* data = malloc(size+1);
-	char* aux_data = data;
+	log_info(logger,"[READ]: Path [%s] - Size [%i] - Offset [%i]",path,size,offset);
+
 	int* positions = get_position(offset);
+	int index_ptr = positions[0];
+	int index_block = positions[1];
 	int index_node = search_node(path);
 	GFile* node = &nodes_table[index_node-1];
-	t_block_ptr* blocks_ptr;
-	t_block* block_data;
-	ptrGBloque block_data_ptr;
-	ptrGBloque block_ptr;
-	size_t offset_in_block = offset % BLOCK_SIZE;
-	if(node->size <= offset){
-		log_error(logger, "Fuse intenta leer un offset mayor o igual que el tamanio de archivo.File: %s, Size: %d",path,node->size);
-		send_status(socket,ERROR,-1);
-		return -1;
-	} else if (node->size < (offset+size)){
-		size = ((node->size)-(offset));
-		log_error(logger, "Fuse intenta leer una posicion mayor que el tamanio de archivo.File: %s, Size: %d",path,node->size);
+	size_t offset_in_block = (offset % BLOCK_SIZE) % BLOCK_SIZE;
+
+	if(node->blocks_ptr[index_ptr] == 0){
+		char* data = malloc(1);
+		memcpy(data,"\0",1);
+		send_message(socket,OK,data,1);
+		free(data);
+		return 0;
 	}
 
-	for(int ptr_ind=positions[0]; ptr_ind<BLOCKS_INDIRECT && size>0;ptr_ind++){
-		block_ptr=node->blocks_ptr[ptr_ind];
-		blocks_ptr = (t_block_ptr*)get_block_data(block_ptr);
-		for(int j=positions[1];j<BLOCKS_NODE && size >0;j++){
-			block_data_ptr = blocks_ptr->blocks_ptr[j];
-			block_data = (t_block*) get_block_data(block_data_ptr);
+	uint32_t block_ptr = node->blocks_ptr[index_ptr];
+	t_block_ptr* pointer_block = (t_block_ptr*) get_block_data(block_ptr);
 
-			if(j==positions[1]){
-				int bytes_readed = min(BLOCK_SIZE-offset_in_block,size);
-				memcpy(aux_data,block_data->data+offset_in_block,bytes_readed);
-				size-=bytes_readed;
-				aux_data+=bytes_readed;
-				offset_in_block=0;
-			}else if(size <BLOCK_SIZE){
-				memcpy(aux_data,block_data->data,size);
-				aux_data+=size;
-				size=0;
-			}else{
-				memcpy(aux_data,block_data->data,BLOCK_SIZE);
-				aux_data+=size;
-				size-=BLOCK_SIZE;
-			}
+	uint32_t ptr_block_data = pointer_block->blocks_ptr[positions[1]];
 
-		}
+	if(ptr_block_data == 0){
+		char* data = malloc(1);
+		memcpy(data,"\0",1);
+		send_message(socket,OK,data,1);
+		free(data);
+		return 0;
 	}
-	data[o_size]='\0';
-	log_info(logger,"DATA: [%s]",data);
-	send_message(socket,OK,data,o_size);
-	free(data);
+	t_block* block_data = (t_block*) get_block_data(ptr_block_data);
+	int space_in_block = BLOCK_SIZE-offset_in_block;
+
+	if(space_in_block > size){
+		char* data = malloc(size);
+		memcpy(data,block_data->data+offset_in_block,size);
+		send_message(socket,OK,data,size);
+		free(data);
+	}else{
+		char* data = malloc(space_in_block);
+		memcpy(data,block_data->data+offset_in_block,space_in_block);
+		send_message(socket,OK,data,space_in_block);
+		free(data);
+	}
+
 	return 0;
+
 }
 
 int sac_mkdir(int socket,const char* path){

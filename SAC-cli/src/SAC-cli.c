@@ -156,7 +156,7 @@ static int do_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
 static int do_read(const char *path, char *buf, size_t size, off_t off,
 		struct fuse_file_info *fi){
 	log_info(log, "[READ]: Ejecutando do_read...");
-	log_info(log, "[READ]: Read de %s\n [buf: %s]", path, buf); // no sé cómo chota imprimir size_t y off_t. Probe con varias cosas de stackoverflow y rompe todo.
+	log_info(log, "[READ]: Read de %s\n", path); // no sé cómo chota imprimir size_t y off_t. Probe con varias cosas de stackoverflow y rompe todo.
 	size_t len = strlen(path);
 	size_t size_cont = sizeof(size_t) + len + sizeof(off) + sizeof(size);
 
@@ -184,8 +184,8 @@ static int do_read(const char *path, char *buf, size_t size, off_t off,
 		}else{
 			res = get_status(message);
 			if(res == -1){
-				strcpy(buf,"");
-				res = size;
+				memcpy(buf,"\0",1);
+				res = 1;
 			}
 		}
 		free_t_message(message);
@@ -384,6 +384,8 @@ static int do_setxattr(const char *path, const char *name,
 	return 0;
 }
 
+
+
 static int do_utimens(const char* path, const struct timespec ts[2]){
 	log_info(log,"[UTIMENS]: Ejecutando do_utimens...");
 	log_info(log,"[UTIMENS]: Utimens de: %s", path);
@@ -475,6 +477,10 @@ static int do_rename(const char* old_path,const char* new_path){
 	return 0;
 }
 
+static int do_release(const char *x, struct fuse_file_info *y){
+	return 0;
+}
+
 /*
  * Estructura principal de FUSE
  */
@@ -493,7 +499,9 @@ static struct fuse_operations do_operations = {
 		.utimens = do_utimens,
 		.truncate = do_trucate,
 		.access = do_access,
-		.rename = do_rename
+		.rename = do_rename,
+		.setxattr = do_setxattr,
+		.release = do_release
 };
 
 enum {

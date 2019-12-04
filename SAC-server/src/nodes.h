@@ -57,7 +57,7 @@ typedef struct{
 
 
 typedef struct{
-	unsigned char data[4096];
+	char data[4096];
 }t_block;
 
 typedef struct{

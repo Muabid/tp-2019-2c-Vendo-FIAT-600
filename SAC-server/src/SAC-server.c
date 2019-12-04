@@ -77,11 +77,6 @@ int main(int argc, const char* argv[]) {
 			+ BLOCKS_NODE];
 
 	init_sac_server();
-//	sac_create(0,"/1");
-//	char *data = "HOLA SOY EL CONTENIDO DE UN ARCHIVO";
-//	sac_create(0,"/3");
-//	sac_write(0,"/3",data,strlen(data),0);
-//	sac_unlink(0,"/3");
 	exit(0);
 }
 
@@ -260,6 +255,7 @@ void init_sac_server() {
 			pthread_t sac_cli_thread;
 			pthread_create(&sac_cli_thread, NULL, listen_sac_cli,
 					(void*) (sac_socket));
+			pthread_detach(sac_cli_thread);
 		} else {
 			log_error(logger, "Error aceptando conexiones: %s", strerror(errno));
 		}
