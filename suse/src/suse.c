@@ -144,9 +144,9 @@ t_hilo* bloquearHilo(int threadId, t_programa* padre, t_semaforo* unSemaforo) {
 	auxiliarParaId = threadId;
 	auxiliarParaIdPadre = padre->id;
 	unHilo = list_find(padre->listaDeHilos, esHiloPorId);
-	if(unHilo) {
+	if(unHilo) {//Comprueba que el hilo esté en el programa
 		if(unHilo->estado != BLOCKED) {
-
+			unHilo->estado = BLOCKED;
 			if(unSemaforo) {//Esto no ocurre cuando se realiza un suse join ya que no es bloqueado por un semaroo
 				queue_push(unSemaforo->colaBloqueo, unHilo);
 			}
@@ -154,9 +154,8 @@ t_hilo* bloquearHilo(int threadId, t_programa* padre, t_semaforo* unSemaforo) {
 			if(padre->enEjecucion) {
 				if(padre->enEjecucion->id == threadId) {
 					contadorDeEncuentrosEnMemoria ++;
-
-
-//					suseScheduleNext(padre);
+					printf("ESTA MIERDA SEGURO ROMPE ACA\n");
+					suseScheduleNext(padre);
 //					if(list_is_empty(padre->listaDeReady)){
 //
 //						programasEnMemoria --;
@@ -214,6 +213,7 @@ void desbloquearHilo(int threadId, t_programa* padre) {
 //CREAR Y DESTRUIR UN PROGRAMA
 t_programa* crearPrograma(int id) {
 	t_programa* nuevo = malloc(sizeof(t_programa));
+	nuevo->joinCounter = 0;
 	nuevo->id = id;
 	nuevo->listaDeHilos = list_create();
 	nuevo->listaDeReady = list_create();
@@ -227,10 +227,12 @@ void destruirPrograma(t_programa* programa) {
 	if(programa->enEjecucion != NULL)
 		programasEnMemoria--;
 
+
 //	auxiliarParaId = programa->id;
 //	list_remove_and_destroy_by_condition(listaDeProgramas, esProgramaPorId, free);
 
 	printf("Quedaron %i programas en memoria\n", programasEnMemoria);
+	mostrarEstado(programa);
 }
 
 //SE EJECUTA AL FINALIZAR SUSE
@@ -257,6 +259,14 @@ void suseCreate(int threadId, t_programa* padreId) {
 }
 void suseScheduleNext(t_programa* programa) {
 	if(list_size(programa->listaDeReady) > 0) {
+
+		if(programa->enEjecucion) {
+			if(programa->enEjecucion->estado != BLOCKED) {
+				list_add(programa->listaDeReady, programa->enEjecucion);
+				programa->enEjecucion = NULL;
+			}
+		}
+
 		auxiliarListaParaBusqueda = programa->listaDeReady;
 		t_hilo* hilo = list_remove_by_condition(programa->listaDeReady, tieneMenorEstimado);
 
@@ -271,7 +281,7 @@ void suseScheduleNext(t_programa* programa) {
 		}
 
 		send_message(programa->id, SUSE_SCHEDULE_NEXT, &programa->enEjecucion->id, sizeof(int));
-		//printf("Se planifico el hilo: %i\n", hilo->id);
+		printf("Se planifico el hilo: %i\n", hilo->id);
 	}
 	else if(programa->enEjecucion && programa->enEjecucion->estado != BLOCKED){
 		send_message(programa->id, SUSE_SCHEDULE_NEXT, &programa->enEjecucion->id, sizeof(int));
@@ -330,8 +340,10 @@ void suseClose(int id, t_programa* programa) {
 	auxiliarParaIdPadre = programa->id;
 	t_hilo* unHilo = (t_hilo*)(list_find(programa->listaDeHilos, esHiloPorId));
 	if(unHilo->joined) {
+		programa->joinCounter --;
 		unHilo->joined = false;
-		desbloquearHilo(0, programa);
+		if(programa->joinCounter == 0)
+			desbloquearHilo(0, programa);
 	}
 	//FIN DESBLOQUEO DE JOIN
 
@@ -358,6 +370,7 @@ void suseJoin(int threadId, t_programa* padre) { //TESTEAR
 	auxiliarParaIdPadre = padre->id;
 	t_hilo* unHilo = (t_hilo*)(list_find(padre->listaDeHilos, esHiloPorId));
 	unHilo->joined = true;
+	padre->joinCounter ++;
 }
 
 //HANDLER POR HILO
