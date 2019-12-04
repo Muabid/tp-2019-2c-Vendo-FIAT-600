@@ -39,7 +39,7 @@ typedef enum {
 
 struct t_hilo {
   int id;
-  int contadorBloqueo;
+  bool joined;
   t_programa* idPadre;
   t_estado estado;
   double tiempoInicial;
