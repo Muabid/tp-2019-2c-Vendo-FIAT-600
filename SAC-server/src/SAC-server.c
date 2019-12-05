@@ -255,6 +255,7 @@ void init_sac_server() {
 			pthread_t sac_cli_thread;
 			pthread_create(&sac_cli_thread, NULL, listen_sac_cli,
 					(void*) (sac_socket));
+			pthread_detach(sac_cli_thread);
 		} else {
 			log_error(logger, "Error aceptando conexiones: %s", strerror(errno));
 		}

@@ -1,4 +1,5 @@
 #include <hilolay/alumnos.h>
+#include <commons/config.h>
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -16,6 +17,8 @@
 //INIT
 char* ipServidor = "127.0.0.1";
 int puertoServidor = 20000;
+
+
 int conectadoAlServer = -1;
 time_t start;
 time_t end;
@@ -195,6 +198,15 @@ int get_status(t_message* message){
 	return *((int*)message->content);
 }
 
+//OTRAS FUNCIONES
+//void load_suse_config() {
+//	t_config* config = config_create("suse.config");
+//	puertoServidor = config_get_int_value(config, "LISTEN_PORT");
+//	ipServidor = config_get_string_value(config, "IP");
+//
+//	config_destroy(config);
+//}
+
 
 /* Lib implementation: It'll only schedule the last thread that was created */
 int max_tid = 0;
@@ -231,6 +243,7 @@ int suse_schedule_next(void) {
 }
 
 int suse_join(int tid){
+	send_message(conectadoAlServer, SUSE_JOIN, &tid, sizeof(int));
 	return 0;
 }
 
