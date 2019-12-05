@@ -156,10 +156,7 @@ t_hilo* bloquearHilo(int threadId, t_programa* padre, t_semaforo* unSemaforo) {
 					contadorDeEncuentrosEnMemoria ++;
 					printf("ESTA MIERDA SEGURO ROMPE ACA\n");
 					suseScheduleNext(padre);
-//					if(list_is_empty(padre->listaDeReady)){
-//
-//						programasEnMemoria --;
-//					}
+					programasEnMemoria --;//POLEMICO
 				}
 			}
 
@@ -225,6 +222,7 @@ void destruirPrograma(t_programa* programa) {
 	programasEnMemoria -= list_size(programa->listaDeReady);
 	printf("Quedaron %i programas en memoria\n", programasEnMemoria);
 	if(programa->enEjecucion != NULL)
+		programa->enEjecucion = NULL;
 		programasEnMemoria--;
 
 
