@@ -327,17 +327,12 @@ int sac_read(int socket,const char* path, size_t size, off_t offset){
 	t_block* block_data = (t_block*) get_block_data(ptr_block_data);
 	int space_in_block = BLOCK_SIZE-offset_in_block;
 
-	if(space_in_block > size){
-		char* data = malloc(size);
-		memcpy(data,block_data->data+offset_in_block,size);
-		send_message(socket,OK,data,size);
-		free(data);
-	}else{
-		char* data = malloc(space_in_block);
-		memcpy(data,block_data->data+offset_in_block,space_in_block);
-		send_message(socket,OK,data,space_in_block);
-		free(data);
-	}
+	int bytes = space_in_block > size? size:space_in_block;
+
+	char* data = malloc(bytes);
+	memcpy(data,block_data->data+offset_in_block,bytes);
+	send_message(socket,OK,data,bytes);
+	free(data);
 
 	return 0;
 
@@ -402,7 +397,7 @@ int sac_rmdir(int socket,const char* path){
 		node++;
 	}
 	node = &nodes_table[index_node-1];
-	node->status = 0;
+	node->status = T_DELETED;
 	log_info(logger,"Directorio %s borrado exitósamente", path);
 	send_status(socket,OK,0);
 	return 0;

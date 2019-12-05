@@ -36,7 +36,6 @@ void init_semaphores() {
 }
 
 void sig_term(int sig) {
-	pthread_mutex_destroy(&bitarray_mutex);
 	fdatasync(file_system_descriptor);
 	munmap(file_system, size_file_system);
 	close(file_system_descriptor);
@@ -50,7 +49,6 @@ int main(int argc, const char* argv[]) {
 	signal(SIGABRT, sig_term);
 	init_semaphores();
 
-//	const char* path = argv[1];
 	sac_load_config("./resources/sac.config");
 	size_file_system = fsize(sac_config->file_system_path);
 	log_info(logger, "Filesystem Size: %i", size_file_system);
