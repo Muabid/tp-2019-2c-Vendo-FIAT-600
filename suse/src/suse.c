@@ -208,13 +208,17 @@ void desbloquearHilo(int threadId, t_programa* padre) {
 }
 
 //CREAR Y DESTRUIR UN PROGRAMA
-t_programa* crearPrograma(int id) {
+t_programa* crearPrograma(int puerto) {
+	static int id = 1;
+
 	t_programa* nuevo = malloc(sizeof(t_programa));
+	nuevo->puerto = puerto;
 	nuevo->joinCounter = 0;
 	nuevo->id = id;
 	nuevo->listaDeHilos = list_create();
 	nuevo->listaDeReady = list_create();
 	nuevo->enEjecucion = NULL;
+	id ++;
 
 	return nuevo;
 }
@@ -278,14 +282,14 @@ void suseScheduleNext(t_programa* programa) {
 			programa->enEjecucion = hilo;
 		}
 
-		send_message(programa->id, SUSE_SCHEDULE_NEXT, &programa->enEjecucion->id, sizeof(int));
+		send_message(programa->puerto, SUSE_SCHEDULE_NEXT, &programa->enEjecucion->id, sizeof(int));
 		printf("Se planifico el hilo: %i\n", hilo->id);
 	}
 	else if(programa->enEjecucion && programa->enEjecucion->estado != BLOCKED){
-		send_message(programa->id, SUSE_SCHEDULE_NEXT, &programa->enEjecucion->id, sizeof(int));
+		send_message(programa->puerto, SUSE_SCHEDULE_NEXT, &programa->enEjecucion->id, sizeof(int));
 	}
 	else {
-		send_message(programa->id, ERROR_MESSAGE, NULL, 0);
+		send_message(programa->puerto, ERROR_MESSAGE, NULL, 0);
 		log_error(logger, "Se planifo el hilo: ERROR MESSAGE\n");
 	}
 }
