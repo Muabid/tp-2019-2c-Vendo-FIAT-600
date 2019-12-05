@@ -30,6 +30,18 @@ typedef struct Segmento{
 	uint32_t tamanio_mapeo;
 }Segmento;
 
+typedef struct BitMemoria{
+	bool esta_ocupado;
+	uint32_t pos;
+	bool bit_uso;
+	bool bit_modificado;
+}BitMemoria;
+
+typedef struct BitSwap{
+	bool esta_ocupado;
+	uint32_t pos;
+}BitSwap;
+
 typedef struct Pagina{
 	uint32_t num_pagina;
 	bool presencia;
@@ -43,18 +55,6 @@ typedef struct Bitmap{
 	t_list* bits_memoria_virtual;//se llena con t_bit_swap
 	uint32_t tamanio_memoria_virtual;
 }Bitmap;
-
-typedef struct BitMemoria{
-	bool esta_ocupado;
-	uint32_t pos;
-	bool bit_uso;
-	bool bit_modificado;
-}BitMemoria;
-
-typedef struct BitSwap{
-	bool esta_ocupado;
-	uint32_t pos;
-}BitSwap;
 
 typedef struct HeapMetadata{
 	uint32_t tamanio;

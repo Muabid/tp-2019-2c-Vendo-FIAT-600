@@ -1,5 +1,5 @@
-#include "utils.h"
 #include "estructuras.h"
+#include "utils.h"
 #include "muse.h"
 
 t_list* obtenerListaSegmentosPorId(char* idPrograma){
@@ -33,66 +33,10 @@ Segmento* segmentoAlQuePertenece(t_list* listaSegmentos, uint32_t direccion){
 	for(int i = 0; i < list_size(listaSegmentos); i++){
 		if(direccion - ((Segmento*)list_get(listaSegmentos,i))->base_logica < ((Segmento*)list_get(listaSegmentos,i))->tamanio){
 			return ((Segmento*)list_get(listaSegmentos,i));
+		}
 	}
 	return NULL;
 }
-
-void paginasMapEnMemoria(int direccion, int tamanio, Segmento* segmentoEncontrado){
-	int primerPag = direccion / TAMANIO_PAGINA;
-	int offset = direccion % TAMANIO_PAGINA;
-	int ultimaPag = techo((direccion+tamanio) / TAMANIO_PAGINA) - 1;
-
-	if(tienePaginasNoCargadasEnMemoria(segmentoEncontrado,primerPag,ultimaPag)){
-		int cantidadPags = ultimaPag - primerPag + 1;
-		int bytesPorLeer = cantidadPags * TAMANIO_PAGINA;
-		int relleno = bytesPorLeer - offset - tamanio;
-		void* bloqueRelleno = generarRelleno(relleno);
-		int ultimaPaginaLista = segmentoEncontrado->paginas->elements_count-1; // is that allowed, WHAT THE FUCK IS THIS ALLOWED
-
-		void* buffer = malloc(bytesPorLeer);
-		FILE* archivo = fopen(segmentoEncontrado->path_mapeo,"rb");
-		fread(buffer,TAMANIO_PAGINA,cantidadPags,archivo);
-		fclose(archivo);
-		int puntero = primerPag * TAMANIO_PAGINA;
-		int i = primerPag;
-		while(i <= ultimaPag){
-			Pagina* pag = (Pagina*)list_get(segmentoEncontrado,i);
-			if(pag->bit_marco == NULL && pag->bit_swap == NULL){
-				pag->bit_marco = asignarMarcoNuevo();
-				pag->bit_marco->bit_uso = true;
-				pag->bit_marco->bit_modificado = true;
-				pag->presencia = true;
-
-				void* punteroMarco = obtenerPunteroAMarco(pag);
-				if(pag->num_pagina == ultimaPaginaLista){
-					memcpy(punteroMarco, buffer + puntero, TAMANIO_PAGINA - relleno);
-					memcpy(punteroMarco + TAMANIO_PAGINA - relleno, bloqueRelleno,relleno);
-				} else {
-					memcpy(punteroMarco,buffer + puntero, TAMANIO_PAGINA);
-				}
-			}
-
-			i++;
-			puntero += TAMANIO_PAGINA;
-			bytesPorLeer -= TAMANIO_PAGINA;
-		}
-		free(buffer);
-		free(bloqueRelleno);
-	}
-}
-
-bool tienePaginasNoCargadasEnMemoria(Segmento* segmento, int pagInicial, int pagFinal){
-	for(int i = 0; i < list_size(segmento->paginas); i++){
-		Pagina* pag = ((Pagina*)list_get(segmento->paginas,i));
-		if(pag->num_pagina >= pagInicial && pag->num_pagina <= pagFinal){
-			if(pag->bit_marco == NULL && pag->bit_swap == NULL){
-				return true;
-			}
-		}
-		return false;
-	}
-}
-
 
 void* obtenerPunteroAMarco(Pagina* pag){
 	if(!pag->presencia){
@@ -375,7 +319,7 @@ void merge(Segmento* segmentoEncontrado){
 			pthread_mutex_unlock(&mut_espacioDisponible);
 			list_remove_and_destroy_element(segmentoEncontrado->status_metadata,0,(void*)free);
 		} else if(hm->libre && contador == metadatasSegmento->elements_count - 1) { // es el último, el anterior está libre
-			InfoHeap* anterior = list_get(metadatasSegmento->elements_count - 1);
+			InfoHeap* anterior = list_get(hm,contador-1);
 			if(anterior->libre){
 				int pagAnterior = (anterior->direccion_heap + sizeof(HeapMetadata)) / TAMANIO_PAGINA;
 				int acumuladorPaginasLiberadas = 0;
@@ -414,6 +358,8 @@ void merge(Segmento* segmentoEncontrado){
 		contador--;
 	}
 }
+
+// FUNCIONES PARA ALGORITMO CLOCK
 
 BitSwap* buscarBitLibreSwap(){
 	pthread_mutex_lock(&mut_bitmap);
