@@ -415,5 +415,134 @@ void merge(Segmento* segmentoEncontrado){
 	}
 }
 
+BitSwap* buscarBitLibreSwap(){
+	pthread_mutex_lock(&mut_bitmap);
+	bool bitLibre(BitSwap* bit){
+		return !bit->esta_ocupado;
+	}
+	pthread_mutex_unlock(&mut_bitmap);
+	return list_find(bitmap->bits_memoria_virtual,(void*)bitLibre);
+}
 
+BitSwap* pasarASwap(BitMemoria* bit){
+	char* marcoAPasar = posicionInicialMemoria + bit->pos * TAMANIO_PAGINA;
+	BitSwap* bitSwap = buscarBitLibreSwap();
+	char* swapAEscribir = posicionInicialSwap + bitSwap->pos * TAMANIO_PAGINA;
+	for(int i=0; i<TAMANIO_PAGINA; i++){
+		swapAEscribir[i] = marcoAPasar[i];
+	}
+	msync(posicionInicialSwap,TAMANIO_SWAP,MS_SYNC);
+	fflush(stdout);
+	bitSwap->esta_ocupado = true;
+	return bitSwap;
+}
 
+Pagina* buscarPaginaSegunBit(BitMemoria* bit){
+	Pagina* paginaVictima = NULL;
+	void buscarBit(Pagina* pag){
+		if(pag->presencia){
+			if(pag->bit_marco->pos == bit->pos){
+				paginaVictima = pag;
+			}
+		}
+	}
+	void iterarPaginas(Segmento* seg){
+		list_iterate(seg->paginas,(void*)buscarBit);
+	}
+	void iterarSegmentos(Programa* programa){
+		list_iterate(programa->segmentos,(void*)iterarPaginas);
+	}
+	pthread_mutex_lock(&mut_listaProgramas);
+	list_iterate(listaProgramas,(void*)iterarSegmentos);
+	pthread_mutex_unlock(&mut_listaProgramas);
+	return paginaVictima;
+}
+
+BitMemoria* buscarBit_0_0(){
+	pthread_mutex_lock(&mut_bitmap);
+	int punteroInicial = punteroClock;
+	BitMemoria* bitNulo = NULL;
+	for(int i = 0; i < bitmap->tamanio_memoria-punteroInicial; i++){
+		BitMemoria* bit = list_get(bitmap->bits_memoria,punteroClock);
+		if(!bit->bit_modificado && !bit->bit_uso){
+			punteroClock++;
+			pthread_mutex_unlock(&mut_bitmap);
+			return bit;
+		}
+		punteroClock++;
+	}
+	for(punteroClock = 0; punteroClock < punteroInicial; punteroClock++){
+		BitMemoria* bit = list_get(bitmap->bits_memoria,punteroClock);
+		if(!bit->bit_modificado && !bit->bit_uso){
+			pthread_mutex_unlock(&mut_bitmap);
+			return bit;
+		}
+	}
+	punteroClock = punteroInicial;
+	pthread_mutex_unlock(&mut_bitmap);
+	return bitNulo;
+}
+
+BitMemoria* buscarBit_0_1(){
+	pthread_mutex_lock(&mut_bitmap);
+	int punteroInicial = punteroClock;
+	BitMemoria* bitNulo = NULL;
+	//busco en la primera mitad
+	for(int i = 0; i < bitmap->tamanio_memoria-punteroInicial; i++){
+		BitMemoria* bit = list_get(bitmap->bits_memoria,punteroClock);
+		if(bit->bit_modificado && !bit->bit_uso){
+			punteroClock ++;
+			pthread_mutex_unlock(&mut_bitmap);
+			return bit;
+		}
+		if(bit->bit_uso){
+			bit->bit_uso = false;
+		}
+		punteroClock++;
+	}
+	for(punteroClock = 0; punteroClock < punteroInicial;punteroClock++){
+		BitMemoria* bit = list_get(bitmap->bits_memoria,punteroClock);
+		if(bit->bit_modificado && !bit->bit_uso){
+			pthread_mutex_unlock(&mut_bitmap);
+			return bit;
+		}
+		if(bit->bit_uso){
+			bit->bit_uso = false;
+		}
+	}
+	punteroClock = punteroInicial;
+	pthread_mutex_unlock(&mut_bitmap);
+	return bitNulo;
+}
+
+BitMemoria* ejecutarClockModificado(){
+	BitMemoria* bitObtenido = buscarBit_0_0();
+	if(bitObtenido == NULL){
+		bitObtenido = buscarBit_0_1();
+		if(bitObtenido == NULL){
+			bitObtenido = ejecutarSegundaVueltaClock();
+		}
+	}
+
+	Pagina* paginaVictima = buscarPaginaSegunBit(bitObtenido);
+	if(paginaVictima != NULL){
+		paginaVictima->bit_swap = pasarASwap(paginaVictima->bit_marco);
+		paginaVictima->bit_marco = NULL;
+		paginaVictima->presencia = false;
+		bitObtenido->bit_modificado = false;//lo dejo en (1,0) listo para usar
+		bitObtenido->bit_uso = true;
+	}
+	else{
+		log_error(logger,"Error al ejecutar clock modificado: no se puede sacar una página que no se encuentra en la tabla.");
+	}
+
+	return bitObtenido;
+}
+
+BitMemoria* ejecutarSegundaVueltaClock(){
+	BitMemoria* bitObtenido = buscarBit_0_0();
+	if(bitObtenido == NULL){
+		bitObtenido = buscarBit_0_1();
+	}
+	return bitObtenido;
+}
