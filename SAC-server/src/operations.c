@@ -186,15 +186,9 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	int space_in_block = BLOCK_SIZE-offset_in_block;
 
 	if(space_in_block > size){
-//		for(int i=offset_in_block;i<(size+offset_in_block);i++){
-//			block_data->data[i] = data[i-(offset_in_block)];
-//		}
 		memcpy(block_data->data,data,size);
 		node->size += size;
 	}else{
-//		for(int i=offset_in_block;i<(space_in_block+offset_in_block);i++){
-//			block_data->data[i] = data[i-(offset_in_block)];
-//		}
 		memcpy(block_data->data,data,space_in_block);
 		node->size += space_in_block;
 	}
