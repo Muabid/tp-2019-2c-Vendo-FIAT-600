@@ -96,6 +96,444 @@ void inicializarSemaforos(){
 	pthread_mutex_init(&mut_bitmap,NULL);
 }
 
+// muse_alloc
+
+int muse_alloc(char* id, uint32_t tamanio){
+	int theReturn;
+	pthread_mutex_lock(&mut_espacioDisponible);
+	if(espacioDisponible >= tamanio + sizeof(HeapMetadata)){
+		pthread_mutex_unlock(&mut_espacioDisponible);
+		t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
+		if(listaSegmentos==NULL){
+			log_info(logger,"no hay segmentos, F",id);
+			return -1;
+		}
+
+		if(list_is_empty(listaSegmentos)){
+			uint32_t paginasNecesarias = calcularFramesNecesarios(tamanio + sizeof(HeapMetadata) * 2);
+			int espacioLibreUltimaPagina = paginasNecesarias * TAMANIO_PAGINA - tamanio - sizeof(HeapMetadata) * 2;
+			pthread_mutex_lock(&mut_espacioDisponible);
+			if(espacioDisponible >= paginasNecesarias * TAMANIO_PAGINA){
+				espacioDisponible -= paginasNecesarias * TAMANIO_PAGINA;
+				pthread_mutex_unlock(&mut_espacioDisponible);
+				//creo segmento
+				Segmento* nuevoSegmento = malloc(sizeof(Segmento));
+				nuevoSegmento->compartido = false;
+				nuevoSegmento->es_mmap = false;
+				nuevoSegmento->base_logica = 0;
+				nuevoSegmento->tamanio = paginasNecesarias * TAMANIO_PAGINA;
+				nuevoSegmento->status_metadata = list_create();
+
+				//inicializo su status de hm, hay q agregar 2 porque el segmento es nuevo !!
+				InfoHeap* primerHeap = malloc(sizeof(InfoHeap));
+				primerHeap->direccion_heap = 0;
+				primerHeap->espacio = tamanio;
+				primerHeap->libre = false;
+				primerHeap->indice = 0;
+				InfoHeap* segundoheap = malloc(sizeof(InfoHeap));
+				segundoheap->direccion_heap = tamanio + sizeof(HeapMetadata);
+				segundoheap->libre = true;
+				segundoheap->espacio = espacioLibreUltimaPagina;
+				segundoheap->indice = 1;
+
+				// los agrego al segmento recien creado
+				list_add(nuevoSegmento->status_metadata, primerHeap);
+				list_add(nuevoSegmento->status_metadata, segundoheap);
+
+				bool hayQueEntrarALaAnteultimaPag = false; // flag q va a servir
+
+				t_list* paginasCreadas = list_create();
+
+				int heapUltimaPagina;
+				int heapAnteultimaPagina;
+				int offset;
+				HeapMetadata* heapFinal = malloc(sizeof(HeapMetadata));
+				heapFinal->libre = true;
+				heapFinal->tamanio = espacioLibreUltimaPagina;
+
+				if(espacioLibreUltimaPagina > TAMANIO_PAGINA - sizeof(HeapMetadata)) { // el HM está cortado en dos frames distintos
+					heapUltimaPagina = TAMANIO_PAGINA - espacioLibreUltimaPagina;
+					heapAnteultimaPagina = sizeof(HeapMetadata) - heapUltimaPagina;
+					offset = TAMANIO_PAGINA - heapAnteultimaPagina;
+					hayQueEntrarALaAnteultimaPag = true;
+				} else { // no se parte el HM
+					offset = TAMANIO_PAGINA - espacioLibreUltimaPagina - sizeof(HeapMetadata);
+				}
+
+				for(int i = 0; i < paginasNecesarias; i++){
+					Pagina* pag = malloc(sizeof(Pagina));
+					pag->num_pagina = i;
+					pag->presencia = true;
+					if(i <= TAMANIO_MEMORIA / TAMANIO_PAGINA){
+						pag->bit_marco = asignar_marco_nuevo();
+						pag->bit_marco->bit_uso = true;
+						pag->bit_marco->bit_modificado = true;
+						pag->bit_swap = NULL;
+					}
+					else{
+						pag->bit_marco = NULL;
+						pag->bit_swap = buscarBitLibreSwap();
+						pag->presencia = false;
+					}
+					if(i == 0){
+						HeapMetadata* heap = malloc(sizeof(HeapMetadata));
+						heap->libre = false;
+						heap->tamanio = tamanio;
+						void* punteroMarco = obtenerPunteroAMarco(pag);
+						memcpy(punteroMarco, heap, sizeof(HeapMetadata));
+						free(heap);
+					}
+					if(i == paginasNecesarias - 2){
+						if(hayQueEntrarALaAnteultimaPag){
+							void* punteroMarco = obtenerPunteroAMarco(pag);
+							memcpy(punteroMarco + offset, heapFinal, heapAnteultimaPagina);
+						}
+					}
+					if(i == paginasNecesarias-1){
+						void* punteroMarco = obtenerPunteroAMarco(pag);
+						if(hayQueEntrarALaAnteultimaPag){
+							memcpy(punteroMarco, heapFinal + heapAnteultimaPagina, heapUltimaPagina);
+						}
+						else{
+							memcpy(punteroMarco + offset, heapFinal, sizeof(HeapMetadata));
+						}
+					}
+					list_add(paginasCreadas,pag);
+				}
+				nuevoSegmento->num_segmento = list_size(listaSegmentos);
+				nuevoSegmento->paginas = paginasCreadas;
+				list_add(listaSegmentos,nuevoSegmento);
+				free(heapFinal);
+
+				return sizeof(HeapMetadata);
+
+			} else {
+				puts("El tamanio solicitado no entra");
+				log_info(logger,"big F no hay lugar");
+				pthread_mutex_unlock(&mut_espacioDisponible);
+				return -1;
+			}
+		} else { // ya hay algún segmento, entonces busco en la lista de heaps de cada segmento a ver si hay espacio para alocar
+			Segmento* segmentoEncontrado = obtenerSegmentoParaOcupar(listaSegmentos,tamanio + sizeof(HeapMetadata));
+			if(segmentoEncontrado != NULL){
+				// me pongo a buscar el espacio disponible
+				InfoHeap* heapConEspacio = obtenerHeapConEspacio(segmentoEncontrado,tamanio);
+
+				HeapMetadata* heapInicial = malloc(sizeof(HeapMetadata));
+				heapInicial->libre = false;
+				heapInicial->tamanio = tamanio;
+				int numPaginaInicial = heapConEspacio->direccion_heap / TAMANIO_PAGINA;
+				int offsetInicial = heapConEspacio->direccion_heap % TAMANIO_PAGINA;
+
+				if(offsetInicial > TAMANIO_PAGINA - sizeof(HeapMetadata)){ // queda en el diome
+					int loQueCopio = TAMANIO_PAGINA - offsetInicial;
+
+					Pagina* paginaPrincipal = list_get(segmentoEncontrado->paginas, numPaginaInicial);
+					void* marcoPrincipal = obtenerPunteroAMarco(paginaPrincipal);
+					memcpy(marcoPrincipal + offsetInicial, heapInicial, loQueCopio);
+
+					Pagina* paginaSecundaria = list_get(segmentoEncontrado->paginas, numPaginaInicial + 1);
+					void* marcoSecundario = obtenerPunteroAMarco(paginaSecundaria);
+					memcpy(marcoSecundario, heapInicial + loQueCopio, sizeof(HeapMetadata) - loQueCopio);
+
+					theReturn = segmentoEncontrado->base_logica + paginaSecundaria->num_pagina * TAMANIO_PAGINA + sizeof(HeapMetadata) - loQueCopio;
+
+				} else { // no queda en el diome
+					Pagina* paginaPrincipal = list_get(segmentoEncontrado->paginas, numPaginaInicial);
+					void* marcoPrincipal = obtenerPunteroAMarco(paginaPrincipal);
+					memcpy(marcoPrincipal + offsetInicial, heapInicial, sizeof(HeapMetadata));
+
+					theReturn = segmentoEncontrado->base_logica + paginaPrincipal->num_pagina * TAMANIO_PAGINA + offsetInicial + sizeof(HeapMetadata);
+				}
+
+				HeapMetadata* heapFinal = malloc(sizeof(HeapMetadata));
+				heapFinal->libre = true;
+				heapFinal->tamanio = heapConEspacio->espacio - tamanio - sizeof(HeapMetadata);
+				int numPaginaFinal = (heapConEspacio->direccion_heap + tamanio + sizeof(HeapMetadata)) / TAMANIO_PAGINA;
+				int offsetFinal = (heapConEspacio->direccion_heap + tamanio + sizeof(HeapMetadata)) % TAMANIO_PAGINA;
+
+				if(offsetFinal > TAMANIO_PAGINA - sizeof(HeapMetadata)){ // QEDA en el diome again
+					int loQueCopio = TAMANIO_PAGINA - offsetFinal;
+
+					Pagina* paginaFinalPrincipal = list_get(segmentoEncontrado->paginas,numPaginaFinal);
+					void* marcoFinalPrincipal = obtenerPunteroAMarco(paginaFinalPrincipal);
+					memcpy(marcoFinalPrincipal + offsetFinal, heapFinal, loQueCopio);
+
+					Pagina* paginaFinalSecundaria = list_get(segmentoEncontrado->paginas,numPaginaFinal + 1);
+					void* marcoFinalSecundario = obtenerPunteroAMarco(paginaFinalSecundaria);
+					memcpy(marcoFinalSecundario, heapFinal + loQueCopio, sizeof(HeapMetadata) - loQueCopio);
+				} else {// no queda en el diome graciadio
+					Pagina* paginaFinal = list_get(segmentoEncontrado->paginas,numPaginaFinal);
+					void* marcoFinal = obtenerPunteroAMarco(paginaFinal);
+					memcpy(marcoFinal + offsetInicial, heapFinal, sizeof(HeapMetadata));
+				}
+
+				heapConEspacio->espacio = tamanio;
+				heapConEspacio->libre = false;
+
+				InfoHeap* siguienteHeap = malloc(sizeof(heapConEspacio));
+				siguienteHeap->direccion_heap = numPaginaFinal * TAMANIO_PAGINA + offsetFinal;
+				siguienteHeap->espacio = heapFinal->tamanio;
+				siguienteHeap->libre = true;
+				siguienteHeap->indice = heapConEspacio->indice + 1;
+				// lo agrego al final by: frongi wtf
+				list_add_in_index(segmentoEncontrado->status_metadata, heapConEspacio->indice+1, siguienteHeap);
+
+				free(heapInicial);
+				free(heapFinal);
+
+			} else { // no encontró ningun segmento, hay que ver si se puede agrandar o crear otro //acá tambien podria ir lo de liberadas
+				Segmento* ultimoSegmento = obtenerUltimoSegmento(listaSegmentos);
+				if(ultimoSegmento->es_mmap){
+					// acá no puedo agrandar asique creo otro segmento xd
+					// ¿delegar funcion crear segmento? yo diria que no kent
+					uint32_t paginasNecesarias = calcularFramesNecesarios(tamanio + sizeof(HeapMetadata)*2);
+					int libreUltimaPag = paginasNecesarias * TAMANIO_PAGINA - tamanio - sizeof(HeapMetadata) * 2;
+					uint32_t tamTotal = paginasNecesarias * TAMANIO_PAGINA;
+					pthread_mutex_lock(&mut_espacioDisponible);
+					if(espacioDisponible >= tamTotal){
+						espacioDisponible -= tamTotal;
+						pthread_mutex_unlock(&mut_espacioDisponible);
+
+						Segmento* nuevoSegmento = malloc(sizeof(Segmento));
+						nuevoSegmento->compartido = false;
+						nuevoSegmento->es_mmap = false;
+						nuevoSegmento->tamanio = paginasNecesarias * TAMANIO_PAGINA;
+						nuevoSegmento->status_metadata = list_create();
+
+						//inicializo su status de hm, hay q agregar 2 porque el segmento es nuevo !!
+						InfoHeap* primerHeap = malloc(sizeof(InfoHeap));
+						primerHeap->direccion_heap = 0;
+						primerHeap->espacio = tamanio;
+						primerHeap->libre = false;
+						primerHeap->indice = 0;
+						InfoHeap* segundoheap = malloc(sizeof(InfoHeap));
+						segundoheap->direccion_heap = tamanio + sizeof(HeapMetadata);
+						segundoheap->libre = true;
+						segundoheap->espacio = libreUltimaPag;
+						segundoheap->indice = 1;
+
+						// los agrego al segmento recien creado
+						list_add(nuevoSegmento->status_metadata, primerHeap);
+						list_add(nuevoSegmento->status_metadata, segundoheap);
+
+						bool hayQueEntrarALaAnteultimaPag = false; // flag q va a servir
+
+						t_list* paginasCreadas = list_create();
+
+						int heapUltimaPagina;
+						int heapAnteultimaPagina;
+						int offset;
+						HeapMetadata* heapFinal = malloc(sizeof(HeapMetadata));
+						heapFinal->libre = true;
+						heapFinal->tamanio = libreUltimaPag;
+
+						if(libreUltimaPag > TAMANIO_PAGINA - sizeof(HeapMetadata)) { // el HM está cortado en dos frames distintos
+							heapUltimaPagina = TAMANIO_PAGINA - libreUltimaPag;
+							heapAnteultimaPagina = sizeof(HeapMetadata) - heapUltimaPagina;
+							offset = TAMANIO_PAGINA - heapAnteultimaPagina;
+							hayQueEntrarALaAnteultimaPag = true;
+						} else { // no se parte el HM
+							offset = TAMANIO_PAGINA - libreUltimaPag - sizeof(HeapMetadata);
+						}
+
+						for(int i = 0; i < paginasNecesarias; i++){
+							Pagina* pag = malloc(sizeof(Pagina));
+							pag->num_pagina = i;
+							pag->presencia = true;
+							if(i <= TAMANIO_MEMORIA / TAMANIO_PAGINA){
+								pag->bit_marco = asignar_marco_nuevo();
+								pag->bit_marco->bit_uso = true;
+								pag->bit_marco->bit_modificado = true;
+								pag->bit_swap = NULL;
+							}
+							else{
+								pag->bit_marco = NULL;
+								pag->bit_swap = buscarBitLibreSwap();
+								pag->presencia = false;
+							}
+							if(i == 0){
+								HeapMetadata* heap = malloc(sizeof(HeapMetadata));
+								heap->libre = false;
+								heap->tamanio = tamanio;
+								void* punteroMarco = obtenerPunteroAMarco(pag);
+								memcpy(punteroMarco, heap, sizeof(HeapMetadata));
+								free(heap);
+							}
+							if(i == paginasNecesarias - 2){
+								if(hayQueEntrarALaAnteultimaPag){
+									void* punteroMarco = obtenerPunteroAMarco(pag);
+									memcpy(punteroMarco + offset, heapFinal, heapAnteultimaPagina);
+								}
+							}
+							if(i == paginasNecesarias-1){
+								void* punteroMarco = obtenerPunteroAMarco(pag);
+								if(hayQueEntrarALaAnteultimaPag){
+									memcpy(punteroMarco, heapFinal + heapAnteultimaPagina, heapUltimaPagina);
+								}
+								else{
+									memcpy(punteroMarco + offset, heapFinal, sizeof(HeapMetadata));
+								}
+							}
+							list_add(paginasCreadas,pag);
+						}
+						nuevoSegmento->num_segmento = list_size(listaSegmentos);
+						nuevoSegmento->paginas = paginasCreadas;
+						nuevoSegmento->base_logica = obtenerBaseLogicaNuevoSegmento(listaSegmentos);
+						list_add(listaSegmentos,nuevoSegmento);
+						free(heapFinal);
+
+						theReturn = nuevoSegmento->base_logica + sizeof(HeapMetadata);
+					}
+				} else { // acá puedo agrandar
+					InfoHeap* ultimoInfoHeap = obtenerUltimoSegmento(ultimoSegmento->status_metadata);
+					ultimoInfoHeap->libre = false;
+					Pagina* ultimaPagina = obtenerUltimoSegmento(ultimoSegmento->paginas);
+					HeapMetadata* nuevoUltHeap = malloc(sizeof(HeapMetadata));
+					nuevoUltHeap->libre = true;
+					HeapMetadata* ultimoHeap = malloc(sizeof(HeapMetadata));
+					ultimoHeap->libre = false;
+					ultimoHeap->tamanio = tamanio;
+					uint32_t loQueNecesito = tamanio - ultimoInfoHeap->espacio + sizeof(HeapMetadata);
+					uint32_t paginasNecesarias = calcularFramesNecesarios(loQueNecesito);
+					uint32_t tamanioEntero = paginasNecesarias * TAMANIO_PAGINA;
+					pthread_mutex_lock(&mut_espacioDisponible);
+					if(espacioDisponible >= tamanioEntero){
+						espacioDisponible -= tamanioEntero;
+						pthread_mutex_unlock(&mut_espacioDisponible);
+						ultimoSegmento->tamanio += tamanioEntero;
+						int libreUltimaPagina = tamanioEntero - tamanio - sizeof(HeapMetadata) + ultimoInfoHeap->espacio;
+						// actualizar anteultimo heap grascias
+						ultimoInfoHeap->espacio = tamanio;
+						nuevoUltHeap->tamanio = libreUltimaPagina;
+
+						//agrego las pginas y los marcos y todo eso man hay que delegar esta chota? NO COSCU
+
+						for(int i = 0; i < paginasNecesarias; i++){
+							Pagina* newPagerino = malloc(sizeof(Pagina));
+							newPagerino->num_pagina = ultimaPagina->num_pagina + 1 + i; // meme del negro ??
+							newPagerino->presencia = true;
+
+							if(i <= TAMANIO_MEMORIA / TAMANIO_PAGINA){
+								newPagerino->bit_marco = asignarMarcoNuevo();
+								newPagerino->bit_marco->bit_uso = true;
+								newPagerino->bit_marco->bit_modificado = true;
+								newPagerino->bit_swap = NULL;
+							} else {
+								newPagerino->bit_marco = NULL;
+								newPagerino->bit_swap = buscarBitLibreSwap();
+								newPagerino->presencia = false;
+							}
+							list_add(ultimoSegmento->paginas,newPagerino);
+
+						}
+
+						InfoHeap* nuevoInfoHeaperino = malloc(sizeof(InfoHeap));
+						nuevoInfoHeaperino->direccion_heap = ultimoInfoHeap->direccion_heap + tamanio + sizeof(HeapMetadata);
+						nuevoInfoHeaperino->espacio = libreUltimaPagina;
+						nuevoInfoHeaperino->indice = ultimoInfoHeap->indice + 1; // claro pq lo corrí
+						nuevoInfoHeaperino->libre = true;
+						list_add_in_index(ultimoSegmento->status_metadata, nuevoInfoHeaperino->indice, nuevoInfoHeaperino);
+
+						// esto vendria a ser el HM nuevo
+						int offsetNuevoXD = nuevoInfoHeaperino->direccion_heap % TAMANIO_PAGINA;
+						int numPaginaFinal = nuevoInfoHeaperino->direccion_heap / TAMANIO_PAGINA;
+						if(offsetNuevoXD > TAMANIO_PAGINA - sizeof(HeapMetadata)){ //oh shit here we go again al diome
+							int loQueCopio = TAMANIO_PAGINA - offsetNuevoXD;
+							Pagina* paginaFinalPrincipal = list_get(ultimoSegmento->paginas, numPaginaFinal);
+							void* marcoFinalPrincipal = obtenerPunteroAMarco(paginaFinalPrincipal);
+							memcpy(marcoFinalPrincipal + offsetNuevoXD, nuevoUltHeap, loQueCopio); // el nuevo heap viene de arriba, no tocar
+
+							Pagina* paginaFinalSecundaria = list_get(ultimoSegmento->paginas, numPaginaFinal + 1);
+							void* marcoFinalSecundario = obtenerPunteroAMarco(paginaFinalSecundaria);
+							memcpy(marcoFinalSecundario, nuevoUltHeap + loQueCopio, sizeof(HeapMetadata) - loQueCopio);
+						} else {// like y me mato
+							Pagina* paginaFinal = list_get(ultimoSegmento->paginas, numPaginaFinal);
+							void* punteroMarcoUltimaPagina = obtenerPunteroAMarco(paginaFinal);
+							memcpy(punteroMarcoUltimaPagina + offsetNuevoXD, nuevoUltHeap, sizeof(HeapMetadata));
+						}
+
+						// y esto vendria a ser el HM viejardo
+
+						int offsetViejoXD = nuevoInfoHeaperino->direccion_heap % TAMANIO_PAGINA;
+						int numPaginaViejaFinal = techo((double)nuevoInfoHeaperino->direccion_heap / TAMANIO_PAGINA);
+						if(offsetViejoXD > TAMANIO_PAGINA - sizeof(HeapMetadata)){ // ESCRIBÍ ESTO MIENTRAS LLORABA
+							int loQueCopio2 = TAMANIO_PAGINA - offsetViejoXD;
+							Pagina* paginaFinalViejaPrincipal = list_get(ultimoSegmento->paginas,numPaginaViejaFinal);
+							void* marcoPrincipalViejoFinal = obtenerPunteroAMarco(paginaFinalViejaPrincipal);
+							memcpy(marcoPrincipalViejoFinal + offsetViejoXD, ultimoHeap, loQueCopio2);
+
+							Pagina* paginaFinalViejaSecundaria = list_get(ultimoSegmento->paginas,numPaginaViejaFinal + 1);
+							void* marcoSecundarioViejoFinal = obtenerPunteroAMarco(paginaFinalViejaSecundaria);
+							memcpy(marcoSecundarioViejoFinal, ultimoHeap + loQueCopio2, sizeof(HeapMetadata)-loQueCopio2);
+						} else {
+							//no queda en el medio
+							Pagina* paginaFinalVieja = list_get(ultimoSegmento->paginas,numPaginaViejaFinal);
+							void* punteroViejoUltimaPagina = obtenerPunteroAMarco(paginaFinalVieja);
+							memcpy(punteroViejoUltimaPagina + offsetViejoXD, ultimoHeap, sizeof(HeapMetadata));
+						}
+
+						theReturn = ultimoSegmento->base_logica + sizeof(HeapMetadata) + nuevoInfoHeaperino->direccion_heap;
+						free(ultimoHeap);
+						free(nuevoUltHeap);
+					} else {
+						log_info(logger,"No hay espacio F");
+						pthread_mutex_unlock(&mut_espacioDisponible);
+						return -1;
+					}
+				}
+			}
+		}
+
+		return theReturn;
+
+	} else {
+		pthread_mutex_unlock(&mut_espacioDisponible);
+		log_info(logger,"F NO HAY ESPACIO");
+		return -1;
+	}
+}
+
+muse_free(char* id, uint32_t dir){
+	t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
+	if(listaSegmentos == NULL){
+		log_info(logger,"F no se encontro la tabla de segmentos de %s",id);
+		return -1;
+	}
+	Segmento* segmentoObtenido = obtenerSegmentoPorDireccion(listaSegmentos,dir);
+	if(segmentoObtenido == NULL){
+		log_info(logger,"F no se encontro segmento de %s",id);
+		return -1;
+	}
+
+	InfoHeap* heapEncontrado = NULL;
+	int direccionSegmentoObtenido = dir - segmentoObtenido->base_logica;
+	for(int i = 0; i < list_size(segmentoObtenido->status_metadata); i++) {
+		InfoHeap* auxiliar = list_get(segmentoObtenido->status_metadata,i);
+		if(auxiliar->direccion_heap + sizeof(HeapMetadata) == direccionSegmentoObtenido) {
+			heapEncontrado = auxiliar;
+			heapEncontrado->libre = true;
+			break;
+		}
+	}
+
+	HeapMetadata* newHM = malloc(sizeof(HeapMetadata));
+	newHM->libre = true;
+	newHM->tamanio = heapEncontrado->espacio;
+	sustituirHeapMetadata(heapEncontrado,segmentoObtenido,newHM);
+
+	merge(segmentoObtenido);
+
+	for(int i = 0; i < list_size(segmentoObtenido->status_metadata); i++){
+		InfoHeap* heap = list_get(segmentoObtenido->status_metadata,i);
+		heap->indice=i;
+	}
+
+	log_info(logger,"Direccion %i liberada correctamente (segmento %s)",dir,id);
+	return 0;
+
+}
+
 int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 	int tamanioAMapear = techo(length) * TAMANIO_PAGINA;
 	pthread_mutex_lock(&mut_espacioDisponible);
