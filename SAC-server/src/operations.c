@@ -184,14 +184,11 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	t_block* block_data = (t_block*) get_block_data(ptr_block_data);
 
 	int space_in_block = BLOCK_SIZE-offset_in_block;
+	int bytes = space_in_block > size? size : space_in_block;
 
-	if(space_in_block > size){
-		memcpy(block_data->data,data,size);
-		node->size += size;
-	}else{
-		memcpy(block_data->data,data,space_in_block);
-		node->size += space_in_block;
-	}
+	memcpy(block_data->data,data,bytes);
+	node->size += bytes;
+
 	log_info(logger,"WRITED: [%s]",data);
 	node->modification_date= time(NULL);
 
