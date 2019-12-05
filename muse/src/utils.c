@@ -336,4 +336,84 @@ uint32_t obtenerBaseLogicaNuevoSegmento(t_list* listaSegmentos){
 }
 
 
+void sustituirHeapMetadata(InfoHeap* heapLista, Segmento* seg, HeapMetadata* new){
+	int offsetMarco = heapLista->direccion_heap % TAMANIO_PAGINA;
+	int paginaALaQuePertenece = heapLista->direccion_heap / TAMANIO_PAGINA;
+	if(offsetMarco > TAMANIO_PAGINA - sizeof(HeapMetadata)){ //otra vez al diome xd
+		int tamanioACopiar = TAMANIO_PAGINA - offsetMarco;
+		Pagina* paginaHMPrimaria = list_get(seg->paginas,paginaALaQuePertenece);
+		void* marcoHeapPrincipal = obtenerPunteroAMarco(paginaHMPrimaria);
+		memcpy(marcoHeapPrincipal + offsetMarco, new, tamanioACopiar);
+
+		Pagina* paginaHeapSecundaria = list_get(seg->paginas, paginaALaQuePertenece + 1);
+		void* marcoHeapSecundario = obtenerPunteroAMarco(paginaHeapSecundaria);
+		memcpy(marcoHeapSecundario, new + tamanioACopiar, sizeof(HeapMetadata) - tamanioACopiar);
+	} else { // not the middle
+		Pagina* pag = list_get(seg->paginas,paginaALaQuePertenece);
+		void* punteroMarco = obtenerPunteroAMarco(pag);
+		memcpy(punteroMarco + offsetMarco, new, sizeof(HeapMetadata));
+	}
+}
+
+void merge(Segmento* segmentoEncontrado){
+
+	t_list* metadatasSegmento = segmentoEncontrado->status_metadata;
+	int contador = metadatasSegmento->elements_count-1;
+
+	while(contador >= 0){
+		InfoHeap* hm = list_get(metadatasSegmento,contador);
+		if(hm->libre && metadatasSegmento->elements_count == 1){
+			int acumuladorPaginasLiberadas = 0;
+			for(int i = 0; i < segmentoEncontrado->paginas->elements_count;){
+				list_remove_and_destroy_element(segmentoEncontrado->paginas, i, (void*)destruirPagina);
+				acumuladorPaginasLiberadas++;
+			}
+			//segmentoEncontrado->paginas_liberadas+=cuantas_paginas_son_liberadas;
+			segmentoEncontrado->tamanio = segmentoEncontrado->paginas->elements_count * TAMANIO_PAGINA;
+			pthread_mutex_lock(&mut_espacioDisponible);
+			espacioDisponible += acumuladorPaginasLiberadas * TAMANIO_PAGINA;
+			pthread_mutex_unlock(&mut_espacioDisponible);
+			list_remove_and_destroy_element(segmentoEncontrado->status_metadata,0,(void*)free);
+		} else if(hm->libre && contador == metadatasSegmento->elements_count - 1) { // es el último, el anterior está libre
+			InfoHeap* anterior = list_get(metadatasSegmento->elements_count - 1);
+			if(anterior->libre){
+				int pagAnterior = (anterior->direccion_heap + sizeof(HeapMetadata)) / TAMANIO_PAGINA;
+				int acumuladorPaginasLiberadas = 0;
+				for(int i = pagAnterior + 1; i < segmentoEncontrado->paginas->elements_count;){
+					list_remove_and_destroy_element(segmentoEncontrado->paginas,i,(void*)destruirPagina);
+					acumuladorPaginasLiberadas++;
+				}
+				//segmentoEncontrado->paginas_liberadas+=cuantas_paginas_son_liberadas;
+				segmentoEncontrado->tamanio = segmentoEncontrado->paginas->elements_count * TAMANIO_PAGINA;
+				pthread_mutex_lock(&mut_espacioDisponible);
+				espacioDisponible += acumuladorPaginasLiberadas * TAMANIO_PAGINA;
+				pthread_mutex_unlock(&mut_espacioDisponible);
+
+				int offsetAnterior = anterior->direccion_heap % TAMANIO_PAGINA;
+				anterior->espacio = TAMANIO_PAGINA - offsetAnterior - sizeof(HeapMetadata);
+
+				HeapMetadata* hmNuevo = malloc(sizeof(HeapMetadata));
+				hmNuevo->libre = true;
+				hmNuevo->tamanio = anterior->espacio;
+				sustituirHeapMetadata(anterior,segmentoEncontrado,hmNuevo);
+				if(contador>=1){
+					list_remove_and_destroy_element(segmentoEncontrado->status_metadata,hm->indice,(void*)free);
+				}
+			}
+		} else if(hm->libre && contador > 0){
+			InfoHeap* anterior = list_get(metadatasSegmento, contador-1);
+			if(anterior->libre){
+				anterior->espacio += sizeof(HeapMetadata)+hm->espacio;
+				HeapMetadata* new = malloc(sizeof(HeapMetadata));
+				new->libre = true;
+				new->tamanio = anterior->espacio;
+				sustituirHeapMetadata(anterior,segmentoEncontrado,new);
+				list_remove_and_destroy_element(segmentoEncontrado->status_metadata,hm->indice,(void*)free);
+			}
+		}
+		contador--;
+	}
+}
+
+
 
