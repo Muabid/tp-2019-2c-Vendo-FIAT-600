@@ -96,8 +96,6 @@ void inicializarSemaforos(){
 	pthread_mutex_init(&mut_bitmap,NULL);
 }
 
-// muse_alloc
-
 int muse_alloc(char* id, uint32_t tamanio){
 	int theReturn;
 	pthread_mutex_lock(&mut_espacioDisponible);
@@ -494,7 +492,7 @@ int muse_alloc(char* id, uint32_t tamanio){
 	}
 }
 
-muse_free(char* id, uint32_t dir){
+int muse_free(char* id, uint32_t dir){
 	t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
 	if(listaSegmentos == NULL){
 		log_info(logger,"F no se encontro la tabla de segmentos de %s",id);
@@ -664,4 +662,173 @@ int muse_unmap(char* id, uint32_t dir){
 	return -1;
 }
 
+void* muse_get(char* id, uint32_t src, size_t n){
+	t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
+	if(listaSegmentos == NULL || list_is_empty(listaSegmentos)){
+		log_info(logger,"F por el programa %s que no existe o no tiene segmentos",id);
+		return -1;
+	}
 
+	Segmento* segmentoEncontrado = obtenerSegmentoPorDireccion(listaSegmentos,src);
+	if(segmentoEncontrado == NULL){
+		//no existe el segmento buscado o se paso del segmento
+		log_info(logger,"F - no se encontro segmento de %s",id);
+		return -1;
+	}
+	int direccionAlSegmento = src - segmentoEncontrado->base_logica;
+	void* resultado_muse_get = NULL;
+
+	int pagInicial = direccionAlSegmento / TAMANIO_PAGINA;
+	int pagFinal = techo((direccionAlSegmento + n) / TAMANIO_PAGINA) - 1;
+	int offset = direccionAlSegmento % TAMANIO_PAGINA;
+
+	if(segmentoEncontrado != NULL && segmentoEncontrado->tamanio - direccionAlSegmento >= n &&
+	pagInicial * TAMANIO_PAGINA + offset + n <= segmentoEncontrado->tamanio){
+
+		int cantidadPaginas = pagFinal - pagInicial + 1;
+		int tamanioTotal = cantidadPaginas * TAMANIO_PAGINA;
+		resultado_muse_get = malloc(n);
+		void* bloquesote = malloc(tamanioTotal);
+		int puntero = 0;
+
+		if(segmentoEncontrado->es_mmap){
+			//puede haber pags q nunca se levantaron (no estan en memoria)
+			paginasMapEnMemoria(direccionAlSegmento,n,segmentoEncontrado);
+		}
+		int i = 0;
+		while(i < cantidadPaginas){
+			Pagina* pag = list_get(segmentoEncontrado->paginas,pagInicial + i);
+			void* punteroMarco = obtenerPunteroAMarco(pag);
+			pag->bit_marco->bit_uso = true;
+			pag->presencia = true;
+			memcpy(bloquesote + puntero, punteroMarco, TAMANIO_PAGINA);
+
+			puntero += TAMANIO_PAGINA;
+			i++;
+		}
+
+		memcpy(resultado_muse_get, bloquesote + offset, n);
+		free(bloquesote);
+
+	}
+	log_info(logger,"La cosa que pidieron pasar es: %s",(char*)resultado_muse_get);
+	return resultado_muse_get;
+
+}
+
+void* muse_cpy(char* id, uint32_t dst, void* src, size_t n){
+	t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
+	if(listaSegmentos == NULL || list_is_empty(listaSegmentos)){
+		log_info(logger,"F por el programa %s que no existe o no tiene segmentos",id);
+		return -1;
+	}
+
+	Segmento* segmentoEncontrado = obtenerSegmentoPorDireccion(listaSegmentos,src);
+	if(segmentoEncontrado == NULL){
+		log_info(logger,"no se encontro segmento de %s",id);
+		return -1;
+	}
+
+	InfoHeap* metadataDestino = NULL;
+
+	int direccionSegmento = dst - segmentoEncontrado->base_logica;
+	if(!segmentoEncontrado->es_mmap){
+		if(list_size(segmentoEncontrado->status_metadata) > 0){
+			for(int i = 0; i < list_size(segmentoEncontrado->status_metadata); i++) {
+				InfoHeap* metadataAux = list_get(segmentoEncontrado->status_metadata,i);
+				if(metadataAux->direccion_heap + sizeof(HeapMetadata) <= direccionSegmento &&
+					metadataAux->direccion_heap + sizeof(HeapMetadata) + metadataAux->espacio > direccionSegmento && !metadataAux->libre)
+				{
+					metadataDestino = metadataAux;
+					break;
+				}
+			}
+		}
+		if(metadataDestino == NULL){
+			log_info(logger,"F por la direccion %i en el programa %s",dst,id); //segfault?
+			return -1;
+		}
+
+		int numPagina = direccionSegmento / TAMANIO_PAGINA;
+		Pagina* pagina = list_get(segmentoEncontrado->paginas,numPagina);
+		void* punteroMarco = obtenerPunteroAMarco(pagina);
+		pagina->bit_marco->bit_uso = true;
+		pagina->bit_marco->bit_modificado = true;
+		int sobrante = direccionSegmento % TAMANIO_PAGINA;
+		int loQuePuedo = TAMANIO_PAGINA - sobrante;
+		if(loQuePuedo <= n){
+			memcpy(punteroMarco + sobrante, src, loQuePuedo);
+		} else {
+			memcpy(punteroMarco + sobrante, src, n);
+			log_info(logger,"Los datos se pegaron en segmento %d, direccion %d",segmentoEncontrado->num_segmento,dst);
+			return 0;
+		}
+
+		// esto es en caso de que entre al if de arriba
+
+		numPagina++; //siguiente pagina
+		do{
+			int loQueFalta = n - loQuePuedo;
+
+			if(loQueFalta >= TAMANIO_PAGINA){
+				Pagina* pag = list_get(segmentoEncontrado->paginas,numPagina);
+				void* punteroMarco = obtenerPunteroAMarco(pag);
+				pag->bit_marco->bit_uso = true;
+				pag->bit_marco->bit_modificado = true;
+				memcpy(punteroMarco, src + loQuePuedo, TAMANIO_PAGINA);
+				loQuePuedo += TAMANIO_PAGINA;
+				numPagina++;
+			}
+			else if(loQueFalta > 0){
+				Pagina* pag = list_get(segmentoEncontrado->paginas,numPagina);
+				void* punteroMarco = obtenerPunteroAMarco(pag);
+				pag->bit_marco->bit_uso = true;
+				pag->bit_marco->bit_modificado = true;
+				memcpy(punteroMarco,src + loQuePuedo, loQueFalta);
+				break;
+			}
+			else{
+				log_info(logger,"Si entra acá me pego un corchazo en las re pelotas");
+				log_info(logger,"Podría ser peor igual");
+				log_info(logger,"idontwannabeyouanymore");
+				break;
+			}
+		}while (1);
+
+		log_info(logger,"Los datos se pegaron en segmento %d, direccion %d",segmentoEncontrado->num_segmento,dst);
+		return 0;
+	} else {
+		paginasMapEnMemoria(direccionSegmento,n,segmentoEncontrado);
+		int pagInicial = direccionSegmento / TAMANIO_PAGINA;
+		int offset = direccionSegmento % TAMANIO_PAGINA;
+		int pagFinal = (direccionSegmento + n) / TAMANIO_PAGINA;
+		if(pagInicial * TAMANIO_PAGINA + offset + n	> segmentoEncontrado->tamanio){
+			return -1;
+		}
+		int puntero = 0;
+		for(int i = pagInicial ; i <= pagFinal; i++){
+			Pagina* pag = list_get(segmentoEncontrado->paginas, i);
+			void* punteroMarco = obtenerPunteroAMarco(pag);
+			pag->bit_marco->bit_modificado = true;
+			pag->bit_marco->bit_uso = true;
+			if(pag->num_pagina == pagInicial){//si es la primera pego desde el off
+				if(pag->num_pagina == pagFinal){//es la primera y ulitma
+					memcpy(punteroMarco + offset, src, n);
+				}
+				else{
+					memcpy(punteroMarco + offset, src, TAMANIO_PAGINA - offset);
+					puntero += TAMANIO_PAGINA - offset;
+				}
+			}
+			else if(pag->num_pagina == pagFinal){
+				memcpy(punteroMarco, src + puntero, n - puntero);
+			}
+			else{
+				memcpy(punteroMarco,src + puntero, TAMANIO_PAGINA);
+				puntero += TAMANIO_PAGINA;
+			}
+		}
+
+		return 0;
+	}
+}
