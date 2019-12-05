@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "muse.h"
 
 int main(void) {
 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
