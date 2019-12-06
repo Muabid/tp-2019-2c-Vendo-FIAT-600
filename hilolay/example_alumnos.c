@@ -217,7 +217,6 @@ int suse_create(int tid){
 }
 
 int suse_schedule_next(void) {
-	start = (int) clock();
 	end = (int) clock();
 
 	int tiempo;
@@ -239,6 +238,7 @@ int suse_schedule_next(void) {
 	t_message* bufferLoco = recv_message(conectadoAlServer);
 	int numeroDeProceso = *(int*) bufferLoco->content;
 	free_t_message(bufferLoco);
+	start = (int) clock();
 	return numeroDeProceso;
 }
 
