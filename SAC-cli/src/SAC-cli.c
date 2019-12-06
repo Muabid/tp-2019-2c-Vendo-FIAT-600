@@ -541,6 +541,6 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	sock = connect_to_server("192.168.3.255", 8003, NULL); // Se establece la conexión
+	sock = connect_to_server("192.168.3.35", 8003, NULL); // Se establece la conexión
 	return fuse_main(args.argc, args.argv, &do_operations, NULL);
 }
