@@ -9,7 +9,7 @@
 
 int send_message(int socket, t_header head,const void* content, size_t size){
 	t_message* message = create_t_message(head,size,content);
-	int res = send(socket, &(message->size) , sizeof(size_t), 0);
+	int res = send(socket, &(message->size) , sizeof(size_t), MSG_NOSIGNAL);
 
 	if(res >= 0){
 		void* buffer = malloc(message->size);
