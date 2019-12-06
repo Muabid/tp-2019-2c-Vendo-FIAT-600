@@ -362,3 +362,885 @@
 [INFO] 14:12:52:469 log_suse.txt/(13837:14079): Suse Close: Se cerró el hilo 1
 [INFO] 14:12:52:511 log_suse.txt/(13837:14079): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
 
+[INFO] 16:41:01:746 log_suse.txt/(3154:3154): Se ha aceptado una conexion: 5
+
+[INFO] 16:41:01:755 log_suse.txt/(3154:3154): Handler asignado
+
+[INFO] 16:41:01:756 log_suse.txt/(3154:3188): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 16:41:01:756 log_suse.txt/(3154:3188): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 16:41:01:756 log_suse.txt/(3154:3188): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 16:41:01:756 log_suse.txt/(3154:3188): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 16:41:01:756 log_suse.txt/(3154:3188): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 16:50:02:557 log_suse.txt/(3741:3741): Se ha aceptado una conexion: 5
+
+[INFO] 16:50:02:557 log_suse.txt/(3741:3741): Handler asignado
+
+[INFO] 16:50:02:558 log_suse.txt/(3741:3842): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 16:50:02:558 log_suse.txt/(3741:3842): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 16:50:02:558 log_suse.txt/(3741:3842): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 16:50:02:558 log_suse.txt/(3741:3842): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 16:50:02:558 log_suse.txt/(3741:3842): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 16:50:03:575 log_suse.txt/(3741:3842): Suse Close: Se cerró el hilo 1
+[INFO] 16:50:14:740 log_suse.txt/(3741:3842): Suse Close: Se cerró el hilo 2
+[INFO] 16:50:18:59 log_suse.txt/(3741:3842): Suse Close: Se cerró el hilo 3
+[INFO] 16:52:20:242 log_suse.txt/(3895:3895): Se ha aceptado una conexion: 5
+
+[INFO] 16:52:20:243 log_suse.txt/(3895:3895): Handler asignado
+
+[INFO] 16:52:20:243 log_suse.txt/(3895:3904): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 16:52:20:243 log_suse.txt/(3895:3904): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 16:52:20:243 log_suse.txt/(3895:3904): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 16:52:20:243 log_suse.txt/(3895:3904): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 16:52:20:243 log_suse.txt/(3895:3904): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 16:52:21:263 log_suse.txt/(3895:3904): Suse Close: Se cerró el hilo 1
+[INFO] 16:52:32:344 log_suse.txt/(3895:3904): Suse Close: Se cerró el hilo 4
+[INFO] 16:52:38:828 log_suse.txt/(3895:3904): Suse Close: Se cerró el hilo 2
+[INFO] 16:52:42:147 log_suse.txt/(3895:3904): Suse Close: Se cerró el hilo 3
+[INFO] 16:53:39:900 log_suse.txt/(4019:4019): Se ha aceptado una conexion: 5
+
+[INFO] 16:53:39:901 log_suse.txt/(4019:4019): Handler asignado
+
+[INFO] 16:53:39:902 log_suse.txt/(4019:4040): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 16:53:39:902 log_suse.txt/(4019:4040): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 16:53:39:902 log_suse.txt/(4019:4040): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 16:53:39:902 log_suse.txt/(4019:4040): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 16:53:39:902 log_suse.txt/(4019:4040): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 16:53:40:419 log_suse.txt/(4019:4040): Suse Close: Se cerró el hilo 1
+[INFO] 16:53:43:59 log_suse.txt/(4019:4040): Suse Close: Se cerró el hilo 2
+[INFO] 16:53:43:220 log_suse.txt/(4019:4040): Suse Close: Se cerró el hilo 4
+[INFO] 16:53:43:220 log_suse.txt/(4019:4040): Suse Close: Se cerró el hilo 3
+[INFO] 16:53:43:261 log_suse.txt/(4019:4040): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
+
+[INFO] 16:54:19:396 log_suse.txt/(4019:4019): Se ha aceptado una conexion: 6
+
+[INFO] 16:54:19:398 log_suse.txt/(4019:4019): Handler asignado
+
+[INFO] 16:54:19:399 log_suse.txt/(4019:4059): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 16:54:19:399 log_suse.txt/(4019:4059): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 16:54:19:399 log_suse.txt/(4019:4059): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 16:54:19:399 log_suse.txt/(4019:4059): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 16:54:19:399 log_suse.txt/(4019:4059): Se creó un nuevo hilo número 4 del programa 2
+[INFO] 16:54:19:935 log_suse.txt/(4019:4059): Suse Close: Se cerró el hilo 1
+[INFO] 16:54:22:583 log_suse.txt/(4019:4059): Suse Close: Se cerró el hilo 4
+[INFO] 16:54:22:663 log_suse.txt/(4019:4059): Suse Close: Se cerró el hilo 3
+[INFO] 16:54:22:743 log_suse.txt/(4019:4059): Suse Close: Se cerró el hilo 2
+[ERROR] 16:54:22:823 log_suse.txt/(4019:4059): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 16:54:22:824 log_suse.txt/(4019:4059): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 16:54:22:903 log_suse.txt/(4019:4059): El hilo ya se encontraba bloqueado
+[ERROR] 16:54:22:903 log_suse.txt/(4019:4059): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 16:54:22:903 log_suse.txt/(4019:4059): El hilo ya se encontraba bloqueado
+[ERROR] 16:54:22:903 log_suse.txt/(4019:4059): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 16:54:22:945 log_suse.txt/(4019:4059): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
+
+[INFO] 16:55:14:396 log_suse.txt/(4019:4019): Se ha aceptado una conexion: 5
+
+[INFO] 16:55:14:397 log_suse.txt/(4019:4019): Handler asignado
+
+[INFO] 16:55:14:397 log_suse.txt/(4019:4179): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 16:55:14:397 log_suse.txt/(4019:4179): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 16:55:14:397 log_suse.txt/(4019:4179): Se creó un nuevo hilo número 2 del programa 3
+[INFO] 16:55:14:397 log_suse.txt/(4019:4179): Se creó un nuevo hilo número 3 del programa 3
+[INFO] 16:55:14:397 log_suse.txt/(4019:4179): Se creó un nuevo hilo número 4 del programa 3
+[INFO] 16:55:15:735 log_suse.txt/(4019:4179): Suse Close: Se cerró el hilo 1
+[INFO] 16:55:26:499 log_suse.txt/(4019:4179): Suse Close: Se cerró el hilo 3
+[INFO] 16:55:32:979 log_suse.txt/(4019:4179): Suse Close: Se cerró el hilo 2
+[INFO] 16:55:36:299 log_suse.txt/(4019:4179): Suse Close: Se cerró el hilo 4
+[INFO] 16:56:14:745 log_suse.txt/(4203:4203): Se ha aceptado una conexion: 5
+
+[INFO] 16:56:14:745 log_suse.txt/(4203:4203): Handler asignado
+
+[INFO] 16:56:14:746 log_suse.txt/(4203:4212): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 16:56:14:746 log_suse.txt/(4203:4212): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 16:56:14:746 log_suse.txt/(4203:4212): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 16:56:14:746 log_suse.txt/(4203:4212): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 16:56:14:746 log_suse.txt/(4203:4212): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 16:56:15:763 log_suse.txt/(4203:4212): Suse Close: Se cerró el hilo 1
+[INFO] 16:56:26:851 log_suse.txt/(4203:4212): Suse Close: Se cerró el hilo 2
+[INFO] 16:56:30:172 log_suse.txt/(4203:4212): Suse Close: Se cerró el hilo 4
+[INFO] 17:01:55:474 log_suse.txt/(4363:4363): Se ha aceptado una conexion: 5
+
+[INFO] 17:01:55:474 log_suse.txt/(4363:4363): Handler asignado
+
+[INFO] 17:01:55:475 log_suse.txt/(4363:4372): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:01:55:475 log_suse.txt/(4363:4372): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:01:55:475 log_suse.txt/(4363:4372): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:01:55:475 log_suse.txt/(4363:4372): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:01:55:475 log_suse.txt/(4363:4372): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:01:56:491 log_suse.txt/(4363:4372): Suse Close: Se cerró el hilo 1
+[INFO] 17:02:07:571 log_suse.txt/(4363:4372): Suse Close: Se cerró el hilo 4
+[INFO] 17:02:14:52 log_suse.txt/(4363:4372): Suse Close: Se cerró el hilo 3
+[INFO] 17:02:20:531 log_suse.txt/(4363:4372): Suse Close: Se cerró el hilo 2
+[ERROR] 17:02:20:612 log_suse.txt/(4363:4372): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:02:20:612 log_suse.txt/(4363:4372): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:02:20:691 log_suse.txt/(4363:4372): El hilo ya se encontraba bloqueado
+[ERROR] 17:02:20:691 log_suse.txt/(4363:4372): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:02:20:691 log_suse.txt/(4363:4372): El hilo ya se encontraba bloqueado
+[ERROR] 17:02:20:691 log_suse.txt/(4363:4372): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 17:02:20:733 log_suse.txt/(4363:4372): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
+
+[INFO] 17:04:15:353 log_suse.txt/(4468:4468): Se ha aceptado una conexion: 5
+
+[INFO] 17:04:15:354 log_suse.txt/(4468:4468): Handler asignado
+
+[INFO] 17:04:15:354 log_suse.txt/(4468:4482): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:04:15:354 log_suse.txt/(4468:4482): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:04:15:354 log_suse.txt/(4468:4482): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:04:15:354 log_suse.txt/(4468:4482): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:04:15:354 log_suse.txt/(4468:4482): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:04:16:222 log_suse.txt/(4468:4482): Suse Close: Se cerró el hilo 1
+[INFO] 17:04:27:467 log_suse.txt/(4468:4482): Suse Close: Se cerró el hilo 2
+[INFO] 17:04:30:803 log_suse.txt/(4468:4482): Suse Close: Se cerró el hilo 3
+[INFO] 17:08:46:37 log_suse.txt/(4648:4648): Se ha aceptado una conexion: 5
+
+[INFO] 17:08:46:37 log_suse.txt/(4648:4648): Handler asignado
+
+[INFO] 17:08:46:38 log_suse.txt/(4648:4659): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:08:46:38 log_suse.txt/(4648:4659): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:08:46:38 log_suse.txt/(4648:4659): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:08:46:38 log_suse.txt/(4648:4659): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:08:46:38 log_suse.txt/(4648:4659): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:08:46:975 log_suse.txt/(4648:4659): Suse Close: Se cerró el hilo 1
+[INFO] 17:08:58:135 log_suse.txt/(4648:4659): Suse Close: Se cerró el hilo 3
+[INFO] 17:09:04:615 log_suse.txt/(4648:4659): Suse Close: Se cerró el hilo 4
+[INFO] 17:09:11:95 log_suse.txt/(4648:4659): Suse Close: Se cerró el hilo 2
+[ERROR] 17:09:11:175 log_suse.txt/(4648:4659): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:09:11:176 log_suse.txt/(4648:4659): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:09:11:255 log_suse.txt/(4648:4659): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:09:11:255 log_suse.txt/(4648:4659): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 17:09:11:297 log_suse.txt/(4648:4659): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
+
+[INFO] 17:14:20:647 log_suse.txt/(4854:4854): Falló al aceptar conexión
+[INFO] 17:16:00:810 log_suse.txt/(4875:4875): Se ha aceptado una conexion: 5
+
+[INFO] 17:16:00:811 log_suse.txt/(4875:4875): Handler asignado
+
+[INFO] 17:16:00:811 log_suse.txt/(4875:5128): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:16:00:811 log_suse.txt/(4875:5128): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:16:00:811 log_suse.txt/(4875:5128): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:16:00:812 log_suse.txt/(4875:5128): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:16:00:812 log_suse.txt/(4875:5128): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:16:01:831 log_suse.txt/(4875:5128): Suse Close: Se cerró el hilo 1
+[INFO] 17:17:27:555 log_suse.txt/(5219:5219): Se ha aceptado una conexion: 5
+
+[INFO] 17:17:27:555 log_suse.txt/(5219:5219): Handler asignado
+
+[INFO] 17:17:27:555 log_suse.txt/(5219:5233): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:17:27:556 log_suse.txt/(5219:5233): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:17:27:556 log_suse.txt/(5219:5233): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:17:27:556 log_suse.txt/(5219:5233): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:17:27:556 log_suse.txt/(5219:5233): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:17:28:575 log_suse.txt/(5219:5233): Suse Close: Se cerró el hilo 1
+[INFO] 17:17:39:679 log_suse.txt/(5219:5233): Suse Close: Se cerró el hilo 3
+[INFO] 17:17:46:160 log_suse.txt/(5219:5233): Suse Close: Se cerró el hilo 4
+[INFO] 17:17:52:639 log_suse.txt/(5219:5233): Suse Close: Se cerró el hilo 2
+[ERROR] 17:17:52:719 log_suse.txt/(5219:5233): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:17:52:719 log_suse.txt/(5219:5233): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:17:52:799 log_suse.txt/(5219:5233): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 17:17:52:799 log_suse.txt/(5219:5233): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 17:17:52:841 log_suse.txt/(5219:5233): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
+
+[INFO] 17:28:06:466 log_suse.txt/(5662:5662): Se ha aceptado una conexion: 5
+
+[INFO] 17:28:06:466 log_suse.txt/(5662:5662): Handler asignado
+
+[INFO] 17:28:06:467 log_suse.txt/(5662:5672): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:28:06:467 log_suse.txt/(5662:5672): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:28:06:467 log_suse.txt/(5662:5672): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:28:06:467 log_suse.txt/(5662:5672): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:28:06:467 log_suse.txt/(5662:5672): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:28:07:487 log_suse.txt/(5662:5672): Suse Close: Se cerró el hilo 1
+[INFO] 17:29:56:80 log_suse.txt/(5753:5753): Se ha aceptado una conexion: 5
+
+[INFO] 17:29:56:81 log_suse.txt/(5753:5753): Handler asignado
+
+[INFO] 17:29:56:81 log_suse.txt/(5753:5762): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:29:56:81 log_suse.txt/(5753:5762): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:29:56:81 log_suse.txt/(5753:5762): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:29:56:81 log_suse.txt/(5753:5762): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:29:56:81 log_suse.txt/(5753:5762): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:29:57:100 log_suse.txt/(5753:5762): Suse Close: Se cerró el hilo 1
+[INFO] 17:30:08:179 log_suse.txt/(5753:5762): Suse Close: Se cerró el hilo 4
+[INFO] 17:30:14:660 log_suse.txt/(5753:5762): Suse Close: Se cerró el hilo 3
+[INFO] 17:30:21:143 log_suse.txt/(5753:5762): Suse Close: Se cerró el hilo 2
+[ERROR] 17:30:21:223 log_suse.txt/(5753:5762): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 17:33:40:483 log_suse.txt/(5902:5902): Se ha aceptado una conexion: 5
+
+[INFO] 17:33:40:483 log_suse.txt/(5902:5902): Handler asignado
+
+[INFO] 17:33:40:487 log_suse.txt/(5902:5916): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:33:40:487 log_suse.txt/(5902:5916): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:33:40:487 log_suse.txt/(5902:5916): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:33:40:488 log_suse.txt/(5902:5916): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:33:40:488 log_suse.txt/(5902:5916): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:33:41:508 log_suse.txt/(5902:5916): Suse Close: Se cerró el hilo 1
+[INFO] 17:33:52:591 log_suse.txt/(5902:5916): Suse Close: Se cerró el hilo 4
+[INFO] 17:33:59:83 log_suse.txt/(5902:5916): Suse Close: Se cerró el hilo 2
+[INFO] 17:34:02:403 log_suse.txt/(5902:5916): Suse Close: Se cerró el hilo 3
+[INFO] 17:37:57:118 log_suse.txt/(6132:6132): Se ha aceptado una conexion: 5
+
+[INFO] 17:37:57:118 log_suse.txt/(6132:6132): Handler asignado
+
+[INFO] 17:37:57:119 log_suse.txt/(6132:6146): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:37:57:119 log_suse.txt/(6132:6146): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:37:57:119 log_suse.txt/(6132:6146): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:37:57:119 log_suse.txt/(6132:6146): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:37:57:119 log_suse.txt/(6132:6146): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:37:58:139 log_suse.txt/(6132:6146): Suse Close: Se cerró el hilo 1
+[INFO] 17:38:09:251 log_suse.txt/(6132:6146): Suse Close: Se cerró el hilo 2
+[INFO] 17:38:12:580 log_suse.txt/(6132:6146): Suse Close: Se cerró el hilo 4
+[INFO] 17:38:58:709 log_suse.txt/(6205:6205): Se ha aceptado una conexion: 5
+
+[INFO] 17:38:58:710 log_suse.txt/(6205:6205): Handler asignado
+
+[INFO] 17:38:58:710 log_suse.txt/(6205:6219): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:38:58:711 log_suse.txt/(6205:6219): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:38:58:711 log_suse.txt/(6205:6219): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:38:58:711 log_suse.txt/(6205:6219): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:38:58:711 log_suse.txt/(6205:6219): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:38:59:731 log_suse.txt/(6205:6219): Suse Close: Se cerró el hilo 1
+[INFO] 17:39:10:843 log_suse.txt/(6205:6219): Suse Close: Se cerró el hilo 4
+[INFO] 17:39:17:323 log_suse.txt/(6205:6219): Suse Close: Se cerró el hilo 2
+[INFO] 17:39:20:643 log_suse.txt/(6205:6219): Suse Close: Se cerró el hilo 3
+[INFO] 17:39:37:150 log_suse.txt/(6255:6255): Se ha aceptado una conexion: 5
+
+[INFO] 17:39:37:151 log_suse.txt/(6255:6255): Handler asignado
+
+[INFO] 17:39:37:151 log_suse.txt/(6255:6265): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:39:37:151 log_suse.txt/(6255:6265): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:39:37:151 log_suse.txt/(6255:6265): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:39:37:151 log_suse.txt/(6255:6265): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:39:37:151 log_suse.txt/(6255:6265): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:39:38:171 log_suse.txt/(6255:6265): Suse Close: Se cerró el hilo 1
+[INFO] 17:39:49:127 log_suse.txt/(6255:6265): Suse Close: Se cerró el hilo 3
+[INFO] 17:39:55:695 log_suse.txt/(6255:6265): Suse Close: Se cerró el hilo 4
+[INFO] 17:40:02:264 log_suse.txt/(6255:6265): Suse Close: Se cerró el hilo 2
+[ERROR] 17:40:02:343 log_suse.txt/(6255:6265): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 17:42:36:817 log_suse.txt/(6455:6455): Se ha aceptado una conexion: 5
+
+[INFO] 17:42:36:817 log_suse.txt/(6455:6455): Handler asignado
+
+[INFO] 17:42:36:818 log_suse.txt/(6455:6464): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:42:36:818 log_suse.txt/(6455:6464): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:42:36:818 log_suse.txt/(6455:6464): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:42:36:818 log_suse.txt/(6455:6464): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:42:36:818 log_suse.txt/(6455:6464): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:42:37:835 log_suse.txt/(6455:6464): Suse Close: Se cerró el hilo 1
+[INFO] 17:42:48:931 log_suse.txt/(6455:6464): Suse Close: Se cerró el hilo 3
+[INFO] 17:42:55:411 log_suse.txt/(6455:6464): Suse Close: Se cerró el hilo 2
+[INFO] 17:45:58:326 log_suse.txt/(6626:6626): Se ha aceptado una conexion: 5
+
+[INFO] 17:45:58:326 log_suse.txt/(6626:6626): Handler asignado
+
+[INFO] 17:45:58:327 log_suse.txt/(6626:6640): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:45:58:327 log_suse.txt/(6626:6640): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:45:58:327 log_suse.txt/(6626:6640): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:45:58:327 log_suse.txt/(6626:6640): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:45:58:327 log_suse.txt/(6626:6640): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:45:59:347 log_suse.txt/(6626:6640): Suse Close: Se cerró el hilo 1
+[INFO] 17:46:10:427 log_suse.txt/(6626:6640): Suse Close: Se cerró el hilo 4
+[INFO] 17:46:16:907 log_suse.txt/(6626:6640): Suse Close: Se cerró el hilo 2
+[INFO] 17:46:20:228 log_suse.txt/(6626:6640): Suse Close: Se cerró el hilo 3
+[INFO] 17:51:31:822 log_suse.txt/(6816:6816): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:51:31:823 log_suse.txt/(6816:6816): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:51:31:823 log_suse.txt/(6816:6816): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:51:31:823 log_suse.txt/(6816:6816): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:51:31:824 log_suse.txt/(6816:6816): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:51:32:843 log_suse.txt/(6816:6816): Suse Close: Se cerró el hilo 1
+[INFO] 17:51:44:3 log_suse.txt/(6816:6816): Suse Close: Se cerró el hilo 2
+[INFO] 17:51:47:284 log_suse.txt/(6816:6816): Suse Close: Se cerró el hilo 4
+[INFO] 17:51:47:325 log_suse.txt/(6816:6816): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
+
+[INFO] 17:54:38:916 log_suse.txt/(7022:7022): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:54:38:917 log_suse.txt/(7022:7022): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:54:38:917 log_suse.txt/(7022:7022): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:54:38:917 log_suse.txt/(7022:7022): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:54:38:917 log_suse.txt/(7022:7022): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:54:39:435 log_suse.txt/(7022:7022): Suse Close: Se cerró el hilo 1
+[INFO] 17:54:42:75 log_suse.txt/(7022:7022): Suse Close: Se cerró el hilo 2
+[INFO] 17:54:42:235 log_suse.txt/(7022:7022): Suse Close: Se cerró el hilo 3
+[INFO] 17:54:42:235 log_suse.txt/(7022:7022): Suse Close: Se cerró el hilo 4
+[INFO] 17:54:42:277 log_suse.txt/(7022:7022): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
+
+[INFO] 17:56:19:539 log_suse.txt/(7089:7089): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 17:56:19:539 log_suse.txt/(7089:7089): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 17:56:19:539 log_suse.txt/(7089:7089): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 17:56:19:539 log_suse.txt/(7089:7089): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 17:56:19:539 log_suse.txt/(7089:7089): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 17:57:38:872 log_suse.txt/(7089:7089): Suse Close: Se cerró el hilo 1
+[INFO] 17:57:41:511 log_suse.txt/(7089:7089): Suse Close: Se cerró el hilo 2
+[INFO] 20:05:02:416 log_suse.txt/(9923:9923): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:05:02:419 log_suse.txt/(9923:9923): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:05:02:419 log_suse.txt/(9923:9923): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 20:05:02:419 log_suse.txt/(9923:9923): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 20:05:02:419 log_suse.txt/(9923:9923): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 20:05:02:939 log_suse.txt/(9923:9923): Suse Close: Se cerró el hilo 1
+[INFO] 20:05:05:579 log_suse.txt/(9923:9923): Suse Close: Se cerró el hilo 2
+[INFO] 20:05:05:740 log_suse.txt/(9923:9923): Suse Close: Se cerró el hilo 3
+[INFO] 20:05:05:740 log_suse.txt/(9923:9923): Suse Close: Se cerró el hilo 4
+[INFO] 20:05:05:781 log_suse.txt/(9923:9923): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 101.
+
+[INFO] 20:07:41:477 log_suse.txt/(10025:10025): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:07:41:483 log_suse.txt/(10025:10025): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:07:41:483 log_suse.txt/(10025:10025): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 20:07:41:483 log_suse.txt/(10025:10025): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 20:07:41:483 log_suse.txt/(10025:10025): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 20:07:42:83 log_suse.txt/(10025:10025): Suse Close: Se cerró el hilo 1
+[INFO] 20:07:44:643 log_suse.txt/(10025:10025): Suse Close: Se cerró el hilo 4
+[INFO] 20:07:44:723 log_suse.txt/(10025:10025): Suse Close: Se cerró el hilo 2
+[INFO] 20:07:44:883 log_suse.txt/(10025:10025): Suse Close: Se cerró el hilo 3
+[INFO] 20:07:45:84 log_suse.txt/(10025:10025): Suse Close: Se cerró el hilo 0
+[INFO] 20:07:45:86 log_suse.txt/(10025:10025): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:08:26:176 log_suse.txt/(10128:10128): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:08:26:176 log_suse.txt/(10128:10128): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:08:26:177 log_suse.txt/(10128:10128): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 20:08:26:177 log_suse.txt/(10128:10128): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 20:08:26:177 log_suse.txt/(10128:10128): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 20:08:27:195 log_suse.txt/(10128:10128): Suse Close: Se cerró el hilo 1
+[INFO] 20:08:38:283 log_suse.txt/(10128:10128): Suse Close: Se cerró el hilo 4
+[INFO] 20:08:44:795 log_suse.txt/(10128:10128): Suse Close: Se cerró el hilo 2
+[INFO] 20:08:51:355 log_suse.txt/(10128:10128): Suse Close: Se cerró el hilo 3
+[INFO] 20:08:51:555 log_suse.txt/(10128:10128): Suse Close: Se cerró el hilo 0
+[INFO] 20:08:51:557 log_suse.txt/(10128:10128): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:19:28:966 log_suse.txt/(10421:10421): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:19:28:968 log_suse.txt/(10421:10421): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:19:28:968 log_suse.txt/(10421:10421): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 20:19:28:968 log_suse.txt/(10421:10421): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 20:19:28:968 log_suse.txt/(10421:10421): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 20:19:29:987 log_suse.txt/(10421:10421): Suse Close: Se cerró el hilo 1
+[INFO] 20:19:41:76 log_suse.txt/(10421:10421): Suse Close: Se cerró el hilo 4
+[INFO] 20:19:47:555 log_suse.txt/(10421:10421): Suse Close: Se cerró el hilo 2
+[INFO] 20:19:54:115 log_suse.txt/(10421:10421): Suse Close: Se cerró el hilo 3
+[ERROR] 20:19:54:195 log_suse.txt/(10421:10421): No se encuentra el hilo a joinear
+[ERROR] 20:19:54:276 log_suse.txt/(10421:10421): No se encuentra el hilo a joinear
+[INFO] 20:19:54:316 log_suse.txt/(10421:10421): Suse Close: Se cerró el hilo 0
+[INFO] 20:19:54:318 log_suse.txt/(10421:10421): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:22:31:386 log_suse.txt/(10529:10529): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:22:31:386 log_suse.txt/(10529:10529): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:22:31:386 log_suse.txt/(10529:10529): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 20:22:31:386 log_suse.txt/(10529:10529): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 20:22:31:386 log_suse.txt/(10529:10529): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 20:22:32:407 log_suse.txt/(10529:10529): Suse Close: Se cerró el hilo 1
+[INFO] 20:22:43:503 log_suse.txt/(10529:10529): Suse Close: Se cerró el hilo 4
+[INFO] 20:22:50:36 log_suse.txt/(10529:10529): Suse Close: Se cerró el hilo 2
+[INFO] 20:22:56:615 log_suse.txt/(10529:10529): Suse Close: Se cerró el hilo 3
+[ERROR] 20:22:56:699 log_suse.txt/(10529:10529): No se encuentra el hilo a joinear
+
+[ERROR] 20:22:56:780 log_suse.txt/(10529:10529): No se encuentra el hilo a joinear
+
+[INFO] 20:22:56:819 log_suse.txt/(10529:10529): Suse Close: Se cerró el hilo 0
+[INFO] 20:22:56:821 log_suse.txt/(10529:10529): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:25:05:332 log_suse.txt/(10697:10697): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:25:05:333 log_suse.txt/(10697:10697): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:25:05:711 log_suse.txt/(10697:10697): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:25:05:713 log_suse.txt/(10697:10697): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:25:05:713 log_suse.txt/(10697:10697): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:26:22:176 log_suse.txt/(10735:10735): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:26:22:176 log_suse.txt/(10735:10735): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:26:22:555 log_suse.txt/(10735:10735): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:26:22:557 log_suse.txt/(10735:10735): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:26:22:558 log_suse.txt/(10735:10735): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:29:03:68 log_suse.txt/(10832:10832): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:29:03:68 log_suse.txt/(10832:10832): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:29:03:447 log_suse.txt/(10832:10832): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:29:03:449 log_suse.txt/(10832:10832): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:29:03:449 log_suse.txt/(10832:10832): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:30:25:684 log_suse.txt/(10896:10896): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:30:25:684 log_suse.txt/(10896:10896): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:30:26:63 log_suse.txt/(10896:10896): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:30:26:65 log_suse.txt/(10896:10896): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:30:26:65 log_suse.txt/(10896:10896): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:31:29:592 log_suse.txt/(10934:10934): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:31:29:592 log_suse.txt/(10934:10934): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:31:29:972 log_suse.txt/(10934:10934): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:31:29:974 log_suse.txt/(10934:10934): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:31:29:974 log_suse.txt/(10934:10934): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:32:53:864 log_suse.txt/(11003:11003): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:32:53:873 log_suse.txt/(11003:11003): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:32:54:251 log_suse.txt/(11003:11003): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:32:54:253 log_suse.txt/(11003:11003): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:32:54:254 log_suse.txt/(11003:11003): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:33:42:664 log_suse.txt/(11066:11066): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:33:42:664 log_suse.txt/(11066:11066): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:33:43:43 log_suse.txt/(11066:11066): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:33:43:46 log_suse.txt/(11066:11066): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:33:43:46 log_suse.txt/(11066:11066): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 20:35:43:652 log_suse.txt/(11170:11170): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:35:43:652 log_suse.txt/(11170:11170): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:35:44:31 log_suse.txt/(11170:11170): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:35:44:34 log_suse.txt/(11170:11170): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:36:31:96 log_suse.txt/(11229:11229): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 20:36:31:96 log_suse.txt/(11229:11229): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 20:36:31:475 log_suse.txt/(11229:11229): Suse Close: Se cerró el hilo 1
+
+[INFO] 20:36:31:478 log_suse.txt/(11229:11229): Suse Close: Se cerró el hilo 0
+
+[INFO] 20:36:31:478 log_suse.txt/(11229:11229): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:32:57:56 log_suse.txt/(12975:12975): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:32:57:56 log_suse.txt/(12975:12975): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:32:58:55 log_suse.txt/(12975:12975): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:32:58:95 log_suse.txt/(12975:12975): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:32:58:97 log_suse.txt/(12975:12975): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:34:46:717 log_suse.txt/(13456:13456): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:34:46:721 log_suse.txt/(13456:13456): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:34:46:724 log_suse.txt/(13456:13456): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:34:46:724 log_suse.txt/(13456:13456): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:34:46:724 log_suse.txt/(13456:13456): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:34:49:646 log_suse.txt/(13456:13456): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:36:11:607 log_suse.txt/(13456:13456): Suse Close: Se cerró el hilo 2
+
+[INFO] 21:37:30:174 log_suse.txt/(13456:13456): Suse Close: Se cerró el hilo 3
+
+[INFO] 21:38:48:787 log_suse.txt/(13456:13456): Suse Close: Se cerró el hilo 4
+
+[ERROR] 21:38:48:868 log_suse.txt/(13456:13456): No se encuentra el hilo a joinear
+
+[INFO] 21:38:48:907 log_suse.txt/(13456:13456): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:38:48:909 log_suse.txt/(13456:13456): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:40:33:586 log_suse.txt/(13782:13782): Se ha aceptado una conexion: 5
+
+[INFO] 21:40:33:588 log_suse.txt/(13782:13782): Handler asignado
+
+[INFO] 21:40:33:588 log_suse.txt/(13782:13797): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:40:33:588 log_suse.txt/(13782:13797): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:40:33:588 log_suse.txt/(13782:13797): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:40:33:589 log_suse.txt/(13782:13797): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:40:33:589 log_suse.txt/(13782:13797): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:40:36:507 log_suse.txt/(13782:13797): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:41:37:533 log_suse.txt/(13782:13797): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:41:51:794 log_suse.txt/(13782:13782): Se ha aceptado una conexion: 6
+
+[INFO] 21:41:51:794 log_suse.txt/(13782:13782): Handler asignado
+
+[INFO] 21:41:51:795 log_suse.txt/(13782:13817): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 21:41:51:795 log_suse.txt/(13782:13817): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 21:41:51:795 log_suse.txt/(13782:13817): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 21:41:51:795 log_suse.txt/(13782:13817): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 21:41:51:795 log_suse.txt/(13782:13817): Se creó un nuevo hilo número 4 del programa 2
+[INFO] 21:41:53:762 log_suse.txt/(13782:13817): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:41:55:632 log_suse.txt/(13782:13817): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:41:56:749 log_suse.txt/(13782:13782): Se ha aceptado una conexion: 5
+
+[INFO] 21:41:56:749 log_suse.txt/(13782:13782): Handler asignado
+
+[INFO] 21:41:56:749 log_suse.txt/(13782:13822): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 21:41:56:749 log_suse.txt/(13782:13822): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 21:41:56:749 log_suse.txt/(13782:13822): Se creó un nuevo hilo número 2 del programa 3
+[INFO] 21:41:56:749 log_suse.txt/(13782:13822): Se creó un nuevo hilo número 3 del programa 3
+[INFO] 21:41:56:749 log_suse.txt/(13782:13822): Se creó un nuevo hilo número 4 del programa 3
+[ERROR] 21:41:56:749 log_suse.txt/(13782:13822): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 21:41:56:787 log_suse.txt/(13782:13822): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 21:41:56:866 log_suse.txt/(13782:13822): Se planifo el hilo: ERROR MESSAGE
+
+[ERROR] 21:41:56:947 log_suse.txt/(13782:13822): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 21:42:38:421 log_suse.txt/(13839:13839): Se ha aceptado una conexion: 5
+
+[INFO] 21:42:38:421 log_suse.txt/(13839:13839): Handler asignado
+
+[INFO] 21:42:38:422 log_suse.txt/(13839:13967): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:42:38:422 log_suse.txt/(13839:13967): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:42:38:422 log_suse.txt/(13839:13967): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:42:38:422 log_suse.txt/(13839:13967): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:42:38:422 log_suse.txt/(13839:13967): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:42:50:138 log_suse.txt/(13839:13967): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:42:58:379 log_suse.txt/(13839:13967): Suse Close: Se cerró el hilo 4
+
+[INFO] 21:43:04:862 log_suse.txt/(13839:13967): Suse Close: Se cerró el hilo 2
+
+[INFO] 21:43:11:224 log_suse.txt/(13839:13967): Suse Close: Se cerró el hilo 3
+
+[ERROR] 21:43:11:305 log_suse.txt/(13839:13967): No se encuentra el hilo a joinear
+
+[ERROR] 21:43:11:384 log_suse.txt/(13839:13967): No se encuentra el hilo a joinear
+
+[INFO] 21:43:11:424 log_suse.txt/(13839:13967): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:43:11:426 log_suse.txt/(13839:13967): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:43:26:23 log_suse.txt/(13839:13839): Se ha aceptado una conexion: 6
+
+[INFO] 21:43:26:24 log_suse.txt/(13839:13839): Handler asignado
+
+[INFO] 21:43:26:24 log_suse.txt/(13839:14043): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 21:43:26:25 log_suse.txt/(13839:14043): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 21:43:26:25 log_suse.txt/(13839:14043): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 21:43:26:25 log_suse.txt/(13839:14043): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 21:43:26:25 log_suse.txt/(13839:14043): Se creó un nuevo hilo número 4 del programa 2
+[INFO] 21:43:37:780 log_suse.txt/(13839:14043): Suse Close: Se cerró el hilo 3
+
+[INFO] 21:43:46:20 log_suse.txt/(13839:14043): Suse Close: Se cerró el hilo 4
+
+[INFO] 21:43:52:504 log_suse.txt/(13839:14043): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:43:58:984 log_suse.txt/(13839:14043): Suse Close: Se cerró el hilo 2
+
+[ERROR] 21:43:59:64 log_suse.txt/(13839:14043): No se encuentra el hilo a joinear
+
+[ERROR] 21:43:59:144 log_suse.txt/(13839:14043): No se encuentra el hilo a joinear
+
+[ERROR] 21:43:59:224 log_suse.txt/(13839:14043): No se encuentra el hilo a joinear
+
+[INFO] 21:43:59:265 log_suse.txt/(13839:14043): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:43:59:267 log_suse.txt/(13839:14043): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:44:39:425 log_suse.txt/(13839:13839): Se ha aceptado una conexion: 5
+
+[INFO] 21:44:39:425 log_suse.txt/(13839:13839): Handler asignado
+
+[INFO] 21:44:39:429 log_suse.txt/(13839:14081): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 21:44:39:429 log_suse.txt/(13839:14081): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 21:44:39:429 log_suse.txt/(13839:14081): Se creó un nuevo hilo número 2 del programa 3
+[INFO] 21:44:39:429 log_suse.txt/(13839:14081): Se creó un nuevo hilo número 3 del programa 3
+[INFO] 21:44:39:429 log_suse.txt/(13839:14081): Se creó un nuevo hilo número 4 del programa 3
+[INFO] 21:44:51:160 log_suse.txt/(13839:14081): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:44:59:411 log_suse.txt/(13839:14081): Suse Close: Se cerró el hilo 4
+
+[INFO] 21:45:05:889 log_suse.txt/(13839:14081): Suse Close: Se cerró el hilo 2
+
+[INFO] 21:45:12:448 log_suse.txt/(13839:14081): Suse Close: Se cerró el hilo 3
+
+[ERROR] 21:45:12:528 log_suse.txt/(13839:14081): No se encuentra el hilo a joinear
+
+[ERROR] 21:45:12:609 log_suse.txt/(13839:14081): No se encuentra el hilo a joinear
+
+[INFO] 21:45:12:649 log_suse.txt/(13839:14081): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:45:12:650 log_suse.txt/(13839:14081): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:45:57:122 log_suse.txt/(13839:13839): Se ha aceptado una conexion: 6
+
+[INFO] 21:45:57:122 log_suse.txt/(13839:13839): Handler asignado
+
+[INFO] 21:45:57:123 log_suse.txt/(13839:14101): Se creó un nuevo hilo número 0 del programa 4
+[INFO] 21:45:57:123 log_suse.txt/(13839:14101): Se creó un nuevo hilo número 1 del programa 4
+[INFO] 21:45:57:123 log_suse.txt/(13839:14101): Se creó un nuevo hilo número 2 del programa 4
+[INFO] 21:45:57:123 log_suse.txt/(13839:14101): Se creó un nuevo hilo número 3 del programa 4
+[INFO] 21:45:57:123 log_suse.txt/(13839:14101): Se creó un nuevo hilo número 4 del programa 4
+[INFO] 21:46:08:881 log_suse.txt/(13839:14101): Suse Close: Se cerró el hilo 2
+
+[INFO] 21:46:17:120 log_suse.txt/(13839:14101): Suse Close: Se cerró el hilo 4
+
+[INFO] 21:46:23:728 log_suse.txt/(13839:14101): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:46:30:221 log_suse.txt/(13839:14101): Suse Close: Se cerró el hilo 3
+
+[ERROR] 21:46:30:300 log_suse.txt/(13839:14101): No se encuentra el hilo a joinear
+
+[ERROR] 21:46:30:380 log_suse.txt/(13839:14101): No se encuentra el hilo a joinear
+
+[INFO] 21:46:30:421 log_suse.txt/(13839:14101): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:46:30:423 log_suse.txt/(13839:14101): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:46:48:732 log_suse.txt/(14129:14129): Se ha aceptado una conexion: 5
+
+[INFO] 21:46:48:733 log_suse.txt/(14129:14129): Handler asignado
+
+[INFO] 21:46:48:736 log_suse.txt/(14129:14139): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:46:48:736 log_suse.txt/(14129:14139): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:46:48:736 log_suse.txt/(14129:14139): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:46:48:736 log_suse.txt/(14129:14139): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:46:48:736 log_suse.txt/(14129:14139): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:47:00:472 log_suse.txt/(14129:14139): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:47:08:724 log_suse.txt/(14129:14139): Suse Close: Se cerró el hilo 4
+
+[INFO] 21:47:15:221 log_suse.txt/(14129:14139): Suse Close: Se cerró el hilo 2
+
+[INFO] 21:47:21:785 log_suse.txt/(14129:14139): Suse Close: Se cerró el hilo 3
+
+[ERROR] 21:47:21:865 log_suse.txt/(14129:14139): No se encuentra el hilo a joinear
+
+[ERROR] 21:47:21:944 log_suse.txt/(14129:14139): No se encuentra el hilo a joinear
+
+[INFO] 21:47:21:984 log_suse.txt/(14129:14139): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:47:21:985 log_suse.txt/(14129:14139): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:50:57:378 log_suse.txt/(14307:14307): Se ha aceptado una conexion: 5
+
+[INFO] 21:50:57:381 log_suse.txt/(14307:14307): Handler asignado
+
+[INFO] 21:50:57:381 log_suse.txt/(14307:14317): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:50:57:381 log_suse.txt/(14307:14317): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:50:57:381 log_suse.txt/(14307:14317): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:50:57:381 log_suse.txt/(14307:14317): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:50:57:381 log_suse.txt/(14307:14317): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:52:00:106 log_suse.txt/(14374:14374): Se ha aceptado una conexion: 5
+
+[INFO] 21:52:00:106 log_suse.txt/(14374:14374): Handler asignado
+
+[INFO] 21:52:00:106 log_suse.txt/(14374:14389): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:52:00:107 log_suse.txt/(14374:14389): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:52:00:107 log_suse.txt/(14374:14389): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:52:00:107 log_suse.txt/(14374:14389): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:52:00:107 log_suse.txt/(14374:14389): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:52:20:842 log_suse.txt/(14434:14434): Se ha aceptado una conexion: 5
+
+[INFO] 21:52:20:842 log_suse.txt/(14434:14434): Handler asignado
+
+[INFO] 21:52:20:842 log_suse.txt/(14434:14444): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:52:20:843 log_suse.txt/(14434:14444): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:52:20:843 log_suse.txt/(14434:14444): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:52:20:843 log_suse.txt/(14434:14444): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:52:20:843 log_suse.txt/(14434:14444): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:52:32:561 log_suse.txt/(14434:14444): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:52:40:800 log_suse.txt/(14434:14444): Suse Close: Se cerró el hilo 4
+
+[INFO] 21:52:47:285 log_suse.txt/(14434:14444): Suse Close: Se cerró el hilo 2
+
+[INFO] 21:52:53:860 log_suse.txt/(14434:14444): Suse Close: Se cerró el hilo 3
+
+[ERROR] 21:52:53:940 log_suse.txt/(14434:14444): No se encuentra el hilo a joinear
+
+[ERROR] 21:52:54:20 log_suse.txt/(14434:14444): No se encuentra el hilo a joinear
+
+[INFO] 21:52:54:61 log_suse.txt/(14434:14444): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:52:54:63 log_suse.txt/(14434:14444): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:56:03:224 log_suse.txt/(14687:14687): Se ha aceptado una conexion: 5
+
+[INFO] 21:56:03:225 log_suse.txt/(14687:14687): Handler asignado
+
+[INFO] 21:56:03:225 log_suse.txt/(14687:14715): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:56:03:225 log_suse.txt/(14687:14715): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:56:03:225 log_suse.txt/(14687:14715): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:56:03:225 log_suse.txt/(14687:14715): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:56:03:225 log_suse.txt/(14687:14715): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:56:16:86 log_suse.txt/(14687:14715): Suse Close: Se cerró el hilo 3
+
+[INFO] 21:56:24:330 log_suse.txt/(14687:14715): Suse Close: Se cerró el hilo 4
+
+[INFO] 21:56:27:390 log_suse.txt/(14687:14715): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:56:41:471 log_suse.txt/(14798:14798): Falló al aceptar conexión
+[INFO] 21:57:09:785 log_suse.txt/(14813:14813): Se ha aceptado una conexion: 5
+
+[INFO] 21:57:09:786 log_suse.txt/(14813:14813): Handler asignado
+
+[INFO] 21:57:09:786 log_suse.txt/(14813:14915): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 21:57:09:787 log_suse.txt/(14813:14915): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 21:57:09:787 log_suse.txt/(14813:14915): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 21:57:09:787 log_suse.txt/(14813:14915): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 21:57:09:787 log_suse.txt/(14813:14915): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 21:57:22:510 log_suse.txt/(14813:14915): Suse Close: Se cerró el hilo 3
+
+[INFO] 21:57:30:755 log_suse.txt/(14813:14915): Suse Close: Se cerró el hilo 4
+
+[INFO] 21:57:42:274 log_suse.txt/(14813:14915): Suse Close: Se cerró el hilo 1
+
+[INFO] 21:57:48:714 log_suse.txt/(14813:14915): Suse Close: Se cerró el hilo 2
+
+[ERROR] 21:57:48:794 log_suse.txt/(14813:14915): No se encuentra el hilo a joinear
+
+[ERROR] 21:57:48:874 log_suse.txt/(14813:14915): No se encuentra el hilo a joinear
+
+[ERROR] 21:57:48:954 log_suse.txt/(14813:14915): No se encuentra el hilo a joinear
+
+[INFO] 21:57:48:995 log_suse.txt/(14813:14915): Suse Close: Se cerró el hilo 0
+
+[INFO] 21:57:48:997 log_suse.txt/(14813:14915): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 21:59:53:346 log_suse.txt/(14813:14813): Se ha aceptado una conexion: 6
+
+[INFO] 21:59:53:347 log_suse.txt/(14813:14813): Handler asignado
+
+[INFO] 21:59:53:347 log_suse.txt/(14813:15266): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 21:59:53:347 log_suse.txt/(14813:15266): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 21:59:53:347 log_suse.txt/(14813:15266): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 21:59:53:347 log_suse.txt/(14813:15266): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 21:59:53:347 log_suse.txt/(14813:15266): Se creó un nuevo hilo número 4 del programa 2
+[INFO] 22:00:06:222 log_suse.txt/(14813:15266): Suse Close: Se cerró el hilo 3
+
+[INFO] 22:00:14:462 log_suse.txt/(14813:15266): Suse Close: Se cerró el hilo 4
+
+[INFO] 22:00:25:886 log_suse.txt/(14813:15266): Suse Close: Se cerró el hilo 1
+
+[INFO] 22:04:25:185 log_suse.txt/(15971:15971): Se ha aceptado una conexion: 5
+
+[INFO] 22:04:25:186 log_suse.txt/(15971:15971): Handler asignado
+
+[INFO] 22:04:25:187 log_suse.txt/(15971:15993): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 22:04:25:187 log_suse.txt/(15971:15993): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 22:04:25:187 log_suse.txt/(15971:15993): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 22:04:25:187 log_suse.txt/(15971:15993): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 22:04:25:187 log_suse.txt/(15971:15993): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 22:04:55:754 log_suse.txt/(15971:15993): Suse Close: Se cerró el hilo 1
+
+[INFO] 22:05:00:115 log_suse.txt/(15971:15993): Suse Close: Se cerró el hilo 2
+
+[INFO] 22:05:00:274 log_suse.txt/(15971:15993): Suse Close: Se cerró el hilo 3
+
+[INFO] 22:05:04:278 log_suse.txt/(15971:15993): Suse Close: Se cerró el hilo 4
+
+[ERROR] 22:05:04:358 log_suse.txt/(15971:15993): No se encuentra el hilo a joinear
+
+[INFO] 22:05:04:399 log_suse.txt/(15971:15993): Suse Close: Se cerró el hilo 0
+
+[INFO] 22:05:04:400 log_suse.txt/(15971:15993): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 22:05:50:829 log_suse.txt/(15971:15971): Se ha aceptado una conexion: 6
+
+[INFO] 22:05:50:829 log_suse.txt/(15971:15971): Handler asignado
+
+[INFO] 22:05:50:829 log_suse.txt/(15971:16125): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 22:05:50:829 log_suse.txt/(15971:16125): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 22:05:50:829 log_suse.txt/(15971:16125): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 22:05:50:829 log_suse.txt/(15971:16125): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 22:05:50:830 log_suse.txt/(15971:16125): Se creó un nuevo hilo número 4 del programa 2
+[INFO] 22:05:59:521 log_suse.txt/(15971:16125): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 22:06:26:426 log_suse.txt/(16143:16143): Se ha aceptado una conexion: 5
+
+[INFO] 22:06:26:427 log_suse.txt/(16143:16143): Handler asignado
+
+[INFO] 22:06:26:427 log_suse.txt/(16143:16244): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 22:06:26:427 log_suse.txt/(16143:16244): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 22:06:26:427 log_suse.txt/(16143:16244): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 22:06:26:427 log_suse.txt/(16143:16244): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 22:06:26:427 log_suse.txt/(16143:16244): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 22:07:45:835 log_suse.txt/(16143:16244): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 22:11:01:165 log_suse.txt/(16572:16572): Se ha aceptado una conexion: 5
+
+[INFO] 22:11:01:166 log_suse.txt/(16572:16572): Handler asignado
+
+[INFO] 22:11:01:171 log_suse.txt/(16572:16735): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 22:11:01:171 log_suse.txt/(16572:16735): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 22:11:01:171 log_suse.txt/(16572:16735): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 22:11:01:171 log_suse.txt/(16572:16735): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 22:11:01:171 log_suse.txt/(16572:16735): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 22:13:45:302 log_suse.txt/(16810:16810): Se ha aceptado una conexion: 5
+
+[INFO] 22:13:45:303 log_suse.txt/(16810:16810): Handler asignado
+
+[INFO] 22:13:45:304 log_suse.txt/(16810:16912): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 22:13:45:305 log_suse.txt/(16810:16912): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 22:13:45:306 log_suse.txt/(16810:16912): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 22:13:45:306 log_suse.txt/(16810:16912): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 22:13:45:306 log_suse.txt/(16810:16912): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 22:14:09:842 log_suse.txt/(16810:16912): Suse Close: Se cerró el hilo 1
+
+[INFO] 22:14:14:242 log_suse.txt/(16810:16912): Suse Close: Se cerró el hilo 2
+
+[INFO] 22:14:14:402 log_suse.txt/(16810:16912): Suse Close: Se cerró el hilo 3
+
+[INFO] 22:14:18:254 log_suse.txt/(16810:16912): Suse Close: Se cerró el hilo 4
+
+[ERROR] 22:14:18:334 log_suse.txt/(16810:16912): No se encuentra el hilo a joinear
+
+[INFO] 22:14:18:376 log_suse.txt/(16810:16912): Suse Close: Se cerró el hilo 0
+
+[INFO] 22:14:18:376 log_suse.txt/(16810:16912): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 22:15:07:862 log_suse.txt/(16810:16810): Se ha aceptado una conexion: 6
+
+[INFO] 22:15:07:862 log_suse.txt/(16810:16810): Handler asignado
+
+[INFO] 22:15:07:863 log_suse.txt/(16810:17094): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 22:15:07:863 log_suse.txt/(16810:17094): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 22:15:07:863 log_suse.txt/(16810:17094): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 22:15:07:863 log_suse.txt/(16810:17094): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 22:15:07:863 log_suse.txt/(16810:17094): Se creó un nuevo hilo número 4 del programa 2
+[INFO] 22:15:32:382 log_suse.txt/(16810:17094): Suse Close: Se cerró el hilo 1
+
+[INFO] 22:15:36:782 log_suse.txt/(16810:17094): Suse Close: Se cerró el hilo 2
+
+[INFO] 22:15:36:942 log_suse.txt/(16810:17094): Suse Close: Se cerró el hilo 3
+
+[INFO] 22:15:40:942 log_suse.txt/(16810:17094): Suse Close: Se cerró el hilo 4
+
+[ERROR] 22:15:41:22 log_suse.txt/(16810:17094): No se encuentra el hilo a joinear
+
+[INFO] 22:15:41:64 log_suse.txt/(16810:17094): Suse Close: Se cerró el hilo 0
+
+[INFO] 22:15:41:64 log_suse.txt/(16810:17094): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 22:18:30:42 log_suse.txt/(16810:16810): Se ha aceptado una conexion: 5
+
+[INFO] 22:18:30:42 log_suse.txt/(16810:16810): Handler asignado
+
+[INFO] 22:18:30:43 log_suse.txt/(16810:17332): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 22:18:30:43 log_suse.txt/(16810:17332): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 22:18:30:43 log_suse.txt/(16810:17332): Se creó un nuevo hilo número 2 del programa 3
+[INFO] 22:18:30:43 log_suse.txt/(16810:17332): Se creó un nuevo hilo número 3 del programa 3
+[INFO] 22:18:30:43 log_suse.txt/(16810:17332): Se creó un nuevo hilo número 4 del programa 3
+[INFO] 22:18:41:762 log_suse.txt/(16810:17332): Suse Close: Se cerró el hilo 3
+
+[INFO] 22:18:50:6 log_suse.txt/(16810:17332): Suse Close: Se cerró el hilo 4
+
+[INFO] 22:18:56:486 log_suse.txt/(16810:17332): Suse Close: Se cerró el hilo 2
+
+[ERROR] 22:18:56:567 log_suse.txt/(16810:17332): No se encuentra el hilo a joinear
+
+[ERROR] 22:18:56:646 log_suse.txt/(16810:17332): No se encuentra el hilo a joinear
+
+[INFO] 22:19:03:208 log_suse.txt/(16810:17332): Suse Close: Se cerró el hilo 1
+
+[INFO] 22:19:03:248 log_suse.txt/(16810:17332): Suse Close: Se cerró el hilo 0
+
+[INFO] 22:19:03:248 log_suse.txt/(16810:17332): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+

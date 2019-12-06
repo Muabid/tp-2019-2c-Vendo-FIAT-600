@@ -51,7 +51,7 @@ struct t_hilo {
 struct t_programa {
   int id;
   int puerto;
-  int joinCounter;
+  t_list* joinedBy;
   t_list* listaDeHilos ;
   t_list* listaDeReady;
   t_hilo* enEjecucion;
