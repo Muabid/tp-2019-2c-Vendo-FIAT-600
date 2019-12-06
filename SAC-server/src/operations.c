@@ -41,6 +41,7 @@ int32_t get_subdirectories(int node){
 }
 
 int sac_getattr(int socket,const char* path){
+	log_info(logger,"[GET_ATTR]: Path %s",path);
 	int index_node = search_node(path);
 	if(index_node<0){
 		send_status(socket,ERROR,-ENOENT);
@@ -57,9 +58,6 @@ int sac_getattr(int socket,const char* path){
 	links = get_number_links(node.status,index_node);
 
 	size_t size = get_size_bytes_gFile(node);
-
-	log_info(logger,"%s | %d | %i | %i | %i | %i",node.file_name,node.size,
-			node.creation_date,node.modification_date,links,node.status);
 
 	void*buf = malloc(size);
 	void*aux = buf;
@@ -108,6 +106,8 @@ int sac_create(int sock, const char* path){
 		send_status(sock,ERROR,-EDQUOT);
 		return free_block;
 	}
+
+
 	node->blocks_ptr[0] =free_block;
 	node->blocks_ptr[1] = 0;
 	t_block_ptr* block_ptr =(t_block_ptr*)get_block_data(free_block);
@@ -119,6 +119,7 @@ int sac_create(int sock, const char* path){
 		free(directory);
 		return free_block;
 	}
+	log_info(logger,"Creando %s",path);
 
 	t_block* data = (t_block*)get_block_data(free_block);
 	memset(data->data,'\0', BLOCK_SIZE);
@@ -138,13 +139,6 @@ int sac_create(int sock, const char* path){
 	send_status(sock,OK,0);
 	return 0;
 
-}
-
-void update_params(char** data,off_t*off,size_t* size,size_t* offset_in_block,int offset){
-	*data +=offset;
-	*off+=offset;
-	*size-=offset;
-	*offset_in_block=0;
 }
 
 bool need_new_block(off_t offset, int32_t file_size, size_t space_in_block) {
@@ -231,7 +225,7 @@ void delete_blocks(GFile* node, int offset,bool delete) {
 }
 
 int sac_truncate(int socket,const char* path, off_t offset){
-	log_info(logger,"TRUNCATE OFFSET [%i] - PATH [%s]",path,offset);
+	log_info(logger,"TRUNCATE OFFSET [%i] - PATH [%s]",offset,path);
 	int index_node = search_node(path);
 
 	if (index_node == -1){

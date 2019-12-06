@@ -1,0 +1,2162 @@
+[INFO] 00:39:22:220 SAC/(5669:5669): IP_SERVER [127.0.0.1] - PORT_SERVER [8003]
+[INFO] 00:39:48:708 SAC/(5671:5671): IP_SERVER [127.0.0.1] - PORT_SERVER [8003]
+[INFO] 00:39:57:828 SAC/(5674:5674): IP_SERVER [127.0.0.1] - PORT_SERVER [8003]
+[INFO] 00:40:22:212 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:40:22:212 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:40:22:212 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:40:22:291 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:40:22:291 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:40:22:371 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:22:371 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:40:22:452 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:22:452 SAC/(5674:5674): /Archivo_1 | 10240 | 1575510934 | 0 | 1575510935 | 0
+[INFO] 00:40:22:532 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:22:532 SAC/(5674:5674): /Archivo_2 | 10240 | 1575510935 | 0 | 1575510936 | 0
+[INFO] 00:40:22:611 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:22:611 SAC/(5674:5674): /Archivo_3 | 10240 | 1575510936 | 0 | 1575510937 | 0
+[INFO] 00:40:22:691 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:22:691 SAC/(5674:5674): /Archivo_4 | 10240 | 1575510937 | 0 | 1575510938 | 0
+[INFO] 00:40:22:771 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:22:771 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:40:22:852 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:22:852 SAC/(5674:5674): /Data_file_10 | 7 | 1575510982 | 0 | 1575510982 | 0
+[INFO] 00:40:22:931 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:22:931 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:40:23:11 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:40:23:11 SAC/(5674:5674): /xd | 0 | 1575512371 | 0 | 1575512371 | 0
+[INFO] 00:41:06:348 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:41:06:348 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:41:06:348 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:41:06:427 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:41:06:427 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:41:06:507 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:06:507 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:41:06:587 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:06:587 SAC/(5674:5674): /Archivo_1 | 10240 | 1575510934 | 0 | 1575510935 | 0
+[INFO] 00:41:06:667 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:06:667 SAC/(5674:5674): /Archivo_2 | 10240 | 1575510935 | 0 | 1575510936 | 0
+[INFO] 00:41:06:747 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:06:747 SAC/(5674:5674): /Archivo_3 | 10240 | 1575510936 | 0 | 1575510937 | 0
+[INFO] 00:41:06:827 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:06:828 SAC/(5674:5674): /Archivo_4 | 10240 | 1575510937 | 0 | 1575510938 | 0
+[INFO] 00:41:06:907 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:06:907 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:41:06:987 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:06:987 SAC/(5674:5674): /Data_file_10 | 7 | 1575510982 | 0 | 1575510982 | 0
+[INFO] 00:41:07:67 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:07:67 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:41:07:148 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:41:07:148 SAC/(5674:5674): /xd | 0 | 1575512371 | 0 | 1575512371 | 0
+[INFO] 00:43:16:947 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:16:947 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:43:16:947 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:17:27 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:17:27 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:17:107 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:107 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:43:17:188 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:188 SAC/(5674:5674): /Archivo_1 | 10240 | 1575510934 | 0 | 1575510935 | 0
+[INFO] 00:43:17:269 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:269 SAC/(5674:5674): /Archivo_2 | 10240 | 1575510935 | 0 | 1575510936 | 0
+[INFO] 00:43:17:347 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:347 SAC/(5674:5674): /Archivo_3 | 10240 | 1575510936 | 0 | 1575510937 | 0
+[INFO] 00:43:17:427 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:427 SAC/(5674:5674): /Archivo_4 | 10240 | 1575510937 | 0 | 1575510938 | 0
+[INFO] 00:43:17:508 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:508 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:43:17:591 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:591 SAC/(5674:5674): /Data_file_10 | 7 | 1575510982 | 0 | 1575510982 | 0
+[INFO] 00:43:17:671 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:671 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:43:17:752 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:17:752 SAC/(5674:5674): /xd | 0 | 1575512371 | 0 | 1575512371 | 0
+[INFO] 00:43:21:463 SAC/(5674:5674): [MKDIR]: Ejecutando do_mkdir...
+[INFO] 00:43:21:463 SAC/(5674:5674): [MKDIR]: Mkdir de /pija
+[INFO] 00:43:21:464 SAC/(5674:5674): [MKDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:21:464 SAC/(5674:5674): [MKDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:21:543 SAC/(5674:5674): [MKDIR]: do_mkdir finalizado
+[INFO] 00:43:21:623 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:21:623 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:23:472 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:23:472 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:43:23:472 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:23:556 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:23:556 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:23:635 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:23:635 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:43:23:635 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:23:715 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:23:715 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:23:807 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:23:807 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:43:23:807 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:23:887 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:23:887 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:23:967 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:23:967 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:25:319 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:25:319 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:25:320 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:25:320 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:25:320 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:25:400 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:25:400 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:32:15 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:32:15 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:32:95 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:43:32:95 SAC/(5674:5674): [CREATE]: Create de /pija/compa√±ero_facho
+[INFO] 00:43:32:95 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:43:32:95 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:32:191 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:43:32:272 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:32:272 SAC/(5674:5674): /pija/compa√±ero_facho | 0 | 1575603812 | 0 | 1575603812 | 0
+[INFO] 00:43:32:272 SAC/(5674:5674): [UTIMENS]: Ejecutando do_utimens...
+[INFO] 00:43:32:272 SAC/(5674:5674): [UTIMENS]: Utimens de: /pija/compa√±ero_facho
+[INFO] 00:43:32:272 SAC/(5674:5674): [UTIMENS]: Enviando operacion a SAC-server
+[INFO] 00:43:32:272 SAC/(5674:5674): [UTIMENS]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:32:351 SAC/(5674:5674): [UTIMENS]: do_utimens finalizado
+[INFO] 00:43:32:431 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:32:431 SAC/(5674:5674): /pija/compa√±ero_facho | 0 | 1575603812 | 0 | 1575603812 | 0
+[INFO] 00:43:34:839 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:34:839 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:34:839 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:34:839 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:34:839 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:34:919 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:34:919 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:34:999 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:34:999 SAC/(5674:5674): /pija/compa√±ero_facho | 0 | 1575603812 | 0 | 1575603812 | 0
+[INFO] 00:43:36:43 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:36:43 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:36:44 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:36:44 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:36:44 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:36:127 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:36:127 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:36:207 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:36:207 SAC/(5674:5674): /pija/compa√±ero_facho | 0 | 1575603812 | 0 | 1575603812 | 0
+[INFO] 00:43:41:607 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:41:608 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:41:608 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:41:608 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:41:608 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:41:687 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:41:687 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:41:767 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:41:768 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:41:768 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:41:768 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:41:768 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:41:847 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:41:847 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:41:947 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:41:947 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:41:947 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:41:947 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:41:947 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:42:28 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:42:28 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:42:107 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:42:107 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:42:107 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:42:107 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:42:107 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:42:187 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:42:188 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:43:40 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:43:40 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:43:40 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:43:40 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:43:41 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:43:123 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:43:123 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:43:203 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:43:203 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:43:204 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:43:204 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:43:204 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:43:283 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:43:283 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:43:371 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:43:371 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:43:371 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:43:371 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:43:371 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:43:451 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:43:451 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:43:531 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:43:531 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:43:531 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:43:531 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:43:531 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:43:611 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:43:611 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:44:700 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:44:700 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:44:700 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:44:700 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:44:701 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:44:779 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:44:779 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:44:859 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:44:859 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:44:859 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:44:859 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:44:859 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:44:939 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:44:939 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:45:35 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:45:35 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:45:35 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:45:35 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:45:35 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:45:115 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:45:115 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:45:195 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:45:195 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:45:195 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:45:195 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:45:195 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:45:275 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:45:275 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:50:712 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:50:712 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:50:712 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:50:712 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:50:712 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:50:791 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:50:791 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:50:871 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:50:871 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:50:951 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:50:951 SAC/(5674:5674): /pija/compa√±ero_facho | 0 | 1575603812 | 0 | 1575603812 | 0
+[INFO] 00:43:50:951 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:43:50:951 SAC/(5674:5674): [UNLINK]: Unlink de /pija/compa√±ero_facho
+[INFO] 00:43:50:951 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:43:50:951 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:51:31 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:43:52:227 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:52:227 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:52:227 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:52:227 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:52:227 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:52:307 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:52:307 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:53:647 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:53:647 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:53:648 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:53:648 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:53:648 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:53:727 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:53:727 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:54:784 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:54:784 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:43:54:784 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:43:54:784 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:43:54:784 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:43:54:864 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:43:54:864 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:43:59:695 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:43:59:695 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:44:03:76 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:03:76 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:03:76 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:03:155 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:03:155 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:03:236 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:03:236 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:03:236 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:03:315 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:03:315 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:03:411 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:03:411 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:03:411 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:03:491 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:03:492 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:03:571 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:03:571 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:03:651 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:03:651 SAC/(5674:5674): /Data_file_10 | 7 | 1575510982 | 0 | 1575510982 | 0
+[INFO] 00:44:04:915 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:04:915 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:04:915 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:04:915 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:44:04:915 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:04:995 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:04:995 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:05:75 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:05:75 SAC/(5674:5674): /DIR_1/DIR_2 | 0 | 1575510956 | 0 | 1575510971 | 0
+[INFO] 00:44:09:79 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:09:80 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:09:80 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:09:80 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:44:09:80 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:09:159 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:09:159 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:09:239 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:09:239 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:09:239 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:09:239 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:44:09:239 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:09:319 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:09:319 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:09:407 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:09:407 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:09:407 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:09:407 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:44:09:407 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:09:487 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:09:487 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:09:567 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:09:567 SAC/(5674:5674): /DIR_1/DIR_2 | 0 | 1575510956 | 0 | 1575510971 | 0
+[INFO] 00:44:09:727 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:09:727 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:10:775 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:10:775 SAC/(5674:5674): /DIR_1/DIR_2 | 0 | 1575510956 | 0 | 1575510971 | 0
+[INFO] 00:44:12:175 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:12:175 SAC/(5674:5674): /DIR_1/DIR_2 | 0 | 1575510956 | 0 | 1575510971 | 0
+[INFO] 00:44:12:175 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:12:175 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1/DIR_2
+[INFO] 00:44:12:175 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:12:255 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:12:255 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:12:335 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:12:335 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_5 | 10240 | 1575510939 | 0 | 1575510961 | 0
+[INFO] 00:44:12:415 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:12:415 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_6 | 0 | 1575510940 | 0 | 1575510962 | 0
+[INFO] 00:44:12:495 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:12:495 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_7 | 0 | 1575510941 | 0 | 1575510962 | 0
+[INFO] 00:44:12:575 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:12:575 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_8 | 0 | 1575510942 | 0 | 1575510962 | 0
+[INFO] 00:44:12:655 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:12:655 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_9 | 0 | 1575510943 | 0 | 1575510963 | 0
+[INFO] 00:44:12:735 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:12:735 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_10 | 0 | 1575510944 | 0 | 1575510963 | 0
+[INFO] 00:44:15:120 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:15:120 SAC/(5674:5674): /DIR_1/DIR_2 | 0 | 1575510956 | 0 | 1575510971 | 0
+[INFO] 00:44:15:120 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:15:120 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1/DIR_2
+[INFO] 00:44:15:120 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:15:199 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:15:199 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:15:279 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:15:279 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_10 | 0 | 1575510944 | 0 | 1575510963 | 0
+[INFO] 00:44:15:279 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:15:279 SAC/(5674:5674): [UNLINK]: Unlink de /DIR_1/DIR_2/Archivo_10
+[INFO] 00:44:15:279 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:15:279 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:15:379 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:15:459 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:15:459 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_5 | 10240 | 1575510939 | 0 | 1575510961 | 0
+[INFO] 00:44:15:459 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:15:460 SAC/(5674:5674): [UNLINK]: Unlink de /DIR_1/DIR_2/Archivo_5
+[INFO] 00:44:15:460 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:15:460 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:15:539 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:15:619 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:15:619 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_6 | 0 | 1575510940 | 0 | 1575510962 | 0
+[INFO] 00:44:15:620 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:15:620 SAC/(5674:5674): [UNLINK]: Unlink de /DIR_1/DIR_2/Archivo_6
+[INFO] 00:44:15:620 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:15:620 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:15:699 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:15:779 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:15:779 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_7 | 0 | 1575510941 | 0 | 1575510962 | 0
+[INFO] 00:44:15:780 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:15:780 SAC/(5674:5674): [UNLINK]: Unlink de /DIR_1/DIR_2/Archivo_7
+[INFO] 00:44:15:780 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:15:780 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:15:859 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:15:939 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:15:939 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_8 | 0 | 1575510942 | 0 | 1575510962 | 0
+[INFO] 00:44:15:939 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:15:939 SAC/(5674:5674): [UNLINK]: Unlink de /DIR_1/DIR_2/Archivo_8
+[INFO] 00:44:15:939 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:15:940 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:16:19 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:16:100 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:16:100 SAC/(5674:5674): /DIR_1/DIR_2/Archivo_9 | 0 | 1575510943 | 0 | 1575510963 | 0
+[INFO] 00:44:16:100 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:16:100 SAC/(5674:5674): [UNLINK]: Unlink de /DIR_1/DIR_2/Archivo_9
+[INFO] 00:44:16:100 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:16:100 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:16:179 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:17:647 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:17:647 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:17:728 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:17:728 SAC/(5674:5674): /DIR_1/DIR_2 | 0 | 1575510956 | 0 | 1575510971 | 0
+[INFO] 00:44:18:363 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:18:363 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:44:18:363 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:18:403 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:18:403 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:22:652 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:22:652 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:22:653 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:22:653 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:44:22:653 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:22:731 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:22:731 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:22:812 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:22:812 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:22:812 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:22:812 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:44:22:812 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:22:891 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:22:891 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:22:983 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:22:983 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:22:983 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:22:983 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:44:22:983 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:23:63 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:23:63 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:23:144 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:23:144 SAC/(5674:5674): /DIR_1/DIR_2 | 0 | 1575510956 | 0 | 1575510971 | 0
+[INFO] 00:44:23:304 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:23:304 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:23:728 SAC/(5674:5674): [RMDIR]: Ejecutando do_rmdir...
+[INFO] 00:44:23:728 SAC/(5674:5674): [RMDIR]: RMDIR de /DIR_1/DIR_2
+[INFO] 00:44:23:728 SAC/(5674:5674): [RMDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:23:728 SAC/(5674:5674): [RMDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:23:767 SAC/(5674:5674): [RMDIR]: do_rmdir finalizado
+[INFO] 00:44:28:847 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:28:847 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:29:828 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:29:828 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:29:828 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:29:907 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:29:907 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:29:987 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:29:988 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:44:30:67 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:67 SAC/(5674:5674): /Archivo_1 | 10240 | 1575510934 | 0 | 1575510935 | 0
+[INFO] 00:44:30:147 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:147 SAC/(5674:5674): /Archivo_2 | 10240 | 1575510935 | 0 | 1575510936 | 0
+[INFO] 00:44:30:227 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:227 SAC/(5674:5674): /Archivo_3 | 10240 | 1575510936 | 0 | 1575510937 | 0
+[INFO] 00:44:30:307 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:307 SAC/(5674:5674): /Archivo_4 | 10240 | 1575510937 | 0 | 1575510938 | 0
+[INFO] 00:44:30:387 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:387 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:30:468 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:468 SAC/(5674:5674): /Data_file_10 | 7 | 1575510982 | 0 | 1575510982 | 0
+[INFO] 00:44:30:547 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:547 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:44:30:627 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:627 SAC/(5674:5674): /xd | 0 | 1575512371 | 0 | 1575512371 | 0
+[INFO] 00:44:30:707 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:30:707 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:44:33:628 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:33:628 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:33:628 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:33:707 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:33:707 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:33:787 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:33:787 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:33:787 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:33:867 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:33:867 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:33:955 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:33:955 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:33:955 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:34:35 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:34:36 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:34:115 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:34:115 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:34:196 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:34:196 SAC/(5674:5674): /Data_file_10 | 7 | 1575510982 | 0 | 1575510982 | 0
+[INFO] 00:44:34:275 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:34:275 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:34:275 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:34:355 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:34:355 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:39:872 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:39:872 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:44:39:872 SAC/(5674:5674): [RMDIR]: Ejecutando do_rmdir...
+[INFO] 00:44:39:872 SAC/(5674:5674): [RMDIR]: RMDIR de /DIR_1
+[INFO] 00:44:39:872 SAC/(5674:5674): [RMDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:39:872 SAC/(5674:5674): [RMDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:39:951 SAC/(5674:5674): [RMDIR]: do_rmdir finalizado
+[INFO] 00:44:53:400 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:53:400 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:53:400 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:53:479 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:53:479 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:53:559 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:53:559 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:53:559 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:53:640 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:53:640 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:53:727 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:53:727 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:53:727 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:53:807 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:53:807 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:53:887 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:53:888 SAC/(5674:5674): /Archivo_1 | 10240 | 1575510934 | 0 | 1575510935 | 0
+[INFO] 00:44:53:967 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:53:967 SAC/(5674:5674): /Archivo_2 | 10240 | 1575510935 | 0 | 1575510936 | 0
+[INFO] 00:44:54:47 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:54:47 SAC/(5674:5674): /Archivo_3 | 10240 | 1575510936 | 0 | 1575510937 | 0
+[INFO] 00:44:54:127 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:54:127 SAC/(5674:5674): /Archivo_4 | 10240 | 1575510937 | 0 | 1575510938 | 0
+[INFO] 00:44:54:208 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:54:208 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:54:208 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:54:287 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:54:287 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:57:591 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:57:591 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:57:592 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:57:671 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:57:671 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:57:751 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:57:751 SAC/(5674:5674): /Archivo_1 | 10240 | 1575510934 | 0 | 1575510935 | 0
+[INFO] 00:44:57:752 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:57:752 SAC/(5674:5674): [UNLINK]: Unlink de /Archivo_1
+[INFO] 00:44:57:752 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:57:753 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:57:831 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:57:911 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:57:911 SAC/(5674:5674): /Archivo_2 | 10240 | 1575510935 | 0 | 1575510936 | 0
+[INFO] 00:44:57:911 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:57:911 SAC/(5674:5674): [UNLINK]: Unlink de /Archivo_2
+[INFO] 00:44:57:911 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:57:911 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:57:991 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:58:71 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:58:71 SAC/(5674:5674): /Archivo_3 | 10240 | 1575510936 | 0 | 1575510937 | 0
+[INFO] 00:44:58:71 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:58:71 SAC/(5674:5674): [UNLINK]: Unlink de /Archivo_3
+[INFO] 00:44:58:71 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:58:71 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:58:151 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:58:231 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:58:231 SAC/(5674:5674): /Archivo_4 | 10240 | 1575510937 | 0 | 1575510938 | 0
+[INFO] 00:44:58:231 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:44:58:231 SAC/(5674:5674): [UNLINK]: Unlink de /Archivo_4
+[INFO] 00:44:58:231 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:44:58:231 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:58:311 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:44:59:207 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:44:59:207 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:44:59:207 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:44:59:288 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:44:59:288 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:44:59:367 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:59:367 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:44:59:447 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:59:447 SAC/(5674:5674): /Data_file_10 | 7 | 1575510982 | 0 | 1575510982 | 0
+[INFO] 00:44:59:528 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:59:528 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:44:59:607 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:59:607 SAC/(5674:5674): /xd | 0 | 1575512371 | 0 | 1575512371 | 0
+[INFO] 00:44:59:687 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:44:59:687 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:45:07:775 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:07:775 SAC/(5674:5674): /Data_file_10 | 7 | 1575510982 | 0 | 1575510982 | 0
+[INFO] 00:45:07:775 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:45:07:776 SAC/(5674:5674): [UNLINK]: Unlink de /Data_file_10
+[INFO] 00:45:07:776 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:45:07:776 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:07:856 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:45:10:184 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:10:184 SAC/(5674:5674): /xd | 0 | 1575512371 | 0 | 1575512371 | 0
+[INFO] 00:45:10:184 SAC/(5674:5674): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:45:10:184 SAC/(5674:5674): [UNLINK]: Unlink de /xd
+[INFO] 00:45:10:184 SAC/(5674:5674): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:45:10:184 SAC/(5674:5674): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:10:263 SAC/(5674:5674): [UNLINK]: do_mkdir finalizado
+[INFO] 00:45:11:135 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:45:11:135 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:45:11:135 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:11:215 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:11:215 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:45:11:296 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:11:296 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:11:375 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:11:375 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:45:11:455 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:11:455 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:45:14:855 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:14:855 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:45:18:399 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:18:399 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:45:18:399 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:45:18:400 SAC/(5674:5674): [READDIR]: Readdir de /pija
+[INFO] 00:45:18:400 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:18:479 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:18:479 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:45:22:79 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:22:79 SAC/(5674:5674): /pija | 0 | 1575603801 | 0 | 1575603801 | 0
+[INFO] 00:45:22:79 SAC/(5674:5674): [RMDIR]: Ejecutando do_rmdir...
+[INFO] 00:45:22:79 SAC/(5674:5674): [RMDIR]: RMDIR de /pija
+[INFO] 00:45:22:79 SAC/(5674:5674): [RMDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:22:79 SAC/(5674:5674): [RMDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:22:159 SAC/(5674:5674): [RMDIR]: do_rmdir finalizado
+[INFO] 00:45:22:872 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:45:22:872 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:45:22:872 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:22:951 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:22:951 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:45:23:31 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:23:31 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:23:111 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:23:111 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:45:31:717 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:45:31:717 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:45:31:718 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:31:796 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:31:796 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:45:31:955 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:31:955 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:32:673 SAC/(5674:5674): [READ]: Ejecutando do_read...
+[INFO] 00:45:32:673 SAC/(5674:5674): [READ]: Read de /poco_de_todo.sh
+
+[INFO] 00:45:32:673 SAC/(5674:5674): [READ]: Enviando operacion a SAC-server
+[INFO] 00:45:32:711 SAC/(5674:5674): [READ]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:32:712 SAC/(5674:5674): [READ] Leido: #!/bin/bash
+
+counter=1
+_counter=1
+while [ $counter -le 10 ]
+do
+	VAR1="Archivo_$counter"
+	dd if=/dev/urandom of=$VAR1 bs=1024 count=10 status=none
+	echo "Creando $VAR1 de 10KiB"
+	((counter++))
+done
+sleep 3 
+clear
+ls -lS --color=auto
+
+truncate=6
+
+echo "Truncando archivos..."
+while [ $truncate -le 10 ]
+do
+	VAR1="Archivo_$truncate"
+	truncate -s 0 $VAR1
+	((truncate++))
+done 
+
+ls -lS --color=auto
+
+sleep 4
+clear
+
+echo "Crear 2 directorios"
+while [ $_counter -le 2 ]
+do
+	VAR1="DIR_$_counter"
+	mkdir $VAR1
+	sleep 0.5
+	((_counter++))
+done 
+
+ls -lS --color=auto
+sleep 3
+clear
+echo "Moviendo archivo a DIR2"
+files=5
+while [ $files -le 10 ]
+do
+	VAR1="Archivo_$files"
+    	VAR2="DIR_2/"
+	mv $VAR1 $VAR2
+	((files++))
+done 
+
+sleep 3
+clear
+tree
+
+sleep 3
+clear
+
+echo "Mover DIR_2 a DIR_1"
+mv DIR_2 DIR_1
+sleep 3
+
+tree
+
+sleep 4
+clear
+echo "Append Data_file_10"
+sleep 2
+echo "And√≥." >> Data_file_10
+echo "leer Data_file_10"
+sleep 2
+cat Data_file_10
+sleep 3 - size: 4096
+[INFO] 00:45:32:712 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:32:714 SAC/(5674:5674): [READ]: Ejecutando do_read...
+[INFO] 00:45:32:714 SAC/(5674:5674): [READ]: Read de /poco_de_todo.sh
+
+[INFO] 00:45:32:714 SAC/(5674:5674): [READ]: Enviando operacion a SAC-server
+[INFO] 00:45:32:791 SAC/(5674:5674): [READ]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:32:791 SAC/(5674:5674): [READ] Leido: #!/bin/bash
+
+counter=1
+_counter=1
+while [ $counter -le 10 ]
+do
+	VAR1="Archivo_$counter"
+	dd if=/dev/urandom of=$VAR1 bs=1024 count=10 status=none
+	echo "Creando $VAR1 de 10KiB"
+	((counter++))
+done
+sleep 3 
+clear
+ls -lS --color=auto
+
+truncate=6
+
+echo "Truncando archivos..."
+while [ $truncate -le 10 ]
+do
+	VAR1="Archivo_$truncate"
+	truncate -s 0 $VAR1
+	((truncate++))
+done 
+
+ls -lS --color=auto
+
+sleep 4
+clear
+
+echo "Crear 2 directorios"
+while [ $_counter -le 2 ]
+do
+	VAR1="DIR_$_counter"
+	mkdir $VAR1
+	sleep 0.5
+	((_counter++))
+done 
+
+ls -lS --color=auto
+sleep 3
+clear
+echo "Moviendo archivo a DIR2"
+files=5
+while [ $files -le 10 ]
+do
+	VAR1="Archivo_$files"
+    	VAR2="DIR_2/"
+	mv $VAR1 $VAR2
+	((files++))
+done 
+
+sleep 3
+clear
+tree
+
+sleep 3
+clear
+
+echo "Mover DIR_2 a DIR_1"
+mv DIR_2 DIR_1
+sleep 3
+
+tree
+
+sleep 4
+clear
+echo "Append Data_file_10"
+sleep 2
+echo "And√≥." >> Data_file_10
+echo "leer Data_file_10"
+sleep 2
+cat Data_file_10
+sleep 3 - size: 4096
+[INFO] 00:45:32:791 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:32:871 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:32:871 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:32:963 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:32:963 SAC/(5674:5674): [CREATE]: Create de /Archivo_1
+[INFO] 00:45:32:963 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:32:963 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:43 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:33:123 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:33:124 SAC/(5674:5674): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:45:33:124 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:124 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: ›b¢d1ºÕÎﬁ…âØ*a—[9d¿ëË≠N∫Úò[ëõ…@&†U±;m:¬G|-‚»ÔO¢¥22B› e9ãæI#2!ªˆee÷^Yﬁ"é)úï DÕÊƒßºQªWgÜ≈WˆˇpπΩ	Ì“∏sB^Ì|UFØWu8M∫æ5È0ƒ„ Èœün'µÒmPÌâº≥ofåºR ÁK81!ÍGupi;{‹¬H/À≤R_0‰Âª∫ßH]1ç≤ËiZùÍ€@uÁﬁ˜˛”>ˇk)®?§QÆøß;b¿Ã§Ázùzjé(›Ö ˚E®o¬ Eö±—çñÊ&P	Â7MEt∞◊3!ãú•iÛ[,C?ûò"vÈΩd;ö÷˙ñD!–á¢5w+*ÍÂ
+Í’Ó|OQ“»œ¬˝'Tä∂csÅ\À∏¢–)∂^´=Ä’E]
+[INFO] 00:45:33:124 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:203 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:203 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:204 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:204 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: ë^ï£Öuìá‹O1å/â˘iÊÈ÷LNd5=^„ÍI∆p/óûØ√©&[¡≤“Õ=≈ÕN¢;¡q	=ﬁ*¿√¨ ¨55xGÀÕ^‰PzÃDUH#æÔÖ«L◊ÕFí0%]
+[INFO] 00:45:33:204 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:283 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:283 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:284 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:284 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: £4€t°_Íù7“è†òkõhä>Öy*…’≠ΩUñÎW-°ôΩàﬁV"~-n—±ÅW	!ßdÃqW£ 2èπÇën<á9Q˛˙∫Ó&7LæZq:{‘‚<0øPS|¶Ò‘f'O¥‘ÊlÇèQ^3X†JÑìóËZH…:F≈ ÇÕTI0W≤˚ÜÑ:w˚ç0Jñ%ˆ&É◊6ÚOÊµâädôò3üùû‰ﬁ›åÍπÑIJSLÚÈâ5WîöÃQ⁄CF‹‹yXµÈëqâsu<Ìô ¥Ò‚h†ObáFQ"cŸ™ïÍπ¢x´0ì#@⁄+/ÙNO]~-P«ƒ›öÛ˜H¶W9t92UÕ@PP·\‹–Hqm¥yßõ88$Qá¡ß|o%«r≥;,ß@BH‹¥ÅºWÑë oJÔ€´a@‡G¶d7P>·-ÛBù©v1Î2Gƒ¡â≠—~“Ù∞ÚÉ∏Ë·Ø(Àœ‡0‹EãyœVE8:xêì¿ƒX kIbNSÒtΩA‘Lr≈Í±~áºé%hıB6ıÆHvÂC™±ÆÚŸπh ∂Ë∫N<ÿLl0˚ñÚb»‡z]~§™øÔ!¸]∏M+füíÅR…W‘ΩEVÒÓ_
+.≠≤÷v¬êMÏf∫!*?ÏÎ*™Cıä–—¸+®Â©∂‡Ç3èƒ“)“ñt≈Ùu!GUq[PnZjz;n◊Ig‘(∂ù€VÔ Ô≥+j‡ç*¥@¯nßé
+µ√'Q3ΩºÖo‘œsì–eiãê–†∑+<n*œ÷´û˚ªj©∆ﬂÃØb‰ë“ÅãIî¢3õô‹≈‚≤‰1≈vS#zæè.–ÿ!Ú¥ÙS~xà©∞èû'eÉñ´f 6£nﬂ\fG(ú™Æ”˚jß∏UﬂÆ»"ìªVÎº=ÉDÂ#±VäÅ∆_¡Qx‚f5pîÇÍ˚Öm≤–€;sà é›pXX	√XíåÚ]
+[INFO] 00:45:33:284 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:367 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:367 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:368 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:368 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: åö±ˇ<äüö¸ﬁ–æÚ•J‹ΩZ·%«“àËËõ≤@ﬂ∏Àúiø˜ë9
+<ì•}ëŸÊ≤¿´πJÇ]
+[INFO] 00:45:33:368 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:447 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:447 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:448 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:448 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: >ì™∆"i˛ÃÀ6…E>b|-ı◊é2eë¡:qÒ?VﬂvaÌ<„@˘ˆlz∏Ì∏•Ï}jØ%ıBÔËÿ©Â≤„4ËrZëÃçˇwZßfΩ	i¥·u3ùM3Çík{Bæô~’Âi,9ÆùØxÓvÃV¢¥¥ö°ﬂü¯ˆFk◊k>i’1˚e<¥Ô ªd‰ƒ/ÁÏ≈>k,?d}•≈‘2ˇ¢®`—˛%”N˚ÁÃïG‘ÙîÕ¥g¿Ñ.ﬂ¬ızb[ﬁ∑r¡¨~˝ßÅÂÛpZ—ë+Rú ÜC˛Ü/Zäô¯ãÏ™Èﬂß$ÄÛ.÷…ÚW/ﬂM‡âY'åÍiZE‘óÅ{y™˝T2Â∂ôßÒò–…'rÀ‘)€@Ÿâk¶Jû≠\ˇœÆø&ï∞V[8 f4ÓŸ‡…'‚ñÚÓˇÉﬂ	<,g(∂—´#4i∞¶˜K¯Æ9.Ê`∫ç«≈ô	æ{D>’û	“ı‰®u∏ß+∑¯hzAlï•Ÿx©a"V™e69ΩLﬁÂ◊•AKV€µöË÷2«ú¨*|‚»î~x-¨9Iù}œk€ù:BubMÖ\DK"Æ.C–l0z∑ HÍq+lw—¯!ÜÁ∂êãöRŒZ‡øRˇwƒÑÈRìpı©‚Eo™ìYà;H√èz¡/É˝ÿ7Û1Íî∑Ë0∂S∆ßìÛëªÌA≠Œ,>K¬´i∑H0∞Äôê8…õô¥N<ƒ ó› †açFÒæ\¡l—CHØ/ƒ¶Gd\' „ü&Ö `î.sE…Ã%Ã¶Á†6col0*“ûœ'¥)u3Ãòπ[QÄRÅ†¿ÊIeC5a_5£k¶5É•
+¯ÂHO˝∞„∑Qy¡ioÉI!k5Â⁄!—(é“£Õ_ë+Æ˝ˆj÷á~±ú∏=ë√Íø;‚ï¡≠Ñ{Œ+p˚˘⁄=º§:6èãTå9Râ”ﬂ2£(Ë∆ÆD4Ø‰rÍ ‘ƒé´jvÍ˚Pﬁ"ø«ò-Hµ’¢Ep3Á2yzÈJüÇieÿfÜêoE˜F“xÚc◊f"@Ω7π‹–HmP¶Õ‡≤>¥¯=œõ¬nÑbjµêÇ ¢`Nï8´≈ˇ~HüU)b’∞È?ç	∆]1®+;)[])5¨—\eÔœ#ùá˙ªö‘úx\ûñwŒ«º¡«%)õ$ï¿—ƒSEøl8BŸ∫Èü&ä=ŒÌms~∞«Ì7ÉÊıã¬¬’<≠>ŸQ˙jE„«£‰A^≠Uy˛ÏÓkx°ûå "r∑"˝fàârÁπ }XiäCº»zU≥È‡}vl»ß84ò9V~‘ÚÓûØ!®sÿ◊˙kBê}`h´+Áõ˜ŸÉ±9&®]
+[INFO] 00:45:33:448 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:528 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:528 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:528 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:528 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: çn˚Ó$&|˚≥…!<Q≥≥FWzV‡Âô~§±û€·∑ÅÊCZ≤^≥-'Í#2q4≥Ì@e— G§;ÂºJQ?Õ?Uäa<©5&èÖAÚ∏Dô÷]Î¬›£]
+[INFO] 00:45:33:528 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:607 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:609 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:609 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:609 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: ô	Ÿ^∏π^U]
+[INFO] 00:45:33:609 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:687 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:687 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:687 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:688 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: ì2Õ≠Á	bhwn`¯Ã\èV€èõS…Pæ
+∑âîalXªø:πÁ?tÔ†F:jøŒ_	MiiéFÒ*k¨]zu’—s‹6Ûî®S√¶ØÇÊhd˘q^RyÃ=E5◊óUÊ∏Û ,=>T/∞πxŸˆ„Ë«rk¬üÎﬂ9•¥o¸ÍˇFpä∆Åà8H.‡˝UÄTùœÒ©zÆÆÚ#¸k9˙´^y "õ: $C~¶R$<”FÀvWôàE≤˛càó¶T&Ü7ú·‰ÿ«C„XP2dãïU(âYuZÂg©f€ªn`=…ö%ëk°¯\wleWÈÎxáƒŸàZÕ&à≠Øˆ⁄¨°D[øå5Éac;p√ìxÊ-ö{ay7HÙ˜ÃµEÂmäGmÛŸƒkö†úäˇ÷åÿ<ÌéôÕ€U€$C≥ü>≥ï°)≤ªô˜õW=R‰ "‚Ir¨PëüΩOkó‚‡É˝Do
+Ÿ∞4ìﬂçj˝d‘|cèêÜ8€;¨≠¥∏˛íI^Ω∂Ì®≥yÿ∫úLc|°|ŒÏ%¡ø,LöÛÄxÓ»òOÉL?ûüŸAk¬+¢ß›π+ï‹™fÌƒm⁄;ô†£W˝mŸ≠ó¸äÆ∂i∑K√˝P⁄∏.íb"hÃÈª
+/ôh∞w†≤ÌÛr·ÇNdŸÃ˙AQºÂ˝â¨≠Ì'Ô\Dÿ—Ê»Z2sù‹fTú›⁄nYÊ
+`vl*o∆˝Á∑·ã≈|öZ˘/¶^MQÔÔÓ/ÌS,FN;°-˙."ºF[Ç˙ÿõc(4Œ˚Õ¶IMM"ØN®îŒº∑ùÔÈ∫Ç©ÇSs/øh|õve$5fyˇÆFzòÍ§x4¢¥π”—5jìF•?ÿiı›Lé=\+€YD∏{tÓJK≠fØÆñaDzîÊZ%˛>ˆ¸QMŒhä’'¥πŒòjKhäA∆È‰4
+í–∂MYŸ|{y‚8ˇ5Ÿ>&ÿ_ø≤µ2≠u˚Â∂∑∞{≈î´§⁄¸ü_…/Ëw¨a¬^≤ãñ`˘†1Í-Ï,¯hMe¥∆õâ…¸¶]mdÊˇMòÚ@2}¶E5ƒ+1O±™Âº©6¯8P%|ïÕa:ƒ íçüâÔ˝Ñ-:)Ç‘Öïç»ÿ}Tì;Ñ∏úG“Û9ÇÿÅœ:f‰%€É¬ÕÕ|√lÄ˜mYUƒ˙˙G"O©Tè¿∆ãE±‚íøÎü⁄u1bàë;%ÄÒî¿bJÃÁ[•È‡Úï]
+[INFO] 00:45:33:688 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:767 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:767 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:768 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:768 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: [™‚KâPÛ≥ŸÆ0¯œ≤<∫†Õ7P5Ëù«Üg`œö„‚qéa«\Ätƒ4˛LÚQ≠<tÄáVÏ0dÌ„s˛˝[¶s®6ÌŸ§„‡˚îac}â~c∑ª¸≈PMáj√YΩîâ’ÑuŸ›†)µFı±ãßÉ&˘˛‚VÉ/»¡≈®<7Z€5œG©~hÕüÒ°8ò/÷
+˙ﬂN◊Dthı≈{ï#¡Ü†⁄:]
+[INFO] 00:45:33:768 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:847 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:847 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:33:847 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:33:847 SAC/(5674:5674): [WRITE]: Write de: /Archivo_1
+ [buf: ‚¬‡πèuÙW•¶øh”›◊åRû∏u˙Ω…⁄O@£ΩJS˘w%∏Oè:}Ô›[ÆÊ‚Áêlﬁñeœ»x∂ab>†?&e|wÅ¡b˜äR≤Q™Z„Òâbß◊s]…¨1ÒãüMóô2üh∏ı;9ò‰ÈØ4¥S0	Ù˝π#h-íVèñªfPAˇ˝2«Sùî8ùâv:Â≠≥*+®˚·˙
+yÈpÚKü›°™ÛW¡6Y¢ì˙H{ª’)y°'‡¸P¸Ì˛w¡\‰?◊§fc|R∂B€yì6‘!N©éç´ˇ€)ûº¬≠„81Ω´ö1dçu*Ó„%Ó)Y√´ŸÔÖ∫>Î˛u@5wF≥<óïŒsàtqm√⁄Ñ9]quM˛ãåh›˘A4ú]
+[INFO] 00:45:33:847 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:33:928 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:33:928 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:7 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:34:7 SAC/(5674:5674): [CREATE]: Create de /Archivo_2
+[INFO] 00:45:34:7 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:7 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:87 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:34:167 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:34:167 SAC/(5674:5674): /Archivo_2 | 0 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:45:34:168 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:168 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: ˘ä˜XûÒâa∫Úeg6˛¶Z8$@¡zÙ∑)⁄◊^3lä$7Õø°$œ)Û#±ÖWyd∆-91q§Ïè+-zN@È—Ii˚pÂ` —)ﬂl—Åî˝LπQ}H√3ã˜ıºÏt}åÜÕ}∞“}≠D‘|˛ 8˜,"⁄Ra«g<èÌ…ıñSôI∆≥≠Ã#ïzˆÚÅõz~ë·p CºÆùI⁄kyd)˜∏43]¢3’Tá+ˇ´¡ı¬àe<*¿ﬁqn8˚qeû6éÂµô’¢Ω
+ ùâ6ÎG‹&(s™…4ä™dBÒ¿'C⁄àâzÔ˛Ï≥¨πı¢#)ﬂÓ∂)n\º]éTÕ¸Ò‘»F…‰æØ™S”“bÌ3â¥§vÎn´Ä•ı,4;¸¯ˇÙ◊b¶¸™¿>0·ÂÀÙVårr±”˙…∂â⁄râÔ	¬»¨WYaká‚
+Kdù√¡:(›)|>D.–˝˚ÌÒtffSl†–dÀu˘8áIü-¡†ˆ˚'îÎ‚Gû¡"¬Ãı∑˝ÄƒE)ØÍﬁ’4ø¢L€\À∂ù’è˛˚É˝Ú…Ä€¥yÑè∆ño@bıÚÓJíDe%Ëô>\çÖ√ﬂ®x]
+[INFO] 00:45:34:168 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:247 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:247 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:247 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:247 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: V˜•iØ`¿ÂY^euùlÿZP8˙F<3næ"q‚L±ÌV*í˝‡ò7´9uttÖ˘;b#∑™åbá"4~˚ÀÇáÏ;&úá\h˝x$˝õxE¥ˆù√Uf´d¡–XämCÕuÆ±≥][î…XøûIe—∞¨ààÈ‹ËeM±ÍÈ‡û=˚b?HØX>=°õÅÊG’Ix£ÎP)I≈˝&]U1F|¸œ]™q
+,œ¡°Öh}±{ÌJ}æ%ãÜ⁄âÁ¶◊':ó˜~ŒÂOqË-mñãB?◊j∞ öLK’0F§¨g
+Q¥
+∏Æ⁄ò÷`L¢Ò mnøØZ¿ÀßfóÚ˛∫ñ‘"ïä@õÄ«Im¥X¯Ÿ]
+[INFO] 00:45:34:247 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:327 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:327 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:327 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:327 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: ˛.ÿA=9tá]
+[INFO] 00:45:34:327 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:407 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:408 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:408 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:408 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: Ù∑(45z|*x¯S7\h_Œ‡`®ß≥Yüjæ˜]
+[INFO] 00:45:34:408 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:488 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:488 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:488 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:488 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: ÄJ}M∏5”R,ökÆ8Wil˙√_S√u%ùiçI0]É£∫‚ÈpﬁzŒJ5b$.f∏3Áy6C:£Ô"∫»´ÔQgH©UêŸó˜$sÚFÛÃÑ·≠PÆàh(%ŒGrv°´I«R¥îu%t¿km≥ﬁKƒî¸v‰≠Œˆ›ùÏ≤T+¨†É·ΩQj>qê§hèÓíÓÅ€∂’€Io•ñó`Xuã&®!lq¡$âfä{…B∂MóLêK]óW0DLòî«∆ã”_y®sÿ:|5K—^˜H∏KølΩÊFÙöñ]÷íŒï>G√UFˆr‡]
+[INFO] 00:45:34:488 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:568 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:568 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:568 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:568 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: YRΩLF‚Œ˙mÂ.•*∆SåQ_;ñÃä ¨ØöÔºÇòûÊ\í)NÕ_ñ+&t’˜Hæ3[/mu˝ çôÒ]‚xRÆ[{¬öÏß¶Á+uê6Í∏–√ˆíõ@⁄VﬁîÙÀÓ39òq≠KII©à®Ma¡'á≤wıÒ_‘jqô•z˝≥Ìºôıﬁwÿ™gƒ¡Àâˆ2√-ë6$ËC]
+[INFO] 00:45:34:568 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:647 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:648 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:648 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:648 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: EØ|™œôYû’)∆îl‘b8¥†jÊc~å€VA∫/ˇ˜p(	ŸiuDl¿|Œ‡àl≠+˚œSß∑˝ˆ|§üìúÌå‚jõ◊£°ÏGŒ"˜„”ÁB.mOFùQórÈ^˜;&ê∂—‘õ‰«àQ›YmxVå+áP©Î˚ö©èøù™Rúêoej)?"gπQLöÒ^ré≈ˆ0◊†ùﬂ£1B>ö]
+[INFO] 00:45:34:648 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:727 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:727 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:727 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:727 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: ΩÙπ@˘aeÔ6Z÷aÄqÚ–∆]
+[INFO] 00:45:34:727 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:807 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:807 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:808 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:808 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: Ä≠-œïÎ∆≥ƒrJ*4)!6π«<ìUW´ù"*lJ «·-Ò+v“@â‘ùÆB´±Œ 3SØ?ÃjúFhQTã˜ì∆ˇ∑Ó£bÕl˝ÓÕX”=˘Ô¢R‚ÛàÄ“nKQÇjt!`pR®Rf©9û…Ø&BÂOIﬂﬂ˝¯ì˜‚åmöüŒ∂´©…ØÍziOÅãÚ5¥øÏ∫dú/<…yˇ1EÁC”s§†,\°ëªUBËÄe+€/.kNh´b’eÈ∞^Ω⁄.˙aà≈¿≤là*®≤`ÂPçà—Æ?ü~£eÑØ0p°xÖèr≈Ó÷ıÊZ•r]
+[INFO] 00:45:34:808 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:887 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:887 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:34:887 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:34:887 SAC/(5674:5674): [WRITE]: Write de: /Archivo_2
+ [buf: tIHî\îLê“OΩ˝„Z¯è∞”G€€<˛‹ˆNÇ˚ﬂÀ4@‰1ÛÍáóBr^]â8ÈπÅ?∆(Û¯Ú'ïﬁ˙0”•˛˚Ê‰`…Íe∂ˇ8Üºs–S$çÓ´‹^ﬂÁâÊéˆ	!ì1õVáÉ8¸∆Y≥≥ÿóy˘T*ë8W’vÕR∏/ÆV«UÊbÔ¬g>d8]˝øß]
+[INFO] 00:45:34:887 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:34:967 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:34:967 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:47 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:35:48 SAC/(5674:5674): [CREATE]: Create de /Archivo_3
+[INFO] 00:45:35:48 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:48 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:127 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:35:207 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:35:207 SAC/(5674:5674): /Archivo_3 | 0 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:45:35:207 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:208 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: Á°sk¯n@˙CrØoÇ∑∂≠ÍeóHÓ83†ÙãÉ≥ßGíÀ¸y.çD‡9M}gó⁄·$ª≤‹©”\RŸîOÕ:∑w@(f-ﬂåèÌùP˛:#ÿ6ÍîKSy÷P±4˜ãÉ-=Ò˚≈ƒÄ9›7+	ó)¶1ÀäÿŸ∫óßhSª≈¢zp>ßyã»48£fúØ¬M•≥F˘ªWáüÄfŸ
+‹jÊzà‹1œDfäÄ|$dÃû'BwæÔÍÆD:Œ¶”^7ÚH∑˚/∑'√Ásô0÷≈}›©=Oq¬ã¥ÎŸj˘Ów√«WÏÓ~–0π°∑AıT≤Ó°≠9˜'§Uf“ Õ¯<è£d‚a®ì¸ Á∞Z2äÎ÷zA|2∆0≠Óy¿5BùC√4¸JtùlÎÂø;tàÉÒÊ†luo%O¿rlö˙–ç5ªrÏµmê|÷ÜC≈¥—¿ÚWM6…Í˜	)mÌÔíL÷´æŒV≈Î ë#îéSvv#DDŸN€oµ˘–1∂Ôv§z+	’^√n\FK’ÔªÀ“.ìÂ°]
+[INFO] 00:45:35:208 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:287 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:287 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:287 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:287 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: Y≥Ãqf;]
+[INFO] 00:45:35:288 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:367 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:367 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:368 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:368 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: 7Áæô´`]z)Ç¸SDCe ¡ﬁﬁÖ—äu∂¸°8}X»k@Ú¡^í–¢O◊ÖõG-⁄6Ä1OŒ‘j≥é&∫•Aiç#í∆+∞‘™-DÜze!8\À˜Äú["`Q¢U•jÕ>äﬂâßlÀï˚öÅ=uäEôº€®æ¢”çJù8éØöF`fˆ
+H5§ÎÂ≈ûZ√C¶}ÔòÕRÕ¸Ôƒ#¸àU(»ÉiAG£˚q‚Œ˜ﬂÌÇˇß†î,˙ƒ∆ú’Ï]ò€ˆhvªªi≈™aµÌ§\bÅ(â"Çs4¢gc¡›ar.î©Á/◊Ñê{’„€‡bòHÇ¯Ë#LÒeº/)ı03‚⁄≈®´¬˚ù{N‚ºÎ∞	ÙtƒF`~iø%[åŒjf¢ÙÅÌ˘ÇnìZÅ•]
+[INFO] 00:45:35:368 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:447 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:447 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:447 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:447 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: NU}¿ÊáÚbßıø›WÍ„˙y“˘æ∫]`‚Ò)≠ÕÂáîu˛H˚bÃ>‚~zÑŒX	ﬂæ($⁄èï≠Ê`ÁÉD|¡◊z>.Zèm√*®QX¡%a¨Ñ	pú'¿<Ÿ€1Ì?iÎhüıWùYèRÁNáu†·;§Cÿ[Ö€‘Ô∆]
+[INFO] 00:45:35:447 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:527 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:527 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:527 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:527 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: Zu≤–6¨¸Ovb)…3â◊ÚÛéæœèK–xÄûx,Ó,){ºÜS,K6ˇóbH_Û˘8Ç¬e¿E|Ä“∫•°2¡F.:¯Ï'Ê≈?¶µs⁄uQBN2Bo≈jŸ:nAN¨Cœâ}Kõ0Tÿo%’qQ‘Iê‹›*çÒf>JÑY√™#›∑ ±xﬂQf-B¶IéÉŸâLoπ‹°Ù#“[üyîÖ&ï.O¶èS@D˙Sîπ¸ìRÕáˇˇZEª4’dQª˙¨÷¸=ılèÍ«¿fø$I¸yÙ:∑X€òå6PΩ\¿‹#≤R™§]
+[INFO] 00:45:35:528 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:607 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:607 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:607 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:607 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: g&∂|^ÒsıÆ
+2)J[bó£S›Í%ë£JüZ∆Ôó‘›Æ´ñMÔoùµF›°á]"ëO4=maM„í’êv«—O4(Ø6∫3¶FìÖîüÖ!àw:E‡]
+[INFO] 00:45:35:607 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:687 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:687 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:688 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:688 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: ˙¨ÖÒ®`w ∑ÛÚßl÷]◊ë∂
+ó"≠C’øi‘¢u’û*IﬂHËÑJ‹néIóòÀ˚øÇ¯=ˇïñ4hå@’VÍúb¡1&£m¢åœÁ>2@â&¯f¸D∏WôCƒ´V9!<TS
+≥√C◊+>´MìûCˆg»Óß;∑Ù†◊yq]Ω®X´ﬂ¨2≠1Õ
+a≤è„”ûÃcà£§ëN†H±îõ˚°ãæ\ø∆'a“~/◊ÜîïƒèbÑ¬^Y˘@]
+[INFO] 00:45:35:688 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:767 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:767 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:768 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:768 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: l@¬à;§Ç¥"t¥P*Ûª=‘°,ÌãÍ>6´Ë≠$¨á·°Ô]Y
+,’õ$∆[?¥lõDåî≈ÒêçÚ…©,l3EHÜé®‚ÒónäX˚∆?÷I-á-·ëü•·ºÌAﬁkrPV‡C¸`òã»ñ!4åcò°®°Xâi∏¸[<må¢ o±D<Ñ	#xpdjAπ£Å„Òb,≤ı…c>aì´µZÉØ\Páﬁó3ñ;âÆˆUTÅ ÉjºÌ2·¨¸^∞xQÑ ìT"æ®ÕN»í≥ ∏@'Ã$âerwñıœF1€≥&Œ:QöÓiä@1b‡NÂÚ©π”`£˛£R9“®»ÃóHrÏºÊ_ïù‰›aIO!*eäNu›ûÄO"^mˇÀÂ®Qàç÷ª$[=⁄π1∂îÒ¯◊∑¶ôF˝´∑¬ß…˙…Ù∫<ÏuLj£iúÄ–ûˆ&º˘ˆ[S£uBË≈≤∞ñõ¶AŸy∑âÎ±8˛{l…wª®@}ã±ND1ÔÜ˙bÎS.óıÔòx◊[πHˇÉ™-dÆíÀÚxx.‡5¡áY]ë6¯åºsc√¬≈j“ˇöÌßﬁ1ˇ˙u`PïG≥„N-∑πÆ77<˛ˆ€€ÉÂ˝b·Ë¢ﬂ6IËﬂ[&˚¡U≥E≠Ù 2§sIZ"ŸåÕ9Fÿº≥øi˝-n(b≠Gq˘åØ!J◊zäd#fûäXô™¬¯±%‹ ªˆß?ÿ˛ΩUóˇø¬≥?´üïæ∞ƒ÷Pvfç•x*]
+[INFO] 00:45:35:768 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:847 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:847 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:847 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:847 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: $⁄˘ö*πÅ»ΩHì®ÁÛ÷Fn
+ô)$¡&/ ∏Î¬DrA wÏ$;w'ß˛…Xf˙é‹Î$±∂)Œdt˛¸ŒßΩ$»À	[⁄„>›ÅŸ∆3újfÕÿv?ﬁ˛Çì°Ï=¥é|ÂÉ`ú;K>¬º¿OˇFQÄ:∑Z”ı¨¯å¬E)lVé∞»c¿†ü1 ™'úvñ#¸õ'€Ãu	%	CÆ~B˙¿¡‡ó‡÷îﬂÉà7U¡∏ôˇ*V£øYèg©D£o.©Ú-—…{up?aaª®™áÑ‰ÔÇx-¯∆“ll`0	‘z8ÃªÛçBπ§>‘ä≤]ÏlΩ5œ≥Åç´÷EƒÑ√M∞,Ü8&M¢ﬁªej$·ı}†àÏ]æÿ¸ÒÔ9çph⁄™Ä6ÄÌp#„êp(ıB˘n@Ëï<]
+[INFO] 00:45:35:847 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:35:927 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:35:927 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:35:927 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:35:927 SAC/(5674:5674): [WRITE]: Write de: /Archivo_3
+ [buf: Kﬁ7À<ﬁ“tq7ê[ö<ù]XS@WWßÿsÚLe?[8◊ÈrØxÏZ¸è©ﬁ¿–±gNøavîXkË≥5Á ¶ S[p´~•˝Zµ&l%©ÀßÊ∫¨QC‘∆‡C¥/?˜ı’.Ç#)ƒ’fõ€A:˝π›Ö§«ßê~l˛⁄´”=†(ÈûÔÆø≥o¡5ÄÍœó8PV[íâ”ˇ®∞åùìx˜4<˘íÂ⁄∂3[£õ∑˘ƒ5∂yì}*LÀéq¯≤F/»◊êt˜5◊l∑“K◊jp|˝ÃÛÙÛ_3µ†X¸	\…4u€≥¯95`¶‘sçd∏[@&y5€o#Ê√9 ÔtÔ†p3wm<ÜjÇŒ«ÈeÿÇ¿äPÿP9Æó«bçÈ√,mõágWRò/U¡j#¿–Ã’Î-ão¡v¬ó˚èﬂ≥◊ºV…;lÎÈI√s_≥ùE{`™¨ãg
+^`( I®ÚÏRPm…c°¿^Åﬂgj1≥˚sv∞jN>"
+
+ézµÄªoÃ≈ﬂ˝KT—2óhÀkÍ"∑[7oéãö;ábB]OÈâ
+ü?€?ClL∏
+eÄ√Aæ[l“P 'è „…âLéÄ]≤å*˝7€LxïNèîeŸ¢˙=uóˆ©¶É¿¢Sgû√0+eãËÂ<ü·<•*ÖdyãÈôñÄ¿òÙøD⁄åü¡ß1/T¿OVw‡˚-~òÊ'‹Ÿ%JT3d≈Î˚››ËûXW∂Hí˜c$U6Ê˝îK:ûVÿk±FR£⁄d-CàZ”∏⁄[ìp…ÕrÏúΩÜ™pµ$ùR©Nv¶≈nﬁì‡À`ù_Zt∆oÏ3œÕv≥“öóÜË¬£";æ˝s†¬¡>b Òö¬1-sq}nï‘ &ÆcV⁄¨ﬂbÉOÁBzßDâW5òŸÚ\∞ÌI´øÀŸÏÕc‹`‚£®ÃµœSRwÌig+‹ß»àâ÷ˆ§‚'7	wW` ïõZÃCã0 ˝B8çıô(±πÂ¥
+´ó+‚ˆj&l2ïÛﬁ–ª∂]
+[INFO] 00:45:35:927 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:7 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:7 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:87 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:36:87 SAC/(5674:5674): [CREATE]: Create de /Archivo_4
+[INFO] 00:45:36:87 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:88 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:167 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:36:247 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:36:247 SAC/(5674:5674): /Archivo_4 | 0 | 1575603936 | 0 | 1575603936 | 0
+[INFO] 00:45:36:247 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:247 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: ⁄˛˙Ôﬁµ-≠ŸáÄ¸dBäå†i≥ã·≥\jS(ÎRç36©¶!8ÍÆ∫ô Èñw†ÛíµLQìP9ùŒæàﬂñß√öÀs6»±~ÖW¨πóÎ◊%Ì"qûåÊC£G‘¥Ä·ß3ùãüäu∏p≠5®ë√ÿ°ﬂ/Ò¿Ä»˛∏’ΩkoGœ=7‚ˇYÍ £·>äfo£oaËQ˝ì_i˝1ŒÏÌ≠∞PKﬁº€ãÅ$7∫æsFê´ä9‹Ô/_EWÀ#óÌx® ˇÙ]
+[INFO] 00:45:36:247 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:327 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:327 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:328 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:328 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: ˇ†«Lc3Û˝@®¶Çêh,øw¨CÑº,¢=x_
+Ñº¢~´‰òT∫ç†$L∏´jÕ7÷ŒøT∆¡çAæÒWÔ∏Ü˝ƒiAÍù°ªgMòæi<NGÅË¨ÈŒMµÌÒS7πéwû9·|≠ﬁﬁß=¥À:n¢ˆS’åëË…K∫Ù3Òq´À∞qFÍDx§£0EgV$ÖP≥=,›”ÏE2€˛i•…(BX≠'k:õã°dŒ± °ÎØ¿˚—@ø¥˝¨ÃÛkÕ√â#?π˘ó‚IÀHz≠‚j`®Âç‹@ä∫ªº∂ZUB)Oc‡3ÊÂëˆx¯£æxIAÙ—7B{
+Ÿv>&P!öı~ï⁄û∑ñUØí4´ŸZ#%ˇÀ3≈NÙæÈ"-}IÏﬁ•“Ô∫w’°|ó%‘á¬-'¢4!LÆË3Õ◊ŸP[èñÚoä8ÕdMßIVø€Ôú"∑®éå°õM6"?ékÍ¨Î/_[Ê≤è˝;‰î˘g7iÈ/˜◊˛d^ƒ76 0aœ O>eìLR
+c]
+[INFO] 00:45:36:328 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:407 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:407 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:410 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:410 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: ñãæß∂4zŸ ”zÊãï+]c4∏zH\æî¥i1âm§Öﬂp˛–?Íœ⁄IqPîã∞œf]0Fq‘Zi≤¸B#a¡Ø¥.ÄgÓÆ¡®«°l•zL}–˙ps”–ù ãÿV9√rX–çIQ7*◊˚ ’”V=q‹rh–œˆiUÍ‰›}ïAlµkâ°ﬂü°·Ù‡|>KNﬂÁ>Œ‡˚Æw©Ãé åvO±Ê¢≤Òâàﬂål‰å¥«¿j√‘ÿ|éë5Ì[≠C&Ù$æ¬≥mÃ<í≥®5´´˛SﬁªN»Æ[6••`Ì$møæÜHß:ôZSëX«¢«€‹@˚äŸ±'ÔÈ#w¶Ïõ≈]
+[INFO] 00:45:36:410 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:487 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:487 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:487 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:487 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: è“FWP0≥¨+#GÚM≠éB2à}X¥íA5Ö+‚¥§Âò]
+[INFO] 00:45:36:487 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:567 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:567 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:567 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:567 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: …zô˚Ÿ£–Ö"#i¬Ωùÿr78Õxﬁ§æd˚·πÒ{“P⁄√Ã∫ÀÄ]
+[INFO] 00:45:36:568 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:647 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:647 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:648 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:648 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: <‡Fî±ä“ÄírÅ$î∂∞»∑¨ñı¬l’$'ﬁ!ÕNl¥ŒJ¿Q÷$æ—–∆±/øyÀèg0È"Ç˜@˚»ÿ2»≤#Ãº‹o˛ZÑYJ"Å8œØ*íÓùmRÑ¶@0€ÒDÂË›gÒê‘h:…»Ω>Û»'k‰∂k[ñ-¥Oöü˘NéÃj∞∫º⁄bß`9∑â!Ç‡$g¡v“*ßÒ¥ûï≠≈ä]
+[INFO] 00:45:36:648 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:727 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:727 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:727 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:727 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: qgÜLH”=<6û3˝â…I62l®√∫Êœo‚"gokv]
+[INFO] 00:45:36:727 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:807 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:807 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:807 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:808 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: sÈ∞Q]
+[INFO] 00:45:36:808 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:887 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:887 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:887 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:887 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: 2ó]
+[INFO] 00:45:36:888 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:36:967 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:36:967 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:36:968 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:36:968 SAC/(5674:5674): [WRITE]: Write de: /Archivo_4
+ [buf: ïÀÚÁEÓ§&È¸U⁄7[»≥`Ìe!·=„∆§9„ì<ÒâŒör÷ûÅé‘Åd€0Î®ø≥ù◊•ãe‹%“uF“ıkSgkt‹ÁÀ…U∫5Ñsÿ4–◊&M‚M˚$ﬁÒ]
+[INFO] 00:45:36:968 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:47 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:47 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:127 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:37:127 SAC/(5674:5674): [CREATE]: Create de /Archivo_5
+[INFO] 00:45:37:127 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:127 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:207 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:37:287 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:37:287 SAC/(5674:5674): /Archivo_5 | 0 | 1575603937 | 0 | 1575603937 | 0
+[INFO] 00:45:37:287 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:288 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: ^2îó-x≠;W{9æ1d¨@ÕÅÃøûzoŒV´ºBéG∞≥ı;ã·è^çouå-≈st!1]ÛpÈ.~åtXä(˛>´‰
+ûﬁû	≤í)É¬∞√∏⁄ƒDøˆ=»{Ã]«¶‡∑”"NaBRÿ˙Õo
+R]œïq›öìà#LÃ √!f¸µönéêÙ‚éTK09qÓ@›˛î}’[≈-¥B£xIﬁÒ=:Ï«ë*@∞ﬂâ⁄\|˘úﬂiËt¬œufª≥’[ °eﬂ‘q∞9%p˘r%2”p}.Ç∂|—7ã´¶PL≥Lkÿ˙+ &0Ñ8ÛÆ›V@ÒyµxÈ®…cøÆ“ÇaFÓΩ`JPÆΩ´ΩŸäX‡&‰+„g!ŒÈ–≈∞Ó~;ƒ÷,¯®X€RsÛ à*oß"q$Æ¢6›â1[õtÕ‚—à’qﬁ◊í°÷ñ{ºgO6ô‚Æ∂]<OÄ”∑äwò]
+[INFO] 00:45:37:288 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:367 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:367 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:368 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:368 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: ı≥)nOÊ7ILñâ´'bŸT;3&d|óË€uXo!<ﬂ«EvM!=Ãâ∫wπƒäé</√–@C®IîP‚0‰ø‹ÿbõù·–%Ò]o4Br?’hI@ÔjÔ/N0S¥¬È^·eö¯ÊMJÅ»˘F)E#–Çy‚ﬂÏK¡¨mN∆˘cA˛ÔœÊÅ„€kùóZ§¥IxÕx≤Zç¨T"6≥`Ãœ“'∆?⁄~é¿C	`‹Fßw’”ßÓﬂiËÄÄ˝÷∫ﬁ≥¸≈q—„™ø{¬∞âﬁ’ŒR}óx»£+ß<v`ûtxUcÂ√á˛F¥nâ∆Õcÿpo»5Xπ?ŒΩ≤µÕ≠/(-¯&¢≥„*WLë1“åuÃû≈ôñããP˘Ÿâ.·v"{ÛÑ.c$l¶ÿÔ]
+[INFO] 00:45:37:368 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:447 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:447 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:447 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:447 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: #c¢7§‡‰3®“"Â“gœ;l[ﬁäﬁ;¶gx^≠∏\ö«#kbr1}ˇŸ⁄l∫ rô0aÉë§®óYc‰‡O€›´Ò◊5	ô
+XøW¿'˛»$Ï◊¡x"ºﬁ—zcá¶ó[.¡Í»Èø;ƒÉ‚Q‘›F˛∂D€1Rlí[ó≈–§Krƒóo!crãám_0ÚÖ„um[‹’\ñp‘Rz
+,ò4Q]
+[INFO] 00:45:37:448 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:527 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:527 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:527 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:527 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: m¥¬¬Ç-®9˚3Éc)Éíç”14Ú*îQ»díiKÆñ÷‹î£]≠Ωøùó¨AHüqr	”Cµ$áÿ‚)óP«H_®«·õƒ.ÕUé&qÂÜ)µ÷ñè∑x(≥ÈÜŸ™ØCóiÀÒp! ﬂè≈¸¡´rº=røÿ÷QáËRºæ¿I≠RÉQ#öp5”!5∫“5÷Ãúpm£Í¨I©£Ùâ±!ìH»¿%øŸ®Ö'LÑ#Öîû}[,§]~„HV¸í‚•wá9ä˚≠WÌjÇ’5éªäç—ì◊ÿ¢5˛,g±	G0íà•òÆDΩ;Â¡6"*’&¨á’DäÇ∑9êÏíDg&TÛ,zª
+ÌI–¨ö0#&Ÿ<«}§Àbn;E˛ßÅµÛ~ßÓ8Y§üÒ¬Â¢*a	ê©ÏÁ][Ç¢√ÈŸÙ-Ç8Ï\”	)û“ûVX3™ß	†[ˇ#YÇûèJË¬ﬂ÷ß^¿˙MÙÀeRµùÏ~=ç^ﬁk/óIRàk4´ï≈>ç§çkÂ¸§§˚úvzlø©ªÌ`Áú™Jõªß(„à9¯5ıEtÜ∞óuauÙ©Œ5i,•ﬁ5”rîhﬁHE@Œïò\Ú·µÊpt…%Û:M%V7«˙„T{±¿ j|5ïq^íd§içú‰ùßTãsò}õfÇ8©^˝ê&wº?˙Ú›Ã*pÖ@
+‹åZ“Z]8˚åW…˘@≥¨A"ﬁ1<Hûº«6>ØπI%1‚ç∫+±«Á,}»QÈÎ›I÷ª1çÙspûúGö\=ç•jrBò@Ù>‹µÉ,∏Z·x≤l8§Ö+ò&660Ú0ﬁ`Fõéñ√ñqˆBÃâ»>[—!¿Íıd˝uQNw.HãªË“ ÉÄíÌ∑ª∑£Æ#'&I03À=-Ébö†(I⁄ob¢¢P®ö@’8’ùÅr5Ø«„Yı('õ˙hdı_ÑS6Óãà·”)~Ùñ°°ÂΩë:üiR¸πBFÑAsÁ3d‰Y≈í7QîÛ˛Õ*ÁKö6∑B¸Ê¨`S≈{ÄÄÌó≠©Çâ(ìâÛd¶°ÑË°ß¢¨¶‡IÑZÜ5∆;G,îÎ]
+[INFO] 00:45:37:527 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:607 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:607 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:608 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:608 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: ‘≥>AcUµRXÌZp]
+[INFO] 00:45:37:608 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:687 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:687 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:687 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:687 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: h+<3¢ŒÑMúæ;v^c"q§»¢F˚#≈¿C I/∞·i◊€jlç∑ßYæ$Œd◊á÷ÂcÓn·Dù>ÙûâÕÈ!@i(ßtÁZÛF]
+[INFO] 00:45:37:687 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:767 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:768 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:768 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:768 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: ÿ∫-BñÇhÍá±™úË≈P™.Ä]
+[INFO] 00:45:37:768 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:847 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:847 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:847 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:847 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: 4Ãc“–CCÏ«Öd≠Lä˛u≈õR¥—ÙÌﬁVd<÷ÿß+√Œà«Vıp~>è—ø÷!∏°·≈;#¶gÄ_”ÊEã™ãÏ#<‡hcnV‚l√«±©í∫ƒ.¥ÊVÖ˜(⁄¯23Cw=¬˚ÒøÜvõ<˘$lqY{ˇs9v#ˇ7Ü≥m¿3ø@Ñó∞÷7âØtpQAY’ﬂ`Xb`ŸAm9Z}Ây0¡ﬁdü5)›q¡’—Z≥á®€?zr√Ω \”ÀÛ¨Hö∫wD≈¬‘Pú{ÃµF#C¬∂€ºßª]
+[INFO] 00:45:37:847 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:37:927 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:37:927 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:37:927 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:37:927 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: ˛hWÈQ/ Møì¢òñÎºP«[#ΩE∆5∂†T≤ë™ı?~
+hÄÒõÉUÆÙVË¶<æÂÙ·ŒË	Üf©Ót=/t«A^…˝Ø(&Î˝‚2fÂïI-Vù∏ÕÇy.8.ÈWjÔ√_È>≤l7rB~”T@¬D˝:ús"*º’óqâ≠‰ÄΩ≠Æ˛LuBeÙT›ü%o4ùÅ¬4+GFy∏Kß	ÖÖ£ÔtøleGi;~MS$øz€ïï¢bı'á, íÁ]
+[INFO] 00:45:37:927 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:7 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:8 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:8 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:8 SAC/(5674:5674): [WRITE]: Write de: /Archivo_5
+ [buf: ü“%sòc8Ï—Ωw~ﬂ¡WjXè∂r¿}∫›…|ìM/ÉF„AëΩFÏ`Zg]
+[INFO] 00:45:38:8 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:87 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:87 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:171 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:38:171 SAC/(5674:5674): [CREATE]: Create de /Archivo_6
+[INFO] 00:45:38:171 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:171 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:252 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:38:331 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:38:331 SAC/(5674:5674): /Archivo_6 | 0 | 1575603938 | 0 | 1575603938 | 0
+[INFO] 00:45:38:332 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:332 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: •«ï≈
+o¸ûsΩE6z®ïhÅí 0f(YéF∫ãå/ÒÑ6a˘»¯∫táo®ÿ‘e®~ÂÜ%lO2aâ£°í]
+[INFO] 00:45:38:332 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:411 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:411 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:411 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:411 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: ≈ùˆsÅx-+˙AŸü[=Ò¢*p‚ßµa‰ÂhPÃ∫∆^3∫öπ“êx›5∆]Gé–Î=xjV˚C^±˙îØmk„ÂÊ´¡Sv6FC+N8@4è©[¨Ùg∑û"ıµ÷¡¥Ló«c¨ÀZÿä€Sm√·˚eÙﬁ<Äu∫SqQ'ì?QP(ß∆«yàÀËü‹™>ô˜ñRù8‡ﬁùQ¨Óï◊∆øÅ≠DB•)M2¢Æ j]
+[INFO] 00:45:38:411 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:491 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:491 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:491 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:491 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: ÿ-˛ıX?¡∆õORüe≤≥@ª∑-Ü·ïXs˙NÕY»ò®_¥år÷+ıü6¡¯√_Ï™ˇæ”çlh(íƒãfêú! cVÓ,Ê^æ8©Í]
+[INFO] 00:45:38:491 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:571 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:571 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:571 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:571 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: Ç√≥kXú%E˝˛!Rnj•	¢çkT|ÌÒËÇ£F…®¥çVUÀ5J‰ •£Ω?Îı≠	n;RŒA;òÆŒmê%
+*∞í?∆‹∆Zrﬁ^>ª_ó(à–˘§≥a„Ì4vI©˚⁄m¸oËªªÀ√tßÕ]
+[INFO] 00:45:38:571 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:651 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:651 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:651 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:651 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: 
+p)&•mëÜÖ˘5˛_â(M—O¥xÎJÈ‘Fò"·Qx4ﬁQp£sßÕÇ,n†t€vÿò∫]s·”2˚c\%2ºœ£î∂[bW˚∂óø∂Üœá‡ç€JÕ?∂Ò°¸7«ù¸€Æ˝ÊÊtÈ¯¨]
+[INFO] 00:45:38:651 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:731 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:731 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:731 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:731 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: f¬ÙõÃÏ˙‚Yõ,•:+¸ò™¶Öbvç¸V_Ömˇ"∆≠ë)‚º;»g√Ô*¬w„@)i∂⁄˜€~ÒP[l‚¥Ñå¶ìùqLgRˆ@{⁄[ﬂÎr∞€h¢	FØ!)CÏ.€“†fnÕR∆]=£G\cœGÔaßùÆRÑ7˛”`ú4uﬂp∫JàÕt◊ìlC5¢lPÕí∫˜úâ6ê/‰=ÅiË`|rO4∆b∆öπ¯q¶§GnÇ;≥“ıV´B*}]‚3À÷Ek©	íGßZºè0ıˆÎKπÉW\Ø˜Y—f¯åTF,^Oû]
+[INFO] 00:45:38:731 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:811 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:811 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:811 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:811 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: âMón
+ZC
+ûBÎë0P
+¥ç‹,’∏ÛèÑ;çË¥≈ d
+.ÑgÜ◊m=F’7∏„’8ÛÊí3fE#*N´°‘€è5e√„o∞AVı¡nNWÂ>)AHS2•Cae±xèÔû¿|iw~∑˜◊ë∞/CÚ–MÇ€•K}◊k[Ûß¨.J‡]
+[INFO] 00:45:38:811 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:891 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:891 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:892 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:892 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: ÇœòïÚ∏‚—fP'Ï—ÊÏßQª©â‹JÅ	†∫©CÜ&(-‘˘Kü•¶ÿ4î;àªì!+eüX]
+[INFO] 00:45:38:892 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:38:971 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:38:971 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:38:972 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:38:972 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: ∏\^8}·ﬂ¯‰w1€IM‹Äkˇ%Í(l∆›u◊”ËohÚ«qö©¶}œc˚"é±8p%…f Ú˜y8‰R(T·ı*ÉÖéØˆ”ºß$F·øß¥⁄ÿ9cõ'9†Ú‚⁄}ò,àdﬁv·6 \åóVsèV‡Ã	‡Ù◊_§Ä(À_?$Í:˛LπèSjÓ]
+[INFO] 00:45:38:972 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:51 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:51 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:52 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:52 SAC/(5674:5674): [WRITE]: Write de: /Archivo_6
+ [buf: íé˝·n4∏€Œ:ÃÑìcrt8∑˝ÆÙık®˚gß,v"üÇÜ®çDÖ◊˜^“}rc/ΩﬂÀg˙IqpŒt"'\kÖáëÓ
+îk=jÔIMöƒÃ∏r˚∏Û\&·Ú\∂AZzÿ»ìl:C ÃÚAÙ≈î4›|«SŸ≥hyéOØ7!lªª¯àæµ¢¬ä\;V	>c∞¥¸R0õÁáÕ	˝ødÅ∑·∏Aàvs[!±mûMW∞•{uÕµùÑÊ•	ﬁˇòÊó¸¥Ë¢≥èO1mRx™µ]b=ô€/¥Œr]ì›±˜7Ö@©x¢*¢ŒÕsÚR®Ø «~bagÖ-~zÄiH2”£‚Xd/.ï¶#Y7	n]¬[∆{ÿWM5∆Æ	†ûmà(∫G›˛]âoîøñ∂wÍ![Õ≈]\ÁπçùpÙ7bF’Éx+ënçÌö◊2‰ê∞≤m…ÎéÉ¯á¢@¸ÅQˇÉ«aÜ„8#Eâò8x©J®≠œw3ñç_≠7!Ó{1vt«Y®∑{ó¯UÎí2ﬂFü§]
+[INFO] 00:45:39:52 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:131 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:131 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:219 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:39:219 SAC/(5674:5674): [CREATE]: Create de /Archivo_7
+[INFO] 00:45:39:219 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:219 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:299 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:39:379 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:39:379 SAC/(5674:5674): /Archivo_7 | 0 | 1575603939 | 0 | 1575603939 | 0
+[INFO] 00:45:39:380 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:380 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: ◊o˚˛ÈRŒQY[	àzYbæ[-–Wû¡[±|∞w˛Â•»HÀ
+˚ò\…‡jìê„˝ò≠Dà ◊êÔOôG’y2ª:6TËrÉB∏èù◊Éüõ-Ë~¨9è´rK$˚$ûpòn†R!¯∞1+Ü¢Ñ_Ûß$B\ƒ:õ›1%1°õL2˜ë”KCê™óòi›jpì§µ.(ñ≠S≤∆àø&ÈFï9˙>¡‰4ä∆Öç\ò˜	‚Èôó™ﬂ;Ö¡,ev]
+[INFO] 00:45:39:380 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:460 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:460 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:460 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:460 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: ÅIw•‰piÉÄ=éÅ®Ú9å∞⁄≈ÿÛë≥•öôÇ≈]
+[INFO] 00:45:39:460 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:539 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:539 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:540 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:540 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: aAbØòµØtŒx¯[¶xÊÄ«>DUÚs≥*èŸn„NSÎ€òBtË°c¯ö$ù~_Jérƒ¢O’V™™≈π[ô1ií¥é¬9êŸÑ«1ã4Zm?V“òè∑¬Â‰ËÜØË6=ÅDÿ‡‚Nˆ<|]JVË†÷w¶YÀ¸„]¥∑d¥[ hE√°˘ñ\^]
+[INFO] 00:45:39:540 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:619 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:619 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:619 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:619 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: =ø›∆ƒêä¶
+ìY/À∑‚ªºÔ∞œ≠ΩÂw\Î*wâÏ≤«—áí.ˇ;˙uÌë¿∞≠Ñ·TÔ¬±[Î{¥ôÿú«s~
+fΩ±€Ñ,f/3âÄœ⁄U|…¸‚ „ê‡◊≠ÒLã˛Ó|ºàQrâp.ΩÜá;Me•k Ôö=_„_¯#Óka'i07∫:ß^-‚vYbky?¢‰•W4úÍÏdó9»X˛Êê3»BhÂÅÏƒ*‚û¨V˛£ñ8Ò@£]9bäY…∆≈d2Á√FUÁ‘æl[qvô/Ã∑j≤F¸ë‡ˇ2óıJˇ∞XîÖ±ÂP≤áµk=“ì‰?U\?4Nr.òË≠^‚û<Bp´KÃÈ”◊4Ä!ÓıPAyÄàRÑŒÑÚ÷çF¨∏›P¡l’˛c:4ÌÆ=˛‰a	¡º´ ﬁÍ+ûÙWèö~QÙÉZfoeÃ‘‹»¶πa3®ïÛâÔ¸°√ù'u?;TüÊ≠Æÿ7’ΩüÑVy¢Eh¿€.CLS_:˘’Õ«™T¶Íü]
+[INFO] 00:45:39:620 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:699 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:699 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:700 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:700 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: ˘◊ˆ‡ˇ&]jä‘E"HhRåf”=Ÿt`!j±;ºl∂üvEhﬁ=P,—Áu‘Ñ™é≤Ÿ§∞rV¥>‘µ„≈vß-˛èJÅFuG,)?Bt∂è]
+[INFO] 00:45:39:700 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:779 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:779 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:779 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:779 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: ©z®äy«–ÁZàiµ>‡f˘∫ﬂPÉ•¥óh4*›=TlÁµ¶©õi)˚®§tÙ˘ÁRØ Ò5IÄZkÕõ√ÙeLÑäøóÕ˛ÛeOŸˇ&ˇY„j3hnòÇ0P£˚wµñÒN‡W1˙9qcØ⁄n3\‚ãS±C\Z˚YÒ∫:z:˝]
+[INFO] 00:45:39:779 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:859 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:859 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:859 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:859 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: Ø`æ9∏s—ƒ‘Ü\ﬁÜ˜Ω≥?ΩèıŸò„8Ö/¨O~˚√≠+Ê≥ÁAöS˙ *5Îå2‡X∂òÈ_0‘ª)†•¸eº|ô¿óFÍ‹ˆqªç◊©º!ç;ø›®H	ˇÂ™ãûÍH¬EÎ‹)mÔÒbÁL/åÁºãr†ÍΩ$Ω€e–*»Õ(á®%ËÛ5Ûéßûæ]Ô¯≠ÆÀªà(:.F◊˜%€Ñ/†„ﬂŸ»Î2⁄fpM»Õd‰Göö1ò/PIœk DÔ=∆C_ñ’Â‡ÜÌI—.˚∑º˘Œg3Ïµø⁄µ&yX’ç“>ç◊¬xMø™äÏ»^ãSH¶…%fpªûÄ-ëÄk˝#ÄIXR±ÉHˆdJ˛Î¡‘
+u√HÔ¶ø«}≤QÇ…&∞“4ÿâmÌŸµBÕ˙pªª®ÏS§úÑÃ∫√ZÓ¬ ÿ5/ıïéHÍ≈Gª‘uJ
+8ˇeË»®‡]
+[INFO] 00:45:39:859 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:39:939 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:39:939 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:39:939 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:39:939 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: ÿ?≠ ‡Fx⁄ŒRä‚„Ò±hŸiß\y{#/åÓZæÆ÷~≠,5ê‘cQdökˆ ¸&<$Km]T'ºM,~bı¸(ôóÏ«|âù¸Ë˛9◊c˜ÌÚ3dÈ•⁄§»'5ïhítÅ˙∂1•õ6—ïÑ…Ú$,˝G~¿(Ÿ|†ªÄÇ∑±´§XbE›D{\≤["›]
+[INFO] 00:45:39:939 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:19 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:19 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:19 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:19 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: ¢ÚÕWÚWËPñ6^€Ø◊è D7õR»∫¬¡g=qn“OWµ»ÑM¡¶◊7Ó≥◊Ï6Ã|V£ª®x7êMæÖ†ö(a"Y]¨4°]‡EQä‹0…vÇæUÂÌYXuH„Æ$®o˜IÇ≠ﬂﬁ£˚ÇrN”¶k«=¿v≈+ûòG€ÇˆQmπ≠©>îaˆz9í‹a¬Õµ•yÄÅ5:WÀ†`lˇ}í∞2kÎ±n≥uèmgæ⁄ªÕ[9^†eF;ÏùÍm?…	@˚®ª]OhCåÇë»GTSÉäûÂÊ™÷ÑZ;»å£Î¬à$D£‡Í(A`bãßcßòs’øø¨íÁò0˙é_#$]
+[INFO] 00:45:40:19 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:99 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:99 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:99 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:100 SAC/(5674:5674): [WRITE]: Write de: /Archivo_7
+ [buf: =≈ä–µ˘—≈à∆G∂“wACæÿ‹0V]Îh“˙˜±π)Î‘£ôZvì Jè˚óƒãñ¸ÒÎˇ :?∞‡8Œ"p›x<^›Ñ3¿ˇŸ5°F6Î¸“€¬V≠á
+;ˆ·äY√x—_dTÒl€_åó^s3I’*Q¥<)D00ig¨¯0"RÌ÷2_w-d^` CësØ%÷êè¿:ÙÖÌ;BΩo6ﬂÒìoøî…æ~D≠k0¸Ñ,-Ø≠˛«ÑLä˜€ÁE~V2å´yËw∏œ
+Óc≈∑ªwÇ<ùX’÷—ñ'c≠åBúRL"‚ÂTÅ’/7·`î¡õzõÌö6?ß9o3÷·ÚXàˇú—zÅWsÖÒ‡Q#TT:¡˘˘},¯©‘∏πê˘æ¨wf¬ÅÇ‘Xî?‘Ò+®>ÓÖD÷Ì».Î⁄∑ìÌ+«I]
+[INFO] 00:45:40:100 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:179 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:179 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:264 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:40:264 SAC/(5674:5674): [CREATE]: Create de /Archivo_8
+[INFO] 00:45:40:264 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:264 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:343 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:40:424 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:40:424 SAC/(5674:5674): /Archivo_8 | 0 | 1575603940 | 0 | 1575603940 | 0
+[INFO] 00:45:40:425 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:425 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: ]-\M¨¿¯U:Q4˜»+¨K…M¿«†∂›™¥3„*AB4hJ2«Ut'€"¶Cj|GV“Íï>´°+IökfÀ]ç-áz$Ø2Ã$2oèOˇ∂À—ΩQ Kÿ]0Û<ßﬁø¶Nze3œ˙ûd·^∑U:ÑR{∂óº  Øµy€ÑÁË)¢#h4S]
+[INFO] 00:45:40:425 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:503 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:503 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:503 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:503 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: ƒúÃÊØ˜ç_fÛ|ƒ0Ty/]V∫˛}Ì‹©Œ§ˇâ	ÅJÊ®≈\Äï$^é7‚ƒËº0·ê|‰ ûÒzÅsóL¡¶∆Ë—4R°«%Á.$»]
+[INFO] 00:45:40:503 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:583 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:583 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:583 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:583 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: Ãﬁ‚Å„©îX0’}w©•Ê'£C2>Iææé1±æÑU<zû√>¯—æºÍaRV–âC⁄A".˜íe]∏ë	R·Äˇ~≠ŒıF÷)9Qi(ÍI˘´°h/tÎèåCW
+„RXÀ6”ˆÀ…0Éº%“I3Úïºàk/•0Êïy_®£í?Ç0>Æ=œÃ¿âÊfÿ◊Q˝ã3˛yk¶®˘ÛTô*M[–ŸùŸ≤ÄeÆf´!L·>"ßçqõq^it·ƒ
+ÑîÜËX96¬» •tAhjµ’ºmå,2√∫Éw”‚ïø—∂^€y◊rÕÇ•Aﬁrø◊*Î*T=eáùÖ‘∏î{∏Bˇùê}æ|Ì√•p˛ÖD‰_ÿ5=‚üDâh;ÜóG5<¢sizÑ‰ë©Ωï∞πœ‹.`:#SA&·´˘ÍIU.cIk€]ÃâÓ`(‡∂3†6‰ÈbÕÿEW·æbÂÍb≈“·iY)±D¶9¶˘Ä~}ÎE√"“ªÍ{R¡˛∆ÁÈÏ)«Z{¬Y)„›*$˛¡ü÷œÌûbÎ¶|p˜bùË±õ?ŸÖIÀNL¸<ä√xBi’ã`à2==™Ô’ñ3÷•ÃSqïñú.Å–Àìÿ%zöÆ¨B˜ZTíZ¶ÈÏI
+£v∏àœ"·Ñµ${wıäƒagJh>3<˛un◊|∏cBbbé2/%{tsC÷∑#—FXuÒˆøõ>ÄÚ\8¡ﬂÿêûå^ó=d»Ô©ËJ•W¯Ñ¯Ω†b™S“A˚ä„¿∂yN√ñb°≤.œ]ñÒ‹œ?WƒX™`ÏTq∂ê08ÛâSÚ˜_ÊP[ˆ1ıeÚ!maØ„ã$˘wW{oPÛ4ê áQƒà›≠¯MıÊ8|ïƒywÅØ[≈Sˇ˙ë≠Õr…“LCı2DTÏY›6UøÇ[ZG∫Edw˜$_çÉ>PQêá©ôT@ÇK]Çh~„"k±VÀr¬qÜ:	k&Œ;U(Ö§zkÛª#…ª<Ñ”8Z∏kä√‡◊‚éë|6.ß+ŸH‰º¿YW
+˜:5≥Ø3;¿;FH?¢tù∫=,)ÄDåïÉs]	€[S`wÔ‡N‰fèåæÙäRQc˙l ék‡ôVbÿÄ¢ìÖWê)QdR•ﬁg‚voS˛osÔgÑ˘º	X†◊]ZÏ‘aø⁄œüÿÏe`äpËG∂$W·1Bs+"5SÜB ü@à°˚x∑˛F¢≤Ù]ã4g†≤Û¥ÌqÜ™£N„të2∫U/1 •<V∏‡ïkkZe†‹≥°Lïø#¨yy√¸Át\&w…N3O?JÏ/£ë›R¥ì´S∂ëHp¿T”1≤©;O]
+[INFO] 00:45:40:583 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:663 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:663 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:663 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:663 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: ^Ñ8,ËK©Õœ“„ﬂÈª◊+ﬂ¬Õ^§-˚Ê[bøàÿ‘ˆaΩö4T∂∑æöN|W_DñœÏÀ,∑ñ—lÀè©:ºå€0≠[ﬂW·ï˝‘-«ù0•Óœ‹≠´˜†˜Ç«›óÀarë”ª"ˇ⁄31ˆúl‚võ≥∏˘ñ<¿Píx0‚k˙q˜g!ä6s=s˚b3´)'˙:ß<Ëî ≥óDVu„DÉˆ©Âfˆ£m]
+[INFO] 00:45:40:663 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:744 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:744 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:744 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:745 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: Ü‰gı\Œ58æ†¶ì#’mS9à^∫≥øõ>h®1jBO∂
+ü“ŒÑ>¸]
+[INFO] 00:45:40:745 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:823 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:823 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:823 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:823 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: îÿ@î+Zƒ…éÒò?~Ä
+±se£,7XÒfè¿}Yè¨ßS¬O(≈8’ƒ;K3Ñx6ÿ¢‚mù£	öÈ¿zÂ:qX•Ù√¨TOa‹∫VÆöT
+mÁc °.W©OI3°Ërˇ_’≤‚˚ã•\z˙jÌ6ÿ˚‚f/{çÙ∑jÇöÍ¡rG±±ËJ≈u˜--ëß'9Iâé´hΩi&%´:\ÆµY,;QÇu%ë¥Xæ(÷"	êù@ çB–BoYª§ÍÃÆÌ3Ú4$iô”ñÚ•˘x_ûÄp√Ó∏–F]
+[INFO] 00:45:40:823 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:903 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:903 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:903 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:903 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: —fªı,¸ººXü-Ÿ
+ÛiˇH=∑]\Q¯sfvŸ‡—Jö≥b{=ÓQ7Dv+¥WRàÛVJâ∑Ô´!!£àßç)‘Vi|kŸEjtk«¥¸ÃÉ,fõﬂ<êæ™˚A|ç®rÏ;q}9oäµÂ)Â®ïùíS~|ß»æMKªáızÂã%ûz?î¬f¥O—´À»–È@Ü~Rk∞Œ´é	ˇõáòt6ß*ó”_Z^ÆµÔ∞√Â(6=¯›¨1\–Ñ¨t%	Û†ÍÂX‹À#¨Ù£ﬂ≤I@P~y$IÊ@W"⁄ÉÃDõπ–Íº¯∑˙∏”2-n¨HÒª‹û‘ﬁfzò6ıVï”}bZ\v«‡1Ê·§é—è^üƒ[ü2Ì∂RàpP∫YÍòÈKØS)Ëe‡È	«lTXÛï5éœ≈¡pÜbÔ—∏ôÆr˝ÆŒ-ΩÅÉºÄó
+ÏÏëe.ÕŒ:)<àƒÙ˘≤0¥k+›˘9B<-làpúè®JÌ7*+Éa{1yY™2†Å≈òüMÁ¶>DHÜüå+Â◊JMoR\æﬂ)ÇUŒKr$|h≥kë&'≤5∑ê;Â•t3üË¿[ÚÁB"◊BÀ2EÉñŸÜ†…\?Z¨Ñ!®ÜÇŸ“˝N∆µ¸ÿ»o Aí£-xí·ÄU€psíI√†È¯ˆöY”B•™Ó
+Éf-õΩIÍ˘òÅ6ñÄ¿ÖK ˇJ~ÁÃëßõF_⁄qc}F÷Hñ}ÏpËI¨±úûsEÑ;Ç+Í'√~G.C§j∆C…¿2A¬'Í˝,$∞ØΩînÃæòR-‰Û!É]
+[INFO] 00:45:40:903 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:40:983 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:40:983 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:40:983 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:40:983 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: ªÌ©ö/é…§¢w⁄Æ_ìe?¨VYüH‡°nı0Ω!∞)lMX§8\%ÈK{"«»…≠{0πÀ¢^^Xî%û‘s]
+[INFO] 00:45:40:983 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:63 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:63 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:63 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:64 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: å˝J=àRXaòÛŒ˛J_≠s^Ò05˚íì b°M.ç∆˚–åñÀ≤b∂êcÇÇÛÛNã]Ù¯NsÒÄÁáí…NÒ!˚S’~PµÍ∏,ZQî~Q?¸Ã‹ı)1ÊÌ∂]
+[INFO] 00:45:41:64 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:143 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:143 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:143 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:143 SAC/(5674:5674): [WRITE]: Write de: /Archivo_8
+ [buf: ::s&NçyÜm.rMå®?∏Ó/6òÑº®t*~O"{N!«Rá)Cπh…I^9∆‰1 ¨™Å„êÿY,}|‚TH÷–√`C„±ê§=≈ü∆ ◊m)]p◊2≤•ñ•≈√É0i€Û,Gá—0W]à∑jä¶‰çø’π¨¡˘@–™—õL ¥ô+¿≤uOVûç¸%çA]
+[INFO] 00:45:41:144 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:223 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:223 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:303 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:41:303 SAC/(5674:5674): [CREATE]: Create de /Archivo_9
+[INFO] 00:45:41:303 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:303 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:383 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:41:463 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:41:463 SAC/(5674:5674): /Archivo_9 | 0 | 1575603941 | 0 | 1575603941 | 0
+[INFO] 00:45:41:463 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:463 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: µ€¯≤£*Û‚”@„èﬁ•>Ìòçs-9zdF“˘ú”eç∆œôπE26ËyÙ¥6òÄ†≈ïWzÁ“Öë¿‘sÍLuW˜¿2ò÷È«Ø™ˇˆ‘ôÜ~&Ò"S€ﬂ¿o:XB@òauèBÃÊ‡Ô&ï$PaæÄ<ô◊3NbzY$,È†cŒØ¨Îu¡c])‡)RˇwDÂílktb˘ıHÆÓ=¬S•@[ï(µ6€Ë‘ı§I0¶Ì"\w%Rq®ˆLRí5!YÊ!Ù	ƒX‹}‡Ôã~>E±ÇCŸΩä•rrxVOk¢W≥æ|Vg˜≥	~l,ÑKä$*1¿ê‚—ı7ê.RìæÍ[M—◊›TDMπå≠xı7Y{î#ÎVkÔTﬂ≈¬º„g‚o´Wﬂ˚0‡G£®µî]|ú¥õ‚∂v"=ŸÕ£jDR$9∞
+n9y/∑®—Òù^\7¶¡CXjØr6V@ÓœÈ+”‡ø„HÍ¿’D]ø◊ú£TÛ¿¥ŸŒ¬ÎçôF4π›†˚¿?_∏¯S9l•9æ†>„˙ogc…`TÛ≤¨∂°π¬¿aÅ∑QOŸt*ë±ûqÿ ü∂3¿^∑Èë {4iÓ(ØX∆d ;∞f°ûÇ_é‘T–®ÆZqÕ¸rBûôê?Î0ø-(qqQmÙ#—ÉT©ïÂΩ˙s/yã°#]
+[INFO] 00:45:41:463 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:543 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:543 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:543 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:543 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: îåãBÈ≈ ´ÜhèÂ÷e∞;¢≥ˇ‡ÒaíP˚r[ª	èîáJ9 ¥pÙm§›H⁄3@RZó%\F9gÕª2ôß≤{˚Jè^Æ}Ê/`Ω(,28µ<›Ùùi¢˝?SC∂¶G¸s*+±p“P%s*
+•10q*™Nïñ¸!ﬁF9
+$ ˝ıˇõcTõ|Í-Ü⁄ì˝üTï⁄Ì ÂEäùvòOØ ¸éπÎ2T£ìÎ6[sÌè≈ªÆ‹ûQo:iz‡ÜKlÙoSØ?+†êŸÏ“®“zÛÚ€ïbº{|4î‚üh`N…∫Iÿj2Ï÷éõÄπcÆúwπÀ”#,n4º9{∂≤!bMæL!ãÒ0ﬂãg»vj‹◊5≠ˆÙüºØPÆDe+—â]Ó%Ñb]
+[INFO] 00:45:41:543 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:623 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:623 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:624 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:624 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: ãObâdI∏v qóF˝ne7¯% v—sï]
+[INFO] 00:45:41:624 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:703 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:703 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:703 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:703 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: S±5ñÓ–qﬁÊö3|Dı“%ÖÙ%jòJ∆ëäçœÌH>FsìúñzÇú‡¢poÂÌ(èz]Ël¶K∫i_?ˇˆëﬁê©jï)èCÚøƒV”§ML≠Œ=i°®ØWºfØË'∫J8Á3÷ÚDi
+<Àép R•gÏ˜ﬁ\ù∞æ∏Ç<µŸâ/:ã¨‚∏åòv‰d7çÍk»Ò€Öº<Q7ña:∂VŒa’ÎﬂQP´”2áâ+≠˙lÖÈ0Ã—\Ô…Mñ€OÕ‡Êã™á!íá`—∫‡∑çk˜É/≈–~û∆∏ıEaõÂˇµÛsr≥8C†<—¬Ò†)S˙¶aúñ+‘™ŸCãT„“RŸ®!Ö◊0ôˇBcuÿ ˝“ü“—¯¡Œ©ÜQ∏éÉû|Îß∫á∏q8/≤˝í◊}¸4∑b	b&D—ì™å;”ÏQíYÛ…7˜ÂTN¥ÂVM»´D#‚Pû#@L¿`.¬◊≠|3ñ¡äã¬wsòe·>âπv7ømı…ò£K¯ÕÔ‹4
+Ûk∫ë¢ﬂF739~ÜıÑ∏·õ‹ÙˆªSÆúoÛ§0‘`¬™L^»Öûƒ√m=zc]
+[INFO] 00:45:41:703 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:783 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:783 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:784 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:784 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: Ωml	Ïø¶ZÏìh	i©,ÅQØy&DÀóçÓ>»ÉÉL,t∂’Uæ ª≈|RË?NñªÑ0¨BHΩıÍÛ˛¶åãP–F8¥r}á£∆Ö¿2aÚø¨ñ3lnºs|ÇK9=]Î›^ΩâJ’[Û—DcF ‹∆%≈ªπèº&ûﬂöç‘FÓd◊≥ÙïãbSURèàûpó;ûc⁄ƒ±ö–„r]mr=gâ.‘dà≥GI/°ÓsëÛ;∞≥§Ï]û™l~°ªú’ï∞w¶ˇö 9>îoo‚—=0L9¬ˇy5<Í!T≈Z#8˘Ÿ}»ƒ)#àh7j§ˆﬁ4SE§N[2·≈ŒﬂEàK◊'Õ’^/UÜ¯:*÷£°“æ™äkòÅÔﬁù=ùå¿a(É≈,èI–7∑T∫}∏kÍˆ.™ò37›ıSÚG£ªä6d†Í-·£>-'üNrÒ√ÖÅhE•ë*ps°b-{gv»å˛Àq……·´rËÓwÜ|CÌ}Õº∏y›Àªóˇ◊JT¬¬ålYLÂ9Ê©; []∏√˚≤Ì◊≈À+H”¶#å÷XKEnär¡†çSô…"tEy@Æn[•@'y•±jº]
+[INFO] 00:45:41:784 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:863 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:863 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:863 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:863 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: óΩ,sWåÄÂ<Ù+ÆFtï¥§ña©¥Ûæ∑K	iæ`ê%fÂ#ËÈäø∞r4-’]Å;ÊÁ˝ÑtSàç˝bsæè®=∫ÓLpÁ
+ÙqÃ5˚"5>$¿Hsè◊>ÔèTM”œ»¸îJAêı-U≥÷À∑ÔñÂSñ˝ùƒ‡Í™¿0}5“M´umR%qSÕ–N{^bYûbçpg+ﬁL≈k⁄%]ˇ{Ú Êø>Æ
+™4–£õ9ŒK®)˘^Ì–‰Õ;<Ú“úrﬁlÊR¥ÔÅÉµ{Qg±qß…ujøœHUqôÒ˚Ø∂”ÃäM+íî|xâdÂ∆1wˆ\Ÿ£é,0¨«â"™j?-WÑ›ü89/c°io‡ôî"\?ÌY€ôö2búâo|&•◊gFçpÑ˜pV≥∑juSƒ†⁄Aª{©qπ vl&`ÒÙÔ∞Á´BÏ&îdΩW|Á)ç°!æËÖâç[1ÀŸ.®^¿eÍü§Ù¶Äzñ`eNZ,ÖÙ¢&ÙÄv »À∏x?Îî∏D◊¸œK∞´€ë~≤Ç≥Ú|6àÏm∑*p‡k:¶‡P/ÇXs`Ò∂Ï˛⁄∏xøO◊]SômIå¬ÏÜª-Ñπh6_õL æZËX]nıoÒ%ﬁø!¨ı—Câ”˜¿S«2AûL∆uL¥ÿ∂[ëÁﬂÑ´n-⁄º3MC-*¨zAºÂ±7ıÅÌ3¡	7¨Ê€àk+œËŒo˛$&wºDkﬁ√˝N(´á˘"¯Ôó≤+•fnJjG_Hå~gÖ~8Á 0~&ï†äÉ *Å]
+[INFO] 00:45:41:864 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:41:943 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:41:943 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:41:943 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:41:943 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: rG˝qûn£·ë¢$g5]
+[INFO] 00:45:41:943 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:23 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:23 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:23 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:23 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: [D.ò«YNÈ	•AQ=B—Ç*7ëï=y]
+[INFO] 00:45:42:23 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:103 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:103 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:104 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:104 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: ã ^.ªÅÚ˛Mï÷€ËG$@ABõ˜øƒñ7\ËÕIT≤‰Xâàd—t°Ì§∑¸ﬂ+†I∏“tYíÛpÂÿ X@+^Å‡åŸûÙÁºMÃ≤ªs+£ú∑ŸCÿ^Õ"H]≤ò2[wjU5Ö•LìÓ/bsÊ;ﬁ' Nc™ëÈáä¿´µc¢BTìj¥3ëaœ´œßê'Q-ª9ˇºﬁìåΩ≥O…#;Åô¶Úœ¯§ﬁÅÑ|ÍÖÈ‚Ÿ∑CË∞)Dd'πå—«ﬂ°É•≤MH⁄#„€ÖrE	}ΩI£>‚JÁ|r“ÂF™⁄ﬁM:_}%vÿ{‚RCÀ®‡ÜÉ[…˙Daò.)Ìˆ°¥Ö˘]Té'>hE6±Ò∞XÓôò˝éˆêéÅ>iø@>pXﬁƒÕq¥·6Øî^Á÷jïPäÜyv«#˘{v4ö
+D$ëÜ“êúâ ]
+[INFO] 00:45:42:104 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:183 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:183 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:183 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:183 SAC/(5674:5674): [WRITE]: Write de: /Archivo_9
+ [buf: ]
+[INFO] 00:45:42:183 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:264 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:264 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:351 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:45:42:351 SAC/(5674:5674): [CREATE]: Create de /Archivo_10
+[INFO] 00:45:42:351 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:351 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:431 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:45:42:511 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:42:511 SAC/(5674:5674): /Archivo_10 | 0 | 1575603942 | 0 | 1575603942 | 0
+[INFO] 00:45:42:512 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:512 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: çNthí≤⁄¿ÍπüÚç5eü›·$¨ˇøl·Ÿuò„¨ñkKbL§.àÀ]lÉØRí9™!&·È15ﬁ|HmﬂúˇÄ‘Ï≠1˚›qç•À|®≈À>xÙLÀÁÀ«{ˆcÙ@|ﬂ2»ªB≈lXgëÕπ?K∆9Òñ<KënÒbÉo^0◊≤0Œ
+}?çÀù6˛OÔGõıs^%⁄úŒ=T˝HÏäK6Î[í7o¨8ÉÅ8WÛÍ™ÎØÿΩ÷…gıjÛπ6V◊èì2fÁ/˚Àà•l(ª $ëi¶6¬Ë•4±FÛX~!kò#l
+øDq∫Vs“≤ÿ¶ØªV·˝Æ÷Äv"W∑yLﬁ(>í·“`≠∆:XÍ+≈‘‡Rﬂ	∞»@Îa¿œ#+‡√t‰Kà· E3≥&/i"¨¨ªÓÊ‰@Ô6ù∑ñ¯ïJ~BxÏ £7∑œsÔ|¥ú∂C(,A»ñdßï‰ì.˛]
+[INFO] 00:45:42:512 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:591 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:591 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:591 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:591 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: ]
+[INFO] 00:45:42:591 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:671 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:672 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:672 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:672 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: ÚÈuzÏ7¿◊°∑‰ûqWnÕfºFnPÓ£Ï√¥"⁄Wü"¨cÑŸg…ÄöçY‹\!£wsQ]$ "\“™m:¿3Ï∏¡èÇtπ/Ò∏Ü≤vRo?nUìü>üêá
+êÚ¯‘t·NÌ‚x)AYÒÖ6≠àzÑìÊˆßÎs≈
+T€"√;!€v5&øà3∂lπÖSÇ¶Ógêπâ[F≈*J/qƒé°Õ”PÄáE/4WÓò¬“ÈÎÜﬂ∏i¥÷≠T<)À°¢AóDÃÊˆ6rú≥ŸhœÏá…' …!€i·‘˝I%kíZ∏ÖMc=H><ûôﬂPÃn5Q„“°ä∑∆ïÜhÈ∑ûÊîá‚øDPyK:ïêÂ'–ºÔ4Ïºr0ê≥ΩU∏÷,≠êE2»°ﬂ¿à*åN˚6bı4…àKˆ{òπfwÄ˛'‚nÎUê<{-≠"8ú≥6ÚP≠–cWå∑†.4Ÿ:"Oh=Î$†w¬É{]Xó∂ém§YvMßõ_ Øaéè‹ÒÍd”ê/cúgÖ∆≈†∑a»ÁÖ	7á”C‘ﬁO¡LAV†¨ONõ∞“÷§#◊vº¡dëª&≈–q·QÊÒ®4Ìk»˛ì‰Ω'÷9‚ÆXMè!¥Á8/T8Æy•ü ûSÊ‹
+§⁄ﬂ¿,Ë}˚$lÊ…FäYÅÇFƒ≈©Û\<Ì¡¢ﬁÕ	«ôb¯9ÄmãÖêxnt;O¸ŸïÚL!;I*ÄÖTJwÊ+otRª^Y|VbãëÀÒyå©∆vhU8ˇ ÊÀXÒv∑WœH•ÎÛç$÷çíuUK€≠j	ﬂmˆ–êPa›´ö9V¬Q{Y“6(bÂL,ë¶d8˚\Z∏…∂“Œ›ÌÒg”+;∑Ïg=†®˙˝›C òQF°f‘Ú¨à]
+[INFO] 00:45:42:672 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:751 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:751 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:751 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:751 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: j†U°hXã68¯V;øÁLÖ&ñG çO±gÆ¡®èâÑÿ©óπË,õUëFD%ç;≠zﬂfπ9M.ÊõÏ%ü‡åôf”Ó¯c;q≤)Ù|hàÍs&‘©Àv…
+B)7ÄU_&Y˜d≈GSãˆµk>ØJ˘u_J ß3”|4>M•z†q"P,TüﬁeA§
+Wè™÷6 6sP∆≠›I'√∏*(Xem¡L≈¿æ[+¶°ëµ˜1E∑‘	§∏4Õ°˚Ÿ°ó(≠t˜p)r¨<}WEæıGè'!)%H◊?òig£ı7À)QıTs∑BÑﬁ˛Ì1œAÁÖDÿ/ŸuÃ˘Ü8«8$ÔfJL$&I◊ÛÁÙlQü`sÍ\0Ã1Êœ≠¿⁄ËaÕ3®’ÉÑËõIﬂ·Àª´
+yBì˜An√
+9∏˙˙ÁmÇ^ﬁqœ”©ˆû√ıaXA˜øB‘Veô5ÑÊÃÙéu'°Ï‰’ÿ(Õú“
+Û¡óW‰o§€ﬁàSÙÁQ¢œ*f÷K…`ów7ˇ‡ûU&;¸§¢≤‚CW¢:@>Ÿ∫öyΩ\
+"˜[Ú@ìiZÔ=ûê»&ƒ#¢⁄≥áwgòqŸb>Ü“˘”/®õ`Ÿb\2tçmH‘uÑße•ﬂ`+íP√·1a\çÆ¯Q1àöÙ]
+[INFO] 00:45:42:752 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:831 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:831 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:831 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:831 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: èƒŸQ( n<T`ä^s∆¡ﬁw⁄øcPÕ7ﬁ≤∂¸√i›ËˇÑéL‹≤sµ\tß—µ5sã‚•Mbª\TPN($|¡‡˘yß•Æ‡ˇ85¯DÛ•ôE…~
+¸-∏≥R≈π™í¯mÆùG	3hQ(e“$sè∫E’ÿŒım‰≤qs–Ï$'Nü;Î^é›ñf1ènq¸6¬ujÁ{õR@=”µG™nG@‚ﬁ˛Haıèî`∏7É}@9+”‹˘i2ÁÎŒa¨œŒyKÊ˙Hw}„¸ÆÓ+¢¬˛5œ>ëfI!çÛ˚`îÅoT˚d)8SªÑD<≥ËﬂºQık∆˛a:øÓX•Dèh÷k|ø√ÕŸ`Â´•∑ü˚›‚∫Ç€ÒçLﬁW_ºΩ©ÇE˘ˇ∂0¥Ù/…~≤ê¿äW?rpÿöºyﬁHIx\Â5.ˇo˝¶‰ÂÚ‡S¡:P"ckƒö;ª…V¨ejø®(jÏ~¶“y8Ò¯bÕ‘2‹Ç˜0‹Ö
+”#ä¬à]
+[INFO] 00:45:42:831 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:911 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:911 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:911 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:911 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: Hœà"çs∆
+`ÿ∑JÉGÈwπ]
+[INFO] 00:45:42:911 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:42:991 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:42:991 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:42:991 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:42:991 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: oçÆblìÍùîâ7Ç]
+[INFO] 00:45:42:991 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:43:71 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:43:71 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:43:71 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:43:71 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: {`§vñu% ë[ùx∂Ü±Õ„.j+:çò°>“ﬂ‚‰`”¢ Å3“A‰ô&à¨ÆkπZ€'xûê˙_0H¨(g‡9BL.!‹I®|&ı‡àç<3ivßTJ¥ÿ¥t•Ej»]ùs{À(‹s4xIÏÌÊUu*ˆ ]ÆE§ÊTXíÌpúm≥GªÛæ€jÌ)xËÉ◊‡ ¢s°∏NùfÀU-EÇ!Qî}÷0'ÙÚ◊%íÖé8"Øíﬁ¨+∆Úº£¨8Œd¯>®)Ûnÿ¬ıf3√Ñ8⁄aó\øb√Ó>ê5{™"˚&†t¬qC≥J]hÅTïÿûJ◊Œ£€÷g6b¿∆ròHÁT{:‰ríó∞7Ô«µØ‡Â^˛„î$è®°2ú/Bæ•L.ê◊&‡`≠O∂Ò’A"ÚÆüp◊ÿf°<™ı“ˆ4Û’ˆb…/¨Ë∑∞…T+ÈTa(ä—%÷IªèXﬁé™;ÜœÒè-ç◊@'Ω`˘»hvãk@ ©¢âŸÇhÕlc∑“u´¢öä≥ïÓk´∞˙bÇXæMÛõXL®J]
+[INFO] 00:45:43:71 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:43:151 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:43:151 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:43:151 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:43:151 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: Dë∂K=ãËc}åã–hŸéé;Xπ‚'CÃﬁ.N8ú+©ç'k˚∞ò3óVîG 9-Ö~ÊùÌ”Ã˛@HLﬂ∆”S¬ˆ ∏ÀÂ¿BÛØs‹»„≥Q[Dzã¨ÇXÈÖEï¢F{≥e+ù@wÈ¨Ú—Ñ∞˘Ü!oSJ≥∑≈⁄	çì]uaInø√<ÆÔE∏r,_"ß⁄u8O˚Å˜k¥ñI≤W¿≠uHf¢⁄Z◊ Å™¿·àMÏØ†m?/•¬A«¯û©Õ3€Lõb^Óai–äúƒ_‹ƒ§T¬~"ÑÕ!<≤_(Jœ
+ØVcÏmO˝nÈOá'†êrŸÓd/u2˙1ª8bÒùHY≠R©Ríãû…ÊmÇa‘;Kµúπªô#˙∏õq“D¢ô≠”∞8c Ë=æ˜æ)Ü\0«Dœæ…'ﬁ8¥q+ïπyÈ+Å8t-˙”`£,,ü!ûô,À∂{w8⁄;œì⁄	¶‹Ìﬂ~∫$LÑ	lªb•·éƒVÓÍÛê‹ˆ†eΩÛƒ
+∆iü©K‹	ëê;ÊGüµw]
+[INFO] 00:45:43:151 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:43:231 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:43:231 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:43:231 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:45:43:231 SAC/(5674:5674): [WRITE]: Write de: /Archivo_10
+ [buf: í·õa-ïëG7◊¢.Ö&Ÿ∆&≈»ù&,˜€vü∆é˙‘~à8;;D[óπü–GÀ>ÚoKßD0˘ÏØS
+”ıì#n◊nœ2'ÿãp˙‚*nÒ.E&Í¢÷Uƒ3oO‹Mªˇ©;ªT:¨ØÒ/¯Áô7≤RÕmô~ræÇ˜à≠˝CmEÉçÊPh{¡ˇK≈„âÒﬂkgpˆb:h™”á¯$áÚ@3^nN]ì≠ ˝S£WÓª¨DìM≥H!—˘¢^œ÷’l4ÙÛ/Dv˘ƒÎ-.a@ÿ—≤a˙Ê˝`ß]kU·ﬁq…öx]©çá–íœó·•^π≥ÈÙOapR=:S0∏∆®©T÷-HJh†_«ÍŒâil‰˘—´√ˇ*ËRå∞{Í”´Rà§Ü≤õqDZL—«Õ9]Ì1˘˝|‘ëÉ˘n(Ñ7>’¯˙®.]
+[INFO] 00:45:43:231 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:45:43:311 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:43:311 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:45:43:392 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:43:392 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:46:516 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:46:516 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:46:618 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:45:46:618 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:45:46:618 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:46:696 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:46:696 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:45:46:775 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:46:775 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:46:855 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:46:855 SAC/(5674:5674): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:45:46:935 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:46:935 SAC/(5674:5674): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:45:47:15 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:15 SAC/(5674:5674): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:45:47:95 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:95 SAC/(5674:5674): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:45:47:175 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:175 SAC/(5674:5674): /Archivo_5 | 10240 | 1575603937 | 0 | 1575603938 | 0
+[INFO] 00:45:47:255 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:255 SAC/(5674:5674): /Archivo_6 | 10240 | 1575603938 | 0 | 1575603939 | 0
+[INFO] 00:45:47:336 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:336 SAC/(5674:5674): /Archivo_7 | 10240 | 1575603939 | 0 | 1575603940 | 0
+[INFO] 00:45:47:415 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:415 SAC/(5674:5674): /Archivo_8 | 10240 | 1575603940 | 0 | 1575603941 | 0
+[INFO] 00:45:47:495 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:495 SAC/(5674:5674): /Archivo_9 | 10240 | 1575603941 | 0 | 1575603942 | 0
+[INFO] 00:45:47:575 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:575 SAC/(5674:5674): /Archivo_10 | 10240 | 1575603942 | 0 | 1575603943 | 0
+[INFO] 00:45:47:655 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:655 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:45:47:740 SAC/(5674:5674): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:45:47:741 SAC/(5674:5674): [TRUNCATE]: Truncate de /Archivo_6
+[INFO] 00:45:47:741 SAC/(5674:5674): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:45:47:741 SAC/(5674:5674): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:47:820 SAC/(5674:5674): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:45:47:899 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:47:899 SAC/(5674:5674): /Archivo_6 | 0 | 1575603938 | 0 | 1575603939 | 0
+[INFO] 00:45:47:901 SAC/(5674:5674): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:45:47:901 SAC/(5674:5674): [TRUNCATE]: Truncate de /Archivo_7
+[INFO] 00:45:47:901 SAC/(5674:5674): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:45:47:901 SAC/(5674:5674): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:47:979 SAC/(5674:5674): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:45:48:59 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:48:59 SAC/(5674:5674): /Archivo_7 | 0 | 1575603939 | 0 | 1575603940 | 0
+[INFO] 00:45:48:61 SAC/(5674:5674): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:45:48:61 SAC/(5674:5674): [TRUNCATE]: Truncate de /Archivo_8
+[INFO] 00:45:48:61 SAC/(5674:5674): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:45:48:61 SAC/(5674:5674): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:48:143 SAC/(5674:5674): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:45:48:223 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:48:224 SAC/(5674:5674): /Archivo_8 | 0 | 1575603940 | 0 | 1575603941 | 0
+[INFO] 00:45:48:225 SAC/(5674:5674): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:45:48:225 SAC/(5674:5674): [TRUNCATE]: Truncate de /Archivo_9
+[INFO] 00:45:48:225 SAC/(5674:5674): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:45:48:225 SAC/(5674:5674): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:48:303 SAC/(5674:5674): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:45:48:383 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:48:383 SAC/(5674:5674): /Archivo_9 | 0 | 1575603941 | 0 | 1575603942 | 0
+[INFO] 00:45:48:385 SAC/(5674:5674): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:45:48:385 SAC/(5674:5674): [TRUNCATE]: Truncate de /Archivo_10
+[INFO] 00:45:48:385 SAC/(5674:5674): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:45:48:385 SAC/(5674:5674): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:48:463 SAC/(5674:5674): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:45:48:543 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:48:543 SAC/(5674:5674): /Archivo_10 | 0 | 1575603942 | 0 | 1575603943 | 0
+[INFO] 00:45:48:626 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:48:626 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:48:632 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:45:48:632 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:45:48:632 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:48:714 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:48:714 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:45:48:791 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:48:791 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:48:871 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:48:871 SAC/(5674:5674): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:45:48:951 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:48:951 SAC/(5674:5674): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:45:49:31 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:31 SAC/(5674:5674): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:45:49:111 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:111 SAC/(5674:5674): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:45:49:191 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:191 SAC/(5674:5674): /Archivo_5 | 10240 | 1575603937 | 0 | 1575603938 | 0
+[INFO] 00:45:49:271 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:272 SAC/(5674:5674): /Archivo_6 | 0 | 1575603938 | 0 | 1575603939 | 0
+[INFO] 00:45:49:351 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:351 SAC/(5674:5674): /Archivo_7 | 0 | 1575603939 | 0 | 1575603940 | 0
+[INFO] 00:45:49:435 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:435 SAC/(5674:5674): /Archivo_8 | 0 | 1575603940 | 0 | 1575603941 | 0
+[INFO] 00:45:49:515 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:515 SAC/(5674:5674): /Archivo_9 | 0 | 1575603941 | 0 | 1575603942 | 0
+[INFO] 00:45:49:595 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:595 SAC/(5674:5674): /Archivo_10 | 0 | 1575603942 | 0 | 1575603943 | 0
+[INFO] 00:45:49:675 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:49:675 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:45:53:716 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:53:716 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:53:884 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:53:884 SAC/(5674:5674): /DIR_1 | 0 | 1575510955 | 0 | 1575510955 | 0
+[INFO] 00:45:54:436 SAC/(5674:5674): [MKDIR]: Ejecutando do_mkdir...
+[INFO] 00:45:54:436 SAC/(5674:5674): [MKDIR]: Mkdir de /DIR_2
+[INFO] 00:45:54:436 SAC/(5674:5674): [MKDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:54:436 SAC/(5674:5674): [MKDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:54:515 SAC/(5674:5674): [MKDIR]: do_mkdir finalizado
+[INFO] 00:45:54:595 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:54:595 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:45:55:139 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:140 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:55:223 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:45:55:223 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:45:55:223 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:45:55:303 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:55:303 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:45:55:383 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:383 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:55:463 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:463 SAC/(5674:5674): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:45:55:543 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:543 SAC/(5674:5674): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:45:55:623 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:623 SAC/(5674:5674): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:45:55:703 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:703 SAC/(5674:5674): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:45:55:783 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:784 SAC/(5674:5674): /Archivo_5 | 10240 | 1575603937 | 0 | 1575603938 | 0
+[INFO] 00:45:55:863 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:863 SAC/(5674:5674): /Archivo_6 | 0 | 1575603938 | 0 | 1575603939 | 0
+[INFO] 00:45:55:943 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:55:943 SAC/(5674:5674): /Archivo_7 | 0 | 1575603939 | 0 | 1575603940 | 0
+[INFO] 00:45:56:23 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:56:23 SAC/(5674:5674): /Archivo_8 | 0 | 1575603940 | 0 | 1575603941 | 0
+[INFO] 00:45:56:105 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:56:105 SAC/(5674:5674): /Archivo_9 | 0 | 1575603941 | 0 | 1575603942 | 0
+[INFO] 00:45:56:183 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:56:184 SAC/(5674:5674): /Archivo_10 | 0 | 1575603942 | 0 | 1575603943 | 0
+[INFO] 00:45:56:263 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:56:263 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:45:56:345 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:56:345 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:45:59:391 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:59:392 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:45:59:551 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:59:551 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:45:59:632 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:59:632 SAC/(5674:5674): /Archivo_5 | 10240 | 1575603937 | 0 | 1575603938 | 0
+[INFO] 00:45:59:791 SAC/(5674:5674): [RENAME]: Ejecutando do_rename...
+[INFO] 00:45:59:791 SAC/(5674:5674): OLD PATH [/Archivo_5] - NEW PATH [/DIR_2/Archivo_5]
+[INFO] 00:45:59:791 SAC/(5674:5674): [RENAME]: Comunicacion exitosa con SAC-server
+[INFO] 00:45:59:871 SAC/(5674:5674): [RENAME]: do_rename finalizado
+[INFO] 00:45:59:955 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:45:59:956 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:46:00:35 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:00:35 SAC/(5674:5674): /Archivo_6 | 0 | 1575603938 | 0 | 1575603939 | 0
+[INFO] 00:46:00:196 SAC/(5674:5674): [RENAME]: Ejecutando do_rename...
+[INFO] 00:46:00:196 SAC/(5674:5674): OLD PATH [/Archivo_6] - NEW PATH [/DIR_2/Archivo_6]
+[INFO] 00:46:00:196 SAC/(5674:5674): [RENAME]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:00:275 SAC/(5674:5674): [RENAME]: do_rename finalizado
+[INFO] 00:46:00:359 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:00:359 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:46:00:439 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:00:439 SAC/(5674:5674): /Archivo_7 | 0 | 1575603939 | 0 | 1575603940 | 0
+[INFO] 00:46:00:599 SAC/(5674:5674): [RENAME]: Ejecutando do_rename...
+[INFO] 00:46:00:599 SAC/(5674:5674): OLD PATH [/Archivo_7] - NEW PATH [/DIR_2/Archivo_7]
+[INFO] 00:46:00:599 SAC/(5674:5674): [RENAME]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:00:679 SAC/(5674:5674): [RENAME]: do_rename finalizado
+[INFO] 00:46:00:763 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:00:763 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:46:00:843 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:00:843 SAC/(5674:5674): /Archivo_8 | 0 | 1575603940 | 0 | 1575603941 | 0
+[INFO] 00:46:01:3 SAC/(5674:5674): [RENAME]: Ejecutando do_rename...
+[INFO] 00:46:01:3 SAC/(5674:5674): OLD PATH [/Archivo_8] - NEW PATH [/DIR_2/Archivo_8]
+[INFO] 00:46:01:3 SAC/(5674:5674): [RENAME]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:01:84 SAC/(5674:5674): [RENAME]: do_rename finalizado
+[INFO] 00:46:01:175 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:01:175 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:46:01:255 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:01:255 SAC/(5674:5674): /Archivo_9 | 0 | 1575603941 | 0 | 1575603942 | 0
+[INFO] 00:46:01:415 SAC/(5674:5674): [RENAME]: Ejecutando do_rename...
+[INFO] 00:46:01:415 SAC/(5674:5674): OLD PATH [/Archivo_9] - NEW PATH [/DIR_2/Archivo_9]
+[INFO] 00:46:01:415 SAC/(5674:5674): [RENAME]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:01:495 SAC/(5674:5674): [RENAME]: do_rename finalizado
+[INFO] 00:46:01:579 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:01:579 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:46:01:659 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:01:659 SAC/(5674:5674): /Archivo_10 | 0 | 1575603942 | 0 | 1575603943 | 0
+[INFO] 00:46:01:819 SAC/(5674:5674): [RENAME]: Ejecutando do_rename...
+[INFO] 00:46:01:819 SAC/(5674:5674): OLD PATH [/Archivo_10] - NEW PATH [/DIR_2/Archivo_10]
+[INFO] 00:46:01:819 SAC/(5674:5674): [RENAME]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:01:899 SAC/(5674:5674): [RENAME]: do_rename finalizado
+[INFO] 00:46:01:979 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:01:979 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:05:19 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:19 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:05:121 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:46:05:121 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:46:05:121 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:46:05:199 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:05:200 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:46:05:279 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:279 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:05:363 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:363 SAC/(5674:5674): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:46:05:443 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:443 SAC/(5674:5674): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:46:05:523 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:525 SAC/(5674:5674): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:46:05:603 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:603 SAC/(5674:5674): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:46:05:683 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:683 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:46:05:763 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:763 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:46:05:764 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:46:05:764 SAC/(5674:5674): [READDIR]: Readdir de /DIR_2
+[INFO] 00:46:05:764 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:46:05:843 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:05:847 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:46:05:927 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:05:928 SAC/(5674:5674): /DIR_2/Archivo_5 | 10240 | 1575603937 | 0 | 1575603959 | 0
+[INFO] 00:46:06:7 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:06:7 SAC/(5674:5674): /DIR_2/Archivo_6 | 0 | 1575603938 | 0 | 1575603960 | 0
+[INFO] 00:46:06:87 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:06:88 SAC/(5674:5674): /DIR_2/Archivo_7 | 0 | 1575603939 | 0 | 1575603960 | 0
+[INFO] 00:46:06:167 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:06:167 SAC/(5674:5674): /DIR_2/Archivo_8 | 0 | 1575603940 | 0 | 1575603961 | 0
+[INFO] 00:46:06:248 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:06:248 SAC/(5674:5674): /DIR_2/Archivo_9 | 0 | 1575603941 | 0 | 1575603961 | 0
+[INFO] 00:46:06:327 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:06:327 SAC/(5674:5674): /DIR_2/Archivo_10 | 0 | 1575603942 | 0 | 1575603961 | 0
+[INFO] 00:46:06:408 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:06:408 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:09:452 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:09:452 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:09:715 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:09:715 SAC/(5674:5674): /DIR_2 | 0 | 1575603954 | 0 | 1575603954 | 0
+[INFO] 00:46:09:875 SAC/(5674:5674): [RENAME]: Ejecutando do_rename...
+[INFO] 00:46:09:875 SAC/(5674:5674): OLD PATH [/DIR_2] - NEW PATH [/DIR_1]
+[INFO] 00:46:09:876 SAC/(5674:5674): [RENAME]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:09:956 SAC/(5674:5674): [RENAME]: do_rename finalizado
+[INFO] 00:46:13:8 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:8 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:13:95 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:46:13:95 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:46:13:95 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:46:13:175 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:13:175 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:46:13:255 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:255 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:13:335 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:336 SAC/(5674:5674): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:46:13:415 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:415 SAC/(5674:5674): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:46:13:495 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:495 SAC/(5674:5674): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:46:13:575 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:575 SAC/(5674:5674): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:46:13:655 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:655 SAC/(5674:5674): /DIR_1 | 0 | 1575603954 | 0 | 1575603969 | 0
+[INFO] 00:46:13:736 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:736 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:46:13:736 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:46:13:736 SAC/(5674:5674): [READDIR]: Readdir de /DIR_1
+[INFO] 00:46:13:736 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:46:13:815 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:13:815 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:46:13:895 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:895 SAC/(5674:5674): /DIR_1/Archivo_5 | 10240 | 1575603937 | 0 | 1575603959 | 0
+[INFO] 00:46:13:975 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:13:975 SAC/(5674:5674): /DIR_1/Archivo_6 | 0 | 1575603938 | 0 | 1575603960 | 0
+[INFO] 00:46:14:55 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:14:55 SAC/(5674:5674): /DIR_1/Archivo_7 | 0 | 1575603939 | 0 | 1575603960 | 0
+[INFO] 00:46:14:135 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:14:135 SAC/(5674:5674): /DIR_1/Archivo_8 | 0 | 1575603940 | 0 | 1575603961 | 0
+[INFO] 00:46:14:215 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:14:215 SAC/(5674:5674): /DIR_1/Archivo_9 | 0 | 1575603941 | 0 | 1575603961 | 0
+[INFO] 00:46:14:295 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:14:295 SAC/(5674:5674): /DIR_1/Archivo_10 | 0 | 1575603942 | 0 | 1575603961 | 0
+[INFO] 00:46:14:375 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:14:375 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:18:416 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:18:416 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:20:467 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:20:467 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:20:548 SAC/(5674:5674): [CREATE]: Ejecutando do_create...
+[INFO] 00:46:20:548 SAC/(5674:5674): [CREATE]: Create de /Data_file_10
+[INFO] 00:46:20:548 SAC/(5674:5674): [CREATE]: Enviando operacion a SAC-server
+[INFO] 00:46:20:548 SAC/(5674:5674): [CREATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:20:628 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:46:20:707 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:20:707 SAC/(5674:5674): /Data_file_10 | 0 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 00:46:20:708 SAC/(5674:5674): [WRITE]: Ejecutando do_write...
+[INFO] 00:46:20:708 SAC/(5674:5674): [WRITE]: Write de: /Data_file_10
+ [buf: And√≥.
+]
+[INFO] 00:46:20:708 SAC/(5674:5674): [WRITE]: Enviando operacion a SAC-server
+[INFO] 00:46:20:787 SAC/(5674:5674): [WRITE]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:20:787 SAC/(5674:5674): [WRITE]: do_write finalizado
+[INFO] 00:46:22:827 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:22:827 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:46:22:987 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:22:987 SAC/(5674:5674): /Data_file_10 | 7 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 00:46:22:988 SAC/(5674:5674): [READ]: Ejecutando do_read...
+[INFO] 00:46:22:988 SAC/(5674:5674): [READ]: Read de /Data_file_10
+
+[INFO] 00:46:22:988 SAC/(5674:5674): [READ]: Enviando operacion a SAC-server
+[INFO] 00:46:23:67 SAC/(5674:5674): [READ]: Comunicacion exitosa con SAC-server
+[INFO] 00:46:23:67 SAC/(5674:5674): [READ] Leido: And√≥.
+ - size: 4096
+[INFO] 00:46:23:67 SAC/(5674:5674): [READ]: do_read finalizado
+[INFO] 00:46:23:147 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:23:147 SAC/(5674:5674): /Data_file_10 | 7 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 00:46:26:188 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:46:26:188 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:47:54:383 SAC/(5674:5674): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:47:54:384 SAC/(5674:5674): [READDIR]: Readdir de /
+[INFO] 00:47:54:384 SAC/(5674:5674): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:47:54:467 SAC/(5674:5674): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:47:54:467 SAC/(5674:5674): [READDIR]: do_readdir finalizado
+[INFO] 00:47:54:549 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:47:54:549 SAC/(5674:5674): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:47:54:630 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:47:54:630 SAC/(5674:5674): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:47:54:707 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:47:54:707 SAC/(5674:5674): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:47:54:787 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:47:54:787 SAC/(5674:5674): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:47:54:867 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:47:54:867 SAC/(5674:5674): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:47:54:947 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:47:54:947 SAC/(5674:5674): /DIR_1 | 0 | 1575603954 | 0 | 1575603969 | 0
+[INFO] 00:47:55:27 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:47:55:27 SAC/(5674:5674): /Data_file_10 | 7 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 00:47:55:107 SAC/(5674:5674): Recibiendo atributos..
+[INFO] 00:47:55:107 SAC/(5674:5674): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:48:40:929 SAC/(5899:5899): IP_SERVER [127.0.0.1] - PORT_SERVER [8003]
+[INFO] 00:49:09:665 SAC/(5899:5899): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:49:09:665 SAC/(5899:5899): [READDIR]: Readdir de /
+[INFO] 00:49:09:665 SAC/(5899:5899): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:49:09:751 SAC/(5899:5899): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:09:751 SAC/(5899:5899): [READDIR]: do_readdir finalizado
+[INFO] 00:49:09:839 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:09:839 SAC/(5899:5899): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:49:09:919 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:09:919 SAC/(5899:5899): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:49:09:999 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:09:999 SAC/(5899:5899): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:49:10:79 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:10:79 SAC/(5899:5899): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:49:10:159 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:10:159 SAC/(5899:5899): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:49:10:239 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:10:239 SAC/(5899:5899): /DIR_1 | 0 | 1575603954 | 0 | 1575603969 | 0
+[INFO] 00:49:10:319 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:10:319 SAC/(5899:5899): /Data_file_10 | 7 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 00:49:10:399 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:10:399 SAC/(5899:5899): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:49:30:896 SAC/(5899:5899): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:49:30:896 SAC/(5899:5899): [READDIR]: Readdir de /
+[INFO] 00:49:30:896 SAC/(5899:5899): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:49:30:975 SAC/(5899:5899): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:30:975 SAC/(5899:5899): [READDIR]: do_readdir finalizado
+[INFO] 00:49:31:55 SAC/(5899:5899): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:49:31:56 SAC/(5899:5899): [READDIR]: Readdir de /
+[INFO] 00:49:31:56 SAC/(5899:5899): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:49:31:135 SAC/(5899:5899): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:31:135 SAC/(5899:5899): [READDIR]: do_readdir finalizado
+[INFO] 00:49:31:215 SAC/(5899:5899): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:49:31:215 SAC/(5899:5899): [READDIR]: Readdir de /
+[INFO] 00:49:31:215 SAC/(5899:5899): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:49:31:295 SAC/(5899:5899): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:31:295 SAC/(5899:5899): [READDIR]: do_readdir finalizado
+[INFO] 00:49:31:375 SAC/(5899:5899): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:49:31:375 SAC/(5899:5899): [READDIR]: Readdir de /
+[INFO] 00:49:31:375 SAC/(5899:5899): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:49:31:455 SAC/(5899:5899): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:31:455 SAC/(5899:5899): [READDIR]: do_readdir finalizado
+[INFO] 00:49:31:539 SAC/(5899:5899): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:49:31:539 SAC/(5899:5899): [READDIR]: Readdir de /
+[INFO] 00:49:31:539 SAC/(5899:5899): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:49:31:619 SAC/(5899:5899): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:31:619 SAC/(5899:5899): [READDIR]: do_readdir finalizado
+[INFO] 00:49:31:699 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:31:699 SAC/(5899:5899): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:49:31:779 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:31:779 SAC/(5899:5899): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:49:31:859 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:31:859 SAC/(5899:5899): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:49:31:939 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:31:939 SAC/(5899:5899): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:49:32:20 SAC/(5899:5899): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:49:32:20 SAC/(5899:5899): [READDIR]: Readdir de /
+[INFO] 00:49:32:20 SAC/(5899:5899): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:49:32:99 SAC/(5899:5899): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:32:99 SAC/(5899:5899): [READDIR]: do_readdir finalizado
+[INFO] 00:49:33:577 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:33:577 SAC/(5899:5899): /Archivo_1 | 10240 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:49:33:578 SAC/(5899:5899): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:49:33:578 SAC/(5899:5899): [TRUNCATE]: Truncate de /Archivo_1
+[INFO] 00:49:33:578 SAC/(5899:5899): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:49:33:578 SAC/(5899:5899): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:33:679 SAC/(5899:5899): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:49:33:764 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:33:764 SAC/(5899:5899): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:49:43:200 SAC/(5899:5899): Recibiendo atributos..
+[INFO] 00:49:43:200 SAC/(5899:5899): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:49:43:201 SAC/(5899:5899): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:49:43:201 SAC/(5899:5899): [TRUNCATE]: Truncate de /Archivo_2
+[INFO] 00:49:43:201 SAC/(5899:5899): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:49:43:201 SAC/(5899:5899): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:49:44:275 SAC/(5899:5899): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:50:48:777 SAC/(6091:6091): IP_SERVER [127.0.0.1] - PORT_SERVER [8003]
+[INFO] 00:51:02:379 SAC/(6091:6091): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:51:02:379 SAC/(6091:6091): [READDIR]: Readdir de /
+[INFO] 00:51:02:379 SAC/(6091:6091): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:51:02:471 SAC/(6091:6091): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:51:02:471 SAC/(6091:6091): [READDIR]: do_readdir finalizado
+[INFO] 00:51:02:563 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:02:563 SAC/(6091:6091): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:51:02:643 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:02:643 SAC/(6091:6091): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:51:02:723 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:02:723 SAC/(6091:6091): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:51:02:803 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:02:803 SAC/(6091:6091): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:51:02:883 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:02:883 SAC/(6091:6091): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:51:02:964 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:02:964 SAC/(6091:6091): /DIR_1 | 0 | 1575603954 | 0 | 1575603969 | 0
+[INFO] 00:51:03:43 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:03:43 SAC/(6091:6091): /Data_file_10 | 7 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 00:51:03:124 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:03:124 SAC/(6091:6091): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:51:11:991 SAC/(6091:6091): Recibiendo atributos..
+[INFO] 00:51:11:991 SAC/(6091:6091): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:51:11:992 SAC/(6091:6091): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:51:11:992 SAC/(6091:6091): [TRUNCATE]: Truncate de /Archivo_2
+[INFO] 00:51:11:992 SAC/(6091:6091): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:51:11:992 SAC/(6091:6091): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:51:12:3 SAC/(6091:6091): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:52:14:803 SAC/(6278:6278): IP_SERVER [127.0.0.1] - PORT_SERVER [8003]
+[INFO] 00:52:25:224 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:52:25:224 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:52:25:224 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:52:25:311 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:52:25:311 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:52:25:395 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:25:395 SAC/(6278:6278): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:52:25:475 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:25:475 SAC/(6278:6278): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:52:25:555 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:25:555 SAC/(6278:6278): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:52:25:635 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:25:635 SAC/(6278:6278): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:52:25:715 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:25:715 SAC/(6278:6278): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:52:25:796 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:25:796 SAC/(6278:6278): /DIR_1 | 0 | 1575603954 | 0 | 1575603969 | 0
+[INFO] 00:52:25:875 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:25:876 SAC/(6278:6278): /Data_file_10 | 7 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 00:52:25:955 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:25:955 SAC/(6278:6278): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:52:32:563 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:32:563 SAC/(6278:6278): /Archivo_2 | 10240 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:52:32:563 SAC/(6278:6278): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:52:32:563 SAC/(6278:6278): [TRUNCATE]: Truncate de /Archivo_2
+[INFO] 00:52:32:563 SAC/(6278:6278): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:52:32:563 SAC/(6278:6278): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:52:32:663 SAC/(6278:6278): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:52:32:747 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:32:747 SAC/(6278:6278): /Archivo_2 | 1 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:52:40:363 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:52:40:363 SAC/(6278:6278): /Archivo_2 | 1 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:54:56:303 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:54:56:303 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:54:56:303 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:54:56:379 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:54:56:379 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:54:56:463 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:54:56:463 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:54:56:463 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:54:56:547 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:54:56:547 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:54:56:635 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:54:56:636 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:54:56:636 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:54:56:716 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:54:56:716 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:54:56:799 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:54:56:799 SAC/(6278:6278): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:54:56:880 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:54:56:880 SAC/(6278:6278): /Archivo_2 | 1 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:54:56:971 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:54:56:971 SAC/(6278:6278): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:54:57:51 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:54:57:51 SAC/(6278:6278): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:54:57:131 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:54:57:131 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:54:57:131 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:54:57:215 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:54:57:215 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:54:58:897 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:54:58:897 SAC/(6278:6278): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:55:01:833 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:55:01:833 SAC/(6278:6278): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:55:23:25 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:55:23:25 SAC/(6278:6278): /Archivo_3 | 10240 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:55:23:27 SAC/(6278:6278): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 00:55:23:27 SAC/(6278:6278): [TRUNCATE]: Truncate de /Archivo_3
+[INFO] 00:55:23:27 SAC/(6278:6278): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 00:55:23:27 SAC/(6278:6278): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 00:55:23:104 SAC/(6278:6278): [TRUNCATE]: do_truncate finalizado
+[INFO] 00:55:23:183 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:55:23:183 SAC/(6278:6278): /Archivo_3 | 10230 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:56:00:841 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:56:00:841 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:56:00:841 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:56:00:923 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:56:00:923 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:56:01:3 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:01:3 SAC/(6278:6278): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 00:56:01:83 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:01:83 SAC/(6278:6278): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 00:56:01:163 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:01:163 SAC/(6278:6278): /Archivo_2 | 1 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 00:56:01:243 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:01:243 SAC/(6278:6278): /Archivo_3 | 10230 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:56:01:323 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:01:323 SAC/(6278:6278): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 00:56:01:403 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:01:403 SAC/(6278:6278): /DIR_1 | 0 | 1575603954 | 0 | 1575603969 | 0
+[INFO] 00:56:01:483 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:01:483 SAC/(6278:6278): /Data_file_10 | 7 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 00:56:01:563 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:01:564 SAC/(6278:6278): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:56:05:552 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:56:05:552 SAC/(6278:6278): /Archivo_3 | 10230 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 00:59:24:552 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:59:24:553 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:59:24:553 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:59:24:635 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:59:24:635 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:59:24:715 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:59:24:716 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:59:24:716 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:59:24:795 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:59:24:795 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:59:24:879 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:59:24:879 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:59:24:879 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:59:24:959 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:59:24:960 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:59:25:39 SAC/(6278:6278): Recibiendo atributos..
+[INFO] 00:59:25:39 SAC/(6278:6278): /archivo.random | 10485760 | 1575511053 | 0 | 1575511045 | 0
+[INFO] 00:59:25:119 SAC/(6278:6278): [READDIR]: Ejecutando do_readdir...
+[INFO] 00:59:25:119 SAC/(6278:6278): [READDIR]: Readdir de /
+[INFO] 00:59:25:119 SAC/(6278:6278): [READDIR]: Enviando operacion a SAC-server
+[INFO] 00:59:25:199 SAC/(6278:6278): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 00:59:25:199 SAC/(6278:6278): [READDIR]: do_readdir finalizado
+[INFO] 00:59:25:847 SAC/(6278:6278): [UNLINK]: Ejecutando do_unlink...
+[INFO] 00:59:25:848 SAC/(6278:6278): [UNLINK]: Unlink de /archivo.random
+[INFO] 00:59:25:848 SAC/(6278:6278): [UNLINK]: Enviando operacion a SAC-server
+[INFO] 00:59:25:848 SAC/(6278:6278): [UNLINK]: Comunicacion exitosa con SAC-server
+[INFO] 00:59:27:633 SAC/(6278:6278): [UNLINK]: do_mkdir finalizado
+[INFO] 01:08:07:597 SAC/(6669:6669): IP_SERVER [127.0.0.1] - PORT_SERVER [8003]
+[INFO] 01:08:30:884 SAC/(6669:6669): [READDIR]: Ejecutando do_readdir...
+[INFO] 01:08:30:884 SAC/(6669:6669): [READDIR]: Readdir de /
+[INFO] 01:08:30:884 SAC/(6669:6669): [READDIR]: Enviando operacion a SAC-server
+[INFO] 01:08:30:963 SAC/(6669:6669): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 01:08:30:963 SAC/(6669:6669): [READDIR]: do_readdir finalizado
+[INFO] 01:08:31:43 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:31:44 SAC/(6669:6669): /poco_de_todo.sh | 941 | 1575510911 | 0 | 1575510641 | 0
+[INFO] 01:08:31:123 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:31:123 SAC/(6669:6669): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 01:08:31:203 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:31:203 SAC/(6669:6669): /Archivo_2 | 1 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 01:08:31:283 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:31:283 SAC/(6669:6669): /Archivo_3 | 10230 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 01:08:31:363 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:31:363 SAC/(6669:6669): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 01:08:31:443 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:31:443 SAC/(6669:6669): /DIR_1 | 0 | 1575603954 | 0 | 1575603969 | 0
+[INFO] 01:08:31:523 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:31:523 SAC/(6669:6669): /Data_file_10 | 7 | 1575603980 | 0 | 1575603980 | 0
+[INFO] 01:08:38:162 SAC/(6669:6669): [READDIR]: Ejecutando do_readdir...
+[INFO] 01:08:38:162 SAC/(6669:6669): [READDIR]: Readdir de /
+[INFO] 01:08:38:162 SAC/(6669:6669): [READDIR]: Enviando operacion a SAC-server
+[INFO] 01:08:38:239 SAC/(6669:6669): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 01:08:38:239 SAC/(6669:6669): [READDIR]: do_readdir finalizado
+[INFO] 01:08:38:319 SAC/(6669:6669): [READDIR]: Ejecutando do_readdir...
+[INFO] 01:08:38:320 SAC/(6669:6669): [READDIR]: Readdir de /
+[INFO] 01:08:38:320 SAC/(6669:6669): [READDIR]: Enviando operacion a SAC-server
+[INFO] 01:08:38:399 SAC/(6669:6669): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 01:08:38:399 SAC/(6669:6669): [READDIR]: do_readdir finalizado
+[INFO] 01:08:38:496 SAC/(6669:6669): [READDIR]: Ejecutando do_readdir...
+[INFO] 01:08:38:496 SAC/(6669:6669): [READDIR]: Readdir de /
+[INFO] 01:08:38:496 SAC/(6669:6669): [READDIR]: Enviando operacion a SAC-server
+[INFO] 01:08:38:575 SAC/(6669:6669): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 01:08:38:575 SAC/(6669:6669): [READDIR]: do_readdir finalizado
+[INFO] 01:08:38:655 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:38:655 SAC/(6669:6669): /Archivo_1 | 0 | 1575603933 | 0 | 1575603933 | 0
+[INFO] 01:08:38:735 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:38:736 SAC/(6669:6669): /Archivo_2 | 1 | 1575603934 | 0 | 1575603934 | 0
+[INFO] 01:08:38:815 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:38:815 SAC/(6669:6669): /Archivo_3 | 10230 | 1575603935 | 0 | 1575603935 | 0
+[INFO] 01:08:38:895 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:38:895 SAC/(6669:6669): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 01:08:38:975 SAC/(6669:6669): [READDIR]: Ejecutando do_readdir...
+[INFO] 01:08:38:975 SAC/(6669:6669): [READDIR]: Readdir de /
+[INFO] 01:08:38:975 SAC/(6669:6669): [READDIR]: Enviando operacion a SAC-server
+[INFO] 01:08:39:55 SAC/(6669:6669): [READDIR]: Comunicacion exitosa con SAC-server
+[INFO] 01:08:39:55 SAC/(6669:6669): [READDIR]: do_readdir finalizado
+[INFO] 01:08:40:535 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:08:40:535 SAC/(6669:6669): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 01:09:10:464 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:09:10:464 SAC/(6669:6669): /Archivo_4 | 10240 | 1575603936 | 0 | 1575603937 | 0
+[INFO] 01:09:10:464 SAC/(6669:6669): [TRUNCATE]: Ejecutando do_truncate...
+[INFO] 01:09:10:464 SAC/(6669:6669): [TRUNCATE]: Truncate de /Archivo_4
+[INFO] 01:09:10:464 SAC/(6669:6669): [TRUNCATE]: Enviando operacion a SAC-server
+[INFO] 01:09:10:464 SAC/(6669:6669): [TRUNCATE]: Comunicacion exitosa con SAC-server
+[INFO] 01:13:00:715 SAC/(6669:6669): [TRUNCATE]: do_truncate finalizado
+[INFO] 01:13:00:755 SAC/(6669:6669): Recibiendo atributos..
+[INFO] 01:13:00:755 SAC/(6669:6669): /Archivo_4 | 10230 | 1575603936 | 0 | 1575603937 | 0

@@ -26,7 +26,7 @@ endif
 all: SAC-server
 
 dependents:
-	-cd /home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug && $(MAKE) clean all
+	-cd /home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug && $(MAKE) all
 
 # Tool invocations
 SAC-server: $(OBJS) $(USER_OBJS) /home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug/libshared.so
