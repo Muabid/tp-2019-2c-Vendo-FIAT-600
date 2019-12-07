@@ -492,3 +492,19 @@ BitMemoria* ejecutarSegundaVueltaClock(){
 	}
 	return bitObtenido;
 }
+
+void destruirPrograma(Programa* prog){
+    _Bool esPrograma(Programa* programa){
+        return string_equals_ignore_case(programa->id,prog->id);
+    }
+    list_destroy_and_destroy_elements(prog->segmentos,(void)destruirSegmento);
+    list_remove_by_condition(tabla_de_programas,(void)esPrograma);
+}
+
+void destruirSegmento(Segmento* seg){
+    if(!seg->es_mmap){
+        list_destroy_and_destroy_elements(seg->status_metadata,(void)free);
+        list_destroy_and_destroy_elements(seg->paginas,(void)destruirPagina);
+    }
+    free(seg);
+}
