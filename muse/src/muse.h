@@ -29,13 +29,16 @@ pthread_mutex_t mut_espacioDisponible;
 pthread_mutex_t mut_listaProgramas;
 pthread_mutex_t mut_mapeos;
 t_log* logger;
+char* rutaSwapping;
+int listener_socket;
 
 void inicializarLogger(char* path);
 void cargarConfiguracion();
-void inicializarEstructuras();
+void inicializarEstructuras(char* rutaSwap);
 void inicializarBitmap();
 void inicializarMemoriaVirtual(char* rutaSwap);
 void inicializarSemaforos();
+void* handler_clients(void* socket);
 
 int muse_alloc(char* id, uint32_t tamanio);
 int muse_free(char* id, uint32_t dir);

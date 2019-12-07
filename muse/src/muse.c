@@ -1,13 +1,13 @@
 #include "muse.h"
 
-
-int listener_socket;
-
-int main(void) {
-
+int main(int argc, char **argv){
+	rutaSwapping = string_duplicate(argv[0]);
+	cargarConfiguracion();
+	inicializarEstructuras(rutaSwapping);
 	init_muse_server();
 	return EXIT_SUCCESS;
 }
+
 void* handler_clients(void* socket){
 	int muse_sock = (int) (socket);
 	char* id_cliente;
@@ -17,10 +17,9 @@ void* handler_clients(void* socket){
 		switch(message->head){
 
 		case MUSE_INIT:{
-			uint32_t pid = *((uint32_t)message->content);
+			uint32_t pid = *((uint32_t*)message->content);
 			char* pid_char = string_itoa(pid);
-			//hay q conseguir la ip de el cliente xd
-			id_cliente ="";
+			id_cliente = "";
 			struct sockaddr_in addr;
 			uint32_t addrlen = sizeof(addr);
 			getpeername(socket, (struct sockaddr *)&addr, &addrlen);
@@ -29,13 +28,12 @@ void* handler_clients(void* socket){
 			string_append(&id_cliente,"-");
 			string_append(&id_cliente,pid_char);
 			log_info(logger,"Cliente, id: %s",id_cliente);
-//			mandar_char(id_cliente,socket,operacion);
-//			programa_t* programa = malloc(sizeof(programa_t));
-//			programa->tabla_de_segmentos = list_create();
-//			programa->id_programa = id_cliente;
-//			pthread_mutex_lock(&mutex_tabla_de_programas);
-//			list_add(tabla_de_programas,programa);
-//			pthread_mutex_unlock(&mutex_tabla_de_programas);
+			Programa* programa = malloc(sizeof(Programa));
+			programa->segmentos = list_create();
+			programa->id = id_cliente;
+			pthread_mutex_lock(&mut_listaProgramas);
+			list_add(listaProgramas,programa);
+			pthread_mutex_unlock(&mut_listaProgramas);
 			free(pid_char);
 			break;
 		}
@@ -94,6 +92,7 @@ void* handler_clients(void* socket){
 			aux+=sizeof(uint32_t);
 			memcpy(&n,aux,sizeof(uint32_t));
 			aux+=n;
+			src = malloc(n);
 			memcpy(src,aux,n);
 			int res = muse_cpy(id_cliente,dst,src,n);
 			if(res == -1){
@@ -111,12 +110,12 @@ void* handler_clients(void* socket){
 			void*aux = message->content;
 			memcpy(&len,aux,sizeof(int));
 			aux+=sizeof(int);
-			path = malloc(path);
+			path = malloc(len);
 			memcpy(path,aux,len);
 			aux+=strlen(path);
 			memcpy(&length,aux,sizeof(size_t));
 			aux+=sizeof(size_t);
-			memccpy(&flags,aux,sizeof(int));
+			memcpy(&flags,aux,sizeof(int));
 			int res = muse_map(id_cliente,path,length,flags);
 			if(res <0){
 				send_status(muse_sock,ERROR,-1);
@@ -185,7 +184,7 @@ void init_muse_server() {
 }
 
 
-void inicializarLogger(char* path){//0 es archivo, 1 es consola
+void inicializarLogger(char* path){
 	char* nombre = string_new();
 	string_append(&nombre,path);
 	string_append(&nombre,".log");
@@ -201,7 +200,7 @@ void cargarConfiguracion(){
 	TAMANIO_SWAP = config_get_int_value(config, "SWAP_SIZE");
 }
 
-void inicializarEstructuras(){
+void inicializarEstructuras(char* ruta){
 	posicionInicialMemoria = malloc(TAMANIO_MEMORIA);
 	espacioDisponible = TAMANIO_MEMORIA + TAMANIO_SWAP;
 	CANT_PAGINAS_MEMORIA = TAMANIO_MEMORIA / TAMANIO_PAGINA;
@@ -209,7 +208,7 @@ void inicializarEstructuras(){
 	listaMapeos = list_create();
 	listaProgramas = list_create();
 	punteroClock = 0;
-	inicializarMemoriaVirtual("unaruta");
+	inicializarMemoriaVirtual(ruta);
 	inicializarBitmap();
 	inicializarSemaforos();
 }
@@ -726,8 +725,7 @@ int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 		segmentoNuevo->es_mmap = true;
 		segmentoNuevo->tamanio_mapeo = length;
 		segmentoNuevo->base_logica = asignarMarcoNuevo(listaSegmentos);
-		//segmentoNuevo->info_heaps = NULL;
-		//segmentoNuevo->paginas_liberadas=0;
+		segmentoNuevo->status_metadata = NULL;
 		segmentoNuevo->path_mapeo = string_duplicate(path);
 		segmentoNuevo->tamanio = tamanioAMapear;
 		if(flag != MAP_PRIVATE){
@@ -761,7 +759,6 @@ int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 		mapeo->paginas = paginas;
 		mapeo->path = string_duplicate(path);
 		mapeo->tamanio = length;
-		//mapeo->tamanio_de_pags = segmentoNuevo->tamanio;
 		pthread_mutex_lock(&mut_mapeos);
 		list_add(listaMapeos,mapeo);
 		pthread_mutex_unlock(&mut_mapeos);
@@ -1017,11 +1014,11 @@ int muse_close(char* idCliente){
             return string_equals_ignore_case(programa->id,idCliente);
     }
     pthread_mutex_lock(&mut_listaProgramas);
-    Programa* prog = list_find(listaProgramas,(void)esProg);
+    Programa* prog = list_find(listaProgramas,(void*)esProg);
     pthread_mutex_unlock(&mut_listaProgramas);
     if(prog!=NULL){
         pthread_mutex_lock(&mut_listaProgramas);
-        list_remove_and_destroy_by_condition(listaProgramas,(void)esProg,(void*)destruirPrograma);
+        list_remove_and_destroy_by_condition(listaProgramas,(void*)esProg,(void*)destruirPrograma);
         pthread_mutex_unlock(&mut_listaProgramas);
     }
     return 0;

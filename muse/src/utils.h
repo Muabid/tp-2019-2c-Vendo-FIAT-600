@@ -38,7 +38,7 @@ BitMemoria* buscarBit_0_1();
 BitMemoria* ejecutarClockModificado();
 BitMemoria* ejecutarSegundaVueltaClock();
 
-void destruirPrograma(Programa* prog)
-void destruirSegmento(Segmento* seg)
+void destruirPrograma(Programa* prog);
+void destruirSegmento(Segmento* seg);
 
 #endif /* UTILS_H_ */
