@@ -26,3 +26,5 @@ example:
 	
 test: clean all example
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH):./$(BUILD) ./$(BUILD)/example
+
+
