@@ -1011,5 +1011,20 @@ int muse_cpy(char* id, uint32_t dst, void* src, size_t n){
 	}
 }
 
+int muse_close(char* idCliente){
 
-int muse_close(char* id_cliente);
+    bool esProg(Programa* programa){
+            return string_equals_ignore_case(programa->id,idCliente);
+    }
+    pthread_mutex_lock(&mut_listaProgramas);
+    Programa* prog = list_find(listaProgramas,(void)esProg);
+    pthread_mutex_unlock(&mut_listaProgramas);
+    if(prog!=NULL){
+        pthread_mutex_lock(&mut_listaProgramas);
+        list_remove_and_destroy_by_condition(listaProgramas,(void)esProg,(void*)destruirPrograma);
+        pthread_mutex_unlock(&mut_listaProgramas);
+    }
+    return 0;
+}
+
+
