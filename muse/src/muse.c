@@ -4,6 +4,7 @@ int main(int argc, char **argv){
 	rutaSwapping = string_duplicate(argv[0]);
 	cargarConfiguracion();
 	inicializarEstructuras(rutaSwapping);
+	inicializarLogger(string_duplicate(argv[1]));
 	init_muse_server();
 	return EXIT_SUCCESS;
 }
@@ -166,7 +167,7 @@ void* handler_clients(void* socket){
 
 void init_muse_server() {
 	listener_socket = init_server(PUERTO);
-	log_info(logger, "Servidor levantado!!!");
+	//log_info(logger, "Servidor levantado!!!");
 	struct sockaddr muse_cli;
 	socklen_t len = sizeof(muse_cli);
 	do {
@@ -251,7 +252,7 @@ void inicializarMemoriaVirtual(char* rutaSwap){
 	rutaSwap = string_new();
 	string_append(&rutaSwap,aux);
 	string_append(&rutaSwap,"/AreaSwap");
-	log_info(logger,"Ruta area Swap = %s",rutaSwap);
+	//log_info(logger,"Ruta area Swap = %s",rutaSwap);
 	free(aux);
 
 	fileDescriptor = open(rutaSwap,O_RDWR|O_CREAT,0777);
@@ -264,7 +265,6 @@ void inicializarMemoriaVirtual(char* rutaSwap){
 	if(posicionInicialSwap == MAP_FAILED || posicionInicialSwap == NULL){
 		perror("error: ");
 	}
-
 }
 
 void inicializarSemaforos(){
