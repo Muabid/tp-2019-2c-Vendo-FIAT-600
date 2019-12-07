@@ -1,11 +1,14 @@
 #ifndef MUSE_H_
 #define MUSE_H_
-
+#include <stdio.h>
+#include <stdlib.h>
 #include "estructuras.h"
 #include "utils.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/fcntl.h>
+#include <shared/net.h>
+#include <shared/protocol.h>
 
 void* posicionInicialMemoria;
 void* posicionInicialSwap;

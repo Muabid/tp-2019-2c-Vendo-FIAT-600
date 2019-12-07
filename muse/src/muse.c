@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "muse.h"
-#include <shared/net.h>
-#include <shared/protocol.h>
+
 
 int listener_socket;
 
