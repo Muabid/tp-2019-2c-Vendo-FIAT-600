@@ -1,0 +1,46 @@
+[INFO] 00:28:07:210 log_suse.txt/(4287:4287): Se ha aceptado una conexion: 5
+
+[INFO] 00:28:07:211 log_suse.txt/(4287:4287): Handler asignado
+
+[INFO] 00:28:07:212 log_suse.txt/(4287:4508): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:28:07:212 log_suse.txt/(4287:4508): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:28:07:212 log_suse.txt/(4287:4508): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 00:28:07:212 log_suse.txt/(4287:4508): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 00:28:07:212 log_suse.txt/(4287:4508): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 00:31:32:262 log_suse.txt/(4287:4287): Se interrumpió la ejecución del proceso
+[INFO] 00:31:36:587 log_suse.txt/(4574:4574): Falló al aceptar conexión
+[INFO] 00:34:37:462 log_suse.txt/(5161:5161): Se ha aceptado una conexion: 5
+
+[INFO] 00:34:37:463 log_suse.txt/(5161:5161): Handler asignado
+
+[INFO] 00:34:37:472 log_suse.txt/(5161:5181): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:34:37:472 log_suse.txt/(5161:5181): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:34:37:474 log_suse.txt/(5161:5181): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 00:34:37:474 log_suse.txt/(5161:5181): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 00:34:37:474 log_suse.txt/(5161:5181): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 00:36:31:668 log_suse.txt/(5161:5161): Se interrumpió la ejecución del proceso
+[INFO] 00:36:43:46 log_suse.txt/(5231:5231): Se ha aceptado una conexion: 5
+
+[INFO] 00:36:43:47 log_suse.txt/(5231:5231): Handler asignado
+
+[INFO] 00:36:43:47 log_suse.txt/(5231:5327): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:36:43:48 log_suse.txt/(5231:5327): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:36:43:48 log_suse.txt/(5231:5327): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 00:36:43:48 log_suse.txt/(5231:5327): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 00:36:43:48 log_suse.txt/(5231:5327): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 00:36:44:394 log_suse.txt/(5231:5327): Suse Close: Se cerró el hilo 1
+
+[INFO] 00:36:55:158 log_suse.txt/(5231:5327): Suse Close: Se cerró el hilo 2
+
+[INFO] 00:37:01:718 log_suse.txt/(5231:5327): Suse Close: Se cerró el hilo 3
+
+[INFO] 00:37:08:282 log_suse.txt/(5231:5327): Suse Close: Se cerró el hilo 4
+
+[ERROR] 00:37:08:362 log_suse.txt/(5231:5327): No se encuentra el hilo a joinear
+
+[INFO] 00:37:08:402 log_suse.txt/(5231:5327): Suse Close: Se cerró el hilo 0
+
+[INFO] 00:37:08:403 log_suse.txt/(5231:5327): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:38:04:588 log_suse.txt/(5354:5354): Falló al aceptar conexión
+[INFO] 00:40:08:969 log_suse.txt/(5564:5564): Falló al aceptar conexión
