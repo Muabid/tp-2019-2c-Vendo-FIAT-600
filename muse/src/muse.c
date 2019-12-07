@@ -1,11 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "muse.h"
+#include <shared/net.h>
+#include <shared/protocol.h>
+
+int listener_socket;
 
 int main(void) {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+
+	init_muse_server();
 	return EXIT_SUCCESS;
 }
+void* handler_clients(void* socket){
+	int muse_sock = (int) (socket);
+	while(1){
+		t_message* message = recv_message(muse_sock);
+		switch(message->head){
+
+		}
+		free_t_message(message);
+	}
+}
+
+void init_muse_server() {
+	listener_socket = init_server(PUERTO);
+	log_info(logger, "Servidor levantado!!!");
+	struct sockaddr muse_cli;
+	socklen_t len = sizeof(muse_cli);
+	do {
+		int muse_sock = accept(listener_socket, &muse_cli, &len);
+		if (muse_sock > 0) {
+			log_info(logger, "NUEVA CONEXIÓN");
+			pthread_t muse_cli_thread;
+			pthread_create(&muse_cli_thread, NULL, handler_clients,
+					(void*) (muse_sock));
+			pthread_detach(muse_cli_thread);
+		} else {
+			log_error(logger, "Error aceptando conexiones: %s", strerror(errno));
+		}
+	} while (1);
+}
+
 
 void inicializarLogger(char* path){//0 es archivo, 1 es consola
 	char* nombre = string_new();
