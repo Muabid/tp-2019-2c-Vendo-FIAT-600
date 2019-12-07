@@ -1,7 +1,7 @@
 #include "suse.h"
 
 //VARIABLES CONFIGURACION
-int listen_port;
+int port_server;
 int metrics_timer;
 int max_multiprog;
 char** sem_ids;
@@ -44,7 +44,7 @@ t_list* auxiliarListaParaBusqueda;
 //FUNCIONES A EJECUTAR EN EL INICIO
 void load_suse_config() {
 	t_config* config = config_create("suse.config");
-	listen_port = config_get_int_value(config, "LISTEN_PORT");
+	port_server = config_get_int_value(config, "LISTEN_PORT");
 	metrics_timer = config_get_int_value(config, "METRICS_TIMER");
 	max_multiprog = config_get_int_value(config, "MAX_MULTIPROG");
 	sem_ids = config_get_array_value(config, "SEM_IDS");
@@ -599,7 +599,7 @@ int main() {
 	int socketDelCliente;
 	struct sockaddr direccionCliente;
 	unsigned int tamanioDireccion = sizeof(direccionCliente);
-	int servidor = init_server(listen_port);
+	int servidor = init_server(port_server);
 
 //	//TEST SIN HILOS
 //	socketDelCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion);

@@ -242,7 +242,7 @@ void* listen_sac_cli(void* socket) {
 }
 
 void init_sac_server() {
-	listener_socket = init_server(8080);
+	listener_socket = init_server(sac_config->listen_port);
 	log_info(logger, "Servidor levantado!!!");
 	struct sockaddr sac_cli;
 	socklen_t len = sizeof(sac_cli);

@@ -163,7 +163,7 @@ int muse_alloc(char* id, uint32_t tamanio){
 					pag->num_pagina = i;
 					pag->presencia = true;
 					if(i <= TAMANIO_MEMORIA / TAMANIO_PAGINA){
-						pag->bit_marco = asignar_marco_nuevo();
+						pag->bit_marco = asignarMarcoNuevo();
 						pag->bit_marco->bit_uso = true;
 						pag->bit_marco->bit_modificado = true;
 						pag->bit_swap = NULL;
@@ -340,7 +340,7 @@ int muse_alloc(char* id, uint32_t tamanio){
 							pag->num_pagina = i;
 							pag->presencia = true;
 							if(i <= TAMANIO_MEMORIA / TAMANIO_PAGINA){
-								pag->bit_marco = asignar_marco_nuevo();
+								pag->bit_marco = asignarMarcoNuevo();
 								pag->bit_marco->bit_uso = true;
 								pag->bit_marco->bit_modificado = true;
 								pag->bit_swap = NULL;
@@ -547,7 +547,7 @@ int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 		segmentoNuevo->num_segmento = listaSegmentos->elements_count;
 		segmentoNuevo->es_mmap = true;
 		segmentoNuevo->tamanio_mapeo = length;
-		segmentoNuevo->base_logica = base_logica_segmento_nuevo(listaSegmentos);
+		segmentoNuevo->base_logica = asignarMarcoNuevo(listaSegmentos);
 		//segmentoNuevo->info_heaps = NULL;
 		//segmentoNuevo->paginas_liberadas=0;
 		segmentoNuevo->path_mapeo = string_duplicate(path);

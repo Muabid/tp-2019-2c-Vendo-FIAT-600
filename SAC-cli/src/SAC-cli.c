@@ -10,6 +10,10 @@
 #include <shared/net.h>
 #include <stdint.h>
 #include <commons/log.h>
+#include <commons/config.h>
+
+int port_server;
+char* ip_server;
 
 //Variable global para la conexión con el SAC-server
 static int sock;
@@ -529,7 +533,15 @@ static struct fuse_opt fuse_options[] = {
 
 int main(int argc, char* argv[]) {
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
-	log = log_create("sac.log","SAC",1,LOG_LEVEL_INFO);
+	log = log_create("../resources/sac.log","SAC",1,LOG_LEVEL_INFO);
+
+	t_config* config = config_create("../resources/sac.config");
+	port_server = config_get_int_value(config,"PORT_SERVER");
+	ip_server = strdup(config_get_string_value(config,"IP_SERVER"));
+	config_destroy(config);
+
+	log_info(log,"IP_SERVER [%s] - PORT_SERVER [%i]",ip_server,port_server);
+
 
 	// Limpio la estructura que va a contener los parametros
 	memset(&runtime_options, 0, sizeof(struct t_runtime_options));
@@ -541,6 +553,6 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	sock = connect_to_server("127.0.0.1", 8080, NULL); // Se establece la conexión
+	sock = connect_to_server(ip_server, port_server, NULL); // Se establece la conexión
 	return fuse_main(args.argc, args.argv, &do_operations, NULL);
 }

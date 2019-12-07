@@ -34,7 +34,7 @@ void inicializarBitmap();
 void inicializarMemoriaVirtual(char* rutaSwap);
 void inicializarSemaforos();
 
-int muse_alloc(char* id, uint32_t tamanio){
+int muse_alloc(char* id, uint32_t tamanio);
 int muse_free(char* id, uint32_t dir);
 int muse_map(char* id, char* path, uint32_t length, uint32_t flag);
 int muse_sync(char* id, uint32_t addr, size_t len);
