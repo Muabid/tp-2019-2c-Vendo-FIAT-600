@@ -5,8 +5,57 @@ int main(int argc, char **argv){
 	cargarConfiguracion();
 	inicializarEstructuras(rutaSwapping);
 	inicializarLogger(string_duplicate(argv[1]));
-	init_muse_server();
+
+	Programa* prog1 = malloc(sizeof(Programa));
+	prog1->segmentos = list_create();
+	prog1->id = string_new();
+	string_append(&prog1->id,"prog1");
+	list_add(listaProgramas,prog1);
+
+	Programa* prog2 = malloc(sizeof(Programa));
+	prog2->segmentos = list_create();
+	prog2->id = string_new();
+	string_append(&prog2->id,"prog2");
+	list_add(listaProgramas,prog2);
+	puts("-----------------------------------------");
+	int a = muse_alloc("prog1",13);
+	puts("Aloqué A!");
+	printf("A = %d\n",a);
+	puts("-----------------------------------------");
+	int b = muse_alloc("prog2",25);
+	puts("Aloqué B!");
+	printf("B = %d\n",b);
+	puts("-----------------------------------------");
+	int c = muse_alloc("prog1",50);
+	puts("Aloqué C!");
+	printf("C = %d\n",c);
+	puts("-----------------------------------------");
+	int d = muse_alloc("prog1",7);
+	puts("Aloqué D!");
+	printf("D = %d\n",d);
+	puts("-----------------------------------------");
+	int e = muse_alloc("prog1",10);
+	puts("Aloqué E!");
+	printf("E = %d\n",e);
+	puts("-----------------------------------------");
+	muse_free("prog1",c);
+	puts("-----------------------------------------");
+	int g = muse_alloc("prog1",46);
+	puts("Aloqué G!");
+	printf("G = %d\n",g);
+//	printear_memoria();
+//	init_muse_server();
 	return EXIT_SUCCESS;
+}
+
+void printear_memoria(){
+	for(int i = 0; i < TAMANIO_MEMORIA; i++){
+		if((char)(posicionInicialMemoria+i)!='\0'){
+			printf("%c",(char)(posicionInicialMemoria+i));
+		}
+	}
+	printf("\n");
+	fflush(stdout);
 }
 
 void* handler_clients(void* socket){
@@ -248,10 +297,12 @@ void inicializarMemoriaVirtual(char* rutaSwap){
 		}
 	}
 	char* aux = string_substring_until(rutaSwap,i);
+	printf("Ruta 1: %s\n",aux);
 	free(rutaSwap);
 	rutaSwap = string_new();
 	string_append(&rutaSwap,aux);
 	string_append(&rutaSwap,"/AreaSwap");
+	printf("Ruta 2: %s\n",rutaSwap);
 	//log_info(logger,"Ruta area Swap = %s",rutaSwap);
 	free(aux);
 
@@ -281,6 +332,7 @@ int muse_alloc(char* id, uint32_t tamanio){
 		t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
 		if(listaSegmentos==NULL){
 			log_info(logger,"no hay segmentos, F",id);
+			puts("F");
 			return -1;
 		}
 
@@ -292,6 +344,7 @@ int muse_alloc(char* id, uint32_t tamanio){
 				espacioDisponible -= paginasNecesarias * TAMANIO_PAGINA;
 				pthread_mutex_unlock(&mut_espacioDisponible);
 				//creo segmento
+				puts("Creando segmento...");
 				Segmento* nuevoSegmento = malloc(sizeof(Segmento));
 				nuevoSegmento->compartido = false;
 				nuevoSegmento->es_mmap = false;
@@ -389,9 +442,12 @@ int muse_alloc(char* id, uint32_t tamanio){
 				return -1;
 			}
 		} else { // ya hay algún segmento, entonces busco en la lista de heaps de cada segmento a ver si hay espacio para alocar
+			puts("Buscando si hay espacio para alocar...");
 			Segmento* segmentoEncontrado = obtenerSegmentoParaOcupar(listaSegmentos,tamanio + sizeof(HeapMetadata));
 			if(segmentoEncontrado != NULL){
+				puts("Encontré espacio");
 				// me pongo a buscar el espacio disponible
+				InfoHeap* ultimoInfoHeap = ultimoElemento(segmentoEncontrado->status_metadata);
 				InfoHeap* heapConEspacio = obtenerHeapConEspacio(segmentoEncontrado,tamanio);
 
 				HeapMetadata* heapInicial = malloc(sizeof(HeapMetadata));
@@ -446,11 +502,13 @@ int muse_alloc(char* id, uint32_t tamanio){
 				heapConEspacio->espacio = tamanio;
 				heapConEspacio->libre = false;
 
-				InfoHeap* siguienteHeap = malloc(sizeof(heapConEspacio));
+				InfoHeap* siguienteHeap = malloc(sizeof(InfoHeap));
+
 				siguienteHeap->direccion_heap = numPaginaFinal * TAMANIO_PAGINA + offsetFinal;
 				siguienteHeap->espacio = heapFinal->tamanio;
 				siguienteHeap->libre = true;
 				siguienteHeap->indice = heapConEspacio->indice + 1;
+
 				// lo agrego al final by: frongi wtf
 				list_add_in_index(segmentoEncontrado->status_metadata, heapConEspacio->indice+1, siguienteHeap);
 
@@ -458,10 +516,12 @@ int muse_alloc(char* id, uint32_t tamanio){
 				free(heapFinal);
 
 			} else { // no encontró ningun segmento, hay que ver si se puede agrandar o crear otro //acá tambien podria ir lo de liberadas
+				puts("No encontré :(");
 				Segmento* ultimoSegmento = obtenerUltimoSegmento(listaSegmentos);
 				if(ultimoSegmento->es_mmap){
 					// acá no puedo agrandar asique creo otro segmento xd
 					// ¿delegar funcion crear segmento? yo diria que no kent
+					puts("Creando otro segmento porque habia un mmap");
 					uint32_t paginasNecesarias = calcularFramesNecesarios(tamanio + sizeof(HeapMetadata)*2);
 					int libreUltimaPag = paginasNecesarias * TAMANIO_PAGINA - tamanio - sizeof(HeapMetadata) * 2;
 					uint32_t tamTotal = paginasNecesarias * TAMANIO_PAGINA;
@@ -561,9 +621,10 @@ int muse_alloc(char* id, uint32_t tamanio){
 						theReturn = nuevoSegmento->base_logica + sizeof(HeapMetadata);
 					}
 				} else { // acá puedo agrandar
-					InfoHeap* ultimoInfoHeap = obtenerUltimoSegmento(ultimoSegmento->status_metadata);
+					puts("Toca agrandar");
+					InfoHeap* ultimoInfoHeap = ultimoElemento(ultimoSegmento->status_metadata);
 					ultimoInfoHeap->libre = false;
-					Pagina* ultimaPagina = obtenerUltimoSegmento(ultimoSegmento->paginas);
+					Pagina* ultimaPagina = ultimoElemento(ultimoSegmento->paginas);
 					HeapMetadata* nuevoUltHeap = malloc(sizeof(HeapMetadata));
 					nuevoUltHeap->libre = true;
 					HeapMetadata* ultimoHeap = malloc(sizeof(HeapMetadata));
@@ -629,9 +690,9 @@ int muse_alloc(char* id, uint32_t tamanio){
 						}
 
 						// y esto vendria a ser el HM viejardo
-
 						int offsetViejoXD = nuevoInfoHeaperino->direccion_heap % TAMANIO_PAGINA;
-						int numPaginaViejaFinal = techo((double)nuevoInfoHeaperino->direccion_heap / TAMANIO_PAGINA);
+						int numPaginaViejaFinal = techo((double)nuevoInfoHeaperino->direccion_heap / TAMANIO_PAGINA) - 1;
+
 						if(offsetViejoXD > TAMANIO_PAGINA - sizeof(HeapMetadata)){ // ESCRIBÍ ESTO MIENTRAS LLORABA
 							int loQueCopio2 = TAMANIO_PAGINA - offsetViejoXD;
 							Pagina* paginaFinalViejaPrincipal = list_get(ultimoSegmento->paginas,numPaginaViejaFinal);
@@ -647,8 +708,8 @@ int muse_alloc(char* id, uint32_t tamanio){
 							void* punteroViejoUltimaPagina = obtenerPunteroAMarco(paginaFinalVieja);
 							memcpy(punteroViejoUltimaPagina + offsetViejoXD, ultimoHeap, sizeof(HeapMetadata));
 						}
-
-						theReturn = ultimoSegmento->base_logica + sizeof(HeapMetadata) + nuevoInfoHeaperino->direccion_heap;
+						theReturn = ultimoInfoHeap->direccion_heap + sizeof(HeapMetadata);
+						//theReturn = ultimoSegmento->base_logica + sizeof(HeapMetadata) + nuevoInfoHeaperino->direccion_heap;
 						free(ultimoHeap);
 						free(nuevoUltHeap);
 					} else {
@@ -690,6 +751,11 @@ int muse_free(char* id, uint32_t dir){
 			heapEncontrado->libre = true;
 			break;
 		}
+	}
+
+	if(heapEncontrado == NULL){
+		puts("FFFFFFFFFFFFF");
+		return -1;
 	}
 
 	HeapMetadata* newHM = malloc(sizeof(HeapMetadata));

@@ -5,6 +5,7 @@
 #include <semaphore.h>
 #include <string.h>
 #include <stdbool.h>
+#include <commons/string.h>
 
 t_list* obtenerListaSegmentosPorId(char* idPrograma);
 t_list* obtenerMapeoExistente(char* path,int tamanio);
@@ -29,6 +30,7 @@ Segmento* obtenerUltimoSegmento(t_list* listaSegmentos);
 uint32_t obtenerBaseLogicaNuevoSegmento(t_list* listaSegmentos);
 void sustituirHeapMetadata(InfoHeap* heapLista, Segmento* seg, HeapMetadata* new);
 void merge(Segmento* segmentoEncontrado);
+void* ultimoElemento(t_list* lista);
 
 BitSwap* buscarBitLibreSwap();
 BitSwap* pasarASwap(BitMemoria* bit);

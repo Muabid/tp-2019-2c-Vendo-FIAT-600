@@ -9,6 +9,7 @@
 #include <sys/fcntl.h>
 #include <shared/net.h>
 #include <shared/protocol.h>
+#include <stdint.h>
 
 void* posicionInicialMemoria;
 void* posicionInicialSwap;
@@ -39,6 +40,8 @@ void inicializarBitmap();
 void inicializarMemoriaVirtual(char* rutaSwap);
 void inicializarSemaforos();
 void* handler_clients(void* socket);
+
+void printear_memoria();
 
 int muse_alloc(char* id, uint32_t tamanio);
 int muse_free(char* id, uint32_t dir);
