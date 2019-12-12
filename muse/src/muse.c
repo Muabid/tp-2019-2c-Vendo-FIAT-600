@@ -6,6 +6,7 @@ int main(int argc, char **argv){
 	inicializarEstructuras(rutaSwapping);
 	inicializarLogger(string_duplicate(argv[1]));
 
+
 	Programa* prog1 = malloc(sizeof(Programa));
 	prog1->segmentos = list_create();
 	prog1->id = string_new();
@@ -17,33 +18,39 @@ int main(int argc, char **argv){
 	prog2->id = string_new();
 	string_append(&prog2->id,"prog2");
 	list_add(listaProgramas,prog2);
-	puts("-----------------------------------------");
-	int a = muse_alloc("prog1",13);
-	puts("Aloqué A!");
-	printf("A = %d\n",a);
-	puts("-----------------------------------------");
-	int b = muse_alloc("prog2",25);
-	puts("Aloqué B!");
-	printf("B = %d\n",b);
-	puts("-----------------------------------------");
-	int c = muse_alloc("prog1",50);
-	puts("Aloqué C!");
-	printf("C = %d\n",c);
-	puts("-----------------------------------------");
-	int d = muse_alloc("prog1",7);
-	puts("Aloqué D!");
-	printf("D = %d\n",d);
-	puts("-----------------------------------------");
-	int e = muse_alloc("prog1",10);
-	puts("Aloqué E!");
-	printf("E = %d\n",e);
-	puts("-----------------------------------------");
-	muse_free("prog1",c);
-	puts("-----------------------------------------");
-	int g = muse_alloc("prog1",46);
-	puts("Aloqué G!");
-	printf("G = %d\n",g);
-//	printear_memoria();
+
+	recursiva(10);
+
+//	puts("-----------------------------------------");
+//	int a = muse_alloc("prog1",30);
+//	puts("Aloqué A!");
+//	printf("A = %d\n",a);
+//	puts("-----------------------------------------");
+//	int b = muse_alloc("prog2",25);
+//	puts("Aloqué B!");
+//	printf("B = %d\n",b);
+//	puts("-----------------------------------------");
+//	int c = muse_alloc("prog1",90);
+//	puts("Aloqué C!");
+//	printf("C = %d\n",c);
+//	puts("-----------------------------------------");
+//	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
+//	puts("Aloqué el map de D!");
+//	printf("D = %d\n",d);
+//	puts("-----------------------------------------");
+//	char* mensaje1 = string_new();
+//	string_append(&mensaje1,"my butthole");
+//	int cpy1 = muse_cpy("prog1",5,(void*)mensaje1,strlen(mensaje1));
+//	printf("Resultado cpy 1: %d\n",cpy1);
+//	puts("-----------------------------------------");
+//	char* mensaje_recibido1 = malloc(strlen(mensaje1));
+//	mensaje_recibido1 = muse_get("prog1",5,strlen(mensaje1));
+//	printf("contenido en get 1: %s\n",mensaje_recibido1);
+//	puts("-----------------------------------------");
+//	int x = muse_sync("prog1",d,100);
+//	puts("Hice sync de D!");
+//	printf("x = %d\n",x);
+//	visualizarBitmap();
 //	init_muse_server();
 	return EXIT_SUCCESS;
 }
@@ -117,22 +124,22 @@ void* handler_clients(void* socket){
 			}
 			break;
 		}
-		case MUSE_GET:{
-			uint32_t src;
-			size_t n;
-			void*aux=message->content;
-			memcpy(&src,aux,sizeof(uint32_t));
-			aux+=sizeof(uint32_t);
-			memcpy(&n,aux,sizeof(size_t));
-			void* res = muse_get(id_cliente,src,n);
-			if(res != NULL){
-				send_message(muse_sock,OK,res,n);
-				free(res);
-			}else{
-				send_status(muse_sock,ERROR,-1);
-			}
-			break;
-		}
+//		case MUSE_GET:{
+//			uint32_t src;
+//			size_t n;
+//			void*aux=message->content;
+//			memcpy(&src,aux,sizeof(uint32_t));
+//			aux+=sizeof(uint32_t);
+//			memcpy(&n,aux,sizeof(size_t));
+//			void* res = muse_get(id_cliente,src,n);
+//			if(res != NULL){
+//				send_message(muse_sock,OK,res,n);
+//				free(res);
+//			}else{
+//				send_status(muse_sock,ERROR,-1);
+//			}
+//			break;
+//		}
 		case MUSE_CPY:{
 			uint32_t dst;
 			int n;
@@ -263,11 +270,28 @@ void inicializarEstructuras(char* ruta){
 	inicializarSemaforos();
 }
 
+void visualizarBitmap(){
+	for(uint32_t i = 0; i < CANT_PAGINAS_MEMORIA; i++){
+		BitMemoria* bit = list_get(bitmap->bits_memoria,i);
+		printf("[%d]: bit->esta_ocupado [%d]\n",i,bit->esta_ocupado);
+		printf("[%d]: bit->pos [%d]\n",i,bit->pos);
+		printf("[%d]: bit->bit_modificado [%d]\n",i,bit->bit_modificado);
+		printf("[%d]: bit->bit_uso [%d]\n",i,bit->bit_uso);
+		puts("-------------------------------------------");
+	}
+
+//	for(uint32_t i = 0; i < CANT_PAGINAS_SWAP; i++){
+//		BitSwap* bit = list_get(bitmap->bits_memoria_virtual,i);
+//		printf("[%d]: bit->esta_ocupado [%d]\n",i,bit->esta_ocupado);
+//		printf("[%d]: bit->pos [%d]\n",i,bit->pos);
+//	}
+}
+
 void inicializarBitmap(){
 	bitmap = malloc(sizeof(Bitmap));
-	bitmap->tamanio_memoria = TAMANIO_MEMORIA;
+	bitmap->tamanio_memoria = CANT_PAGINAS_MEMORIA;
 	bitmap->bits_memoria = list_create();
-	for(uint32_t i = 0; i < TAMANIO_MEMORIA; i++){
+	for(uint32_t i = 0; i < CANT_PAGINAS_MEMORIA; i++){
 		BitMemoria* bit = malloc(sizeof(BitMemoria));
 		bit->esta_ocupado = false;
 		bit->pos = i;
@@ -276,9 +300,9 @@ void inicializarBitmap(){
 		list_add(bitmap->bits_memoria,bit);
 	}
 
-	bitmap->tamanio_memoria_virtual = TAMANIO_SWAP;
+	bitmap->tamanio_memoria_virtual = CANT_PAGINAS_SWAP;
 	bitmap->bits_memoria_virtual = list_create();
-	for(uint32_t i = 0; i < TAMANIO_SWAP; i++){
+	for(uint32_t i = 0; i < CANT_PAGINAS_SWAP; i++){
 		BitSwap* bit = malloc(sizeof(BitSwap));
 		bit->esta_ocupado = false;
 		bit->pos = i;
@@ -297,12 +321,11 @@ void inicializarMemoriaVirtual(char* rutaSwap){
 		}
 	}
 	char* aux = string_substring_until(rutaSwap,i);
-	printf("Ruta 1: %s\n",aux);
 	free(rutaSwap);
 	rutaSwap = string_new();
 	string_append(&rutaSwap,aux);
 	string_append(&rutaSwap,"/AreaSwap");
-	printf("Ruta 2: %s\n",rutaSwap);
+	printf("Ruta Swap: %s\n",rutaSwap);
 	//log_info(logger,"Ruta area Swap = %s",rutaSwap);
 	free(aux);
 
@@ -790,7 +813,7 @@ int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 		segmentoNuevo->num_segmento = listaSegmentos->elements_count;
 		segmentoNuevo->es_mmap = true;
 		segmentoNuevo->tamanio_mapeo = length;
-		segmentoNuevo->base_logica = asignarMarcoNuevo(listaSegmentos);
+		segmentoNuevo->base_logica = obtenerBaseLogicaNuevoSegmento(listaSegmentos);
 		segmentoNuevo->status_metadata = NULL;
 		segmentoNuevo->path_mapeo = string_duplicate(path);
 		segmentoNuevo->tamanio = tamanioAMapear;
@@ -828,6 +851,7 @@ int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 		pthread_mutex_lock(&mut_mapeos);
 		list_add(listaMapeos,mapeo);
 		pthread_mutex_unlock(&mut_mapeos);
+		printf("segmentoNuevo->base_logica = [%d]\n", segmentoNuevo->base_logica);
 		return segmentoNuevo->base_logica;
 	}
 	else{
@@ -855,12 +879,9 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 			int ultimaPag = techo((dirAlSegmento + len) / TAMANIO_PAGINA) - 1;
 			int cantidadPags = ultimaPag - primerPag + 1;
 			int tamSync = cantidadPags * TAMANIO_PAGINA;
-
 			void* auxiliar = malloc(tamSync);
 			int puntero = 0;
-
 			paginasMapEnMemoria(dirAlSegmento,len,segmentoEncontrado);
-
 			int i = primerPag;
 			while(i <= ultimaPag){
 				Pagina* pag = list_get(segmentoEncontrado->paginas,i);
@@ -872,8 +893,10 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 			}
 			int posInicial = primerPag * TAMANIO_PAGINA;
 			FILE* file = fopen(segmentoEncontrado->path_mapeo,"r+");
+			printf("segmentoEncontrado->path_mapeo = [%s]\n",segmentoEncontrado->path_mapeo);
 			if(file != NULL){
 				if(fseek(file,posInicial,SEEK_SET == 0)){
+					puts("XD");
 					fwrite(auxiliar,cantidadPags*TAMANIO_PAGINA,1,file);
 					free(auxiliar);
 					fclose(file);
@@ -903,7 +926,7 @@ int muse_unmap(char* id, uint32_t dir){
 	return -1;
 }
 
-void* muse_get(char* id, uint32_t src, size_t n){
+int muse_get(char* id, void* dst, uint32_t src, size_t n){
 	t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
 	if(listaSegmentos == NULL || list_is_empty(listaSegmentos)){
 		log_info(logger,"F por el programa %s que no existe o no tiene segmentos",id);
@@ -917,7 +940,7 @@ void* muse_get(char* id, uint32_t src, size_t n){
 		return -1;
 	}
 	int direccionAlSegmento = src - segmentoEncontrado->base_logica;
-	void* resultado_muse_get = NULL;
+	void* resultadoGet = NULL;
 
 	int pagInicial = direccionAlSegmento / TAMANIO_PAGINA;
 	int pagFinal = techo((direccionAlSegmento + n) / TAMANIO_PAGINA) - 1;
@@ -928,7 +951,7 @@ void* muse_get(char* id, uint32_t src, size_t n){
 
 		int cantidadPaginas = pagFinal - pagInicial + 1;
 		int tamanioTotal = cantidadPaginas * TAMANIO_PAGINA;
-		resultado_muse_get = malloc(n);
+		resultadoGet = malloc(n);
 		void* bloquesote = malloc(tamanioTotal);
 		int puntero = 0;
 
@@ -948,12 +971,12 @@ void* muse_get(char* id, uint32_t src, size_t n){
 			i++;
 		}
 
-		memcpy(resultado_muse_get, bloquesote + offset, n);
+		memcpy(dst, bloquesote + offset, n);
 		free(bloquesote);
 
 	}
-	log_info(logger,"La cosa que pidieron pasar es: %s",(char*)resultado_muse_get);
-	return resultado_muse_get;
+	log_info(logger,"La cosa que pidieron pasar es: %s",(char*)resultadoGet);
+	return resultadoGet;
 
 }
 
@@ -964,7 +987,7 @@ int muse_cpy(char* id, uint32_t dst, void* src, size_t n){
 		return -1;
 	}
 
-	Segmento* segmentoEncontrado = obtenerSegmentoPorDireccion(listaSegmentos,src);
+	Segmento* segmentoEncontrado = obtenerSegmentoPorDireccion(listaSegmentos,dst);
 	if(segmentoEncontrado == NULL){
 		log_info(logger,"no se encontro segmento de %s",id);
 		return -1;
@@ -1090,4 +1113,23 @@ int muse_close(char* idCliente){
     return 0;
 }
 
+void recursiva(int num){
+	if(num == 0)
+		return;
 
+	uint32_t ptr = muse_alloc("prog1",4);
+	muse_cpy("prog1",ptr, &num, 4);
+	printf("\nNumCpy: [%d]\n", num);
+
+	recursiva(num - 1);
+
+	num = 0; // Se pisa para probar que muse_get cargue el valor adecuado
+	sleep(1);
+	void* buffer = malloc(sizeof(int));
+	int get = muse_get("prog1",&num,ptr,sizeof(int));
+	printf("\nNumGet: [%d]\n",num);
+	//	mensaje_recibido1 = muse_get("prog1",5,strlen(mensaje1));
+	//muse_get("prog1",&num, ptr, 4);
+	//printf("\nNumGet: [%d]\n", num);
+	muse_free("prog1",ptr);
+}

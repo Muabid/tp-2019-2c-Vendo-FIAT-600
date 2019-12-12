@@ -104,7 +104,7 @@ void paginasMapEnMemoria(int direccion, int tamanio, Segmento* segmentoEncontrad
 		int puntero = primerPag * TAMANIO_PAGINA;
 		int i = primerPag;
 		while(i <= ultimaPag){
-			Pagina* pag = (Pagina*)list_get(segmentoEncontrado,i);
+			Pagina* pag = (Pagina*)list_get(segmentoEncontrado->paginas,i);
 			if(pag->bit_marco == NULL && pag->bit_swap == NULL){
 				pag->bit_marco = asignarMarcoNuevo();
 				pag->bit_marco->bit_uso = true;
@@ -376,6 +376,7 @@ BitSwap* buscarBitLibreSwap(){
 }
 
 BitSwap* pasarASwap(BitMemoria* bit){
+	puts("PASO A SWAP");
 	char* marcoAPasar = posicionInicialMemoria + bit->pos * TAMANIO_PAGINA;
 	BitSwap* bitSwap = buscarBitLibreSwap();
 	char* swapAEscribir = posicionInicialSwap + bitSwap->pos * TAMANIO_PAGINA;
