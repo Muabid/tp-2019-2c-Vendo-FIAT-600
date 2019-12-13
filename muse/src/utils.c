@@ -376,7 +376,6 @@ BitSwap* buscarBitLibreSwap(){
 }
 
 BitSwap* pasarASwap(BitMemoria* bit){
-	puts("PASO A SWAP");
 	char* marcoAPasar = posicionInicialMemoria + bit->pos * TAMANIO_PAGINA;
 	BitSwap* bitSwap = buscarBitLibreSwap();
 	char* swapAEscribir = posicionInicialSwap + bitSwap->pos * TAMANIO_PAGINA;

@@ -1,36 +1,37 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "libmuse.h"
-#include <shared/net.h>
-#include <stdbool.h>
-#include <syscall.h>
-#include <signal.h>
 
-int sock_muse;
-bool inited;
-char* id_muse;
+#include "libmuse.h"
 
 int muse_init(int id, char* ip, int puerto){
-	int sock = connect_to_server(ip, puerto, NULL);
-	if(sock>0){
-		sock_muse = sock;
-		uint32_t _id = id;
-		inited = send_message(sock_muse,MUSE_INIT,&_id,sizeof(uint32_t));
-		if(inited <0){
-
-		}else{
-
+	if(initialized <  0){
+		int sock = connect_to_server(ip, puerto, NULL);
+		if(sock == -1){
+			puts("Error al conectar al servidor");
+			return -1;
 		}
+		socketMuse = sock;
+
 	}
+	return initialized;
 }
+//	int sock = connect_to_server(ip, puerto, NULL);
+//	if(sock>0){
+//		socketMuse = sock;
+//		uint32_t _id = id;
+//		initialized = send_message(socketMuse,MUSE_INIT,&_id,sizeof(uint32_t));
+//		if(initialized <0){
+//
+//		}else{
+//
+//		}
+//	}
 
 void muse_close(){
-	if(inited){//si ya esta cerrado no hace nada
+	if(initialized){//si ya esta cerrado no hace nada
 		return;
 	}
-	send_status(sock_muse,MUSE_CLOSE,"0",1);
-	close(sock_muse);
-	inited = false;
+	send_status(socketMuse,MUSE_CLOSE,"0",1);
+	close(socketMuse);
+	initialized = false;
 	free(id_muse);
 	puts("Chau muse  :´(\n");
 }
@@ -46,9 +47,9 @@ uint32_t muse_alloc(uint32_t tam){
 	memcpy(aux,&len,sizeof(size_t));
 	aux+=sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
-	send_message(sock_muse,MUSE_ALLOC,content,sizeT);
+	send_message(socketMuse,MUSE_ALLOC,content,sizeT);
 	free(content);
-	t_message* message = recv_message(sock_muse);
+	t_message* message = recv_message(socketMuse);
 	int res;
 	if(message->head == ERROR){
 		//log
@@ -67,9 +68,9 @@ void muse_free(uint32_t dir){
 	memcpy(aux,strlen(id_muse),sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
-	send_message(sock_muse,MUSE_FREE,content,sizeT);
+	send_message(socketMuse,MUSE_FREE,content,sizeT);
 	free(content);
-	t_message* message = recv_message(sock_muse);
+	t_message* message = recv_message(socketMuse);
 	int res;
 	if(message->head == ERROR){
 		puts("la re puta que te pario");
@@ -96,9 +97,9 @@ int muse_get(void* dst, uint32_t src, size_t n){
 	memcpy(aux, len_id, sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
-	send_message(sock_muse,MUSE_GET,content,sizeT);
+	send_message(socketMuse,MUSE_GET,content,sizeT);
 	free(content);
-	t_message* message = recv_message(sock_muse);
+	t_message* message = recv_message(socketMuse);
 	int res;
 	if(message->head == ERROR){
 		return -1;
@@ -123,8 +124,8 @@ int muse_cpy(uint32_t dst, void* src, int n){
 	memcpy(aux, len_id, sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
-	send_message(sock_muse,MUSE_CPY,content,size);
-	t_message* message = recv_message(sock_muse);
+	send_message(socketMuse,MUSE_CPY,content,size);
+	t_message* message = recv_message(socketMuse);
 	if(message->head == ERROR){
 		raise(11);
 	}else{
@@ -153,8 +154,8 @@ uint32_t muse_map(char *path, size_t length, int flags){
 	memcpy(aux, len_id, sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
-	send_message(sock_muse,MUSE_MAP,content,sizeT);
-	t_message* message = recv_message(sock_muse);
+	send_message(socketMuse,MUSE_MAP,content,sizeT);
+	t_message* message = recv_message(socketMuse);
 
 	if(message->head == ERROR){
 		return -1;
@@ -176,8 +177,8 @@ int muse_sync(uint32_t addr, size_t len){
 	memcpy(aux, len_id, sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
-	send_message(sock_muse,MUSE_SYNC,content,sizeT);
-	t_message* message = recv_message(sock_muse);
+	send_message(socketMuse,MUSE_SYNC,content,sizeT);
+	t_message* message = recv_message(socketMuse);
 	if(message->head == ERROR){
 		return -1;
 	} else {
@@ -197,8 +198,8 @@ int muse_unmap(uint32_t dir){
 	memcpy(aux, len_id, sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
-	send_message(sock_muse,MUSE_SYNC,content,sizeT);
-	t_message* message = recv_message(sock_muse);
+	send_message(socketMuse,MUSE_SYNC,content,sizeT);
+	t_message* message = recv_message(socketMuse);
 	if(message->head == ERROR){
 		return -1;
 	} else {

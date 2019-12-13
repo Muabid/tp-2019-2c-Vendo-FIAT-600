@@ -6,7 +6,6 @@ int main(int argc, char **argv){
 	inicializarEstructuras(rutaSwapping);
 	inicializarLogger(string_duplicate(argv[1]));
 
-
 	Programa* prog1 = malloc(sizeof(Programa));
 	prog1->segmentos = list_create();
 	prog1->id = string_new();
@@ -19,50 +18,49 @@ int main(int argc, char **argv){
 	string_append(&prog2->id,"prog2");
 	list_add(listaProgramas,prog2);
 
-	recursiva(10);
+	//recursiva(10);
 
-//	puts("-----------------------------------------");
-//	int a = muse_alloc("prog1",30);
-//	puts("Aloqué A!");
-//	printf("A = %d\n",a);
-//	puts("-----------------------------------------");
-//	int b = muse_alloc("prog2",25);
-//	puts("Aloqué B!");
-//	printf("B = %d\n",b);
-//	puts("-----------------------------------------");
-//	int c = muse_alloc("prog1",90);
-//	puts("Aloqué C!");
-//	printf("C = %d\n",c);
-//	puts("-----------------------------------------");
-//	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
-//	puts("Aloqué el map de D!");
-//	printf("D = %d\n",d);
-//	puts("-----------------------------------------");
-//	char* mensaje1 = string_new();
-//	string_append(&mensaje1,"my butthole");
-//	int cpy1 = muse_cpy("prog1",5,(void*)mensaje1,strlen(mensaje1));
-//	printf("Resultado cpy 1: %d\n",cpy1);
-//	puts("-----------------------------------------");
-//	char* mensaje_recibido1 = malloc(strlen(mensaje1));
-//	mensaje_recibido1 = muse_get("prog1",5,strlen(mensaje1));
-//	printf("contenido en get 1: %s\n",mensaje_recibido1);
-//	puts("-----------------------------------------");
+	puts("-----------------------------------------");
+	int a = muse_alloc("prog1",30);
+	puts("Aloqué A!");
+	printf("A = %d\n",a);
+	puts("-----------------------------------------");
+	int b = muse_alloc("prog2",25);
+	puts("Aloqué B!");
+	printf("B = %d\n",b);
+	puts("-----------------------------------------");
+	int c = muse_alloc("prog1",90);
+	puts("Aloqué C!");
+	printf("C = %d\n",c);
+	puts("-----------------------------------------");
+	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
+	puts("Aloqué el map de D!");
+	printf("D = %d\n",d);
+	puts("-----------------------------------------");
+	int num = 3;
+	uint32_t ptr = muse_alloc("prog1",4);
+	muse_cpy("prog1",5, &num, 4);
+	printf("Num Cpy [%d]\n", num);
+	puts("-----------------------------------------");
+	muse_get("prog1",&num, 5, 4);
+	printf("Num Get [%d]\n", num);
+	char* mensaje1 = string_new();
+	string_append(&mensaje1,"a band is blowing dixie");
+	void* mensaje = &mensaje1;
+	int cpy1 = muse_cpy("prog1",5,mensaje,strlen(mensaje1)+1);
+	printf("Resultado cpy 1: %d\n",cpy1);
+	puts("-----------------------------------------");
+	char* mensaje_recibido1 = malloc(strlen(mensaje1)+1);
+	int resultado = muse_get("prog1",&mensaje_recibido1,5,strlen(mensaje1)+1);
+	printf("Resultado get 1: %d\n",resultado);
+	printf("Get 1: [%s]\n",mensaje_recibido1);
+	puts("-----------------------------------------");
 //	int x = muse_sync("prog1",d,100);
 //	puts("Hice sync de D!");
 //	printf("x = %d\n",x);
 //	visualizarBitmap();
 //	init_muse_server();
 	return EXIT_SUCCESS;
-}
-
-void printear_memoria(){
-	for(int i = 0; i < TAMANIO_MEMORIA; i++){
-		if((char)(posicionInicialMemoria+i)!='\0'){
-			printf("%c",(char)(posicionInicialMemoria+i));
-		}
-	}
-	printf("\n");
-	fflush(stdout);
 }
 
 void* handler_clients(void* socket){
@@ -72,151 +70,150 @@ void* handler_clients(void* socket){
 	while(executing){
 		t_message* message = recv_message(muse_sock);
 		switch(message->head){
-
-		case MUSE_INIT:{
-			uint32_t pid = *((uint32_t*)message->content);
-			char* pid_char = string_itoa(pid);
-			id_cliente = "";
-			struct sockaddr_in addr;
-			uint32_t addrlen = sizeof(addr);
-			getpeername(socket, (struct sockaddr *)&addr, &addrlen);
-			char* ip = inet_ntoa(addr.sin_addr);
-			string_append(&id_cliente,ip);
-			string_append(&id_cliente,"-");
-			string_append(&id_cliente,pid_char);
-			log_info(logger,"Cliente, id: %s",id_cliente);
-			Programa* programa = malloc(sizeof(Programa));
-			programa->segmentos = list_create();
-			programa->id = id_cliente;
-			pthread_mutex_lock(&mut_listaProgramas);
-			list_add(listaProgramas,programa);
-			pthread_mutex_unlock(&mut_listaProgramas);
-			free(pid_char);
-			break;
-		}
-		case MUSE_ALLOC:{
-				void* content = message->content;
-				void* aux = content;
-				uint32_t tam;
-				size_t len;
-				memcpy(&tam,aux,sizeof(uint32_t));
-//				aux+=sizeof(uint32_t);
-//				memcpy(&len,aux,sizeof(size_t));
-//				aux+=sizeof(size_t);
-				int res = muse_alloc(id_cliente,tam);
+			case MUSE_INIT:{
+				uint32_t pid = *((uint32_t*)message->content);
+				char* pid_char = string_itoa(pid);
+				id_cliente = "";
+				struct sockaddr_in addr;
+				uint32_t addrlen = sizeof(addr);
+				getpeername(socket, (struct sockaddr *)&addr, &addrlen);
+				char* ip = inet_ntoa(addr.sin_addr);
+				string_append(&id_cliente,ip);
+				string_append(&id_cliente,"-");
+				string_append(&id_cliente,pid_char);
+				log_info(logger,"Cliente, id: %s",id_cliente);
+				Programa* programa = malloc(sizeof(Programa));
+				programa->segmentos = list_create();
+				programa->id = id_cliente;
+				pthread_mutex_lock(&mut_listaProgramas);
+				list_add(listaProgramas,programa);
+				pthread_mutex_unlock(&mut_listaProgramas);
+				free(pid_char);
+				break;
+			}
+			case MUSE_ALLOC:{
+					void* content = message->content;
+					void* aux = content;
+					uint32_t tam;
+					size_t len;
+					memcpy(&tam,aux,sizeof(uint32_t));
+	//				aux+=sizeof(uint32_t);
+	//				memcpy(&len,aux,sizeof(size_t));
+	//				aux+=sizeof(size_t);
+					int res = muse_alloc(id_cliente,tam);
+					if(res >0){
+						send_status(muse_sock,OK,res);
+						//log
+					}else{
+						send_status(muse_sock,ERROR,res);
+						//log
+					}
+					free(content);
+					break;
+			}
+			case MUSE_FREE:{
+				uint32_t dir = *((uint32_t*) message->content);
+				int res = muse_free(id_cliente,dir);
 				if(res >0){
 					send_status(muse_sock,OK,res);
-					//log
 				}else{
-					send_status(muse_sock,ERROR,res);
-					//log
+					send_status(muse_sock,ERROR,-1);
 				}
-				free(content);
 				break;
-		}
-		case MUSE_FREE:{
-			uint32_t dir = *((uint32_t*) message->content);
-			int res = muse_free(id_cliente,dir);
-			if(res >0){
-				send_status(muse_sock,OK,res);
-			}else{
-				send_status(muse_sock,ERROR,-1);
 			}
-			break;
-		}
-//		case MUSE_GET:{
-//			uint32_t src;
-//			size_t n;
-//			void*aux=message->content;
-//			memcpy(&src,aux,sizeof(uint32_t));
-//			aux+=sizeof(uint32_t);
-//			memcpy(&n,aux,sizeof(size_t));
-//			void* res = muse_get(id_cliente,src,n);
-//			if(res != NULL){
-//				send_message(muse_sock,OK,res,n);
-//				free(res);
-//			}else{
-//				send_status(muse_sock,ERROR,-1);
-//			}
-//			break;
-//		}
-		case MUSE_CPY:{
-			uint32_t dst;
-			int n;
-			void* src;
-			void* aux = message->content;
-			memcpy(&dst,aux,sizeof(uint32_t));
-			aux+=sizeof(uint32_t);
-			memcpy(&n,aux,sizeof(uint32_t));
-			aux+=n;
-			src = malloc(n);
-			memcpy(src,aux,n);
-			int res = muse_cpy(id_cliente,dst,src,n);
-			if(res == -1){
-				send_status(muse_sock,ERROR,-1);
-			}else{
-				send_status(muse_sock,OK,0);
+	//		case MUSE_GET:{
+	//			uint32_t src;
+	//			size_t n;
+	//			void*aux=message->content;
+	//			memcpy(&src,aux,sizeof(uint32_t));
+	//			aux+=sizeof(uint32_t);
+	//			memcpy(&n,aux,sizeof(size_t));
+	//			void* res = muse_get(id_cliente,src,n);
+	//			if(res != NULL){
+	//				send_message(muse_sock,OK,res,n);
+	//				free(res);
+	//			}else{
+	//				send_status(muse_sock,ERROR,-1);
+	//			}
+	//			break;
+	//		}
+			case MUSE_CPY:{
+				uint32_t dst;
+				int n;
+				void* src;
+				void* aux = message->content;
+				memcpy(&dst,aux,sizeof(uint32_t));
+				aux+=sizeof(uint32_t);
+				memcpy(&n,aux,sizeof(uint32_t));
+				aux+=n;
+				src = malloc(n);
+				memcpy(src,aux,n);
+				int res = muse_cpy(id_cliente,dst,src,n);
+				if(res == -1){
+					send_status(muse_sock,ERROR,-1);
+				}else{
+					send_status(muse_sock,OK,0);
+				}
+				break;
 			}
-			break;
-		}
-		case MUSE_MAP:{
-			char* path;
-			size_t length;
-			int flags;
-			int len;
-			void*aux = message->content;
-			memcpy(&len,aux,sizeof(int));
-			aux+=sizeof(int);
-			path = malloc(len);
-			memcpy(path,aux,len);
-			aux+=strlen(path);
-			memcpy(&length,aux,sizeof(size_t));
-			aux+=sizeof(size_t);
-			memcpy(&flags,aux,sizeof(int));
-			int res = muse_map(id_cliente,path,length,flags);
-			if(res <0){
-				send_status(muse_sock,ERROR,-1);
-			}else{
-				send_status(muse_sock,OK,res);
+			case MUSE_MAP:{
+				char* path;
+				size_t length;
+				int flags;
+				int len;
+				void*aux = message->content;
+				memcpy(&len,aux,sizeof(int));
+				aux+=sizeof(int);
+				path = malloc(len);
+				memcpy(path,aux,len);
+				aux+=strlen(path);
+				memcpy(&length,aux,sizeof(size_t));
+				aux+=sizeof(size_t);
+				memcpy(&flags,aux,sizeof(int));
+				int res = muse_map(id_cliente,path,length,flags);
+				if(res <0){
+					send_status(muse_sock,ERROR,-1);
+				}else{
+					send_status(muse_sock,OK,res);
+				}
+				break;
 			}
-			break;
-		}
-		case MUSE_SYNC:{
-			uint32_t addr;
-			size_t len;
-			void* aux = message->content;
-			memcpy(&addr,aux,sizeof(uint32_t));
-			aux+=sizeof(uint32_t);
-			memcpy(&len,aux,sizeof(len));
-			int res = muse_sync(id_cliente,addr,len);
-			if(res >0){
-				send_status(muse_sock,OK,0);
-			}else{
-				send_status(muse_sock,ERROR,-1);
+			case MUSE_SYNC:{
+				uint32_t addr;
+				size_t len;
+				void* aux = message->content;
+				memcpy(&addr,aux,sizeof(uint32_t));
+				aux+=sizeof(uint32_t);
+				memcpy(&len,aux,sizeof(len));
+				int res = muse_sync(id_cliente,addr,len);
+				if(res >0){
+					send_status(muse_sock,OK,0);
+				}else{
+					send_status(muse_sock,ERROR,-1);
+				}
+				break;
 			}
-			break;
-		}
-		case MUSE_UNMAP:{
-			uint32_t dir;
-			void* aux = message->content;
-			memcpy(&dir,aux,sizeof(uint32_t));
-			int res = muse_unmap(id_cliente,dir);
-			if(res >0){
-				send_status(muse_sock,OK,0);
-			}else{
-				send_status(muse_sock,ERROR,-1);
+			case MUSE_UNMAP:{
+				uint32_t dir;
+				void* aux = message->content;
+				memcpy(&dir,aux,sizeof(uint32_t));
+				int res = muse_unmap(id_cliente,dir);
+				if(res >0){
+					send_status(muse_sock,OK,0);
+				}else{
+					send_status(muse_sock,ERROR,-1);
+				}
+				break;
 			}
-			break;
-		}
-		case MUSE_CLOSE:;{
-			int res = muse_close;
-			executing = 0;
-			break;
-		}
-		default:
-			break;
-		}
-		free_t_message(message);
+			case MUSE_CLOSE:;{
+				int res = muse_close;
+				executing = 0;
+				break;
+			}
+			default:
+				break;
+			}
+			free_t_message(message);
 	}
 }
 
@@ -943,7 +940,7 @@ int muse_get(char* id, void* dst, uint32_t src, size_t n){
 	void* resultadoGet = NULL;
 
 	int pagInicial = direccionAlSegmento / TAMANIO_PAGINA;
-	int pagFinal = techo((direccionAlSegmento + n) / TAMANIO_PAGINA) - 1;
+	int pagFinal = techo((double)(direccionAlSegmento + n) / TAMANIO_PAGINA) - 1;
 	int offset = direccionAlSegmento % TAMANIO_PAGINA;
 
 	if(segmentoEncontrado != NULL && segmentoEncontrado->tamanio - direccionAlSegmento >= n &&
@@ -975,8 +972,8 @@ int muse_get(char* id, void* dst, uint32_t src, size_t n){
 		free(bloquesote);
 
 	}
-	log_info(logger,"La cosa que pidieron pasar es: %s",(char*)resultadoGet);
-	return resultadoGet;
+	//log_info(logger,"La cosa que pidieron pasar es: %s",(char*)dst);
+	return 0;
 
 }
 
@@ -1052,9 +1049,7 @@ int muse_cpy(char* id, uint32_t dst, void* src, size_t n){
 				break;
 			}
 			else{
-				log_info(logger,"Si entra acá me pego un corchazo en las re pelotas");
-				log_info(logger,"Podría ser peor igual");
-				log_info(logger,"idontwannabeyouanymore");
+				log_info(logger,"ya copié todo");
 				break;
 			}
 		}while (1);
@@ -1124,7 +1119,6 @@ void recursiva(int num){
 	recursiva(num - 1);
 
 	num = 0; // Se pisa para probar que muse_get cargue el valor adecuado
-	sleep(1);
 	void* buffer = malloc(sizeof(int));
 	int get = muse_get("prog1",&num,ptr,sizeof(int));
 	printf("\nNumGet: [%d]\n",num);
