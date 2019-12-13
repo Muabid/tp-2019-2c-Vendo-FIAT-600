@@ -43,13 +43,13 @@ void sig_term(int sig) {
 }
 
 int main(int argc, const char* argv[]) {
-	logger = log_create("./resources/log", "SERVER", true, LOG_LEVEL_DEBUG);
+	logger = log_create("../resources/log", "SERVER", true, LOG_LEVEL_DEBUG);
 
 	signal(SIGTERM, sig_term);
 	signal(SIGABRT, sig_term);
 	init_semaphores();
 
-	sac_load_config("./resources/sac.config");
+	sac_load_config("../resources/sac.config");
 	size_file_system = fsize(sac_config->file_system_path);
 	log_info(logger, "Filesystem Size: %i", size_file_system);
 
@@ -249,7 +249,7 @@ void init_sac_server() {
 	do {
 		int sac_socket = accept(listener_socket, &sac_cli, &len);
 		if (sac_socket > 0) {
-			log_info(logger, "NUEVA CONEXIÓN");
+			log_info(logger, "NUEVA CONEXIÓN. CLIENTE [%i]",sac_socket);
 			pthread_t sac_cli_thread;
 			pthread_create(&sac_cli_thread, NULL, listen_sac_cli,
 					(void*) (sac_socket));
