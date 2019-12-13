@@ -4,7 +4,62 @@ int main(int argc, char **argv){
 	rutaSwapping = string_duplicate(argv[0]);
 	cargarConfiguracion();
 	inicializarEstructuras(rutaSwapping);
-	init_muse_server();
+	inicializarLogger(string_duplicate(argv[1]));
+
+	Programa* prog1 = malloc(sizeof(Programa));
+	prog1->segmentos = list_create();
+	prog1->id = string_new();
+	string_append(&prog1->id,"prog1");
+	list_add(listaProgramas,prog1);
+
+	Programa* prog2 = malloc(sizeof(Programa));
+	prog2->segmentos = list_create();
+	prog2->id = string_new();
+	string_append(&prog2->id,"prog2");
+	list_add(listaProgramas,prog2);
+
+	//recursiva(10);
+
+	puts("-----------------------------------------");
+	int a = muse_alloc("prog1",30);
+	puts("Aloqué A!");
+	printf("A = %d\n",a);
+	puts("-----------------------------------------");
+	int b = muse_alloc("prog2",25);
+	puts("Aloqué B!");
+	printf("B = %d\n",b);
+	puts("-----------------------------------------");
+	int c = muse_alloc("prog1",90);
+	puts("Aloqué C!");
+	printf("C = %d\n",c);
+	puts("-----------------------------------------");
+	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
+	puts("Aloqué el map de D!");
+	printf("D = %d\n",d);
+	puts("-----------------------------------------");
+	int num = 3;
+	uint32_t ptr = muse_alloc("prog1",4);
+	muse_cpy("prog1",5, &num, 4);
+	printf("Num Cpy [%d]\n", num);
+	puts("-----------------------------------------");
+	muse_get("prog1",&num, 5, 4);
+	printf("Num Get [%d]\n", num);
+	char* mensaje1 = string_new();
+	string_append(&mensaje1,"a band is blowing dixie");
+	void* mensaje = &mensaje1;
+	int cpy1 = muse_cpy("prog1",5,mensaje,strlen(mensaje1)+1);
+	printf("Resultado cpy 1: %d\n",cpy1);
+	puts("-----------------------------------------");
+	char* mensaje_recibido1 = malloc(strlen(mensaje1)+1);
+	int resultado = muse_get("prog1",&mensaje_recibido1,5,strlen(mensaje1)+1);
+	printf("Resultado get 1: %d\n",resultado);
+	printf("Get 1: [%s]\n",mensaje_recibido1);
+	puts("-----------------------------------------");
+//	int x = muse_sync("prog1",d,100);
+//	puts("Hice sync de D!");
+//	printf("x = %d\n",x);
+//	visualizarBitmap();
+//	init_muse_server();
 	return EXIT_SUCCESS;
 }
 
@@ -15,158 +70,157 @@ void* handler_clients(void* socket){
 	while(executing){
 		t_message* message = recv_message(muse_sock);
 		switch(message->head){
-
-		case MUSE_INIT:{
-			uint32_t pid = *((uint32_t*)message->content);
-			char* pid_char = string_itoa(pid);
-			id_cliente = "";
-			struct sockaddr_in addr;
-			uint32_t addrlen = sizeof(addr);
-			getpeername(socket, (struct sockaddr *)&addr, &addrlen);
-			char* ip = inet_ntoa(addr.sin_addr);
-			string_append(&id_cliente,ip);
-			string_append(&id_cliente,"-");
-			string_append(&id_cliente,pid_char);
-			log_info(logger,"Cliente, id: %s",id_cliente);
-			Programa* programa = malloc(sizeof(Programa));
-			programa->segmentos = list_create();
-			programa->id = id_cliente;
-			pthread_mutex_lock(&mut_listaProgramas);
-			list_add(listaProgramas,programa);
-			pthread_mutex_unlock(&mut_listaProgramas);
-			free(pid_char);
-			break;
-		}
-		case MUSE_ALLOC:{
-				void* content = message->content;
-				void* aux = content;
-				uint32_t tam;
-				size_t len;
-				memcpy(&tam,aux,sizeof(uint32_t));
-//				aux+=sizeof(uint32_t);
-//				memcpy(&len,aux,sizeof(size_t));
-//				aux+=sizeof(size_t);
-				int res = muse_alloc(id_cliente,tam);
+			case MUSE_INIT:{
+				uint32_t pid = *((uint32_t*)message->content);
+				char* pid_char = string_itoa(pid);
+				id_cliente = "";
+				struct sockaddr_in addr;
+				uint32_t addrlen = sizeof(addr);
+				getpeername(socket, (struct sockaddr *)&addr, &addrlen);
+				char* ip = inet_ntoa(addr.sin_addr);
+				string_append(&id_cliente,ip);
+				string_append(&id_cliente,"-");
+				string_append(&id_cliente,pid_char);
+				log_info(logger,"Cliente, id: %s",id_cliente);
+				Programa* programa = malloc(sizeof(Programa));
+				programa->segmentos = list_create();
+				programa->id = id_cliente;
+				pthread_mutex_lock(&mut_listaProgramas);
+				list_add(listaProgramas,programa);
+				pthread_mutex_unlock(&mut_listaProgramas);
+				free(pid_char);
+				break;
+			}
+			case MUSE_ALLOC:{
+					void* content = message->content;
+					void* aux = content;
+					uint32_t tam;
+					size_t len;
+					memcpy(&tam,aux,sizeof(uint32_t));
+	//				aux+=sizeof(uint32_t);
+	//				memcpy(&len,aux,sizeof(size_t));
+	//				aux+=sizeof(size_t);
+					int res = muse_alloc(id_cliente,tam);
+					if(res >0){
+						send_status(muse_sock,OK,res);
+						//log
+					}else{
+						send_status(muse_sock,ERROR,res);
+						//log
+					}
+					free(content);
+					break;
+			}
+			case MUSE_FREE:{
+				uint32_t dir = *((uint32_t*) message->content);
+				int res = muse_free(id_cliente,dir);
 				if(res >0){
 					send_status(muse_sock,OK,res);
-					//log
 				}else{
-					send_status(muse_sock,ERROR,res);
-					//log
+					send_status(muse_sock,ERROR,-1);
 				}
-				free(content);
 				break;
-		}
-		case MUSE_FREE:{
-			uint32_t dir = *((uint32_t*) message->content);
-			int res = muse_free(id_cliente,dir);
-			if(res >0){
-				send_status(muse_sock,OK,res);
-			}else{
-				send_status(muse_sock,ERROR,-1);
 			}
-			break;
-		}
-		case MUSE_GET:{
-			uint32_t src;
-			size_t n;
-			void*aux=message->content;
-			memcpy(&src,aux,sizeof(uint32_t));
-			aux+=sizeof(uint32_t);
-			memcpy(&n,aux,sizeof(size_t));
-			void* res = muse_get(id_cliente,src,n);
-			if(res != NULL){
-				send_message(muse_sock,OK,res,n);
-				free(res);
-			}else{
-				send_status(muse_sock,ERROR,-1);
+	//		case MUSE_GET:{
+	//			uint32_t src;
+	//			size_t n;
+	//			void*aux=message->content;
+	//			memcpy(&src,aux,sizeof(uint32_t));
+	//			aux+=sizeof(uint32_t);
+	//			memcpy(&n,aux,sizeof(size_t));
+	//			void* res = muse_get(id_cliente,src,n);
+	//			if(res != NULL){
+	//				send_message(muse_sock,OK,res,n);
+	//				free(res);
+	//			}else{
+	//				send_status(muse_sock,ERROR,-1);
+	//			}
+	//			break;
+	//		}
+			case MUSE_CPY:{
+				uint32_t dst;
+				int n;
+				void* src;
+				void* aux = message->content;
+				memcpy(&dst,aux,sizeof(uint32_t));
+				aux+=sizeof(uint32_t);
+				memcpy(&n,aux,sizeof(uint32_t));
+				aux+=n;
+				src = malloc(n);
+				memcpy(src,aux,n);
+				int res = muse_cpy(id_cliente,dst,src,n);
+				if(res == -1){
+					send_status(muse_sock,ERROR,-1);
+				}else{
+					send_status(muse_sock,OK,0);
+				}
+				break;
 			}
-			break;
-		}
-		case MUSE_CPY:{
-			uint32_t dst;
-			int n;
-			void* src;
-			void* aux = message->content;
-			memcpy(&dst,aux,sizeof(uint32_t));
-			aux+=sizeof(uint32_t);
-			memcpy(&n,aux,sizeof(uint32_t));
-			aux+=n;
-			src = malloc(n);
-			memcpy(src,aux,n);
-			int res = muse_cpy(id_cliente,dst,src,n);
-			if(res == -1){
-				send_status(muse_sock,ERROR,-1);
-			}else{
-				send_status(muse_sock,OK,0);
+			case MUSE_MAP:{
+				char* path;
+				size_t length;
+				int flags;
+				int len;
+				void*aux = message->content;
+				memcpy(&len,aux,sizeof(int));
+				aux+=sizeof(int);
+				path = malloc(len);
+				memcpy(path,aux,len);
+				aux+=strlen(path);
+				memcpy(&length,aux,sizeof(size_t));
+				aux+=sizeof(size_t);
+				memcpy(&flags,aux,sizeof(int));
+				int res = muse_map(id_cliente,path,length,flags);
+				if(res <0){
+					send_status(muse_sock,ERROR,-1);
+				}else{
+					send_status(muse_sock,OK,res);
+				}
+				break;
 			}
-			break;
-		}
-		case MUSE_MAP:{
-			char* path;
-			size_t length;
-			int flags;
-			int len;
-			void*aux = message->content;
-			memcpy(&len,aux,sizeof(int));
-			aux+=sizeof(int);
-			path = malloc(len);
-			memcpy(path,aux,len);
-			aux+=strlen(path);
-			memcpy(&length,aux,sizeof(size_t));
-			aux+=sizeof(size_t);
-			memcpy(&flags,aux,sizeof(int));
-			int res = muse_map(id_cliente,path,length,flags);
-			if(res <0){
-				send_status(muse_sock,ERROR,-1);
-			}else{
-				send_status(muse_sock,OK,res);
+			case MUSE_SYNC:{
+				uint32_t addr;
+				size_t len;
+				void* aux = message->content;
+				memcpy(&addr,aux,sizeof(uint32_t));
+				aux+=sizeof(uint32_t);
+				memcpy(&len,aux,sizeof(len));
+				int res = muse_sync(id_cliente,addr,len);
+				if(res >0){
+					send_status(muse_sock,OK,0);
+				}else{
+					send_status(muse_sock,ERROR,-1);
+				}
+				break;
 			}
-			break;
-		}
-		case MUSE_SYNC:{
-			uint32_t addr;
-			size_t len;
-			void* aux = message->content;
-			memcpy(&addr,aux,sizeof(uint32_t));
-			aux+=sizeof(uint32_t);
-			memcpy(&len,aux,sizeof(len));
-			int res = muse_sync(id_cliente,addr,len);
-			if(res >0){
-				send_status(muse_sock,OK,0);
-			}else{
-				send_status(muse_sock,ERROR,-1);
+			case MUSE_UNMAP:{
+				uint32_t dir;
+				void* aux = message->content;
+				memcpy(&dir,aux,sizeof(uint32_t));
+				int res = muse_unmap(id_cliente,dir);
+				if(res >0){
+					send_status(muse_sock,OK,0);
+				}else{
+					send_status(muse_sock,ERROR,-1);
+				}
+				break;
 			}
-			break;
-		}
-		case MUSE_UNMAP:{
-			uint32_t dir;
-			void* aux = message->content;
-			memcpy(&dir,aux,sizeof(uint32_t));
-			int res = muse_unmap(id_cliente,dir);
-			if(res >0){
-				send_status(muse_sock,OK,0);
-			}else{
-				send_status(muse_sock,ERROR,-1);
+			case MUSE_CLOSE:;{
+				int res = muse_close;
+				executing = 0;
+				break;
 			}
-			break;
-		}
-		case MUSE_CLOSE:;{
-			int res = muse_close;
-			executing = 0;
-			break;
-		}
-		default:
-			break;
-		}
-		free_t_message(message);
+			default:
+				break;
+			}
+			free_t_message(message);
 	}
 }
 
 
 void init_muse_server() {
 	listener_socket = init_server(PUERTO);
-	log_info(logger, "Servidor levantado!!!");
+	//log_info(logger, "Servidor levantado!!!");
 	struct sockaddr muse_cli;
 	socklen_t len = sizeof(muse_cli);
 	do {
@@ -213,11 +267,28 @@ void inicializarEstructuras(char* ruta){
 	inicializarSemaforos();
 }
 
+void visualizarBitmap(){
+	for(uint32_t i = 0; i < CANT_PAGINAS_MEMORIA; i++){
+		BitMemoria* bit = list_get(bitmap->bits_memoria,i);
+		printf("[%d]: bit->esta_ocupado [%d]\n",i,bit->esta_ocupado);
+		printf("[%d]: bit->pos [%d]\n",i,bit->pos);
+		printf("[%d]: bit->bit_modificado [%d]\n",i,bit->bit_modificado);
+		printf("[%d]: bit->bit_uso [%d]\n",i,bit->bit_uso);
+		puts("-------------------------------------------");
+	}
+
+//	for(uint32_t i = 0; i < CANT_PAGINAS_SWAP; i++){
+//		BitSwap* bit = list_get(bitmap->bits_memoria_virtual,i);
+//		printf("[%d]: bit->esta_ocupado [%d]\n",i,bit->esta_ocupado);
+//		printf("[%d]: bit->pos [%d]\n",i,bit->pos);
+//	}
+}
+
 void inicializarBitmap(){
 	bitmap = malloc(sizeof(Bitmap));
-	bitmap->tamanio_memoria = TAMANIO_MEMORIA;
+	bitmap->tamanio_memoria = CANT_PAGINAS_MEMORIA;
 	bitmap->bits_memoria = list_create();
-	for(uint32_t i = 0; i < TAMANIO_MEMORIA; i++){
+	for(uint32_t i = 0; i < CANT_PAGINAS_MEMORIA; i++){
 		BitMemoria* bit = malloc(sizeof(BitMemoria));
 		bit->esta_ocupado = false;
 		bit->pos = i;
@@ -226,9 +297,9 @@ void inicializarBitmap(){
 		list_add(bitmap->bits_memoria,bit);
 	}
 
-	bitmap->tamanio_memoria_virtual = TAMANIO_SWAP;
+	bitmap->tamanio_memoria_virtual = CANT_PAGINAS_SWAP;
 	bitmap->bits_memoria_virtual = list_create();
-	for(uint32_t i = 0; i < TAMANIO_SWAP; i++){
+	for(uint32_t i = 0; i < CANT_PAGINAS_SWAP; i++){
 		BitSwap* bit = malloc(sizeof(BitSwap));
 		bit->esta_ocupado = false;
 		bit->pos = i;
@@ -251,7 +322,8 @@ void inicializarMemoriaVirtual(char* rutaSwap){
 	rutaSwap = string_new();
 	string_append(&rutaSwap,aux);
 	string_append(&rutaSwap,"/AreaSwap");
-	log_info(logger,"Ruta area Swap = %s",rutaSwap);
+	printf("Ruta Swap: %s\n",rutaSwap);
+	//log_info(logger,"Ruta area Swap = %s",rutaSwap);
 	free(aux);
 
 	fileDescriptor = open(rutaSwap,O_RDWR|O_CREAT,0777);
@@ -264,7 +336,6 @@ void inicializarMemoriaVirtual(char* rutaSwap){
 	if(posicionInicialSwap == MAP_FAILED || posicionInicialSwap == NULL){
 		perror("error: ");
 	}
-
 }
 
 void inicializarSemaforos(){
@@ -281,6 +352,7 @@ int muse_alloc(char* id, uint32_t tamanio){
 		t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
 		if(listaSegmentos==NULL){
 			log_info(logger,"no hay segmentos, F",id);
+			puts("F");
 			return -1;
 		}
 
@@ -292,6 +364,7 @@ int muse_alloc(char* id, uint32_t tamanio){
 				espacioDisponible -= paginasNecesarias * TAMANIO_PAGINA;
 				pthread_mutex_unlock(&mut_espacioDisponible);
 				//creo segmento
+				puts("Creando segmento...");
 				Segmento* nuevoSegmento = malloc(sizeof(Segmento));
 				nuevoSegmento->compartido = false;
 				nuevoSegmento->es_mmap = false;
@@ -389,9 +462,12 @@ int muse_alloc(char* id, uint32_t tamanio){
 				return -1;
 			}
 		} else { // ya hay algún segmento, entonces busco en la lista de heaps de cada segmento a ver si hay espacio para alocar
+			puts("Buscando si hay espacio para alocar...");
 			Segmento* segmentoEncontrado = obtenerSegmentoParaOcupar(listaSegmentos,tamanio + sizeof(HeapMetadata));
 			if(segmentoEncontrado != NULL){
+				puts("Encontré espacio");
 				// me pongo a buscar el espacio disponible
+				InfoHeap* ultimoInfoHeap = ultimoElemento(segmentoEncontrado->status_metadata);
 				InfoHeap* heapConEspacio = obtenerHeapConEspacio(segmentoEncontrado,tamanio);
 
 				HeapMetadata* heapInicial = malloc(sizeof(HeapMetadata));
@@ -446,11 +522,13 @@ int muse_alloc(char* id, uint32_t tamanio){
 				heapConEspacio->espacio = tamanio;
 				heapConEspacio->libre = false;
 
-				InfoHeap* siguienteHeap = malloc(sizeof(heapConEspacio));
+				InfoHeap* siguienteHeap = malloc(sizeof(InfoHeap));
+
 				siguienteHeap->direccion_heap = numPaginaFinal * TAMANIO_PAGINA + offsetFinal;
 				siguienteHeap->espacio = heapFinal->tamanio;
 				siguienteHeap->libre = true;
 				siguienteHeap->indice = heapConEspacio->indice + 1;
+
 				// lo agrego al final by: frongi wtf
 				list_add_in_index(segmentoEncontrado->status_metadata, heapConEspacio->indice+1, siguienteHeap);
 
@@ -458,10 +536,12 @@ int muse_alloc(char* id, uint32_t tamanio){
 				free(heapFinal);
 
 			} else { // no encontró ningun segmento, hay que ver si se puede agrandar o crear otro //acá tambien podria ir lo de liberadas
+				puts("No encontré :(");
 				Segmento* ultimoSegmento = obtenerUltimoSegmento(listaSegmentos);
 				if(ultimoSegmento->es_mmap){
 					// acá no puedo agrandar asique creo otro segmento xd
 					// ¿delegar funcion crear segmento? yo diria que no kent
+					puts("Creando otro segmento porque habia un mmap");
 					uint32_t paginasNecesarias = calcularFramesNecesarios(tamanio + sizeof(HeapMetadata)*2);
 					int libreUltimaPag = paginasNecesarias * TAMANIO_PAGINA - tamanio - sizeof(HeapMetadata) * 2;
 					uint32_t tamTotal = paginasNecesarias * TAMANIO_PAGINA;
@@ -561,9 +641,10 @@ int muse_alloc(char* id, uint32_t tamanio){
 						theReturn = nuevoSegmento->base_logica + sizeof(HeapMetadata);
 					}
 				} else { // acá puedo agrandar
-					InfoHeap* ultimoInfoHeap = obtenerUltimoSegmento(ultimoSegmento->status_metadata);
+					puts("Toca agrandar");
+					InfoHeap* ultimoInfoHeap = ultimoElemento(ultimoSegmento->status_metadata);
 					ultimoInfoHeap->libre = false;
-					Pagina* ultimaPagina = obtenerUltimoSegmento(ultimoSegmento->paginas);
+					Pagina* ultimaPagina = ultimoElemento(ultimoSegmento->paginas);
 					HeapMetadata* nuevoUltHeap = malloc(sizeof(HeapMetadata));
 					nuevoUltHeap->libre = true;
 					HeapMetadata* ultimoHeap = malloc(sizeof(HeapMetadata));
@@ -629,9 +710,9 @@ int muse_alloc(char* id, uint32_t tamanio){
 						}
 
 						// y esto vendria a ser el HM viejardo
-
 						int offsetViejoXD = nuevoInfoHeaperino->direccion_heap % TAMANIO_PAGINA;
-						int numPaginaViejaFinal = techo((double)nuevoInfoHeaperino->direccion_heap / TAMANIO_PAGINA);
+						int numPaginaViejaFinal = techo((double)nuevoInfoHeaperino->direccion_heap / TAMANIO_PAGINA) - 1;
+
 						if(offsetViejoXD > TAMANIO_PAGINA - sizeof(HeapMetadata)){ // ESCRIBÍ ESTO MIENTRAS LLORABA
 							int loQueCopio2 = TAMANIO_PAGINA - offsetViejoXD;
 							Pagina* paginaFinalViejaPrincipal = list_get(ultimoSegmento->paginas,numPaginaViejaFinal);
@@ -647,8 +728,8 @@ int muse_alloc(char* id, uint32_t tamanio){
 							void* punteroViejoUltimaPagina = obtenerPunteroAMarco(paginaFinalVieja);
 							memcpy(punteroViejoUltimaPagina + offsetViejoXD, ultimoHeap, sizeof(HeapMetadata));
 						}
-
-						theReturn = ultimoSegmento->base_logica + sizeof(HeapMetadata) + nuevoInfoHeaperino->direccion_heap;
+						theReturn = ultimoInfoHeap->direccion_heap + sizeof(HeapMetadata);
+						//theReturn = ultimoSegmento->base_logica + sizeof(HeapMetadata) + nuevoInfoHeaperino->direccion_heap;
 						free(ultimoHeap);
 						free(nuevoUltHeap);
 					} else {
@@ -692,6 +773,11 @@ int muse_free(char* id, uint32_t dir){
 		}
 	}
 
+	if(heapEncontrado == NULL){
+		puts("FFFFFFFFFFFFF");
+		return -1;
+	}
+
 	HeapMetadata* newHM = malloc(sizeof(HeapMetadata));
 	newHM->libre = true;
 	newHM->tamanio = heapEncontrado->espacio;
@@ -724,7 +810,7 @@ int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 		segmentoNuevo->num_segmento = listaSegmentos->elements_count;
 		segmentoNuevo->es_mmap = true;
 		segmentoNuevo->tamanio_mapeo = length;
-		segmentoNuevo->base_logica = asignarMarcoNuevo(listaSegmentos);
+		segmentoNuevo->base_logica = obtenerBaseLogicaNuevoSegmento(listaSegmentos);
 		segmentoNuevo->status_metadata = NULL;
 		segmentoNuevo->path_mapeo = string_duplicate(path);
 		segmentoNuevo->tamanio = tamanioAMapear;
@@ -762,6 +848,7 @@ int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 		pthread_mutex_lock(&mut_mapeos);
 		list_add(listaMapeos,mapeo);
 		pthread_mutex_unlock(&mut_mapeos);
+		printf("segmentoNuevo->base_logica = [%d]\n", segmentoNuevo->base_logica);
 		return segmentoNuevo->base_logica;
 	}
 	else{
@@ -789,12 +876,9 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 			int ultimaPag = techo((dirAlSegmento + len) / TAMANIO_PAGINA) - 1;
 			int cantidadPags = ultimaPag - primerPag + 1;
 			int tamSync = cantidadPags * TAMANIO_PAGINA;
-
 			void* auxiliar = malloc(tamSync);
 			int puntero = 0;
-
 			paginasMapEnMemoria(dirAlSegmento,len,segmentoEncontrado);
-
 			int i = primerPag;
 			while(i <= ultimaPag){
 				Pagina* pag = list_get(segmentoEncontrado->paginas,i);
@@ -806,8 +890,10 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 			}
 			int posInicial = primerPag * TAMANIO_PAGINA;
 			FILE* file = fopen(segmentoEncontrado->path_mapeo,"r+");
+			printf("segmentoEncontrado->path_mapeo = [%s]\n",segmentoEncontrado->path_mapeo);
 			if(file != NULL){
 				if(fseek(file,posInicial,SEEK_SET == 0)){
+					puts("XD");
 					fwrite(auxiliar,cantidadPags*TAMANIO_PAGINA,1,file);
 					free(auxiliar);
 					fclose(file);
@@ -837,7 +923,7 @@ int muse_unmap(char* id, uint32_t dir){
 	return -1;
 }
 
-void* muse_get(char* id, uint32_t src, size_t n){
+int muse_get(char* id, void* dst, uint32_t src, size_t n){
 	t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
 	if(listaSegmentos == NULL || list_is_empty(listaSegmentos)){
 		log_info(logger,"F por el programa %s que no existe o no tiene segmentos",id);
@@ -851,10 +937,10 @@ void* muse_get(char* id, uint32_t src, size_t n){
 		return -1;
 	}
 	int direccionAlSegmento = src - segmentoEncontrado->base_logica;
-	void* resultado_muse_get = NULL;
+	void* resultadoGet = NULL;
 
 	int pagInicial = direccionAlSegmento / TAMANIO_PAGINA;
-	int pagFinal = techo((direccionAlSegmento + n) / TAMANIO_PAGINA) - 1;
+	int pagFinal = techo((double)(direccionAlSegmento + n) / TAMANIO_PAGINA) - 1;
 	int offset = direccionAlSegmento % TAMANIO_PAGINA;
 
 	if(segmentoEncontrado != NULL && segmentoEncontrado->tamanio - direccionAlSegmento >= n &&
@@ -862,7 +948,7 @@ void* muse_get(char* id, uint32_t src, size_t n){
 
 		int cantidadPaginas = pagFinal - pagInicial + 1;
 		int tamanioTotal = cantidadPaginas * TAMANIO_PAGINA;
-		resultado_muse_get = malloc(n);
+		resultadoGet = malloc(n);
 		void* bloquesote = malloc(tamanioTotal);
 		int puntero = 0;
 
@@ -882,12 +968,12 @@ void* muse_get(char* id, uint32_t src, size_t n){
 			i++;
 		}
 
-		memcpy(resultado_muse_get, bloquesote + offset, n);
+		memcpy(dst, bloquesote + offset, n);
 		free(bloquesote);
 
 	}
-	log_info(logger,"La cosa que pidieron pasar es: %s",(char*)resultado_muse_get);
-	return resultado_muse_get;
+	//log_info(logger,"La cosa que pidieron pasar es: %s",(char*)dst);
+	return 0;
 
 }
 
@@ -898,7 +984,7 @@ int muse_cpy(char* id, uint32_t dst, void* src, size_t n){
 		return -1;
 	}
 
-	Segmento* segmentoEncontrado = obtenerSegmentoPorDireccion(listaSegmentos,src);
+	Segmento* segmentoEncontrado = obtenerSegmentoPorDireccion(listaSegmentos,dst);
 	if(segmentoEncontrado == NULL){
 		log_info(logger,"no se encontro segmento de %s",id);
 		return -1;
@@ -963,9 +1049,7 @@ int muse_cpy(char* id, uint32_t dst, void* src, size_t n){
 				break;
 			}
 			else{
-				log_info(logger,"Si entra acá me pego un corchazo en las re pelotas");
-				log_info(logger,"Podría ser peor igual");
-				log_info(logger,"idontwannabeyouanymore");
+				log_info(logger,"ya copié todo");
 				break;
 			}
 		}while (1);
@@ -1024,4 +1108,22 @@ int muse_close(char* idCliente){
     return 0;
 }
 
+void recursiva(int num){
+	if(num == 0)
+		return;
 
+	uint32_t ptr = muse_alloc("prog1",4);
+	muse_cpy("prog1",ptr, &num, 4);
+	printf("\nNumCpy: [%d]\n", num);
+
+	recursiva(num - 1);
+
+	num = 0; // Se pisa para probar que muse_get cargue el valor adecuado
+	void* buffer = malloc(sizeof(int));
+	int get = muse_get("prog1",&num,ptr,sizeof(int));
+	printf("\nNumGet: [%d]\n",num);
+	//	mensaje_recibido1 = muse_get("prog1",5,strlen(mensaje1));
+	//muse_get("prog1",&num, ptr, 4);
+	//printf("\nNumGet: [%d]\n", num);
+	muse_free("prog1",ptr);
+}

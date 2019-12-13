@@ -26,13 +26,13 @@ endif
 all: suse
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-Vendo-FIAT-600/shared/Debug && $(MAKE) clean all
+	-cd /home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug && $(MAKE) clean all
 
 # Tool invocations
-suse: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-Vendo-FIAT-600/shared/Debug/libshared.so
+suse: $(OBJS) $(USER_OBJS) /home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug/libshared.so
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc -L"/home/utnso/workspace/tp-2019-2c-Vendo-FIAT-600/shared/Debug" -pthread -o "suse" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc -L"/home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug" -pthread -o "suse" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -42,6 +42,6 @@ clean:
 	-@echo ' '
 
 .PHONY: all clean dependents
-/home/utnso/workspace/tp-2019-2c-Vendo-FIAT-600/shared/Debug/libshared.so:
+/home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug/libshared.so:
 
 -include ../makefile.targets

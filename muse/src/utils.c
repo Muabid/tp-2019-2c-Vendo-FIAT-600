@@ -57,6 +57,7 @@ void* obtenerPunteroAMarco(Pagina* pag){
 		}
 	}
 	pag->bit_marco->bit_uso = true;
+
 	return posicionInicialMemoria + pag->bit_marco->pos * TAMANIO_PAGINA;
 }
 
@@ -103,7 +104,7 @@ void paginasMapEnMemoria(int direccion, int tamanio, Segmento* segmentoEncontrad
 		int puntero = primerPag * TAMANIO_PAGINA;
 		int i = primerPag;
 		while(i <= ultimaPag){
-			Pagina* pag = (Pagina*)list_get(segmentoEncontrado,i);
+			Pagina* pag = (Pagina*)list_get(segmentoEncontrado->paginas,i);
 			if(pag->bit_marco == NULL && pag->bit_swap == NULL){
 				pag->bit_marco = asignarMarcoNuevo();
 				pag->bit_marco->bit_uso = true;
@@ -267,6 +268,10 @@ InfoHeap* obtenerHeapConEspacio(Segmento* segmento, uint32_t tamanio){
 	}
 }
 
+void* ultimoElemento(t_list* lista){
+	return (list_get(lista,lista->elements_count-1));
+}
+
 Segmento* obtenerUltimoSegmento(t_list* listaSegmentos){
 	return list_get(listaSegmentos, list_size(listaSegmentos) - 1);
 }
@@ -319,7 +324,7 @@ void merge(Segmento* segmentoEncontrado){
 			pthread_mutex_unlock(&mut_espacioDisponible);
 			list_remove_and_destroy_element(segmentoEncontrado->status_metadata,0,(void*)free);
 		} else if(hm->libre && contador == metadatasSegmento->elements_count - 1) { // es el último, el anterior está libre
-			InfoHeap* anterior = list_get(hm,contador-1);
+			InfoHeap* anterior = list_get(metadatasSegmento,contador-1);
 			if(anterior->libre){
 				int pagAnterior = (anterior->direccion_heap + sizeof(HeapMetadata)) / TAMANIO_PAGINA;
 				int acumuladorPaginasLiberadas = 0;
