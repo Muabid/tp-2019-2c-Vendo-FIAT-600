@@ -56,7 +56,7 @@ int sac_getattr(int socket,const char* path){
 	}
 	GFile node =  nodes_table[index_node-1];
 	links = get_number_links(node.status,index_node);
-
+	//root 13
 	size_t size = get_size_bytes_gFile(node);
 
 	void*buf = malloc(size);
@@ -385,6 +385,7 @@ int sac_rmdir(int socket,const char* path){
 	}
 	node = &nodes_table[index_node-1];
 	node->status = T_DELETED;
+	memset(node->file_name,0,71);
 	log_info(logger,"Directorio %s borrado exitósamente", path);
 	send_status(socket,OK,0);
 	return 0;
