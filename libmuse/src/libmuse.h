@@ -4,6 +4,18 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <shared/net.h>
+#include <stdbool.h>
+#include <syscall.h>
+#include <signal.h>
+
+//VARIABLES
+int socketMuse;
+bool initialized;
+char* id_muse;
+
 
 //FUNCIONES
 /**

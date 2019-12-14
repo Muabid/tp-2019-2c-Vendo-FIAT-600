@@ -56,7 +56,7 @@ int sac_getattr(int socket,const char* path){
 	}
 	GFile node =  nodes_table[index_node-1];
 	links = get_number_links(node.status,index_node);
-
+	//root 13
 	size_t size = get_size_bytes_gFile(node);
 
 	void*buf = malloc(size);
@@ -152,6 +152,7 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	int* positions = get_position(offset);
 	int index_ptr = positions[0];
 	int index_block = positions[1];
+	free(positions);
 	size_t offset_in_block = (offset % BLOCK_SIZE) % BLOCK_SIZE;
 
 	if(node->blocks_ptr[index_ptr] == 0){
@@ -166,7 +167,7 @@ int sac_write(int socket,const char* path,char* data, size_t size, off_t offset)
 	t_block_ptr* pointer_block = (t_block_ptr*) get_block_data(block_ptr);
 
 
-	if(pointer_block->blocks_ptr[positions[1]] == 0){
+	if(pointer_block->blocks_ptr[index_block] == 0){
 		int res = allocate_node(node);
 		if(res == -1){
 			send_status(socket,ERROR,-EDQUOT);
@@ -285,6 +286,7 @@ int sac_read(int socket,const char* path, size_t size, off_t offset){
 	int* positions = get_position(offset);
 	int index_ptr = positions[0];
 	int index_block = positions[1];
+	free(positions);
 	int index_node = search_node(path);
 	GFile* node = &nodes_table[index_node-1];
 	size_t offset_in_block = (offset % BLOCK_SIZE) % BLOCK_SIZE;
@@ -300,7 +302,7 @@ int sac_read(int socket,const char* path, size_t size, off_t offset){
 	uint32_t block_ptr = node->blocks_ptr[index_ptr];
 	t_block_ptr* pointer_block = (t_block_ptr*) get_block_data(block_ptr);
 
-	uint32_t ptr_block_data = pointer_block->blocks_ptr[positions[1]];
+	uint32_t ptr_block_data = pointer_block->blocks_ptr[index_block];
 
 	if(ptr_block_data == 0){
 		char* data = malloc(1);
@@ -383,6 +385,7 @@ int sac_rmdir(int socket,const char* path){
 	}
 	node = &nodes_table[index_node-1];
 	node->status = T_DELETED;
+	memset(node->file_name,0,71);
 	log_info(logger,"Directorio %s borrado exitósamente", path);
 	send_status(socket,OK,0);
 	return 0;
@@ -409,7 +412,7 @@ int sac_rename(int socket,const char* old_path,const char* new_path){
 	}
 	GFile* node = &nodes_table[index_node-1];
 	memset(node->file_name,0,71);
-	memcpy(node->file_name,file_name,71);
+	memcpy(node->file_name,file_name,strlen(file_name));
 	node->modification_date = time(NULL);
 	node->root = root;
 	free(directory);
