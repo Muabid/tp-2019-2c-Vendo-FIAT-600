@@ -1,0 +1,257 @@
+[INFO] 11:43:01:327 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 5
+[INFO] 11:43:01:327 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 14
+[INFO] 11:43:01:327 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 23
+[INFO] 11:43:01:327 muse/(9852:9852): ya copié todo
+[INFO] 11:43:01:327 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 32
+[INFO] 11:43:01:327 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 41
+[INFO] 11:43:01:329 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 50
+[INFO] 11:43:01:329 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 59
+[INFO] 11:43:01:329 muse/(9852:9852): ya copié todo
+[INFO] 11:43:01:329 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 68
+[INFO] 11:43:01:329 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 77
+[INFO] 11:43:01:329 muse/(9852:9852): Los datos se pegaron en segmento 0, direccion 86
+[INFO] 11:43:01:329 muse/(9852:9852): Direccion 86 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:329 muse/(9852:9852): Direccion 77 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:329 muse/(9852:9852): Direccion 68 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:329 muse/(9852:9852): Direccion 59 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:329 muse/(9852:9852): Direccion 50 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:329 muse/(9852:9852): Direccion 41 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:329 muse/(9852:9852): Direccion 32 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:330 muse/(9852:9852): Direccion 23 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:330 muse/(9852:9852): Direccion 14 liberada correctamente (segmento prog1)
+[INFO] 11:43:01:330 muse/(9852:9852): Direccion 5 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:453 muse/(9983:9983): ya copié todo
+[INFO] 11:46:12:453 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 5
+[INFO] 11:46:12:453 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 17
+[INFO] 11:46:12:455 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 26
+[INFO] 11:46:12:455 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 35
+[INFO] 11:46:12:455 muse/(9983:9983): ya copié todo
+[INFO] 11:46:12:455 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 44
+[INFO] 11:46:12:455 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 53
+[INFO] 11:46:12:456 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 62
+[INFO] 11:46:12:458 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 71
+[INFO] 11:46:12:458 muse/(9983:9983): ya copié todo
+[INFO] 11:46:12:458 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 80
+[INFO] 11:46:12:458 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 89
+[INFO] 11:46:12:458 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 98
+[INFO] 11:46:12:458 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 107
+[INFO] 11:46:12:458 muse/(9983:9983): ya copié todo
+[INFO] 11:46:12:458 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 116
+[INFO] 11:46:12:458 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 125
+[INFO] 11:46:12:470 muse/(9983:9983): Los datos se pegaron en segmento 0, direccion 134
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 134 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 125 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 116 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 107 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 98 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 89 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 80 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 71 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 62 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 53 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 44 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 35 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 26 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:470 muse/(9983:9983): Direccion 17 liberada correctamente (segmento prog1)
+[INFO] 11:46:12:471 muse/(9983:9983): Direccion 5 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:536 muse/(10054:10054): ya copié todo
+[INFO] 11:47:40:536 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 5
+[INFO] 11:47:40:536 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 17
+[INFO] 11:47:40:537 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 26
+[INFO] 11:47:40:537 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 35
+[INFO] 11:47:40:537 muse/(10054:10054): ya copié todo
+[INFO] 11:47:40:537 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 44
+[INFO] 11:47:40:538 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 53
+[INFO] 11:47:40:539 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 62
+[INFO] 11:47:40:542 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 71
+[INFO] 11:47:40:542 muse/(10054:10054): ya copié todo
+[INFO] 11:47:40:542 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 80
+[INFO] 11:47:40:542 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 89
+[INFO] 11:47:40:543 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 98
+[INFO] 11:47:40:543 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 107
+[INFO] 11:47:40:543 muse/(10054:10054): ya copié todo
+[INFO] 11:47:40:543 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 116
+[INFO] 11:47:40:543 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 125
+[INFO] 11:47:40:558 muse/(10054:10054): Los datos se pegaron en segmento 0, direccion 134
+[INFO] 11:47:40:558 muse/(10054:10054): Direccion 134 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:558 muse/(10054:10054): Direccion 125 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:558 muse/(10054:10054): Direccion 116 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:558 muse/(10054:10054): Direccion 107 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:558 muse/(10054:10054): Direccion 98 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:558 muse/(10054:10054): Direccion 89 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 80 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 71 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 62 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 53 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 44 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 35 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 26 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 17 liberada correctamente (segmento prog1)
+[INFO] 11:47:40:559 muse/(10054:10054): Direccion 5 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:484 muse/(10140:10140): ya copié todo
+[INFO] 11:49:15:485 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 5
+[INFO] 11:49:15:492 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 17
+[INFO] 11:49:15:493 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 26
+[INFO] 11:49:15:493 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 35
+[INFO] 11:49:15:493 muse/(10140:10140): ya copié todo
+[INFO] 11:49:15:493 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 44
+[INFO] 11:49:15:494 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 53
+[INFO] 11:49:15:495 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 62
+[INFO] 11:49:15:495 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 71
+[INFO] 11:49:15:495 muse/(10140:10140): ya copié todo
+[INFO] 11:49:15:495 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 80
+[INFO] 11:49:15:496 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 89
+[INFO] 11:49:15:498 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 98
+[INFO] 11:49:15:499 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 107
+[INFO] 11:49:15:499 muse/(10140:10140): ya copié todo
+[INFO] 11:49:15:499 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 116
+[INFO] 11:49:15:499 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 125
+[INFO] 11:49:15:512 muse/(10140:10140): Los datos se pegaron en segmento 0, direccion 134
+[INFO] 11:49:15:512 muse/(10140:10140): Direccion 134 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:512 muse/(10140:10140): Direccion 125 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:512 muse/(10140:10140): Direccion 116 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:512 muse/(10140:10140): Direccion 107 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 98 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 89 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 80 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 71 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 62 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 53 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 44 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 35 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 26 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 17 liberada correctamente (segmento prog1)
+[INFO] 11:49:15:513 muse/(10140:10140): Direccion 5 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:393 muse/(10196:10196): ya copié todo
+[INFO] 11:49:59:393 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 5
+[INFO] 11:49:59:393 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 17
+[INFO] 11:49:59:395 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 26
+[INFO] 11:49:59:396 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 35
+[INFO] 11:49:59:396 muse/(10196:10196): ya copié todo
+[INFO] 11:49:59:396 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 44
+[INFO] 11:49:59:396 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 53
+[INFO] 11:49:59:396 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 62
+[INFO] 11:49:59:396 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 71
+[INFO] 11:49:59:396 muse/(10196:10196): ya copié todo
+[INFO] 11:49:59:396 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 80
+[INFO] 11:49:59:396 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 89
+[INFO] 11:49:59:396 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 98
+[INFO] 11:49:59:397 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 107
+[INFO] 11:49:59:397 muse/(10196:10196): ya copié todo
+[INFO] 11:49:59:397 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 116
+[INFO] 11:49:59:397 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 125
+[INFO] 11:49:59:427 muse/(10196:10196): Los datos se pegaron en segmento 0, direccion 134
+[INFO] 11:49:59:427 muse/(10196:10196): Direccion 134 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:427 muse/(10196:10196): Direccion 125 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:427 muse/(10196:10196): Direccion 116 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:427 muse/(10196:10196): Direccion 107 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 98 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 89 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 80 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 71 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 62 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 53 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 44 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 35 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 26 liberada correctamente (segmento prog1)
+[INFO] 11:49:59:430 muse/(10196:10196): Direccion 17 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:77 muse/(10236:10236): ya copié todo
+[INFO] 11:50:12:77 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 5
+[INFO] 11:50:12:77 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 17
+[INFO] 11:50:12:77 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 26
+[INFO] 11:50:12:77 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 35
+[INFO] 11:50:12:77 muse/(10236:10236): ya copié todo
+[INFO] 11:50:12:78 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 44
+[INFO] 11:50:12:78 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 53
+[INFO] 11:50:12:78 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 62
+[INFO] 11:50:12:78 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 71
+[INFO] 11:50:12:78 muse/(10236:10236): ya copié todo
+[INFO] 11:50:12:78 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 80
+[INFO] 11:50:12:78 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 89
+[INFO] 11:50:12:78 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 98
+[INFO] 11:50:12:79 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 107
+[INFO] 11:50:12:79 muse/(10236:10236): ya copié todo
+[INFO] 11:50:12:79 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 116
+[INFO] 11:50:12:79 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 125
+[INFO] 11:50:12:92 muse/(10236:10236): Los datos se pegaron en segmento 0, direccion 134
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 134 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 125 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 116 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 107 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 98 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 89 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 80 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 71 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 62 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 53 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 44 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 35 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 26 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 17 liberada correctamente (segmento prog1)
+[INFO] 11:50:12:92 muse/(10236:10236): Direccion 5 liberada correctamente (segmento prog1)
+[INFO] 11:50:18:783 muse/(10277:10277): ya copié todo
+[INFO] 11:50:18:783 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 5
+[INFO] 11:50:18:783 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 17
+[INFO] 11:50:18:783 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 54
+[INFO] 11:50:18:783 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 66
+[INFO] 11:50:18:784 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 103
+[INFO] 11:50:18:801 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 115
+[INFO] 11:50:18:805 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 152
+[INFO] 11:50:18:819 muse/(10277:10277): ya copié todo
+[INFO] 11:50:18:819 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 164
+[INFO] 11:50:18:823 muse/(10277:10277): ya copié todo
+[INFO] 11:50:18:823 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 201
+[INFO] 11:50:18:834 muse/(10277:10277): ya copié todo
+[INFO] 11:50:18:834 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 213
+[INFO] 11:50:18:843 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 241
+[INFO] 11:50:18:855 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 272
+[INFO] 11:50:18:865 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 303
+[INFO] 11:50:18:878 muse/(10277:10277): ya copié todo
+[INFO] 11:50:18:878 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 339
+[INFO] 11:50:18:889 muse/(10277:10277): Los datos se pegaron en segmento 0, direccion 373
+[INFO] 11:50:18:889 muse/(10277:10277): Direccion 373 liberada correctamente (segmento prog1)
+[INFO] 11:50:19:889 muse/(10277:10277): Direccion 339 liberada correctamente (segmento prog1)
+[INFO] 11:50:20:890 muse/(10277:10277): Direccion 303 liberada correctamente (segmento prog1)
+[INFO] 11:50:21:890 muse/(10277:10277): Direccion 272 liberada correctamente (segmento prog1)
+[INFO] 11:50:22:891 muse/(10277:10277): Direccion 241 liberada correctamente (segmento prog1)
+[INFO] 11:50:23:892 muse/(10277:10277): Direccion 213 liberada correctamente (segmento prog1)
+[INFO] 11:50:24:894 muse/(10277:10277): Direccion 201 liberada correctamente (segmento prog1)
+[INFO] 11:50:25:895 muse/(10277:10277): Direccion 164 liberada correctamente (segmento prog1)
+[INFO] 11:50:26:896 muse/(10277:10277): Direccion 152 liberada correctamente (segmento prog1)
+[INFO] 11:50:27:897 muse/(10277:10277): Direccion 115 liberada correctamente (segmento prog1)
+[INFO] 11:50:28:897 muse/(10277:10277): Direccion 103 liberada correctamente (segmento prog1)
+[INFO] 11:50:29:898 muse/(10277:10277): Direccion 66 liberada correctamente (segmento prog1)
+[INFO] 11:50:30:902 muse/(10277:10277): Direccion 54 liberada correctamente (segmento prog1)
+[INFO] 11:50:31:902 muse/(10277:10277): Direccion 17 liberada correctamente (segmento prog1)
+[INFO] 11:50:32:903 muse/(10277:10277): Direccion 5 liberada correctamente (segmento prog1)
+[INFO] 13:13:02:949 muse/(16971:16971): ya copié todo
+[INFO] 13:13:02:950 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 5
+[INFO] 13:13:02:950 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 17
+[INFO] 13:13:02:950 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 54
+[INFO] 13:13:02:950 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 66
+[INFO] 13:13:02:950 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 103
+[INFO] 13:13:02:968 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 115
+[INFO] 13:13:02:972 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 152
+[INFO] 13:13:02:984 muse/(16971:16971): ya copié todo
+[INFO] 13:13:02:984 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 164
+[INFO] 13:13:02:988 muse/(16971:16971): ya copié todo
+[INFO] 13:13:02:989 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 201
+[INFO] 13:13:02:0 muse/(16971:16971): ya copié todo
+[INFO] 13:13:02:0 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 213
+[INFO] 13:13:03:10 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 241
+[INFO] 13:13:03:20 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 272
+[INFO] 13:13:03:31 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 303
+[INFO] 13:13:03:43 muse/(16971:16971): ya copié todo
+[INFO] 13:13:03:43 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 339
+[INFO] 13:13:03:50 muse/(16971:16971): Los datos se pegaron en segmento 0, direccion 373
+[INFO] 13:13:03:50 muse/(16971:16971): Direccion 373 liberada correctamente (segmento prog1)
+[INFO] 13:13:04:52 muse/(16971:16971): Direccion 339 liberada correctamente (segmento prog1)
+[INFO] 13:13:05:53 muse/(16971:16971): Direccion 303 liberada correctamente (segmento prog1)
+[INFO] 13:13:06:54 muse/(16971:16971): Direccion 272 liberada correctamente (segmento prog1)
+[INFO] 13:13:07:55 muse/(16971:16971): Direccion 241 liberada correctamente (segmento prog1)
+[INFO] 13:13:08:55 muse/(16971:16971): Direccion 213 liberada correctamente (segmento prog1)
+[INFO] 13:13:09:56 muse/(16971:16971): Direccion 201 liberada correctamente (segmento prog1)
+[INFO] 13:13:10:57 muse/(16971:16971): Direccion 164 liberada correctamente (segmento prog1)
+[INFO] 13:13:11:57 muse/(16971:16971): Direccion 152 liberada correctamente (segmento prog1)
+[INFO] 13:13:12:58 muse/(16971:16971): Direccion 115 liberada correctamente (segmento prog1)
+[INFO] 13:14:14:853 muse/(17054:17054): NUEVA CONEXIÓN

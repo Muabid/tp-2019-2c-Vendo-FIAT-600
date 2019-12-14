@@ -6,7 +6,8 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <shared/net.h>
+//#include <shared/net.h>
+//#include <shared/protocol.h>
 #include <stdbool.h>
 #include <syscall.h>
 #include <signal.h>
