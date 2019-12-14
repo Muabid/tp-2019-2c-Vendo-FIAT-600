@@ -10,6 +10,7 @@
 #include <shared/net.h>
 #include <shared/protocol.h>
 #include <stdint.h>
+#include <sys/socket.h>
 
 void* posicionInicialMemoria;
 void* posicionInicialSwap;
@@ -52,5 +53,8 @@ int muse_get(char* id, void* dst, uint32_t src, size_t n);
 int muse_cpy(char* id, uint32_t dst, void* src, size_t n);
 int muse_close(char* id_cliente);
 
+void recursiva(int num);
+void recursiva2(int num);
+char* pasa_palabra(int cod);
 
 #endif /* MUSE_H_ */
