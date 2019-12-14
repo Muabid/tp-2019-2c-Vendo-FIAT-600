@@ -45,7 +45,7 @@
 								</option>
 								<option id="gnu.c.link.option.pthread.1116013292" name="Support for pthread (-pthread)" superClass="gnu.c.link.option.pthread" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="gnu.c.link.option.shared.1062470470" name="Shared (-shared)" superClass="gnu.c.link.option.shared" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="gnu.c.link.option.userobjs.2079166813" name="Other objects" superClass="gnu.c.link.option.userobjs" useByScannerDiscovery="false" valueType="userObjs"/>
+								<option id="gnu.c.link.option.userobjs.2079166813" name="Other objects" superClass="gnu.c.link.option.userobjs" useByScannerDiscovery="false"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.532772491" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>

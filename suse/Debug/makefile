@@ -26,7 +26,7 @@ endif
 all: suse
 
 dependents:
-	-cd /home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug && $(MAKE) clean all
+	-cd /home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug && $(MAKE) all
 
 # Tool invocations
 suse: $(OBJS) $(USER_OBJS) /home/utnso/tp-2019-2c-Vendo-FIAT-600/shared/Debug/libshared.so

@@ -1,0 +1,1715 @@
+[INFO] 14:37:52:269 log_suse.txt/(8998:8998): Se ha aceptado una conexion: 5
+
+[INFO] 14:37:52:271 log_suse.txt/(8998:8998): Handler asignado
+
+[INFO] 14:37:52:273 log_suse.txt/(8998:9310): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 14:37:52:273 log_suse.txt/(8998:9310): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 14:37:52:273 log_suse.txt/(8998:9310): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 14:37:52:273 log_suse.txt/(8998:9310): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 14:37:52:273 log_suse.txt/(8998:9310): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 14:37:52:273 log_suse.txt/(8998:9310): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 14:37:53:851 log_suse.txt/(8998:9310): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 14:39:27:715 log_suse.txt/(9378:9378): Se ha aceptado una conexion: 5
+
+[INFO] 14:39:27:717 log_suse.txt/(9378:9378): Handler asignado
+
+[INFO] 14:39:27:722 log_suse.txt/(9378:9388): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 14:39:27:722 log_suse.txt/(9378:9388): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 14:39:27:722 log_suse.txt/(9378:9388): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 14:39:27:723 log_suse.txt/(9378:9388): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 14:39:27:723 log_suse.txt/(9378:9388): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 14:39:27:723 log_suse.txt/(9378:9388): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 14:39:53:70 log_suse.txt/(9378:9388): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 14:40:06:170 log_suse.txt/(9378:9378): Se ha aceptado una conexion: 6
+
+[INFO] 14:40:06:171 log_suse.txt/(9378:9378): Handler asignado
+
+[INFO] 14:40:06:171 log_suse.txt/(9378:9409): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 14:40:06:171 log_suse.txt/(9378:9409): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 14:40:06:171 log_suse.txt/(9378:9409): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 14:40:06:171 log_suse.txt/(9378:9409): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 14:40:06:172 log_suse.txt/(9378:9409): Se creó un nuevo hilo número 4 del programa 2
+[ERROR] 14:40:06:172 log_suse.txt/(9378:9409): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 14:40:31:634 log_suse.txt/(9378:9409): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 14:41:40:819 log_suse.txt/(9378:9378): Se ha aceptado una conexion: 5
+
+[INFO] 14:41:40:820 log_suse.txt/(9378:9378): Handler asignado
+
+[INFO] 14:41:40:820 log_suse.txt/(9378:9631): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 14:41:40:820 log_suse.txt/(9378:9631): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 14:41:40:820 log_suse.txt/(9378:9631): Se creó un nuevo hilo número 2 del programa 3
+[INFO] 14:41:40:820 log_suse.txt/(9378:9631): Se creó un nuevo hilo número 3 del programa 3
+[INFO] 14:41:40:820 log_suse.txt/(9378:9631): Se creó un nuevo hilo número 4 del programa 3
+[ERROR] 14:41:40:820 log_suse.txt/(9378:9631): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 14:41:44:418 log_suse.txt/(9378:9631): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 14:42:55:290 log_suse.txt/(9693:9693): Se ha aceptado una conexion: 5
+
+[INFO] 14:42:55:291 log_suse.txt/(9693:9693): Handler asignado
+
+[INFO] 14:42:55:291 log_suse.txt/(9693:9702): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 14:42:55:291 log_suse.txt/(9693:9702): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 14:42:55:291 log_suse.txt/(9693:9702): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 14:42:55:291 log_suse.txt/(9693:9702): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 14:42:55:291 log_suse.txt/(9693:9702): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 14:42:55:291 log_suse.txt/(9693:9702): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 14:42:55:292 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:330 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:411 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:494 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:575 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:654 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:738 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:828 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:906 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:55:987 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:66 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:150 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:234 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:315 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:395 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:474 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:554 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:634 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:714 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:795 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:874 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:56:954 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:34 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:114 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:195 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:274 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:354 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:434 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:514 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:594 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:674 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:754 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:834 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:914 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:57:994 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:74 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:154 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:234 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:314 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:394 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:474 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:554 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:634 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:714 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:794 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:874 log_suse.txt/(9693:9702): TIMESTAMP
+[INFO] 14:42:58:914 log_suse.txt/(9693:9702): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 14:48:47:253 log_suse.txt/(10032:10032): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 14:48:47:254 log_suse.txt/(10032:10032): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 14:48:47:254 log_suse.txt/(10032:10032): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 14:48:47:254 log_suse.txt/(10032:10032): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 14:48:47:254 log_suse.txt/(10032:10032): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 14:48:47:254 log_suse.txt/(10032:10032): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 14:48:47:254 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:294 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:375 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:454 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:534 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:614 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:694 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:774 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:854 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:47:934 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:14 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:94 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:175 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:254 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:334 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:414 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:494 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:575 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:658 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:738 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:818 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:898 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:48:978 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:58 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:139 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:222 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:303 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:382 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:462 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:542 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:626 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:706 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:786 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:866 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:49:946 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:26 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:106 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:186 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:266 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:346 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:426 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:506 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:587 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:666 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:746 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:826 log_suse.txt/(10032:10032): TIMESTAMP
+[INFO] 14:48:50:866 log_suse.txt/(10032:10032): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 14:53:06:283 log_suse.txt/(10310:10310): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 14:53:06:284 log_suse.txt/(10310:10310): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 14:53:06:284 log_suse.txt/(10310:10310): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 14:53:06:284 log_suse.txt/(10310:10310): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 14:53:06:284 log_suse.txt/(10310:10310): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 14:53:06:285 log_suse.txt/(10310:10310): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 14:53:09:899 log_suse.txt/(10310:10310): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 14:54:38:162 log_suse.txt/(10394:10394): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 14:54:38:163 log_suse.txt/(10394:10394): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 14:54:38:163 log_suse.txt/(10394:10394): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 14:54:38:163 log_suse.txt/(10394:10394): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 14:54:38:163 log_suse.txt/(10394:10394): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 14:54:38:164 log_suse.txt/(10394:10394): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 14:54:41:766 log_suse.txt/(10394:10394): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:20:14:337 log_suse.txt/(11554:11554): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:20:14:338 log_suse.txt/(11554:11554): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:20:14:338 log_suse.txt/(11554:11554): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:20:14:338 log_suse.txt/(11554:11554): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:20:14:338 log_suse.txt/(11554:11554): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 15:20:14:338 log_suse.txt/(11554:11554): bloquearHilo: (NDPN) se encuentra el hilo en NEW
+[INFO] 15:20:17:936 log_suse.txt/(11554:11554): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:21:45:780 log_suse.txt/(11633:11633): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:21:45:781 log_suse.txt/(11633:11633): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:21:45:781 log_suse.txt/(11633:11633): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:21:45:781 log_suse.txt/(11633:11633): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:21:45:781 log_suse.txt/(11633:11633): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 15:21:45:781 log_suse.txt/(11633:11633): bloquearHilo: (NDPN) se encuentra el hilo 0 en NEW
+[INFO] 15:21:49:380 log_suse.txt/(11633:11633): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:22:32:165 log_suse.txt/(11694:11694): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:22:32:165 log_suse.txt/(11694:11694): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:22:32:166 log_suse.txt/(11694:11694): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:22:32:166 log_suse.txt/(11694:11694): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:22:32:166 log_suse.txt/(11694:11694): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 15:22:35:764 log_suse.txt/(11694:11694): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:24:26:481 log_suse.txt/(11911:11911): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:24:26:482 log_suse.txt/(11911:11911): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:24:26:482 log_suse.txt/(11911:11911): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:24:26:482 log_suse.txt/(11911:11911): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:24:26:482 log_suse.txt/(11911:11911): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 15:24:27:160 log_suse.txt/(11911:11911):  Se cerro el hilo: 1
+[INFO] 15:24:29:640 log_suse.txt/(11911:11911):  Se cerro el hilo: 2
+[INFO] 15:24:29:800 log_suse.txt/(11911:11911):  Se cerro el hilo: 3
+[INFO] 15:24:29:960 log_suse.txt/(11911:11911):  Se cerro el hilo: 4
+[INFO] 15:24:30:80 log_suse.txt/(11911:11911):  Se cerro el hilo: 0
+[INFO] 15:24:30:82 log_suse.txt/(11911:11911): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:26:13:777 log_suse.txt/(11963:11963): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:26:13:778 log_suse.txt/(11963:11963): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:26:13:778 log_suse.txt/(11963:11963): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:26:13:778 log_suse.txt/(11963:11963): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:26:13:778 log_suse.txt/(11963:11963): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 15:26:14:460 log_suse.txt/(11963:11963):  Se cerro el hilo: 1
+[INFO] 15:26:16:941 log_suse.txt/(11963:11963):  Se cerro el hilo: 2
+[INFO] 15:26:17:101 log_suse.txt/(11963:11963):  Se cerro el hilo: 3
+[INFO] 15:26:17:260 log_suse.txt/(11963:11963):  Se cerro el hilo: 4
+[INFO] 15:26:17:380 log_suse.txt/(11963:11963):  Se cerro el hilo: 0
+[INFO] 15:26:17:383 log_suse.txt/(11963:11963): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:27:45:255 log_suse.txt/(12087:12087): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:27:45:255 log_suse.txt/(12087:12087): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:27:45:255 log_suse.txt/(12087:12087): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:27:45:255 log_suse.txt/(12087:12087): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:27:45:256 log_suse.txt/(12087:12087): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 15:27:49:772 log_suse.txt/(12087:12087):  Se cerro el hilo: 1
+[INFO] 15:27:49:812 log_suse.txt/(12087:12087):  Se cerro el hilo: 3
+[INFO] 15:27:49:892 log_suse.txt/(12087:12087):  Se cerro el hilo: 4
+[INFO] 15:27:49:972 log_suse.txt/(12087:12087):  Se cerro el hilo: 2
+[INFO] 15:27:50:252 log_suse.txt/(12087:12087):  Se cerro el hilo: 0
+[INFO] 15:27:50:254 log_suse.txt/(12087:12087): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:29:19:809 log_suse.txt/(12219:12219): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:29:19:809 log_suse.txt/(12219:12219): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:29:19:809 log_suse.txt/(12219:12219): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:29:19:809 log_suse.txt/(12219:12219): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:29:19:810 log_suse.txt/(12219:12219): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 15:29:34:288 log_suse.txt/(12219:12219):  Se cerro el hilo: 2
+[INFO] 15:29:40:853 log_suse.txt/(12219:12219):  Se cerro el hilo: 3
+[INFO] 15:29:47:412 log_suse.txt/(12219:12219):  Se cerro el hilo: 4
+[INFO] 15:29:59:12 log_suse.txt/(12219:12219):  Se cerro el hilo: 1
+[INFO] 15:29:59:14 log_suse.txt/(12219:12219):  Se cerro el hilo: 0
+[INFO] 15:29:59:14 log_suse.txt/(12219:12219): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:39:25:986 log_suse.txt/(12764:12764): Se ha aceptado una conexion: 5
+
+[INFO] 15:39:25:987 log_suse.txt/(12764:12764): Handler asignado
+
+[INFO] 15:39:25:987 log_suse.txt/(12764:12933): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:39:25:987 log_suse.txt/(12764:12933): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:39:37:642 log_suse.txt/(12764:12764): Se ha aceptado una conexion: 6
+
+[INFO] 15:39:37:643 log_suse.txt/(12764:12764): Handler asignado
+
+[INFO] 15:39:37:643 log_suse.txt/(12764:12972): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 15:39:37:643 log_suse.txt/(12764:12972): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 15:39:37:643 log_suse.txt/(12764:12972): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 15:39:37:644 log_suse.txt/(12764:12972): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 15:39:37:644 log_suse.txt/(12764:12972): Se creó un nuevo hilo número 4 del programa 2
+[ERROR] 15:39:46:984 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:47:947 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:48:311 log_suse.txt/(12764:12972): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:49:511 log_suse.txt/(12764:12972): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:49:632 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:50:512 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:51:72 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:51:431 log_suse.txt/(12764:12972): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:52:392 log_suse.txt/(12764:12972): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:52:512 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:52:751 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:53:31 log_suse.txt/(12764:12972): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:53:232 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:53:512 log_suse.txt/(12764:12972): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:54:196 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:54:476 log_suse.txt/(12764:12972): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:55:955 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:56:36 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:56:196 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:58:115 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:58:836 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:39:59:556 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:00:36 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:00:516 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:00:756 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:00:996 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:01:716 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:02:195 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:02:435 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:02:676 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:03:396 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:03:875 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:04:355 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:04:595 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:04:835 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:05:555 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:06:35 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:06:517 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:06:756 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:07:236 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:07:716 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:08:196 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:08:676 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:08:916 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:09:155 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:09:635 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:10:116 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:10:595 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:10:835 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:11:76 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:11:555 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:12:35 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:12:516 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:12:756 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:12:996 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:13:475 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:13:956 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:14:436 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:14:676 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:14:916 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:15:398 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:15:879 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:16:360 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:16:599 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:16:840 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:17:320 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:17:800 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:18:284 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:18:528 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:18:769 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:19:247 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:19:732 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:20:212 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:20:452 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:20:692 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:21:172 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:21:653 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:22:132 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:22:371 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:22:611 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:23:92 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:23:571 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:24:52 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:24:292 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:24:532 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:25:16 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:25:496 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:25:975 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:26:216 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:26:456 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:26:935 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:27:416 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:27:895 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:28:136 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:28:375 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:28:855 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:29:336 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:29:820 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:30:60 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:30:299 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:30:779 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:31:264 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:31:743 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:31:984 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:32:224 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:32:704 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:33:184 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:33:668 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:33:908 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:34:148 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:34:628 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:35:108 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:35:588 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:35:828 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:36:67 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:36:552 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:37:35 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:37:515 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:37:756 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:37:995 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:38:475 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:38:969 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:39:447 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:39:687 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:39:928 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:40:407 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:40:888 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:41:367 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:41:608 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:40:41:648 log_suse.txt/(12764:12972):  Se cerro el hilo: 2
+[INFO] 15:40:41:692 log_suse.txt/(12764:12972): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[ERROR] 15:40:41:849 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:42:331 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:42:811 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:40:43:52 log_suse.txt/(12764:12933): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:41:28:587 log_suse.txt/(12764:12933):  Se cerro el hilo: 1
+[INFO] 15:41:28:627 log_suse.txt/(12764:12933):  Se cerro el hilo: 0
+[INFO] 15:41:28:629 log_suse.txt/(12764:12933): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:48:36:389 log_suse.txt/(13290:13290): Se ha aceptado una conexion: 5
+
+[INFO] 15:48:36:390 log_suse.txt/(13290:13290): Handler asignado
+
+[INFO] 15:48:36:390 log_suse.txt/(13290:13306): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:48:36:391 log_suse.txt/(13290:13306): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:48:36:391 log_suse.txt/(13290:13306): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:48:36:391 log_suse.txt/(13290:13306): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:48:36:391 log_suse.txt/(13290:13306): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 15:48:46:700 log_suse.txt/(13290:13290): Se ha aceptado una conexion: 6
+
+[INFO] 15:48:46:701 log_suse.txt/(13290:13290): Handler asignado
+
+[INFO] 15:48:46:701 log_suse.txt/(13290:13311): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 15:48:46:703 log_suse.txt/(13290:13311): Se creó un nuevo hilo número 1 del programa 2
+[ERROR] 15:49:07:623 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:07:703 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:07:863 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:07:943 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:67 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:148 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:187 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:387 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:427 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:628 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:667 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:907 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:08:987 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:27 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:268 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:307 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:387 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:507 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:587 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:627 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:827 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:09:867 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:107 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:187 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:227 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:307 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:348 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:707 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:747 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:828 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:10:947 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:27 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:67 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:267 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:307 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:548 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:627 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:667 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:748 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:787 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:11:987 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:27 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:267 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:307 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:468 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:507 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:707 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:748 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:947 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:12:987 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:13:347 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:13:388 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:13:467 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:13:588 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:13:747 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:13:788 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:13:987 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:27 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:227 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:268 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:467 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:507 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:707 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:747 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:947 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:14:988 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:15:187 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:15:227 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:15:427 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:15:467 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:15:667 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:15:707 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:15:907 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:15:947 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:16:147 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:16:187 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:16:390 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:16:428 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:16:631 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:16:671 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:16:871 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:16:911 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:17:111 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:17:151 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:17:351 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:17:391 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:17:591 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:17:631 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:17:831 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:17:871 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:18:71 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:18:111 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:18:311 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:18:351 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:18:551 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:18:591 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:18:795 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:18:835 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:35 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:75 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:275 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:315 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:516 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:555 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:755 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:796 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:19:995 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:35 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:236 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:275 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:475 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:515 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:716 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:755 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:955 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:20:999 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:21:196 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:21:235 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:21:436 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:21:475 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:21:675 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:21:715 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:21:915 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:21:956 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:22:155 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:22:195 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:22:395 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:22:435 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:22:635 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:22:675 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:22:875 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:22:915 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:23:115 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:23:155 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:23:356 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:23:395 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:23:595 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:23:635 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:23:835 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:23:877 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:24:79 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:24:120 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:24:319 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:24:359 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:24:560 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:24:600 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:24:799 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:24:840 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:25:39 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:25:80 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:25:283 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:25:325 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:25:523 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:25:563 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:25:763 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:25:803 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:3 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:43 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:243 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:283 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:483 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:523 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:723 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:765 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:26:963 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:4 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:203 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:243 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:443 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:483 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:683 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:723 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:923 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:27:963 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:28:163 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:28:203 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:28:403 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:28:443 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:28:643 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:28:684 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:28:883 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:28:924 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:29:123 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:29:163 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:29:363 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:29:404 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:29:607 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:29:647 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:29:847 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:29:887 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:30:87 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:30:127 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:30:327 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:30:368 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:30:567 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:30:607 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:30:807 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:30:847 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:31:47 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:31:87 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:31:287 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:31:327 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:31:527 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:31:567 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:31:768 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:31:807 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:9 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:47 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:247 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:287 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:487 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:527 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:727 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:768 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:32:967 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:8 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:207 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:247 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:447 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:487 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:687 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:727 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:927 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:33:967 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:34:167 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:34:207 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:34:407 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:34:448 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:34:647 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:34:687 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:34:887 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:34:930 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:35:127 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:35:167 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:35:371 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:35:411 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:35:611 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:35:651 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:35:851 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:35:891 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:36:91 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:36:131 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:36:332 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:36:371 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:36:571 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:36:612 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:36:812 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:36:851 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:37:51 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:37:91 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:37:292 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:37:331 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:37:532 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:37:571 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:37:771 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:37:811 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:11 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:51 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:252 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:291 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:491 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:531 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:731 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:771 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:38:971 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:12 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:215 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:253 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:451 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:493 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:691 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:731 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:931 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:39:971 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:40:171 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:40:212 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:40:411 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:40:451 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:40:655 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:40:695 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:40:895 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:40:936 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:41:135 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:41:175 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:41:375 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:41:416 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:41:616 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:41:655 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:41:855 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:41:895 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:42:95 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:42:135 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:42:335 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:42:376 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:42:575 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:42:615 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:42:815 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:42:855 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:43:55 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:43:95 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:43:295 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:43:336 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:43:535 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:43:575 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:43:775 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:43:816 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:15 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:55 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:255 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:295 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:495 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:535 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:735 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:775 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:44:975 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:15 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:216 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:256 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:455 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:495 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:695 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:735 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:935 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:45:975 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:46:176 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:46:215 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:46:415 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:46:456 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:46:655 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:46:696 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:46:895 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:46:936 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:47:135 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:47:175 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:47:375 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:47:415 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:47:615 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:47:655 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:47:855 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:47:895 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:48:95 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:48:135 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:48:336 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:48:375 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:48:575 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:48:616 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:48:815 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:48:855 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:49:55 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:49:95 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:49:295 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:49:335 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:49:535 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:49:575 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:49:775 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:49:815 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:15 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:55 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:255 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:295 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:495 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:537 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:735 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:775 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:50:979 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:19 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:219 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:259 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:459 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:499 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:700 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:739 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:939 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:51:979 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:52:180 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:52:219 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:52:419 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:52:459 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:52:659 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:52:699 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:52:900 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:52:940 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:53:139 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:53:179 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:53:380 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:53:419 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:53:619 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:53:660 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:53:859 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:53:899 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:54:99 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:54:139 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:54:339 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:54:380 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:54:579 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:54:619 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:54:820 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:54:860 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:55:59 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:55:100 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:55:299 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:55:339 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:55:539 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:55:579 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:55:779 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:55:819 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:19 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:59 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:259 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:300 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:499 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:539 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:740 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:779 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:56:979 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:19 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:219 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:259 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:459 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:499 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:699 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:739 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:939 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:57:979 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:58:179 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:58:219 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:58:419 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:58:460 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:58:659 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:58:699 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:58:899 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:58:939 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:59:139 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:59:179 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:59:379 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:59:419 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:59:619 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:59:660 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:59:859 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:49:59:899 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:00:99 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:00:139 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:00:339 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:00:380 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:00:579 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:00:619 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:00:819 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:00:859 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:01:59 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:01:99 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:01:299 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:01:340 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:01:539 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:01:579 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:01:780 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:01:819 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:19 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:60 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:259 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:300 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:507 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:547 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:747 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:787 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:02:987 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:03:27 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:03:229 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:03:267 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:03:467 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:03:508 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:03:707 log_suse.txt/(13290:13306): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:03:787 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:04:27 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:04:107 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:04:188 log_suse.txt/(13290:13306): suseWait: el hilo a bloquear ya se encontraba bloqueado
+[ERROR] 15:50:04:267 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:04:508 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:04:747 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:04:987 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:05:227 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:05:467 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:05:707 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:05:947 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:06:187 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:06:427 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:06:667 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:06:907 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:07:147 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:07:388 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:07:628 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:07:867 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:08:107 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:08:348 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:08:587 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:08:828 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:09:68 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:09:308 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:09:547 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:09:787 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:10:27 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:10:268 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:10:507 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:10:747 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:10:987 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:11:227 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:11:467 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:11:708 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:11:948 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:12:187 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:12:427 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:12:668 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:12:908 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:13:147 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:13:387 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:13:627 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:13:867 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:14:107 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:14:347 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:14:587 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:14:828 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:15:67 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:15:307 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:15:547 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:15:787 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:16:27 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:50:16:71 log_suse.txt/(13290:13306):  Se cerro el hilo: 2
+[ERROR] 15:50:16:267 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:50:16:311 log_suse.txt/(13290:13306):  Se cerro el hilo: 1
+[ERROR] 15:50:16:507 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:50:16:512 log_suse.txt/(13290:13306): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[ERROR] 15:50:16:747 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:16:987 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:17:227 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:17:467 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:17:708 log_suse.txt/(13290:13311): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:50:49:335 log_suse.txt/(13290:13311):  Se cerro el hilo: 1
+[INFO] 15:50:49:377 log_suse.txt/(13290:13311):  Se cerro el hilo: 0
+[INFO] 15:50:49:378 log_suse.txt/(13290:13311): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:50:57:931 log_suse.txt/(13290:13290): Se ha aceptado una conexion: 7
+
+[INFO] 15:50:57:931 log_suse.txt/(13290:13290): Handler asignado
+
+[INFO] 15:50:57:932 log_suse.txt/(13290:13345): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 15:50:57:933 log_suse.txt/(13290:13345): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 15:50:57:934 log_suse.txt/(13290:13345): Se creó un nuevo hilo número 2 del programa 3
+[INFO] 15:50:57:935 log_suse.txt/(13290:13345): Se creó un nuevo hilo número 3 del programa 3
+[INFO] 15:50:57:936 log_suse.txt/(13290:13345): Se creó un nuevo hilo número 4 del programa 3
+[ERROR] 15:50:58:615 log_suse.txt/(13290:13345): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:58:697 log_suse.txt/(13290:13345): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:50:59:495 log_suse.txt/(13290:13345): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:51:01:301 log_suse.txt/(13290:13290): Se ha aceptado una conexion: 5
+
+[INFO] 15:51:01:302 log_suse.txt/(13290:13290): Handler asignado
+
+[INFO] 15:51:01:302 log_suse.txt/(13290:13350): Se creó un nuevo hilo número 0 del programa 4
+[INFO] 15:51:01:303 log_suse.txt/(13290:13350): Se creó un nuevo hilo número 1 del programa 4
+[ERROR] 15:51:22:223 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:22:463 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:22:704 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:22:943 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:23:183 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:23:424 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:23:664 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:23:903 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:24:143 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:24:383 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:24:623 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:24:863 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:25:103 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:25:343 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:25:583 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:25:823 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:26:63 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:26:303 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:26:544 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:26:783 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:27:24 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:27:263 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:27:504 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:27:743 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:27:983 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:28:223 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:28:463 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:28:703 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:28:943 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:29:183 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:29:423 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:29:663 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:29:904 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:30:143 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:30:384 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:30:623 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:30:863 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:31:104 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:31:344 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:31:583 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:31:823 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:32:63 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:32:303 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:32:543 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:32:783 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:33:23 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:33:263 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:33:503 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:33:743 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:33:988 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:34:227 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:34:471 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:34:711 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:34:951 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:35:191 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:35:431 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:35:675 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:35:915 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:36:156 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:36:405 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:36:643 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:36:883 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:37:123 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:37:363 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:37:607 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:37:847 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:38:87 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:38:327 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:38:567 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:38:808 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:39:47 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:39:287 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:39:528 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:39:767 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:40:7 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:40:248 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:40:488 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:40:728 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:40:967 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:41:207 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:41:451 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:41:712 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:41:963 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:42:203 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:42:443 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:42:683 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:42:923 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:43:163 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:43:405 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:43:648 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:43:887 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:44:127 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:44:367 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:44:607 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:44:847 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:45:87 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:45:327 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:45:567 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:45:807 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:46:48 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:46:287 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:46:527 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:46:767 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:47:7 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:47:248 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:47:487 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:47:727 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:47:967 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:48:207 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:48:447 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:48:687 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:48:927 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:49:167 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:49:407 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:49:647 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:49:887 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:50:127 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:50:367 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:50:607 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:50:847 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:51:87 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:51:327 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:51:568 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:51:807 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:52:47 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:52:287 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:52:527 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:52:767 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:53:7 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:53:247 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:53:487 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:53:727 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:53:967 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:54:207 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:54:447 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:54:687 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:54:928 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:55:167 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:55:407 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:55:648 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:55:887 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:56:127 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:56:367 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:56:607 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:56:847 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:57:87 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:57:327 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:57:567 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:57:807 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:58:47 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:58:287 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:58:527 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:58:767 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:59:7 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:59:247 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:59:487 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:59:727 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:51:59:967 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:00:207 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:00:447 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:00:687 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:00:927 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:01:167 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:01:407 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:01:647 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:01:887 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:02:127 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:02:367 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:02:607 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:02:848 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:03:87 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:03:327 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:03:567 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:03:807 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:04:47 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:04:288 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:04:527 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:04:767 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:05:7 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:05:247 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:05:487 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:05:727 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:05:972 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:06:211 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:06:451 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:06:691 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:06:931 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:07:171 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:07:412 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:07:651 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:07:893 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:08:135 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:08:383 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:08:624 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:08:863 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:09:103 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:09:343 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:09:584 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:09:827 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:10:71 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:10:313 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:10:551 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:10:791 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:11:32 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:11:271 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:11:511 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:11:751 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:11:992 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:12:231 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:12:471 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:12:711 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:12:955 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:13:195 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:13:435 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:13:676 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:13:915 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:14:155 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:14:395 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:14:635 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:14:875 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:15:115 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:15:355 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:15:595 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:15:837 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:16:75 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:16:315 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:16:555 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:16:796 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:17:35 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:17:275 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:17:515 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:17:755 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:17:995 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:18:235 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:18:476 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:18:715 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:18:955 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:19:195 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:19:435 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:19:675 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:19:915 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:20:155 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:20:395 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:20:637 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:20:876 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:21:120 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:21:361 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:21:599 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:21:839 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:22:79 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:22:319 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:22:559 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:22:799 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:23:39 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:23:279 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:23:519 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:23:759 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:23:0 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:24:239 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:24:479 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:24:719 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:24:959 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:25:199 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:25:439 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:25:603 log_suse.txt/(13290:13345): suseWait: el hilo a bloquear ya se encontraba bloqueado
+[ERROR] 15:52:25:683 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:25:923 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:26:163 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:26:403 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:26:643 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:26:883 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:27:123 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:27:363 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:27:603 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:27:843 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:28:83 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:28:323 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:28:564 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:28:803 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:29:47 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:29:287 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:29:527 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:29:767 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:30:8 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:30:171 log_suse.txt/(13290:13345): suseWait: el hilo a bloquear ya se encontraba bloqueado
+[ERROR] 15:52:30:247 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:30:487 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:30:727 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:30:967 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:31:207 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:31:447 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:31:692 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:31:932 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:32:171 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:32:411 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:32:652 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:32:891 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:33:131 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:33:371 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:33:611 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:33:851 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:34:91 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:34:331 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:34:571 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:34:811 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:35:52 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:35:292 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:35:531 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:35:771 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:36:11 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:36:251 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:36:491 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:36:731 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:36:971 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:37:211 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:37:451 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:37:691 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:37:931 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:38:171 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:38:411 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:38:651 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:38:891 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:39:132 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:39:371 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:39:611 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:39:851 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:40:91 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:40:335 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:40:575 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:40:815 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:41:55 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:41:295 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:41:535 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:41:775 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:42:15 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:42:255 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:42:495 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:42:735 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:42:975 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:43:215 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:43:456 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:43:695 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:43:935 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:44:175 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:44:415 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:44:656 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:44:895 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:45:135 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:45:376 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:45:615 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:45:855 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:46:95 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:46:335 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:46:575 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:46:815 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:47:55 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:47:295 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:47:535 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:47:775 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:48:15 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:48:256 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:48:495 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:48:735 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:48:975 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:49:216 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:49:455 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:49:695 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:49:935 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:50:175 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:50:415 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:50:655 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:50:895 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:51:136 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:51:375 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:51:615 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:51:855 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:52:95 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:52:339 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:52:579 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:52:820 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:53:59 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:53:299 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:53:539 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:53:779 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:54:19 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:54:259 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:54:499 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:54:739 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:54:980 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:55:219 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:55:459 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:55:700 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:55:939 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:56:179 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:56:420 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:56:659 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:56:900 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:57:139 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:57:379 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:57:620 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:57:859 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:58:99 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:58:339 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:58:579 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:58:819 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:59:59 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:59:299 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:59:539 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[ERROR] 15:52:59:780 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:52:59:980 log_suse.txt/(13290:13345):  Se cerro el hilo: 4
+[ERROR] 15:53:00:19 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:53:00:219 log_suse.txt/(13290:13345):  Se cerro el hilo: 2
+[ERROR] 15:53:00:259 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:53:00:459 log_suse.txt/(13290:13345):  Se cerro el hilo: 1
+[ERROR] 15:53:00:499 log_suse.txt/(13290:13350): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 15:53:00:859 log_suse.txt/(13290:13345):  Se cerro el hilo: 3
+[INFO] 15:53:00:981 log_suse.txt/(13290:13345):  Se cerro el hilo: 0
+[INFO] 15:53:00:984 log_suse.txt/(13290:13345): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:53:03:59 log_suse.txt/(13290:13350):  Se cerro el hilo: 1
+[INFO] 15:53:03:99 log_suse.txt/(13290:13350):  Se cerro el hilo: 0
+[INFO] 15:53:03:104 log_suse.txt/(13290:13350): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:53:34:293 log_suse.txt/(13431:13431): Se ha aceptado una conexion: 5
+
+[INFO] 15:53:34:294 log_suse.txt/(13431:13431): Handler asignado
+
+[INFO] 15:53:34:294 log_suse.txt/(13431:13441): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:53:34:294 log_suse.txt/(13431:13441): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:54:22:31 log_suse.txt/(13465:13465): Se ha aceptado una conexion: 5
+
+[INFO] 15:54:22:34 log_suse.txt/(13465:13465): Handler asignado
+
+[INFO] 15:54:22:36 log_suse.txt/(13465:13476): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 15:54:22:36 log_suse.txt/(13465:13476): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 15:54:22:37 log_suse.txt/(13465:13476): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 15:54:22:37 log_suse.txt/(13465:13476): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 15:54:22:37 log_suse.txt/(13465:13476): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 15:54:24:244 log_suse.txt/(13465:13465): Se ha aceptado una conexion: 6
+
+[INFO] 15:54:24:244 log_suse.txt/(13465:13465): Handler asignado
+
+[INFO] 15:54:24:245 log_suse.txt/(13465:13481): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 15:54:24:245 log_suse.txt/(13465:13481): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 15:55:49:699 log_suse.txt/(13465:13476):  Se cerro el hilo: 2
+[INFO] 15:55:50:700 log_suse.txt/(13465:13476): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:56:27:269 log_suse.txt/(13465:13481):  Se cerro el hilo: 1
+[INFO] 15:56:27:307 log_suse.txt/(13465:13481):  Se cerro el hilo: 0
+[INFO] 15:56:27:309 log_suse.txt/(13465:13481): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:56:48:730 log_suse.txt/(13465:13465): Se ha aceptado una conexion: 7
+
+[INFO] 15:56:48:731 log_suse.txt/(13465:13465): Handler asignado
+
+[INFO] 15:56:48:731 log_suse.txt/(13465:13524): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 15:56:48:731 log_suse.txt/(13465:13524): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 15:56:48:731 log_suse.txt/(13465:13524): Se creó un nuevo hilo número 2 del programa 3
+[INFO] 15:56:48:731 log_suse.txt/(13465:13524): Se creó un nuevo hilo número 3 del programa 3
+[INFO] 15:56:48:731 log_suse.txt/(13465:13524): Se creó un nuevo hilo número 4 del programa 3
+[INFO] 15:56:53:436 log_suse.txt/(13465:13465): Se ha aceptado una conexion: 5
+
+[INFO] 15:56:53:436 log_suse.txt/(13465:13465): Handler asignado
+
+[INFO] 15:56:53:436 log_suse.txt/(13465:13529): Se creó un nuevo hilo número 0 del programa 4
+[INFO] 15:56:53:436 log_suse.txt/(13465:13529): Se creó un nuevo hilo número 1 del programa 4
+[INFO] 15:58:27:771 log_suse.txt/(13465:13524):  Se cerro el hilo: 1
+[INFO] 15:58:28:411 log_suse.txt/(13465:13524):  Se cerro el hilo: 3
+[INFO] 15:58:28:452 log_suse.txt/(13465:13524): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 15:58:50:402 log_suse.txt/(13465:13529): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:18:18:702 log_suse.txt/(14317:14317): Falló al aceptar conexión
+[INFO] 00:18:27:436 log_suse.txt/(14340:14340): Falló al aceptar conexión
+[INFO] 00:18:59:242 log_suse.txt/(14373:14373): Falló al aceptar conexión
+[INFO] 00:19:57:611 log_suse.txt/(14417:14417): Falló al aceptar conexión
+[INFO] 00:20:33:41 log_suse.txt/(14437:14437): Se ha aceptado una conexion: 5
+
+[INFO] 00:20:33:41 log_suse.txt/(14437:14437): Handler asignado
+
+[INFO] 00:20:33:42 log_suse.txt/(14437:14671): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:20:33:42 log_suse.txt/(14437:14671): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:20:33:42 log_suse.txt/(14437:14671): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 00:20:33:42 log_suse.txt/(14437:14671): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 00:20:33:42 log_suse.txt/(14437:14671): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 00:20:47:77 log_suse.txt/(14437:14671):  Se cerro el hilo: 4
+[INFO] 00:20:58:597 log_suse.txt/(14437:14671):  Se cerro el hilo: 1
+[INFO] 00:21:05:37 log_suse.txt/(14437:14671):  Se cerro el hilo: 3
+[INFO] 00:21:11:597 log_suse.txt/(14437:14671):  Se cerro el hilo: 2
+[INFO] 00:21:11:877 log_suse.txt/(14437:14671):  Se cerro el hilo: 0
+[INFO] 00:21:11:879 log_suse.txt/(14437:14671): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:21:19:946 log_suse.txt/(14437:14437): Se ha aceptado una conexion: 6
+
+[INFO] 00:21:19:946 log_suse.txt/(14437:14437): Handler asignado
+
+[INFO] 00:21:19:947 log_suse.txt/(14437:14754): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 00:21:19:947 log_suse.txt/(14437:14754): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 00:21:19:947 log_suse.txt/(14437:14754): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 00:21:19:947 log_suse.txt/(14437:14754): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 00:21:19:947 log_suse.txt/(14437:14754): Se creó un nuevo hilo número 4 del programa 2
+[INFO] 00:21:34:345 log_suse.txt/(14437:14754):  Se cerro el hilo: 3
+[INFO] 00:21:40:195 log_suse.txt/(14437:14437): Se ha aceptado una conexion: 5
+
+[INFO] 00:21:40:195 log_suse.txt/(14437:14437): Handler asignado
+
+[INFO] 00:21:40:195 log_suse.txt/(14437:14788): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 00:21:40:195 log_suse.txt/(14437:14788): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 00:21:40:195 log_suse.txt/(14437:14788): Se creó un nuevo hilo número 2 del programa 3
+[INFO] 00:21:40:195 log_suse.txt/(14437:14788): Se creó un nuevo hilo número 3 del programa 3
+[INFO] 00:21:40:195 log_suse.txt/(14437:14788): Se creó un nuevo hilo número 4 del programa 3
+[INFO] 00:21:45:869 log_suse.txt/(14437:14754):  Se cerro el hilo: 1
+[INFO] 00:21:52:389 log_suse.txt/(14437:14754):  Se cerro el hilo: 2
+[INFO] 00:21:59:29 log_suse.txt/(14437:14754):  Se cerro el hilo: 4
+[INFO] 00:21:59:149 log_suse.txt/(14437:14754):  Se cerro el hilo: 0
+[INFO] 00:21:59:150 log_suse.txt/(14437:14754): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:21:59:633 log_suse.txt/(14437:14788):  Se cerro el hilo: 1
+[INFO] 00:22:06:153 log_suse.txt/(14437:14788):  Se cerro el hilo: 3
+[INFO] 00:22:06:701 log_suse.txt/(14437:14437): Se ha aceptado una conexion: 7
+
+[INFO] 00:22:06:702 log_suse.txt/(14437:14437): Handler asignado
+
+[INFO] 00:22:06:702 log_suse.txt/(14437:14823): Se creó un nuevo hilo número 0 del programa 4
+[INFO] 00:22:06:702 log_suse.txt/(14437:14823): Se creó un nuevo hilo número 1 del programa 4
+[INFO] 00:22:06:703 log_suse.txt/(14437:14823): Se creó un nuevo hilo número 2 del programa 4
+[INFO] 00:22:06:703 log_suse.txt/(14437:14823): Se creó un nuevo hilo número 3 del programa 4
+[INFO] 00:22:06:703 log_suse.txt/(14437:14823): Se creó un nuevo hilo número 4 del programa 4
+[INFO] 00:22:12:633 log_suse.txt/(14437:14788):  Se cerro el hilo: 2
+[INFO] 00:22:19:273 log_suse.txt/(14437:14788):  Se cerro el hilo: 4
+[INFO] 00:22:19:393 log_suse.txt/(14437:14788):  Se cerro el hilo: 0
+[INFO] 00:22:19:395 log_suse.txt/(14437:14788): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:22:26:225 log_suse.txt/(14437:14823):  Se cerro el hilo: 1
+[INFO] 00:22:32:665 log_suse.txt/(14437:14823):  Se cerro el hilo: 2
+[INFO] 00:22:39:225 log_suse.txt/(14437:14823):  Se cerro el hilo: 3
+[INFO] 00:22:45:793 log_suse.txt/(14437:14823):  Se cerro el hilo: 4
+[INFO] 00:22:45:913 log_suse.txt/(14437:14823):  Se cerro el hilo: 0
+[INFO] 00:22:45:914 log_suse.txt/(14437:14823): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:22:55:341 log_suse.txt/(14437:14437): Se ha aceptado una conexion: 6
+
+[INFO] 00:22:55:341 log_suse.txt/(14437:14437): Handler asignado
+
+[INFO] 00:22:55:342 log_suse.txt/(14437:14887): Se creó un nuevo hilo número 0 del programa 5
+[INFO] 00:22:55:342 log_suse.txt/(14437:14887): Se creó un nuevo hilo número 1 del programa 5
+[INFO] 00:23:03:590 log_suse.txt/(14437:14437): Se ha aceptado una conexion: 5
+
+[INFO] 00:23:03:590 log_suse.txt/(14437:14437): Handler asignado
+
+[INFO] 00:23:03:590 log_suse.txt/(14437:14933): Se creó un nuevo hilo número 0 del programa 6
+[INFO] 00:23:03:590 log_suse.txt/(14437:14933): Se creó un nuevo hilo número 1 del programa 6
+[INFO] 00:23:03:590 log_suse.txt/(14437:14933): Se creó un nuevo hilo número 2 del programa 6
+[INFO] 00:23:03:591 log_suse.txt/(14437:14933): Se creó un nuevo hilo número 3 del programa 6
+[INFO] 00:23:03:591 log_suse.txt/(14437:14933): Se creó un nuevo hilo número 4 del programa 6
+[INFO] 00:24:23:673 log_suse.txt/(14437:14933):  Se cerro el hilo: 2
+[INFO] 00:24:23:913 log_suse.txt/(14437:14933):  Se cerro el hilo: 1
+[INFO] 00:24:24:113 log_suse.txt/(14437:14933): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:24:57:873 log_suse.txt/(14437:14887):  Se cerro el hilo: 1
+[INFO] 00:24:57:913 log_suse.txt/(14437:14887):  Se cerro el hilo: 0
+[INFO] 00:24:57:915 log_suse.txt/(14437:14887): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:25:02:339 log_suse.txt/(14437:14437): Se ha aceptado una conexion: 7
+
+[INFO] 00:25:02:339 log_suse.txt/(14437:14437): Handler asignado
+
+[INFO] 00:25:02:342 log_suse.txt/(14437:14963): Se creó un nuevo hilo número 0 del programa 7
+[INFO] 00:25:02:345 log_suse.txt/(14437:14963): Se creó un nuevo hilo número 1 del programa 7
+[INFO] 00:25:02:345 log_suse.txt/(14437:14963): Se creó un nuevo hilo número 2 del programa 7
+[INFO] 00:25:02:346 log_suse.txt/(14437:14963): Se creó un nuevo hilo número 3 del programa 7
+[INFO] 00:25:02:346 log_suse.txt/(14437:14963): Se creó un nuevo hilo número 4 del programa 7
+[INFO] 00:25:08:777 log_suse.txt/(14437:14437): Se ha aceptado una conexion: 5
+
+[INFO] 00:25:08:777 log_suse.txt/(14437:14437): Handler asignado
+
+[INFO] 00:25:08:777 log_suse.txt/(14437:14978): Se creó un nuevo hilo número 0 del programa 8
+[INFO] 00:25:08:777 log_suse.txt/(14437:14978): Se creó un nuevo hilo número 1 del programa 8
+[INFO] 00:26:43:361 log_suse.txt/(14437:14963):  Se cerro el hilo: 3
+[INFO] 00:26:43:601 log_suse.txt/(14437:14963):  Se cerro el hilo: 1
+[INFO] 00:26:44:281 log_suse.txt/(14437:14963): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:40:24:804 log_suse.txt/(16335:16335): Se ha aceptado una conexion: 5
+
+[INFO] 00:40:24:806 log_suse.txt/(16335:16335): Handler asignado
+
+[INFO] 00:40:24:807 log_suse.txt/(16335:16351): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:40:24:807 log_suse.txt/(16335:16351): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:40:24:807 log_suse.txt/(16335:16351): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 00:40:24:807 log_suse.txt/(16335:16351): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 00:40:24:807 log_suse.txt/(16335:16351): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 00:40:39:210 log_suse.txt/(16335:16351): Suse Close: Se cerró el hilo 3
+
+[INFO] 00:40:45:691 log_suse.txt/(16335:16351): Suse Close: Se cerró el hilo 4
+
+[INFO] 00:40:57:210 log_suse.txt/(16335:16351): Suse Close: Se cerró el hilo 1
+
+[INFO] 00:41:03:742 log_suse.txt/(16335:16351): Suse Close: Se cerró el hilo 2
+
+[ERROR] 00:41:03:822 log_suse.txt/(16335:16351): No se encuentra el hilo a joinear
+
+[ERROR] 00:41:03:903 log_suse.txt/(16335:16351): No se encuentra el hilo a joinear
+
+[ERROR] 00:41:03:982 log_suse.txt/(16335:16351): No se encuentra el hilo a joinear
+
+[INFO] 00:41:04:23 log_suse.txt/(16335:16351): Suse Close: Se cerró el hilo 0
+
+[INFO] 00:41:31:401 log_suse.txt/(16403:16403): Se ha aceptado una conexion: 5
+
+[INFO] 00:41:31:402 log_suse.txt/(16403:16403): Handler asignado
+
+[INFO] 00:41:31:403 log_suse.txt/(16403:16412): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:41:31:403 log_suse.txt/(16403:16412): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:41:33:465 log_suse.txt/(16403:16403): Se ha aceptado una conexion: 6
+
+[INFO] 00:41:33:465 log_suse.txt/(16403:16403): Handler asignado
+
+[INFO] 00:41:33:473 log_suse.txt/(16403:16417): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 00:41:33:473 log_suse.txt/(16403:16417): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 00:41:33:473 log_suse.txt/(16403:16417): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 00:41:33:474 log_suse.txt/(16403:16417): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 00:41:33:474 log_suse.txt/(16403:16417): Se creó un nuevo hilo número 4 del programa 2
+[ERROR] 00:41:33:754 log_suse.txt/(16403:16417): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 00:41:33:834 log_suse.txt/(16403:16417): Se joinea hilo: 2
+
+[ERROR] 00:41:33:834 log_suse.txt/(16403:16417): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 00:41:33:914 log_suse.txt/(16403:16417): Se joinea hilo: 3
+
+[ERROR] 00:41:33:915 log_suse.txt/(16403:16417): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 00:41:33:994 log_suse.txt/(16403:16417): Se joinea hilo: 4
+
+[ERROR] 00:41:33:994 log_suse.txt/(16403:16417): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 00:41:55:570 log_suse.txt/(16433:16433): Se ha aceptado una conexion: 5
+
+[INFO] 00:41:55:570 log_suse.txt/(16433:16433): Handler asignado
+
+[INFO] 00:41:55:571 log_suse.txt/(16433:16442): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:41:55:571 log_suse.txt/(16433:16442): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:41:58:386 log_suse.txt/(16433:16433): Se ha aceptado una conexion: 6
+
+[INFO] 00:41:58:386 log_suse.txt/(16433:16433): Handler asignado
+
+[INFO] 00:41:58:388 log_suse.txt/(16433:16447): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 00:41:58:388 log_suse.txt/(16433:16447): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 00:41:58:398 log_suse.txt/(16433:16447): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 00:41:58:398 log_suse.txt/(16433:16447): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 00:41:58:398 log_suse.txt/(16433:16447): Se creó un nuevo hilo número 4 del programa 2
+[ERROR] 00:41:58:680 log_suse.txt/(16433:16447): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 00:41:58:758 log_suse.txt/(16433:16447): Se joinea hilo: 2
+
+[ERROR] 00:41:58:758 log_suse.txt/(16433:16447): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 00:41:58:838 log_suse.txt/(16433:16447): Se joinea hilo: 3
+
+[ERROR] 00:41:58:838 log_suse.txt/(16433:16447): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 00:41:58:918 log_suse.txt/(16433:16447): Se joinea hilo: 4
+
+[ERROR] 00:41:58:919 log_suse.txt/(16433:16447): Se planifo el hilo: ERROR MESSAGE
+
+[INFO] 00:43:23:223 log_suse.txt/(16518:16518): Se ha aceptado una conexion: 5
+
+[INFO] 00:43:23:223 log_suse.txt/(16518:16518): Handler asignado
+
+[INFO] 00:43:23:223 log_suse.txt/(16518:16733): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:43:23:224 log_suse.txt/(16518:16733): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:43:23:224 log_suse.txt/(16518:16733): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 00:43:23:224 log_suse.txt/(16518:16733): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 00:43:23:224 log_suse.txt/(16518:16733): Se creó un nuevo hilo número 4 del programa 1
+[ERROR] 00:43:37:842 log_suse.txt/(16518:16733): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 00:43:37:842 log_suse.txt/(16518:16733):  Se cerro el hilo: 2
+[INFO] 00:43:49:303 log_suse.txt/(16518:16733):  Se cerro el hilo: 1
+[ERROR] 00:43:55:746 log_suse.txt/(16518:16733): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 00:43:55:746 log_suse.txt/(16518:16733):  Se cerro el hilo: 3
+[ERROR] 00:44:02:306 log_suse.txt/(16518:16733): desbloquearHilo: (NDPN)el hilo a desbloquear no estaba bloqueado
+[INFO] 00:44:02:306 log_suse.txt/(16518:16733):  Se cerro el hilo: 4
+[INFO] 00:44:02:426 log_suse.txt/(16518:16733):  Se cerro el hilo: 0
+[INFO] 00:44:02:427 log_suse.txt/(16518:16733): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:46:14:844 log_suse.txt/(17155:17155): Se ha aceptado una conexion: 5
+
+[INFO] 00:46:14:844 log_suse.txt/(17155:17155): Handler asignado
+
+[INFO] 00:46:14:844 log_suse.txt/(17155:17165): Se creó un nuevo hilo número 0 del programa 1
+[INFO] 00:46:14:844 log_suse.txt/(17155:17165): Se creó un nuevo hilo número 1 del programa 1
+[INFO] 00:46:14:844 log_suse.txt/(17155:17165): Se creó un nuevo hilo número 2 del programa 1
+[INFO] 00:46:14:844 log_suse.txt/(17155:17165): Se creó un nuevo hilo número 3 del programa 1
+[INFO] 00:46:14:844 log_suse.txt/(17155:17165): Se creó un nuevo hilo número 4 del programa 1
+[INFO] 00:46:29:350 log_suse.txt/(17155:17165): Suse Close: Se cerró el hilo 2
+
+[INFO] 00:46:35:910 log_suse.txt/(17155:17165): Suse Close: Se cerró el hilo 3
+
+[INFO] 00:46:47:510 log_suse.txt/(17155:17165): Suse Close: Se cerró el hilo 1
+
+[INFO] 00:46:53:950 log_suse.txt/(17155:17165): Suse Close: Se cerró el hilo 4
+
+[ERROR] 00:46:54:30 log_suse.txt/(17155:17165): No se encuentra el hilo a joinear
+
+[INFO] 00:46:54:70 log_suse.txt/(17155:17165): Suse Close: Se cerró el hilo 0
+
+[INFO] 00:46:54:72 log_suse.txt/(17155:17165): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:47:24:13 log_suse.txt/(17155:17155): Se ha aceptado una conexion: 6
+
+[INFO] 00:47:24:13 log_suse.txt/(17155:17155): Handler asignado
+
+[INFO] 00:47:24:16 log_suse.txt/(17155:17237): Se creó un nuevo hilo número 0 del programa 2
+[INFO] 00:47:24:16 log_suse.txt/(17155:17237): Se creó un nuevo hilo número 1 del programa 2
+[INFO] 00:47:24:17 log_suse.txt/(17155:17237): Se creó un nuevo hilo número 2 del programa 2
+[INFO] 00:47:24:17 log_suse.txt/(17155:17237): Se creó un nuevo hilo número 3 del programa 2
+[INFO] 00:47:24:17 log_suse.txt/(17155:17237): Se creó un nuevo hilo número 4 del programa 2
+[INFO] 00:47:48:982 log_suse.txt/(17155:17155): Se ha aceptado una conexion: 5
+
+[INFO] 00:47:48:983 log_suse.txt/(17155:17155): Handler asignado
+
+[INFO] 00:47:48:983 log_suse.txt/(17155:17379): Se creó un nuevo hilo número 0 del programa 3
+[INFO] 00:47:48:983 log_suse.txt/(17155:17379): Se creó un nuevo hilo número 1 del programa 3
+[INFO] 00:49:49:48 log_suse.txt/(17155:17237): Suse Close: Se cerró el hilo 1
+
+[INFO] 00:49:49:368 log_suse.txt/(17155:17237): Suse Close: Se cerró el hilo 2
+
+[INFO] 00:49:49:728 log_suse.txt/(17155:17379): Suse Close: Se cerró el hilo 1
+
+[INFO] 00:49:49:769 log_suse.txt/(17155:17237): Suse Close: Se cerró el hilo 3
+
+[INFO] 00:49:49:769 log_suse.txt/(17155:17379): Suse Close: Se cerró el hilo 0
+
+[INFO] 00:49:49:771 log_suse.txt/(17155:17379): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
+[INFO] 00:49:50:8 log_suse.txt/(17155:17237): Suse Close: Se cerró el hilo 4
+
+[INFO] 00:49:50:48 log_suse.txt/(17155:17237): Suse Close: Se cerró el hilo 0
+
+[INFO] 00:49:50:50 log_suse.txt/(17155:17237): Se ha producido un problema de conexión y el hilo programa se dejará de planificar: 100.
+
