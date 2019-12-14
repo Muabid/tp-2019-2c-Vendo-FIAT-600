@@ -14,7 +14,7 @@
 #include <sys/mman.h>
 
 typedef struct Programa{
-	int id;
+	char* id;
 	t_list* segmentos;
 }Programa;
 

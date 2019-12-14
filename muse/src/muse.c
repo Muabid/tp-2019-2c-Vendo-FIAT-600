@@ -72,15 +72,7 @@ void* handler_clients(void* socket){
 		switch(message->head){
 			case MUSE_INIT:{
 				uint32_t pid = *((uint32_t*)message->content);
-				char* pid_char = string_itoa(pid);
-				id_cliente = "";
-				struct sockaddr_in addr;
-				uint32_t addrlen = sizeof(addr);
-				getpeername(socket, (struct sockaddr *)&addr, &addrlen);
-				char* ip = inet_ntoa(addr.sin_addr);
-				string_append(&id_cliente,ip);
-				string_append(&id_cliente,"-");
-				string_append(&id_cliente,pid_char);
+				id_cliente = string_itoa(pid);
 				log_info(logger,"Cliente, id: %s",id_cliente);
 				Programa* programa = malloc(sizeof(Programa));
 				programa->segmentos = list_create();
@@ -88,12 +80,11 @@ void* handler_clients(void* socket){
 				pthread_mutex_lock(&mut_listaProgramas);
 				list_add(listaProgramas,programa);
 				pthread_mutex_unlock(&mut_listaProgramas);
-				free(pid_char);
+				send_message(muse_sock,OK,&pid,sizeof(uint32_t));
 				break;
 			}
 			case MUSE_ALLOC:{
-					void* content = message->content;
-					void* aux = content;
+					void* aux = message->content;
 					uint32_t tam;
 					size_t len;
 					memcpy(&tam,aux,sizeof(uint32_t));
@@ -108,7 +99,6 @@ void* handler_clients(void* socket){
 						send_status(muse_sock,ERROR,res);
 						//log
 					}
-					free(content);
 					break;
 			}
 			case MUSE_FREE:{

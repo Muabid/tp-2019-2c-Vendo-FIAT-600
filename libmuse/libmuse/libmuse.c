@@ -211,8 +211,12 @@ int muse_init(int id, char* ip, int puerto){
 			puts("Error al conectar al servidor");
 			return -1;
 		}
+		send_message(sock,MUSE_INIT,&id,sizeof(uint32_t));
+		t_message* message = recv_message(sock);
+		uint32_t pid = *((uint32_t*)message->content);
+		free_t_message(message);
 		socketMuse = sock;
-		id_muse = string_itoa(sock);
+		id_muse = string_itoa(pid);
 
 	}
 	return initialized;
@@ -256,7 +260,8 @@ uint32_t muse_alloc(uint32_t tam){
 	t_message* message = recv_message(socketMuse);
 	int res;
 	if(message->head == ERROR){
-		//log
+		perror("ERROR MUSE ALLOC");
+		return -1;
 	}
 	res = get_status(message);
 	free_t_message(message);
@@ -270,7 +275,8 @@ void muse_free(uint32_t dir){
 	void* aux = content;
 	memcpy(aux,&dir,sizeof(dir));
 	aux += sizeof(dir);
-	memcpy(aux,strlen(id_muse),sizeof(size_t));
+	size_t idMuseLen = strlen(id_muse);
+	memcpy(aux, &idMuseLen, sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
 	send_message(socketMuse,MUSE_FREE,content,sizeT);
@@ -279,13 +285,11 @@ void muse_free(uint32_t dir){
 	int res;
 	if(message->head == ERROR){
 		puts("la re puta que te pario");
+		free_t_message(message);
 		raise(SIGSEGV);
-	}
-	if(message->content == -1){
-		raise(SIGSEGV);
-		//raise(5); ?
 	}
 	res = get_status(message);
+	free_t_message(message);
 	printf("Free realizado para %zu\n",dir);
 }
 
@@ -307,11 +311,13 @@ int muse_get(void* dst, uint32_t src, size_t n){
 	t_message* message = recv_message(socketMuse);
 	int res;
 	if(message->head == ERROR){
-		return -1;
+		res = -1;
 	}else {
 		memcpy(dst,message->content,message->size);
-		return 0;
+		res = 0;
 	}
+	free_t_message(message);
+	return res;
 }
 
 //void* muse_cpy(char* id, uint32_t dst, void* src, size_t n);
@@ -336,6 +342,7 @@ int muse_cpy(uint32_t dst, void* src, int n){
 	}else{
 		//algo
 	}
+	free_t_message(message);
 	free(content);
 	return 0;
 
