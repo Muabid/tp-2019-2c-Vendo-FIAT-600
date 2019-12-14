@@ -541,7 +541,7 @@ t_list* auxiliarListaParaBusqueda;
 
 //FUNCIONES A EJECUTAR EN EL INICIO
 void load_suse_config() {
-	t_config* config = config_create("suse.config");
+	t_config* config = config_create("../suse.config");
 	listen_port = config_get_int_value(config, "LISTEN_PORT");
 	metrics_timer = config_get_int_value(config, "METRICS_TIMER");
 	max_multiprog = config_get_int_value(config, "MAX_MULTIPROG");
@@ -1084,7 +1084,7 @@ void* handler(void* socketConectado) {
 
 int main() {
 	signal(SIGINT, sigterm);
-	logger = log_create("logger", "log_suse.txt", true, LOG_LEVEL_DEBUG);
+	logger = log_create("../logger", "log_suse.txt", true, LOG_LEVEL_DEBUG);
 
 	load_suse_config();
 	cargarSemaforos();
