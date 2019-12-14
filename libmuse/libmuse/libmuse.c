@@ -1,16 +1,4 @@
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <errno.h>
-#include <string.h>
-#include <netdb.h>
-#include <sys/types.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <sys/socket.h>
-#include <string.h>
-#include <stdbool.h>
+
 #include "libmuse.h"
 
 //DECLARACIONES FUNCIONES Y TYPEDEF
@@ -224,6 +212,7 @@ int muse_init(int id, char* ip, int puerto){
 			return -1;
 		}
 		socketMuse = sock;
+		id_muse = string_itoa(sock);
 
 	}
 	return initialized;
@@ -241,7 +230,7 @@ int muse_init(int id, char* ip, int puerto){
 //	}
 
 void muse_close(){
-	if(initialized){//si ya esta cerrado no hace nada
+	if(!initialized){//si ya esta cerrado no hace nada
 		return;
 	}
 	send_status(socketMuse,MUSE_CLOSE,1);
@@ -270,6 +259,7 @@ uint32_t muse_alloc(uint32_t tam){
 		//log
 	}
 	res = get_status(message);
+	free_t_message(message);
 	return res;
 }
 
@@ -309,7 +299,7 @@ int muse_get(void* dst, uint32_t src, size_t n){
 	memcpy(aux,&n,sizeof(size_t));
 	aux += sizeof(size_t);
 	size_t len_id = strlen(id_muse);
-	memcpy(aux, len_id, sizeof(size_t));
+	memcpy(aux, &len_id, sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
 	send_message(socketMuse,MUSE_GET,content,sizeT);
@@ -336,7 +326,7 @@ int muse_cpy(uint32_t dst, void* src, int n){
 	memcpy(aux,&n,sizeof(int));
 	aux+=sizeof(int);
 	size_t len_id = strlen(id_muse);
-	memcpy(aux, len_id, sizeof(size_t));
+	memcpy(aux, &len_id, sizeof(size_t));
 	aux += sizeof(size_t);
 	memcpy(aux,id_muse,strlen(id_muse));
 	send_message(socketMuse,MUSE_CPY,content,size);
@@ -346,6 +336,7 @@ int muse_cpy(uint32_t dst, void* src, int n){
 	}else{
 		//algo
 	}
+	free(content);
 	return 0;
 
 }

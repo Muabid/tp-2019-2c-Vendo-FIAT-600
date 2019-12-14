@@ -41,7 +41,7 @@ void inicializarBitmap();
 void inicializarMemoriaVirtual(char* rutaSwap);
 void inicializarSemaforos();
 void* handler_clients(void* socket);
-
+void init_muse_server();
 
 int muse_alloc(char* id, uint32_t tamanio);
 int muse_free(char* id, uint32_t dir);

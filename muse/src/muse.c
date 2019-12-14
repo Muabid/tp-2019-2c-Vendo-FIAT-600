@@ -4,8 +4,8 @@ int main(int argc, char **argv){
 	rutaSwapping = string_duplicate(argv[0]);
 	cargarConfiguracion();
 	inicializarEstructuras(rutaSwapping);
-	inicializarLogger(string_duplicate(argv[1]));
-
+//	inicializarLogger(string_duplicate(argv[1]));
+	inicializarLogger("Debug.log");
 //	Programa* prog1 = malloc(sizeof(Programa));
 //	prog1->segmentos = list_create();
 //	prog1->id = string_new();
@@ -121,22 +121,23 @@ void* handler_clients(void* socket){
 				}
 				break;
 			}
-	//		case MUSE_GET:{
-	//			uint32_t src;
-	//			size_t n;
-	//			void*aux=message->content;
-	//			memcpy(&src,aux,sizeof(uint32_t));
-	//			aux+=sizeof(uint32_t);
-	//			memcpy(&n,aux,sizeof(size_t));
-	//			void* res = muse_get(id_cliente,src,n);
-	//			if(res != NULL){
-	//				send_message(muse_sock,OK,res,n);
-	//				free(res);
-	//			}else{
-	//				send_status(muse_sock,ERROR,-1);
-	//			}
-	//			break;
-	//		}
+			case MUSE_GET:{
+				uint32_t src;
+				size_t n;
+				void*aux=message->content;
+				memcpy(&src,aux,sizeof(uint32_t));
+				aux+=sizeof(uint32_t);
+				memcpy(&n,aux,sizeof(size_t));
+				void* res = malloc(n);
+				muse_get(id_cliente,res,src,n);
+				if(res != NULL){
+					send_message(muse_sock,OK,res,n);
+					free(res);
+				}else{
+					send_status(muse_sock,ERROR,-1);
+				}
+				break;
+			}
 			case MUSE_CPY:{
 				uint32_t dst;
 				int n;
@@ -220,7 +221,7 @@ void* handler_clients(void* socket){
 
 void init_muse_server() {
 	listener_socket = init_server(PUERTO);
-	//log_info(logger, "Servidor levantado!!!");
+	log_info(logger, "Servidor levantado!!! Eschuchando en %i",PUERTO);
 	struct sockaddr muse_cli;
 	socklen_t len = sizeof(muse_cli);
 	do {

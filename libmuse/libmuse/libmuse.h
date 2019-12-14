@@ -11,7 +11,24 @@
 #include <stdbool.h>
 #include <syscall.h>
 #include <signal.h>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <string.h>
+#include <netdb.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <errno.h>
+#include <commons/string.h>
+#define MAX_CLIENTS 128
 //VARIABLES
 int socketMuse;
 bool initialized;
