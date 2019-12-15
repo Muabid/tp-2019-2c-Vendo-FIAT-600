@@ -1,5 +1,22 @@
 #include "muse.h"
 
+//void recursiva(int num)
+//{
+//	if(num == 0)
+//		return;
+//
+//	uint32_t ptr = muse_alloc("p1",4);
+//	muse_cpy("p1",ptr, &num, 4);
+//	printf("%d\n", num);
+//
+//	recursiva(num - 1);
+//	num = 0; // Se pisa para probar que muse_get cargue el valor adecuado
+//	muse_get("p1",&num, ptr, 4);
+//	printf("%d\n", num);
+//	muse_free("p1",ptr);
+//}
+
+
 int main(int argc, char **argv){
 	rutaSwapping = string_duplicate(argv[0]);
 	cargarConfiguracion();
@@ -9,9 +26,9 @@ int main(int argc, char **argv){
 //	Programa* prog1 = malloc(sizeof(Programa));
 //	prog1->segmentos = list_create();
 //	prog1->id = string_new();
-//	string_append(&prog1->id,"prog1");
+//	string_append(&prog1->id,"p1");
 //	list_add(listaProgramas,prog1);
-//
+
 //	Programa* prog2 = malloc(sizeof(Programa));
 //	prog2->segmentos = list_create();
 //	prog2->id = string_new();
@@ -60,6 +77,7 @@ int main(int argc, char **argv){
 //	printf("x = %d\n",x);
 //	visualizarBitmap();
 	init_muse_server();
+//	recursiva(10);
 	return EXIT_SUCCESS;
 }
 
@@ -86,11 +104,7 @@ void* handler_clients(void* socket){
 			case MUSE_ALLOC:{
 					void* aux = message->content;
 					uint32_t tam;
-					size_t len;
 					memcpy(&tam,aux,sizeof(uint32_t));
-	//				aux+=sizeof(uint32_t);
-	//				memcpy(&len,aux,sizeof(size_t));
-	//				aux+=sizeof(size_t);
 					int res = muse_alloc(id_cliente,tam);
 					if(res >0){
 						send_status(muse_sock,OK,res);
@@ -120,6 +134,7 @@ void* handler_clients(void* socket){
 				memcpy(&n,aux,sizeof(size_t));
 				void* res = malloc(n);
 				muse_get(id_cliente,res,src,n);
+				printf("%i !!!!!!!!!!!!!",*((int*)res));
 				if(res != NULL){
 					send_message(muse_sock,OK,res,n);
 					free(res);
@@ -130,15 +145,16 @@ void* handler_clients(void* socket){
 			}
 			case MUSE_CPY:{
 				uint32_t dst;
-				int n;
+				size_t n;
 				void* src;
 				void* aux = message->content;
 				memcpy(&dst,aux,sizeof(uint32_t));
 				aux+=sizeof(uint32_t);
-				memcpy(&n,aux,sizeof(uint32_t));
-				aux+=n;
+				memcpy(&n,aux,sizeof(size_t));
+				aux+=sizeof(size_t);
 				src = malloc(n);
 				memcpy(src,aux,n);
+				printf("%i !!!!!!!!!!!!!",*((int*)src));
 				int res = muse_cpy(id_cliente,dst,src,n);
 				if(res == -1){
 					send_status(muse_sock,ERROR,-1);
@@ -1099,25 +1115,25 @@ int muse_close(char* idCliente){
     return 0;
 }
 
-void recursiva(int num){
-	if(num == 0)
-		return;
-
-	uint32_t ptr = muse_alloc("prog1",4);
-	muse_cpy("prog1",ptr, &num, 4);
-	printf("\nNumCpy: [%d]\n", num);
-
-	recursiva(num - 1);
-
-	num = 0; // Se pisa para probar que muse_get cargue el valor adecuado
-	void* buffer = malloc(sizeof(int));
-	int get = muse_get("prog1",&num,ptr,sizeof(int));
-	printf("\nNumGet: [%d]\n",num);
-	//	mensaje_recibido1 = muse_get("prog1",5,strlen(mensaje1));
-	//muse_get("prog1",&num, ptr, 4);
-	//printf("\nNumGet: [%d]\n", num);
-	muse_free("prog1",ptr);
-}
+//void recursiva(int num){
+//	if(num == 0)
+//		return;
+//
+//	uint32_t ptr = muse_alloc("prog1",4);
+//	muse_cpy("prog1",ptr, &num, 4);
+//	printf("\nNumCpy: [%d]\n", num);
+//
+//	recursiva(num - 1);
+//
+//	num = 0; // Se pisa para probar que muse_get cargue el valor adecuado
+//	void* buffer = malloc(sizeof(int));
+//	int get = muse_get("prog1",&num,ptr,sizeof(int));
+//	printf("\nNumGet: [%d]\n",num);
+//	//	mensaje_recibido1 = muse_get("prog1",5,strlen(mensaje1));
+//	//muse_get("prog1",&num, ptr, 4);
+//	//printf("\nNumGet: [%d]\n", num);
+//	muse_free("prog1",ptr);
+//}
 
 char* pasa_palabra(int cod)
 {
