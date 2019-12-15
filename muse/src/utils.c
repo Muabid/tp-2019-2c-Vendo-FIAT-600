@@ -40,7 +40,6 @@ Segmento* segmentoAlQuePertenece(t_list* listaSegmentos, uint32_t direccion){
 
 void* obtenerPunteroAMarco(Pagina* pag){
 	if(!pag->presencia){
-		printf("BIT SWAP [%i]\n",pag->bit_swap);
 		if(pag->bit_swap != NULL){
 			void* paginaVictima = malloc(TAMANIO_PAGINA);
 			memcpy(paginaVictima, posicionInicialSwap + pag->bit_swap->pos * TAMANIO_PAGINA, TAMANIO_PAGINA);
@@ -90,11 +89,13 @@ void paginasMapEnMemoria(int direccion, int tamanio, Segmento* segmentoEncontrad
 	int primerPag = direccion / TAMANIO_PAGINA;
 	int offset = direccion % TAMANIO_PAGINA;
 	int ultimaPag = techo((double)(direccion+tamanio) / TAMANIO_PAGINA) - 1;
+
 	if(tienePaginasNoCargadasEnMemoria(segmentoEncontrado,primerPag,ultimaPag)){
 		int cantidadPags = ultimaPag - primerPag + 1;
 		int bytesPorLeer = cantidadPags * TAMANIO_PAGINA;
 		int relleno = bytesPorLeer - offset - tamanio;
 		void* bloqueRelleno = generarRelleno(relleno);
+		puts("HOLA");
 		int ultimaPaginaLista = segmentoEncontrado->paginas->elements_count-1; // is that allowed, WHAT THE FUCK IS THIS ALLOWED
 		void* buffer = malloc(bytesPorLeer);
 		log_info(logger,"Archivo a leer [%s]",segmentoEncontrado->path_mapeo);
@@ -110,6 +111,7 @@ void paginasMapEnMemoria(int direccion, int tamanio, Segmento* segmentoEncontrad
 				pag->bit_marco->bit_uso = true;
 				pag->bit_marco->bit_modificado = true;
 				pag->presencia = true;
+				pag->bit_swap = NULL;
 
 				void* punteroMarco = obtenerPunteroAMarco(pag);
 				if(pag->num_pagina == ultimaPaginaLista){
@@ -137,8 +139,8 @@ bool tienePaginasNoCargadasEnMemoria(Segmento* segmento, int pagInicial, int pag
 				return true;
 			}
 		}
-		return false;
 	}
+	return false;
 }
 
 void unmapear(Segmento* segmento, char* idPrograma){
@@ -206,7 +208,7 @@ void* generarRelleno(int relleno){
 	memcpy(caracter,&barraCero,1);
 	int puntero = 0;
 	for(int i = 0; i < relleno; i++, puntero++){
-		memcpy(voidRelleno+puntero,(void*)barraCero,1);
+		memcpy(voidRelleno+puntero,(void*)caracter,1);
 	}
 	free(caracter);
 	return voidRelleno;

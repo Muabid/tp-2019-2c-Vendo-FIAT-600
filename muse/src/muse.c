@@ -55,11 +55,19 @@ int main(int argc, char **argv){
 //	printf("Resultado get 1: %d\n",resultado);
 //	printf("Get 1: [%s]\n",mensaje_recibido1);
 	puts("-----------------------------------------");
-	muse_cpy("prog1",d,"hola",4);
-	int x = muse_sync("prog1",d,100);
+	muse_cpy("prog1",d,"aweqaa",7);
+	int x = muse_sync("prog1",d,300);
 	puts("Hice sync de D!");
 	printf("x = %d\n",x);
-//	visualizarBitmap();
+	puts("-----------------------------------------");
+	int z = muse_unmap("prog1",d);
+	puts("Hice unmap de D!");
+	printf("z = %d\n",z);
+	puts("-----------------------------------------");
+	int o = muse_alloc("prog1",25);
+	puts("Aloqué O!");
+	printf("O = %d\n",o);
+	puts("-----------------------------------------");
 //	init_muse_server();
 //	recursiva(10);
 	return EXIT_SUCCESS;
@@ -883,7 +891,7 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 			FILE* file = fopen(segmentoEncontrado->path_mapeo,"r+");
 			printf("segmentoEncontrado->path_mapeo = [%s]\n",segmentoEncontrado->path_mapeo);
 			if(file != NULL){
-				if(fseek(file,posInicial,SEEK_SET)==0){
+				if(fseek(file,posInicial,SEEK_SET) == 0){
 					puts("XD");
 					fwrite(auxiliar,cantidadPags*TAMANIO_PAGINA,1,file);
 					free(auxiliar);
