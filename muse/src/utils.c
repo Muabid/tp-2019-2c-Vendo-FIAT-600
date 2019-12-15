@@ -40,6 +40,7 @@ Segmento* segmentoAlQuePertenece(t_list* listaSegmentos, uint32_t direccion){
 
 void* obtenerPunteroAMarco(Pagina* pag){
 	if(!pag->presencia){
+		printf("BIT SWAP [%i]\n",pag->bit_swap);
 		if(pag->bit_swap != NULL){
 			void* paginaVictima = malloc(TAMANIO_PAGINA);
 			memcpy(paginaVictima, posicionInicialSwap + pag->bit_swap->pos * TAMANIO_PAGINA, TAMANIO_PAGINA);
@@ -88,16 +89,15 @@ BitMemoria* buscarBitLibreMemoria(){
 void paginasMapEnMemoria(int direccion, int tamanio, Segmento* segmentoEncontrado){
 	int primerPag = direccion / TAMANIO_PAGINA;
 	int offset = direccion % TAMANIO_PAGINA;
-	int ultimaPag = techo((direccion+tamanio) / TAMANIO_PAGINA) - 1;
-
+	int ultimaPag = techo((double)(direccion+tamanio) / TAMANIO_PAGINA) - 1;
 	if(tienePaginasNoCargadasEnMemoria(segmentoEncontrado,primerPag,ultimaPag)){
 		int cantidadPags = ultimaPag - primerPag + 1;
 		int bytesPorLeer = cantidadPags * TAMANIO_PAGINA;
 		int relleno = bytesPorLeer - offset - tamanio;
 		void* bloqueRelleno = generarRelleno(relleno);
 		int ultimaPaginaLista = segmentoEncontrado->paginas->elements_count-1; // is that allowed, WHAT THE FUCK IS THIS ALLOWED
-
 		void* buffer = malloc(bytesPorLeer);
+		log_info(logger,"Archivo a leer [%s]",segmentoEncontrado->path_mapeo);
 		FILE* archivo = fopen(segmentoEncontrado->path_mapeo,"rb");
 		fread(buffer,TAMANIO_PAGINA,cantidadPags,archivo);
 		fclose(archivo);

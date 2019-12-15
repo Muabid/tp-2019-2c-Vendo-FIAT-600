@@ -269,7 +269,6 @@ void muse_free(uint32_t dir){
 	}
 	res = get_status(message);
 	free_t_message(message);
-	printf("Free realizado para %zu\n",dir);
 }
 
 //void* muse_get(char* id, uint32_t src, size_t n);

@@ -1,33 +1,16 @@
 #include "muse.h"
 
-//void recursiva(int num)
-//{
-//	if(num == 0)
-//		return;
-//
-//	uint32_t ptr = muse_alloc("p1",4);
-//	muse_cpy("p1",ptr, &num, 4);
-//	printf("%d\n", num);
-//
-//	recursiva(num - 1);
-//	num = 0; // Se pisa para probar que muse_get cargue el valor adecuado
-//	muse_get("p1",&num, ptr, 4);
-//	printf("%d\n", num);
-//	muse_free("p1",ptr);
-//}
-
-
 int main(int argc, char **argv){
 	rutaSwapping = string_duplicate(argv[0]);
 	cargarConfiguracion();
 	inicializarEstructuras(rutaSwapping);
 //	inicializarLogger(string_duplicate(argv[1]));
 	inicializarLogger("Debug.log");
-//	Programa* prog1 = malloc(sizeof(Programa));
-//	prog1->segmentos = list_create();
-//	prog1->id = string_new();
-//	string_append(&prog1->id,"p1");
-//	list_add(listaProgramas,prog1);
+	Programa* prog1 = malloc(sizeof(Programa));
+	prog1->segmentos = list_create();
+	prog1->id = string_new();
+	string_append(&prog1->id,"prog1");
+	list_add(listaProgramas,prog1);
 
 //	Programa* prog2 = malloc(sizeof(Programa));
 //	prog2->segmentos = list_create();
@@ -37,23 +20,23 @@ int main(int argc, char **argv){
 //
 //	recursiva2(15);
 
-//	puts("-----------------------------------------");
-//	int a = muse_alloc("prog1",30);
-//	puts("Aloqué A!");
-//	printf("A = %d\n",a);
-//	puts("-----------------------------------------");
-//	int b = muse_alloc("prog2",25);
-//	puts("Aloqué B!");
-//	printf("B = %d\n",b);
-//	puts("-----------------------------------------");
-//	int c = muse_alloc("prog1",90);
-//	puts("Aloqué C!");
-//	printf("C = %d\n",c);
-//	puts("-----------------------------------------");
-//	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
-//	puts("Aloqué el map de D!");
-//	printf("D = %d\n",d);
-//	puts("-----------------------------------------");
+	puts("-----------------------------------------");
+	int a = muse_alloc("prog1",30);
+	puts("Aloqué A!");
+	printf("A = %d\n",a);
+	puts("-----------------------------------------");
+	int b = muse_alloc("prog2",25);
+	puts("Aloqué B!");
+	printf("B = %d\n",b);
+	puts("-----------------------------------------");
+	int c = muse_alloc("prog1",90);
+	puts("Aloqué C!");
+	printf("C = %d\n",c);
+	puts("-----------------------------------------");
+	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
+	puts("Aloqué el map de D!");
+	printf("D = %d\n",d);
+	puts("-----------------------------------------");
 //	int num = 3;
 //	uint32_t ptr = muse_alloc("prog1",4);
 //	muse_cpy("prog1",5, &num, 4);
@@ -71,12 +54,13 @@ int main(int argc, char **argv){
 //	int resultado = muse_get("prog1",&mensaje_recibido1,5,strlen(mensaje1)+1);
 //	printf("Resultado get 1: %d\n",resultado);
 //	printf("Get 1: [%s]\n",mensaje_recibido1);
-//	puts("-----------------------------------------");
-//	int x = muse_sync("prog1",d,100);
-//	puts("Hice sync de D!");
-//	printf("x = %d\n",x);
+	puts("-----------------------------------------");
+	muse_cpy("prog1",d,"hola",4);
+	int x = muse_sync("prog1",d,100);
+	puts("Hice sync de D!");
+	printf("x = %d\n",x);
 //	visualizarBitmap();
-	init_muse_server();
+//	init_muse_server();
 //	recursiva(10);
 	return EXIT_SUCCESS;
 }
@@ -803,7 +787,7 @@ int muse_free(char* id, uint32_t dir){
 }
 
 int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
-	int tamanioAMapear = techo(length) * TAMANIO_PAGINA;
+	int tamanioAMapear = techo((double)length / TAMANIO_PAGINA) * TAMANIO_PAGINA;
 	pthread_mutex_lock(&mut_espacioDisponible);
 	if(espacioDisponible >= tamanioAMapear){
 		espacioDisponible -= tamanioAMapear;
@@ -835,7 +819,7 @@ int muse_map(char* id, char* path, uint32_t length, uint32_t flag){
 		}
 		//tengo que crear el el mapeo de cero y llenar lista de mapeo
 		t_list* paginas = list_create();
-		int cantidad_de_paginas = techo(length);
+		int cantidad_de_paginas = techo((double)length / TAMANIO_PAGINA);
 		for(int i = 0; i < cantidad_de_paginas; i++){
 			Pagina* pag = malloc(sizeof(Pagina));
 			pag->num_pagina = i;
@@ -880,7 +864,7 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 	int dirAlSegmento = addr - segmentoEncontrado->base_logica;
 		if(segmentoEncontrado->es_mmap){
 			int primerPag = dirAlSegmento / TAMANIO_PAGINA;
-			int ultimaPag = techo((dirAlSegmento + len) / TAMANIO_PAGINA) - 1;
+			int ultimaPag = techo((double)(dirAlSegmento + len) / TAMANIO_PAGINA) - 1;
 			int cantidadPags = ultimaPag - primerPag + 1;
 			int tamSync = cantidadPags * TAMANIO_PAGINA;
 			void* auxiliar = malloc(tamSync);
@@ -899,7 +883,7 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 			FILE* file = fopen(segmentoEncontrado->path_mapeo,"r+");
 			printf("segmentoEncontrado->path_mapeo = [%s]\n",segmentoEncontrado->path_mapeo);
 			if(file != NULL){
-				if(fseek(file,posInicial,SEEK_SET == 0)){
+				if(fseek(file,posInicial,SEEK_SET)==0){
 					puts("XD");
 					fwrite(auxiliar,cantidadPags*TAMANIO_PAGINA,1,file);
 					free(auxiliar);
