@@ -5,70 +5,70 @@ int main(int argc, char **argv){
 	cargarConfiguracion();
 	inicializarEstructuras(rutaSwapping);
 //	inicializarLogger(string_duplicate(argv[1]));
-	inicializarLogger("Debug.log");
-	Programa* prog1 = malloc(sizeof(Programa));
-	prog1->segmentos = list_create();
-	prog1->id = string_new();
-	string_append(&prog1->id,"prog1");
-	list_add(listaProgramas,prog1);
-
-//	Programa* prog2 = malloc(sizeof(Programa));
-//	prog2->segmentos = list_create();
-//	prog2->id = string_new();
-//	string_append(&prog2->id,"prog2");
-//	list_add(listaProgramas,prog2);
+	inicializarLogger("../Debug");
+//	Programa* prog1 = malloc(sizeof(Programa));
+//	prog1->segmentos = list_create();
+//	prog1->id = string_new();
+//	string_append(&prog1->id,"prog1");
+//	list_add(listaProgramas,prog1);
 //
-//	recursiva2(15);
-
-	puts("-----------------------------------------");
-	int a = muse_alloc("prog1",30);
-	puts("Aloqué A!");
-	printf("A = %d\n",a);
-	puts("-----------------------------------------");
-	int b = muse_alloc("prog2",25);
-	puts("Aloqué B!");
-	printf("B = %d\n",b);
-	puts("-----------------------------------------");
-	int c = muse_alloc("prog1",90);
-	puts("Aloqué C!");
-	printf("C = %d\n",c);
-	puts("-----------------------------------------");
-	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
-	puts("Aloqué el map de D!");
-	printf("D = %d\n",d);
-	puts("-----------------------------------------");
-//	int num = 3;
-//	uint32_t ptr = muse_alloc("prog1",4);
-//	muse_cpy("prog1",5, &num, 4);
-//	printf("Num Cpy [%d]\n", num);
+////	Programa* prog2 = malloc(sizeof(Programa));
+////	prog2->segmentos = list_create();
+////	prog2->id = string_new();
+////	string_append(&prog2->id,"prog2");
+////	list_add(listaProgramas,prog2);
+////
+////	recursiva2(15);
+//
 //	puts("-----------------------------------------");
-//	muse_get("prog1",&num, 5, 4);
-//	printf("Num Get [%d]\n", num);
-//	char* mensaje1 = string_new();
-//	string_append(&mensaje1,"a band is blowing dixie");
-//	void* mensaje = &mensaje1;
-//	int cpy1 = muse_cpy("prog1",5,mensaje,strlen(mensaje1)+1);
-//	printf("Resultado cpy 1: %d\n",cpy1);
+//	int a = muse_alloc("prog1",30);
+//	puts("Aloqué A!");
+//	printf("A = %d\n",a);
 //	puts("-----------------------------------------");
-//	char* mensaje_recibido1 = malloc(strlen(mensaje1)+1);
-//	int resultado = muse_get("prog1",&mensaje_recibido1,5,strlen(mensaje1)+1);
-//	printf("Resultado get 1: %d\n",resultado);
-//	printf("Get 1: [%s]\n",mensaje_recibido1);
-	puts("-----------------------------------------");
-	muse_cpy("prog1",d,"aweqaa",7);
-	int x = muse_sync("prog1",d,300);
-	puts("Hice sync de D!");
-	printf("x = %d\n",x);
-	puts("-----------------------------------------");
-	int z = muse_unmap("prog1",d);
-	puts("Hice unmap de D!");
-	printf("z = %d\n",z);
-	puts("-----------------------------------------");
-	int o = muse_alloc("prog1",25);
-	puts("Aloqué O!");
-	printf("O = %d\n",o);
-	puts("-----------------------------------------");
-//	init_muse_server();
+//	int b = muse_alloc("prog2",25);
+//	puts("Aloqué B!");
+//	printf("B = %d\n",b);
+//	puts("-----------------------------------------");
+//	int c = muse_alloc("prog1",90);
+//	puts("Aloqué C!");
+//	printf("C = %d\n",c);
+//	puts("-----------------------------------------");
+//	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
+//	puts("Aloqué el map de D!");
+//	printf("D = %d\n",d);
+//	puts("-----------------------------------------");
+////	int num = 3;
+////	uint32_t ptr = muse_alloc("prog1",4);
+////	muse_cpy("prog1",5, &num, 4);
+////	printf("Num Cpy [%d]\n", num);
+////	puts("-----------------------------------------");
+////	muse_get("prog1",&num, 5, 4);
+////	printf("Num Get [%d]\n", num);
+////	char* mensaje1 = string_new();
+////	string_append(&mensaje1,"a band is blowing dixie");
+////	void* mensaje = &mensaje1;
+////	int cpy1 = muse_cpy("prog1",5,mensaje,strlen(mensaje1)+1);
+////	printf("Resultado cpy 1: %d\n",cpy1);
+////	puts("-----------------------------------------");
+////	char* mensaje_recibido1 = malloc(strlen(mensaje1)+1);
+////	int resultado = muse_get("prog1",&mensaje_recibido1,5,strlen(mensaje1)+1);
+////	printf("Resultado get 1: %d\n",resultado);
+////	printf("Get 1: [%s]\n",mensaje_recibido1);
+//	puts("-----------------------------------------");
+//	muse_cpy("prog1",d,"aweqaa",7);
+//	int x = muse_sync("prog1",d,300);
+//	puts("Hice sync de D!");
+//	printf("x = %d\n",x);
+//	puts("-----------------------------------------");
+//	int z = muse_unmap("prog1",d);
+//	puts("Hice unmap de D!");
+//	printf("z = %d\n",z);
+//	puts("-----------------------------------------");
+//	int o = muse_alloc("prog1",25);
+//	puts("Aloqué O!");
+//	printf("O = %d\n",o);
+//	puts("-----------------------------------------");
+	init_muse_server();
 //	recursiva(10);
 	return EXIT_SUCCESS;
 }
@@ -209,11 +209,24 @@ void* handler_clients(void* socket){
 				executing = 0;
 				break;
 			}
+			case NO_CONNECTION:
+				log_info(logger, "CLIENTE DESCONECTADO");
+				free_t_message(message);
+				pthread_exit(NULL);
+				return NULL;
+				break;
+			case ERROR_RECV:
+				free_t_message(message);
+				log_info(logger, "ERROR COMUNIACIÓN");
+				pthread_exit(NULL);
+				return NULL;
+				break;
 			default:
 				break;
 			}
 			free_t_message(message);
 	}
+	return NULL;
 }
 
 
@@ -246,7 +259,7 @@ void inicializarLogger(char* path){
 }
 
 void cargarConfiguracion(){
-	t_config* config = config_create("muse.config");
+	t_config* config = config_create("../muse.config");
 	PUERTO = config_get_int_value(config, "LISTEN_PORT");
 	TAMANIO_MEMORIA = config_get_int_value(config, "MEMORY_SIZE");
 	TAMANIO_PAGINA = config_get_int_value(config, "PAGE_SIZE");

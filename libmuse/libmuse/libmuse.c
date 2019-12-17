@@ -205,8 +205,10 @@ int get_status(t_message* message){
 
 
 int muse_init(int id, char* ip, int puerto){
+	printf("Initialized : [%d]\n",initialized);
 	if(!initialized){
 		int sock = connect_to_server(ip, puerto, NULL);
+		printf("Socket [%i]\n",sock);
 		if(sock < 0){
 			puts("Error al conectar al servidor");
 			return -1;
@@ -217,6 +219,7 @@ int muse_init(int id, char* ip, int puerto){
 		free_t_message(message);
 		socketMuse = sock;
 		id_muse = string_itoa(pid);
+		initialized = true;
 
 	}
 	return initialized;

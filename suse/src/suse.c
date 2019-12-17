@@ -41,7 +41,7 @@ void suseScheduleNext(t_programa* programa);
 
 //FUNCIONES A EJECUTAR EN EL INICIO
 void load_suse_config() {
-	t_config* config = config_create("suse.config");
+	t_config* config = config_create("../suse.config");
 	port_server = config_get_int_value(config, "LISTEN_PORT");
 	metrics_timer = config_get_int_value(config, "METRICS_TIMER");
 	max_multiprog = config_get_int_value(config, "MAX_MULTIPROG");
@@ -490,7 +490,8 @@ int main() {
 //	socketDelCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion);
 //	handler(&socketDelCliente);
 
-
+	log_info(logger,"ESCHUCHANDO CONEXIONES");
+	log_info(logger,"iiiiIIIII!!!");
 	while((socketDelCliente = accept(servidor, (void*) &direccionCliente, &tamanioDireccion))>=0) {
 		pthread_t threadId;
 		log_info(logger, "Se ha aceptado una conexion: %i\n", socketDelCliente);

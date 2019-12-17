@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "libmuse.h"
+#include  "libmuse.h"
 #include <unistd.h>
 
 void recursiva(int num)
@@ -21,7 +21,7 @@ void recursiva(int num)
 
 int main(void)
 {
-	muse_init(getpid(), "127.0.0.1", 3306);
+	muse_init(getpid(), "127.0.0.1", 8080);
 	recursiva(10);
 	muse_close();
 }
