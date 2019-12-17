@@ -201,6 +201,7 @@ void delete_blocks(GFile* node, int offset,bool delete) {
 	int index_ptr, index_block;
 	t_block_ptr* blocks_ptr;
 	t_block* data;
+	int offset_in_block = offset % BLOCK_SIZE;
 	int* positions = get_position(offset);
 	for (int i = positions[0]; i < BLOCKS_INDIRECT && node->blocks_ptr[i] != 0;
 			i++) {
@@ -210,7 +211,11 @@ void delete_blocks(GFile* node, int offset,bool delete) {
 				j < BLOCKS_NODE && blocks_ptr->blocks_ptr[j] != 0; j++) {
 			index_block = blocks_ptr->blocks_ptr[j];
 			data = (t_block*) get_block_data(index_block);
-			memset(data->data, 0, BLOCK_SIZE);
+			if(j == positions[1]){
+				memset(data->data + offset_in_block, 0, BLOCK_SIZE);
+			}else{
+				memset(data->data, 0, BLOCK_SIZE);
+			}
 			if(j != 0 || delete){
 				clean_bit(index_block);
 				blocks_ptr->blocks_ptr[j] = 0;
@@ -235,7 +240,30 @@ int sac_truncate(int socket,const char* path, off_t offset){
 	}
 
 	GFile* node = &nodes_table[index_node - 1];
-	delete_blocks(node, offset,0);
+	if(offset <= node->size){
+		delete_blocks(node, offset,false);
+	}else{
+		int space_in_block = BLOCK_SIZE - (node->size % BLOCK_SIZE);
+		size_t size =  offset - node->size;
+		if((free_blocks() * BLOCK_SIZE) < (size - space_in_block)){
+			send_status(socket,ERROR,-ENOSPC);
+			return -1;
+		}
+		if(space_in_block >= size){
+			node->size += size;
+		}else{
+			node->size += space_in_block;
+			while(space_in_block <= size){
+				int res = allocate_node(node);
+				if(res<0){
+					send_status(socket,ERROR,-ENOSPC);
+				}
+				size -= BLOCK_SIZE;
+				node->size += BLOCK_SIZE;
+			}
+			node->size += size;
+		}
+	}
 	send_status(socket,OK,0);
 	return 0;
 }
