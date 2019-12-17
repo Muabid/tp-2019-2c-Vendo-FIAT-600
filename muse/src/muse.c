@@ -5,7 +5,7 @@ int main(int argc, char **argv){
 	cargarConfiguracion();
 	inicializarEstructuras(rutaSwapping);
 //	inicializarLogger(string_duplicate(argv[1]));
-	inicializarLogger("../Debug");
+	inicializarLogger("./Debug");
 //	Programa* prog1 = malloc(sizeof(Programa));
 //	prog1->segmentos = list_create();
 //	prog1->id = string_new();
@@ -259,7 +259,7 @@ void inicializarLogger(char* path){
 }
 
 void cargarConfiguracion(){
-	t_config* config = config_create("../muse.config");
+	t_config* config = config_create("./muse.config");
 	PUERTO = config_get_int_value(config, "LISTEN_PORT");
 	TAMANIO_MEMORIA = config_get_int_value(config, "MEMORY_SIZE");
 	TAMANIO_PAGINA = config_get_int_value(config, "PAGE_SIZE");

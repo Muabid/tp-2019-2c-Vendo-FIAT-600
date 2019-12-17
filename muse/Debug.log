@@ -255,3 +255,5 @@
 [INFO] 13:13:11:57 muse/(16971:16971): Direccion 152 liberada correctamente (segmento prog1)
 [INFO] 13:13:12:58 muse/(16971:16971): Direccion 115 liberada correctamente (segmento prog1)
 [INFO] 13:14:14:853 muse/(17054:17054): NUEVA CONEXIÓN
+[INFO] 19:54:44:595 muse/(6222:6222): Servidor levantado!!! Eschuchando en 8080
+[INFO] 19:55:11:30 muse/(6257:6257): Servidor levantado!!! Eschuchando en 8080

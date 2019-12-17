@@ -4,25 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/SAC-server.c \
-../src/aux.c \
-../src/nodes.c \
-../src/operations.c \
-../src/sac_config.c 
+../src/muse.c \
+../src/utils.c 
 
 OBJS += \
-./src/SAC-server.o \
-./src/aux.o \
-./src/nodes.o \
-./src/operations.o \
-./src/sac_config.o 
+./src/muse.o \
+./src/utils.o 
 
 C_DEPS += \
-./src/SAC-server.d \
-./src/aux.d \
-./src/nodes.d \
-./src/operations.d \
-./src/sac_config.d 
+./src/muse.d \
+./src/utils.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
