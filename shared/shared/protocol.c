@@ -90,7 +90,7 @@ t_message* error(int res){
 }
 
 int send_status(int sock,t_header head, int status){
-	return send_message(sock,status,&status,sizeof(int32_t));
+	return send_message(sock,head,&status,sizeof(int32_t));
 }
 
 int get_status(t_message* message){
