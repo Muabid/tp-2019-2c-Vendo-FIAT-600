@@ -109,7 +109,7 @@ static int do_getattr(const char *path, struct stat *st) {
 		}
 		free_t_message(message);
 	}else{
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 
 	return res;
@@ -130,7 +130,7 @@ static int do_readLink(const char *path, char *buf, size_t len){
 		free_t_message(message);
 	}else{
 		log_error(log, "[READ LINK]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log, "[READ LINK]]: do_read finalizado");
 	return res;
@@ -151,7 +151,7 @@ static int do_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
 		free_t_message(message);
 	}else{
 		log_error(log, "[READ]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log, "[READ]: do_read finalizado");
 	return res;
@@ -195,7 +195,7 @@ static int do_read(const char *path, char *buf, size_t size, off_t off,
 		free_t_message(message);
 	}else{
 		log_error(log, "[READ]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log, "[READ]: do_read finalizado");
 	return res;
@@ -214,7 +214,7 @@ static int do_unlink(const char *path) {
 		free_t_message(message);
 	}else{
 		log_error(log, "[UNLINK]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log, "[UNLINK]: do_mkdir finalizado");
 	return res;
@@ -238,7 +238,7 @@ static int do_mkdir(const char *path, mode_t mode) {
 		free_t_message(message);
 	}else{
 		log_error(log, "[MKDIR]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log, "[MKDIR]: do_mkdir finalizado");
 	return res;
@@ -253,7 +253,7 @@ static int do_opendir(const char *path, struct fuse_file_info *fi) {
 //		res = get_status(message);
 //		free_t_message(message);
 //	}else{
-//		sock = connect_to_server("127.0.0.1", 8080, NULL);
+//		sock = connect_to_server(ip_server, port_server, NULL)
 //	}
 	return 0;
 }
@@ -272,7 +272,7 @@ static int do_rmdir(const char *path) {
 		free_t_message(message);
 	}else{
 		log_error(log, "[RMDIR]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log, "[RMDIR]: do_rmdir finalizado");
 	return res;
@@ -305,7 +305,7 @@ static int do_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 		free_t_message(message);
 	}else{
 		log_error(log, "[READDIR]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log,"[READDIR]: do_readdir finalizado");
 	return res;
@@ -333,7 +333,7 @@ static int do_mknod(const char *path, mode_t mode, dev_t rdev) {
 		free_t_message(message);
 	}else{
 		log_error(log, "[MKNOD]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 
 	log_info(log,"[MKNOD]: do_mknod finalizado");
@@ -377,7 +377,7 @@ static int do_write(const char *path, const char *buf, size_t size, off_t off, s
 		free_t_message(message);
 	}else{
 		log_error(log, "[WRITE]: Comunicacion fallida con SAC-Server");
-		sock =connect_to_server("127.0.0.1", 8080, NULL);
+		sock =connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log,"[WRITE]: do_write finalizado");
 	return res;
@@ -414,7 +414,7 @@ static int do_utimens(const char* path, const struct timespec ts[2]){
 		free_t_message(message);
 	}else{
 		log_error(log, "[UTIMENS]: Comunicacion fallida con SAC-server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log,"[UTIMENS]: do_utimens finalizado");
 	return res;
@@ -442,7 +442,7 @@ static int do_trucate(const char *filename, off_t offset){
 		free_t_message(message);
 	}else{
 		log_error(log, "[TRUNCATE]: Comunicacion fallida con SAC-Server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log,"[TRUNCATE]: do_truncate finalizado");
 	return 0;
@@ -475,7 +475,7 @@ static int do_rename(const char* old_path,const char* new_path){
 		free_t_message(message);
 	}else{
 		log_error(log, "[RENAME]: Comunicacion fallida con SAC-Server");
-		sock = connect_to_server("127.0.0.1", 8080, NULL);
+		sock = connect_to_server(ip_server, port_server, NULL);
 	}
 	log_info(log,"[RENAME]: do_rename finalizado");
 	return 0;
