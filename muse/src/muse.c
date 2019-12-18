@@ -163,8 +163,9 @@ void* handler_clients(void* socket){
 				void*aux = message->content;
 				memcpy(&len,aux,sizeof(int));
 				aux+=sizeof(int);
-				path = malloc(len);
+				path = malloc(len+1);
 				memcpy(path,aux,len);
+				path[len] = '\0';
 				aux+=strlen(path);
 				memcpy(&length,aux,sizeof(size_t));
 				aux+=sizeof(size_t);
@@ -204,8 +205,8 @@ void* handler_clients(void* socket){
 				}
 				break;
 			}
-			case MUSE_CLOSE:;{
-				int res = muse_close;
+			case MUSE_CLOSE:{
+				int res = muse_close(id_cliente);
 				executing = 0;
 				break;
 			}
