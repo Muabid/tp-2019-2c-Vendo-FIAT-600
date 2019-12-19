@@ -6,71 +6,17 @@ int main(int argc, char **argv){
 	inicializarEstructuras(rutaSwapping);
 //	inicializarLogger(string_duplicate(argv[1]));
 	inicializarLogger("./Debug");
-//	Programa* prog1 = malloc(sizeof(Programa));
-//	prog1->segmentos = list_create();
-//	prog1->id = string_new();
-//	string_append(&prog1->id,"prog1");
-//	list_add(listaProgramas,prog1);
-//
-////	Programa* prog2 = malloc(sizeof(Programa));
-////	prog2->segmentos = list_create();
-////	prog2->id = string_new();
-////	string_append(&prog2->id,"prog2");
-////	list_add(listaProgramas,prog2);
-////
-////	recursiva2(15);
-//
-//	puts("-----------------------------------------");
-//	int a = muse_alloc("prog1",30);
-//	puts("Aloqué A!");
-//	printf("A = %d\n",a);
-//	puts("-----------------------------------------");
-//	int b = muse_alloc("prog2",25);
-//	puts("Aloqué B!");
-//	printf("B = %d\n",b);
-//	puts("-----------------------------------------");
-//	int c = muse_alloc("prog1",90);
-//	puts("Aloqué C!");
-//	printf("C = %d\n",c);
-//	puts("-----------------------------------------");
-//	int d = muse_map("prog1","/home/utnso/tp-2019-2c-Vendo-FIAT-600/muse/ejemplo1",300,MAP_PRIVATE);
-//	puts("Aloqué el map de D!");
-//	printf("D = %d\n",d);
-//	puts("-----------------------------------------");
-////	int num = 3;
-////	uint32_t ptr = muse_alloc("prog1",4);
-////	muse_cpy("prog1",5, &num, 4);
-////	printf("Num Cpy [%d]\n", num);
-////	puts("-----------------------------------------");
-////	muse_get("prog1",&num, 5, 4);
-////	printf("Num Get [%d]\n", num);
-////	char* mensaje1 = string_new();
-////	string_append(&mensaje1,"a band is blowing dixie");
-////	void* mensaje = &mensaje1;
-////	int cpy1 = muse_cpy("prog1",5,mensaje,strlen(mensaje1)+1);
-////	printf("Resultado cpy 1: %d\n",cpy1);
-////	puts("-----------------------------------------");
-////	char* mensaje_recibido1 = malloc(strlen(mensaje1)+1);
-////	int resultado = muse_get("prog1",&mensaje_recibido1,5,strlen(mensaje1)+1);
-////	printf("Resultado get 1: %d\n",resultado);
-////	printf("Get 1: [%s]\n",mensaje_recibido1);
-//	puts("-----------------------------------------");
-//	muse_cpy("prog1",d,"aweqaa",7);
-//	int x = muse_sync("prog1",d,300);
-//	puts("Hice sync de D!");
-//	printf("x = %d\n",x);
-//	puts("-----------------------------------------");
-//	int z = muse_unmap("prog1",d);
-//	puts("Hice unmap de D!");
-//	printf("z = %d\n",z);
-//	puts("-----------------------------------------");
-//	int o = muse_alloc("prog1",25);
-//	puts("Aloqué O!");
-//	printf("O = %d\n",o);
-//	puts("-----------------------------------------");
 	init_muse_server();
 //	recursiva(10);
 	return EXIT_SUCCESS;
+}
+
+void cargarConfiguracion(){
+	t_config* config = config_create("./muse.config");
+	PUERTO = config_get_int_value(config, "LISTEN_PORT");
+	TAMANIO_MEMORIA = config_get_int_value(config, "MEMORY_SIZE");
+	TAMANIO_PAGINA = config_get_int_value(config, "PAGE_SIZE");
+	TAMANIO_SWAP = config_get_int_value(config, "SWAP_SIZE");
 }
 
 void* handler_clients(void* socket){
@@ -110,7 +56,7 @@ void* handler_clients(void* socket){
 			case MUSE_FREE:{
 				uint32_t dir = *((uint32_t*) message->content);
 				int res = muse_free(id_cliente,dir);
-				if(res >0){
+				if(res >=0){
 					send_status(muse_sock,OK,res);
 				}else{
 					send_status(muse_sock,ERROR,-1);
@@ -126,7 +72,7 @@ void* handler_clients(void* socket){
 				memcpy(&n,aux,sizeof(size_t));
 				void* res = malloc(n);
 				muse_get(id_cliente,res,src,n);
-				printf("%i !!!!!!!!!!!!!",*((int*)res));
+//				printf("%i !!!!!!!!!!!!!",*((int*)res));
 				if(res != NULL){
 					send_message(muse_sock,OK,res,n);
 					free(res);
@@ -186,7 +132,7 @@ void* handler_clients(void* socket){
 				aux+=sizeof(uint32_t);
 				memcpy(&len,aux,sizeof(len));
 				int res = muse_sync(id_cliente,addr,len);
-				if(res >0){
+				if(res >=0){
 					send_status(muse_sock,OK,0);
 				}else{
 					send_status(muse_sock,ERROR,-1);
@@ -198,7 +144,7 @@ void* handler_clients(void* socket){
 				void* aux = message->content;
 				memcpy(&dir,aux,sizeof(uint32_t));
 				int res = muse_unmap(id_cliente,dir);
-				if(res >0){
+				if(res >=0){
 					send_status(muse_sock,OK,0);
 				}else{
 					send_status(muse_sock,ERROR,-1);
@@ -257,14 +203,6 @@ void inicializarLogger(char* path){
 	string_append(&nombre,".log");
 	logger = log_create(nombre,"muse",1,LOG_LEVEL_TRACE);
 	free(nombre);
-}
-
-void cargarConfiguracion(){
-	t_config* config = config_create("./muse.config");
-	PUERTO = config_get_int_value(config, "LISTEN_PORT");
-	TAMANIO_MEMORIA = config_get_int_value(config, "MEMORY_SIZE");
-	TAMANIO_PAGINA = config_get_int_value(config, "PAGE_SIZE");
-	TAMANIO_SWAP = config_get_int_value(config, "SWAP_SIZE");
 }
 
 void inicializarEstructuras(char* ruta){

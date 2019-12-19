@@ -310,6 +310,7 @@ int muse_cpy(uint32_t dst, void* src, int n){
 	send_message(socketMuse,MUSE_CPY,content,size);
 	t_message* message = recv_message(socketMuse);
 	if(message->head == ERROR){
+		puts("brian la re concha de tu hermana");
 		raise(11);
 	}else{
 		//algo

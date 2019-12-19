@@ -56,7 +56,9 @@ void* obtenerPunteroAMarco(Pagina* pag){
 			log_info(logger,"I ain't no hollaback girl");
 		}
 	}
-	pag->bit_marco->bit_uso = true;
+	if(pag->bit_marco != NULL){
+		pag->bit_marco->bit_uso = true;
+	}
 
 	return posicionInicialMemoria + pag->bit_marco->pos * TAMANIO_PAGINA;
 }
@@ -95,7 +97,6 @@ void paginasMapEnMemoria(int direccion, int tamanio, Segmento* segmentoEncontrad
 		int bytesPorLeer = cantidadPags * TAMANIO_PAGINA;
 		int relleno = bytesPorLeer - offset - tamanio;
 		void* bloqueRelleno = generarRelleno(relleno);
-		puts("HOLA");
 		int ultimaPaginaLista = segmentoEncontrado->paginas->elements_count-1; // is that allowed, WHAT THE FUCK IS THIS ALLOWED
 		void* buffer = malloc(bytesPorLeer);
 		log_info(logger,"Archivo a leer [%s]",segmentoEncontrado->path_mapeo);
@@ -105,7 +106,7 @@ void paginasMapEnMemoria(int direccion, int tamanio, Segmento* segmentoEncontrad
 		int puntero = primerPag * TAMANIO_PAGINA;
 		int i = primerPag;
 		while(i <= ultimaPag){
-			Pagina* pag = (Pagina*)list_get(segmentoEncontrado->paginas,i);
+			Pagina* pag = list_get(segmentoEncontrado->paginas,i);
 			if(pag->bit_marco == NULL && pag->bit_swap == NULL){
 				pag->bit_marco = asignarMarcoNuevo();
 				pag->bit_marco->bit_uso = true;
