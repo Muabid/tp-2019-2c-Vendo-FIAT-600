@@ -3,7 +3,7 @@
 #include <hilolay/hilolay.h>
 #include <unistd.h>
 
-#define CANT_ITERACIONES 10000
+#define CANT_ITERACIONES 100
 
 void *tocar_solo()
 {
@@ -38,7 +38,7 @@ void *preparar_solo()
 	hilolay_yield();
 	printf("\nPALCO: Haciendo fila para entrar...\n");
 	hilolay_yield();
-	for(i=0;i<CANT_ITERACIONES/100;i++)
+	for(i=0;i<CANT_ITERACIONES;i++)
 	{
 		int accion = rand() % 4;
 		if(accion)
