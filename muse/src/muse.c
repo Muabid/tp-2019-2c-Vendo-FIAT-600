@@ -831,7 +831,7 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 			int puntero = 0;
 			paginasMapEnMemoria(dirAlSegmento,len,segmentoEncontrado);
 			int i = primerPag;
-			while(i <= ultimaPag){
+ 			while(i <= ultimaPag){
 				Pagina* pag = list_get(segmentoEncontrado->paginas,i);
 				void* punteroMarco = obtenerPunteroAMarco(pag);
 				memcpy(auxiliar+puntero,punteroMarco,TAMANIO_PAGINA);
@@ -840,7 +840,7 @@ int muse_sync(char* id, uint32_t addr, size_t len){
 				tamSync -= TAMANIO_PAGINA;
 			}
 			int posInicial = primerPag * TAMANIO_PAGINA;
-			FILE* file = fopen(segmentoEncontrado->path_mapeo,"r+");
+			FILE* file = fopen(segmentoEncontrado->path_mapeo,"wb+");
 			printf("segmentoEncontrado->path_mapeo = [%s]\n",segmentoEncontrado->path_mapeo);
 			if(file != NULL){
 				if(fseek(file,posInicial,SEEK_SET) == 0){
@@ -920,6 +920,7 @@ int muse_get(char* id, void* dst, uint32_t src, size_t n){
 		}
 
 		memcpy(dst, bloquesote + offset, n);
+		printf("COSA: %s",(char*)dst);
 		free(bloquesote);
 
 	}
@@ -929,6 +930,8 @@ int muse_get(char* id, void* dst, uint32_t src, size_t n){
 }
 
 int muse_cpy(char* id, uint32_t dst, void* src, size_t n){
+	char* str = (char*) src;
+	printf("COSA A ESAGFARHJUAH %s\n",str);
 	t_list* listaSegmentos = obtenerListaSegmentosPorId(id);
 	if(listaSegmentos == NULL || list_is_empty(listaSegmentos)){
 		log_info(logger,"F por el programa %s que no existe o no tiene segmentos",id);
@@ -1019,23 +1022,25 @@ int muse_cpy(char* id, uint32_t dst, void* src, size_t n){
 		for(int i = pagInicial ; i <= pagFinal; i++){
 			Pagina* pag = list_get(segmentoEncontrado->paginas, i);
 			void* punteroMarco = obtenerPunteroAMarco(pag);
-			pag->bit_marco->bit_modificado = true;
-			pag->bit_marco->bit_uso = true;
-			if(pag->num_pagina == pagInicial){//si es la primera pego desde el off
-				if(pag->num_pagina == pagFinal){//es la primera y ulitma
-					memcpy(punteroMarco + offset, src, n);
+			if(punteroMarco != NULL){
+				pag->bit_marco->bit_modificado = true;
+				pag->bit_marco->bit_uso = true;
+				if(pag->num_pagina == pagInicial){//si es la primera pego desde el off
+					if(pag->num_pagina == pagFinal){//es la primera y ulitma
+						memcpy(punteroMarco + offset, src, n);
+					}
+					else{
+						memcpy(punteroMarco + offset, src, TAMANIO_PAGINA - offset);
+						puntero += TAMANIO_PAGINA - offset;
+					}
+				}
+				else if(pag->num_pagina == pagFinal){
+					memcpy(punteroMarco, src + puntero, n - puntero);
 				}
 				else{
-					memcpy(punteroMarco + offset, src, TAMANIO_PAGINA - offset);
-					puntero += TAMANIO_PAGINA - offset;
+					memcpy(punteroMarco,src + puntero, TAMANIO_PAGINA);
+					puntero += TAMANIO_PAGINA;
 				}
-			}
-			else if(pag->num_pagina == pagFinal){
-				memcpy(punteroMarco, src + puntero, n - puntero);
-			}
-			else{
-				memcpy(punteroMarco,src + puntero, TAMANIO_PAGINA);
-				puntero += TAMANIO_PAGINA;
 			}
 		}
 

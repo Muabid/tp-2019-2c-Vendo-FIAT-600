@@ -56,9 +56,10 @@ void* obtenerPunteroAMarco(Pagina* pag){
 			log_info(logger,"I ain't no hollaback girl");
 		}
 	}
-	if(pag->bit_marco != NULL){
-		pag->bit_marco->bit_uso = true;
+	if(pag->bit_marco == NULL){
+		return NULL;
 	}
+	pag->bit_marco->bit_uso = true;
 
 	return posicionInicialMemoria + pag->bit_marco->pos * TAMANIO_PAGINA;
 }
