@@ -51,6 +51,7 @@ void* obtenerPunteroAMarco(Pagina* pag){
 			pag->presencia = true;
 			//pego la pag en mem
 			memcpy(posicionInicialMemoria + bit->pos * TAMANIO_PAGINA, paginaVictima, TAMANIO_PAGINA);
+			free(paginaVictima);
 		}
 		else{
 			log_info(logger,"I ain't no hollaback girl");
@@ -349,6 +350,7 @@ void merge(Segmento* segmentoEncontrado){
 				hmNuevo->libre = true;
 				hmNuevo->tamanio = anterior->espacio;
 				sustituirHeapMetadata(anterior,segmentoEncontrado,hmNuevo);
+				free(hmNuevo);
 				if(contador>=1){
 					list_remove_and_destroy_element(segmentoEncontrado->status_metadata,hm->indice,(void*)free);
 				}

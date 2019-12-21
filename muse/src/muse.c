@@ -99,6 +99,7 @@ void* handler_clients(void* socket){
 				}else{
 					send_status(muse_sock,OK,0);
 				}
+				free(src);
 				break;
 			}
 			case MUSE_MAP:{
@@ -733,7 +734,7 @@ int muse_free(char* id, uint32_t dir){
 	newHM->libre = true;
 	newHM->tamanio = heapEncontrado->espacio;
 	sustituirHeapMetadata(heapEncontrado,segmentoObtenido,newHM);
-
+	free(newHM);
 	merge(segmentoObtenido);
 
 	for(int i = 0; i < list_size(segmentoObtenido->status_metadata); i++){
@@ -888,7 +889,6 @@ int muse_get(char* id, void* dst, uint32_t src, size_t n){
 		return -1;
 	}
 	int direccionAlSegmento = src - segmentoEncontrado->base_logica;
-	void* resultadoGet = NULL;
 
 	int pagInicial = direccionAlSegmento / TAMANIO_PAGINA;
 	int pagFinal = techo((double)(direccionAlSegmento + n) / TAMANIO_PAGINA) - 1;
@@ -899,7 +899,6 @@ int muse_get(char* id, void* dst, uint32_t src, size_t n){
 
 		int cantidadPaginas = pagFinal - pagInicial + 1;
 		int tamanioTotal = cantidadPaginas * TAMANIO_PAGINA;
-		resultadoGet = malloc(n);
 		void* bloquesote = malloc(tamanioTotal);
 		int puntero = 0;
 
