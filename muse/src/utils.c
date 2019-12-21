@@ -291,6 +291,7 @@ uint32_t obtenerBaseLogicaNuevoSegmento(t_list* listaSegmentos){
 
 
 void sustituirHeapMetadata(InfoHeap* heapLista, Segmento* seg, HeapMetadata* new){
+	pthread_mutex_lock(&mut_heap);
 	int offsetMarco = heapLista->direccion_heap % TAMANIO_PAGINA;
 	int paginaALaQuePertenece = heapLista->direccion_heap / TAMANIO_PAGINA;
 	if(offsetMarco > TAMANIO_PAGINA - sizeof(HeapMetadata)){ //otra vez al diome xd
@@ -307,6 +308,8 @@ void sustituirHeapMetadata(InfoHeap* heapLista, Segmento* seg, HeapMetadata* new
 		void* punteroMarco = obtenerPunteroAMarco(pag);
 		memcpy(punteroMarco + offsetMarco, new, sizeof(HeapMetadata));
 	}
+	pthread_mutex_unlock(&mut_heap);
+
 }
 
 void merge(Segmento* segmentoEncontrado){

@@ -30,6 +30,7 @@ pthread_mutex_t mut_bitmap;
 pthread_mutex_t mut_espacioDisponible;
 pthread_mutex_t mut_listaProgramas;
 pthread_mutex_t mut_mapeos;
+pthread_mutex_t mut_heap;
 t_log* logger;
 char* rutaSwapping;
 int listener_socket;

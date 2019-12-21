@@ -294,6 +294,9 @@ void inicializarSemaforos(){
 	pthread_mutex_init(&mut_espacioDisponible,NULL);
 	pthread_mutex_init(&mut_listaProgramas,NULL);
 	pthread_mutex_init(&mut_bitmap,NULL);
+	pthread_mutex_init(&mut_mapeos,NULL);
+	pthread_mutex_init(&mut_heap,NULL);
+
 }
 
 int muse_alloc(char* id, uint32_t tamanio){
